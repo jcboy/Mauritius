@@ -27,7 +27,8 @@ body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/}
 
 a {text-decoration: none; color: #000;}
 
-
+/* Ici mettez vos codes css qui concerne du style glabla */
+/* Pour la home page codez votre style dans home.css */
 
 @media (min-width: 768px) {
 
