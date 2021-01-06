@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Brush-Up';
+    src:url('./fonts/Brush-Up.woff') format('woff'),
+    url('./fonts/Brush-Up.woff2') format('woff2'),
+    url('./fonts/Brush-Up.eot'),
+    url('./fonts/Brush-Up.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Brush-Up.otf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/}
+
+.h1 {font: 5.125rem/1 'Brush-Up',Arial,sans-serif;}
+.h2 {font: 2.25rem/1 'Brush-Up',Arial,sans-serif;}
+.h3 {font: 1.5rem/1 'Brush-Up',Arial,sans-serif;}
+
+.bold {font-weight: 700;}
+
+.green {color: #10DED0;}
+.white {color: #FFF;}
+.red {color: #F54B10}
+
+a {text-decoration: none; color: #000;}
+
+
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
