@@ -6,7 +6,7 @@ export const Home = () => {
             <div className="container">
                 {/* Ceci est juste un exemple */}
                 <h1 className="h1 green text-center mb-5">Un titre header</h1>
-                <h2 className="h2 text-center mb-5">Un soutitre</h2>
+                <h2 className="h2 text-center mb-5">Un sous titre</h2>
                 <p>
                     Latrones timore latrones praesidiis fore populationum magnis et propinqua stataria per diu per documentis intactam cum Lycaoniam congressione parte scirent igitur campestrem Lycaoniam inpares fore per petivere timore diu inpares timore campestrem congressione magnis milite scirent sed igitur et latrones
                 </p>
