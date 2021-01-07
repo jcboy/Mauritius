@@ -1,5 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
+import ButtonFileUpload from "../ButtonFileUpload/ButtonFileUpload";
 
 class Contact extends Component {
 
@@ -47,7 +48,7 @@ class Contact extends Component {
                       </div>
                       <div class="row">
                           <div class="offset-8 col">
-                              <button type="button" class="btn btn-light">Pièce jointe </button>
+                              <button type="button" class="btn btn-light">Pièce jointe  <ButtonFileUpload/></button>
                               <button type="button" class="btn btn-light">ENVOYER</button>
                           </div>
                       </div>
