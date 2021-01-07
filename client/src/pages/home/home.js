@@ -1,4 +1,5 @@
 import React from 'react';
+import Contact from "../../components/Contact/Contact";
 
 export const Home = () => {
     return (
@@ -23,6 +24,7 @@ export const Home = () => {
                 <p className="h3">Un texte avec du style</p>
 
             </div>
+            <Contact/>
         </div>
     )
 }
