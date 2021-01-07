@@ -15,8 +15,8 @@
 
 body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/}
 
-.h1 {font: 5.125rem/1 'Brush-Up',Arial,sans-serif;}
-.h2 {font: 2.25rem/1 'Brush-Up',Arial,sans-serif;}
+.h1 {font: 2.625rem/1 'Brush-Up',Arial,sans-serif;}
+.h2 {font: 1.875rem/1 'Brush-Up',Arial,sans-serif;}
 .h3 {font: 1.5rem/1 'Brush-Up',Arial,sans-serif;}
 
 .bold {font-weight: 700;}
@@ -27,13 +27,14 @@ body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/}
 
 a {text-decoration: none; color: #000;}
 
-/* Ici mettez vos codes css qui concerne du style glabla */
+/* Ici mettez vos codes css qui concerne du style global */
 /* Pour la home page codez votre style dans home.css */
 
 @media (min-width: 768px) {
-
+    .h1 {font-size: 3.75rem;}
+    .h2 {font-size: 2.25rem;}
 }
 
 @media (min-width: 992px) {
-
+    .h1 {font-size: 5.125rem;}
 }
