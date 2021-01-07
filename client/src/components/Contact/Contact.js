@@ -33,7 +33,7 @@ class Contact extends Component {
                           </div>
                           <div class="col-5">
                               <label>
-                                  <input type="text" placeholder=""/>
+                                  <input type="text" placeholder="objet"/>
                               </label>
                           </div>
                       </div>
