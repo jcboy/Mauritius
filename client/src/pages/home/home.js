@@ -4,23 +4,29 @@ export const Home = () => {
     return (
         <div>
             <div className="container">
-                {/* Ceci est juste un exemple */}
-                <h1 className="h1 green text-center mb-5">Un titre header</h1>
-                <h2 className="h2 text-center mb-5">Un sous titre</h2>
+                <h1 className="h1 green text-center mb-5">L'ILE MAURICE EN QUELQUES MOTS</h1>
+                <div className="">
                 <p>
-                    Latrones timore latrones praesidiis fore populationum magnis et propinqua stataria per diu per documentis intactam cum Lycaoniam congressione parte scirent igitur campestrem Lycaoniam inpares fore per petivere timore diu inpares timore campestrem congressione magnis milite scirent sed igitur et latrones
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Tincidunt eget nullam non nisi est sit. Praesent elementum facilisis leo vel fringilla est.
                 </p>
+
                 <p>
-                    Inpares fore intactam undique parte parte magnis campestrem petivere milite fore magna per praesidiis
-                    igitur congressione se igitur deviis nostris populationum magnis timore undique Lycaoniam parte
-                    frequentibus per caedium et magna per magnis cum parte stataria nostris stataria congressione diu
-                    praesidiis undique igitur Pamphyliam undique frequentibus se deviis quidem caedium caedium latrones
-                    conmunitam diffuso timore stataria latrones timore et congressione.
+                    Eos autem iusto cum ullam reiciendis sit veniam eligendi.
+                    Est minima autem aut reiciendis fugiat id velit ratione et perferendis assumenda qui rerum autem sit ipsam dolores.
+                    Quod si rectum statuerimus vel concedere amicis, quidquid velint, vel impetrare ab iis,
+                    quidquid velimus, perfecta quidem sapientia si simus, nihil habeat res vitii;
                 </p>
-                <a href="#" className="bold">en savoir plus</a>
-                <hr/>
-                <h3 className="h3 red">Un titre de niveau 3</h3>
-                <p className="h3">Un texte avec du style</p>
+
+                <p>
+                    Est laboriosam perferendis quisquam quidem qui aliquam iure ut labore perspiciatis sed laboriosam odit!
+                    Et veritatis expedita aut eligendi ratione et necessitatibus necessitatibus qui placeat dolor.
+                    Sed sunt galisum ea molestiae nihil et excepturi voluptate aut eius tenetur ex obcaecati aperiam.
+                    Ex hoc numero nobis exempla sumenda sunt, et eorum quidem maxime qui ad sapientiam proxime accedunt.
+                    At nunc si ad aliquem bene nummatum tumentemque ideo honestus advena salutatum introieris, primitus tamquam exoptatus suscipieris et interrogatus multa coactusque mentiri,
+                    miraberis numquam antea visus summatem virum tenuem te sic enixius observantem, ut paeniteat ob haec bona tamquam praecipua non vidisse ante decennium Romam.
+                </p>
+                </div>
 
             </div>
         </div>

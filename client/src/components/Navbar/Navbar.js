@@ -4,7 +4,7 @@ import React from 'react'
 export const Navbar = () => {
     return (
         <nav>
-            <div>Navbar</div>
+            <div></div>
         </nav>
     )
 }
