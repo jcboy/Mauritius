@@ -41,7 +41,6 @@ class FileUpload extends Component {
     render() {
         return (
             <form onSubmit={this.onFormSubmit}>
-                <h1>File Upload</h1>
                 <input type="file" onChange={this.onChange} />
                 <button type="submit">Upload</button>
             </form>
