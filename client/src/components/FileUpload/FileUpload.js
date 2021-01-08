@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {Component} from 'react';
-import axios, { post } from 'axios';
+import  axios  from 'axios';
 
 class FileUpload extends Component {
 
@@ -35,7 +35,7 @@ class FileUpload extends Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        return  post(url, formData,config)
+        return  axios.post(url, formData,config)
     }
 
     render() {
