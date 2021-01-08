@@ -36,7 +36,11 @@ class Contact extends Component {
                           </div>
                           <div class="col-5">
                               <label>
-                                  <input class="blue" type="text" placeholder="objet"/>
+
+                                  <select class="blue" id="monselect">
+                                      <option value="valeur1">question</option>
+                                      <option value="valeur2" selected>proposer un article</option>
+                                  </select>
                               </label>
                           </div>
                       </div>
