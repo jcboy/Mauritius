@@ -2,33 +2,40 @@ import React from 'react';
 
 export const Home = () => {
     return (
-        <div>
+
             <div className="container">
                 <h1 className="h1 green text-center mb-5">L'ILE MAURICE EN QUELQUES MOTS</h1>
-                <div className="">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Tincidunt eget nullam non nisi est sit. Praesent elementum facilisis leo vel fringilla est.
-                </p>
+                <div className="row- text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede.
+                        Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+                    </p>
 
-                <p>
-                    Eos autem iusto cum ullam reiciendis sit veniam eligendi.
-                    Est minima autem aut reiciendis fugiat id velit ratione et perferendis assumenda qui rerum autem sit ipsam dolores.
-                    Quod si rectum statuerimus vel concedere amicis, quidquid velint, vel impetrare ab iis,
-                    quidquid velimus, perfecta quidem sapientia si simus, nihil habeat res vitii;
-                </p>
+                    <p>
+                        Eos autem iusto cum ullam reiciendis sit veniam eligendi.
+                        Est minima autem aut reiciendis fugiat id velit ratione et perferendis assumenda qui rerum autem sit ipsam dolores.
+                        Quod si rectum statuerimus vel concedere amicis, quidquid velint, vel impetrare ab iis,
+                        quidquid velimus, perfecta quidem sapientia si simus, nihil habeat res vitii;
+                    </p>
 
-                <p>
-                    Est laboriosam perferendis quisquam quidem qui aliquam iure ut labore perspiciatis sed laboriosam odit!
-                    Et veritatis expedita aut eligendi ratione et necessitatibus necessitatibus qui placeat dolor.
-                    Sed sunt galisum ea molestiae nihil et excepturi voluptate aut eius tenetur ex obcaecati aperiam.
-                    Ex hoc numero nobis exempla sumenda sunt, et eorum quidem maxime qui ad sapientiam proxime accedunt.
-                    At nunc si ad aliquem bene nummatum tumentemque ideo honestus advena salutatum introieris, primitus tamquam exoptatus suscipieris et interrogatus multa coactusque mentiri,
-                    miraberis numquam antea visus summatem virum tenuem te sic enixius observantem, ut paeniteat ob haec bona tamquam praecipua non vidisse ante decennium Romam.
-                </p>
+                    <p>
+                        Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin.
+                        Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue.
+                        Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat.
+                        Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.
+                        At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                        perferendis doloribus asperiores repellat.
+                    </p>
+
                 </div>
 
+                <div>
+                    <img src="https://www.google.com/maps/d/embed?mid=1FWxXyu67RYMXsJFb_-V6WUuwJ-o&hl=fr" width="340" height="380"/>
+                </div>
+
+
+
+
             </div>
-        </div>
     )
 }

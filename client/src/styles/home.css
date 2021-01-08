@@ -19,7 +19,7 @@ body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/
 }
 
 .h1 {font: 5.125rem/1 'Brush-Up',Arial,sans-serif;
-    font-size: 25px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -29,10 +29,15 @@ body {font-family: 'Marvel', sans-serif; color: #000; /*font-size: 0.875rem;*/
 a {text-decoration: none; color: #000;}
 
 .text {
-    text-justify: auto;
+    text-align: center;
+    font-size: 10px;
 }
 
 
+.container{
+    width: 700px;
+    margin-top: 250px;
+}
 
 
 
