@@ -49,9 +49,11 @@ class Contact extends Component {
                       </div>
                       <div class="row">
                           <div class="offset-8 col">
-                              <button type="button" class="pj">Pièce jointe  <ButtonFileUpload/></button>
                               <button type="button" class="whi">ENVOYER</button>
                           </div>
+                      </div>
+                      <div class="offset-2">
+                          <button type="button" className="pj">Pièce jointe <ButtonFileUpload/></button>
                       </div>
                       <div class="row">
                           <div class="offset-5 col">

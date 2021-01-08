@@ -33,11 +33,11 @@ a {text-decoration: none; color: #000;}
 .blue {background-color: #10DED0; border-left: #10DED0; border-right: #10DED0; border-top: #10DED0;}
 .blue {color: #FFFFFF;}
 
-
+.ml {color: #FFFFFF}
 
 .pj {color: #10DED0;}
 
-.whi {background-color: #10DED0; border-left: #FFFFFF; border-right: #FFFFFF; border-top: #FFFFFF;}
+.whi {background-color: #10DED0;}
 .whi {color: white;}
 
 @media (min-width: 768px) {
