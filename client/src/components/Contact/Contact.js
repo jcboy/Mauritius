@@ -10,51 +10,52 @@ class Contact extends Component {
           return <div className="blockContact">
                   <div class="row justify-content-center">
                       <div class="col-12">
-                          <h2 class="offset-2"> Mauritius - Contact </h2>
+                          <div class="blue">
+                              <h1 class="offset-2"> Mauritius - Contact </h1>
+                          </div>
                       </div>
                   </div>
                   <form>
                       <div class="row justify-content-around">
                           <div class="offset-2 col-5">
                               <label>
-                                  <input type="text" placeholder="PRENOM"/>
+                                  <input  class="blue" type="text" placeholder="PRENOM"/>
                               </label>
                           </div>
                           <div class="col-5">
                               <label>
-                                  <input type="text" placeholder="NOM"/>
+                                  <input class="blue" type="text" placeholder="NOM"/>
                               </label>
                           </div>
                       </div>
                       <div class="row justify-content-around">
                           <div class="offset-2 col-5">
                               <label>
-                                  <input type="text" placeholder="EMAIL"/>
+                                  <input class="blue" type="text" placeholder="EMAIL"/>
                               </label>
                           </div>
                           <div class="col-5">
                               <label>
-                                  <input type="text" placeholder="objet"/>
+                                  <input class="blue" type="text" placeholder="objet"/>
                               </label>
                           </div>
                       </div>
                       <div class="row">
                           <div class=" offset-2 col-8">
                               <div class="form-group">
-                                  <label for="exampleFormControlTextarea1">MESSAGE</label>
-                                  <textarea id="exampleFormControlTextarea1" rows="3"> </textarea>
+                                  <input className="blue" type="text" placeholder="MESSAGE"/>
                               </div>
                           </div>
                       </div>
                       <div class="row">
                           <div class="offset-8 col">
-                              <button type="button" class="btn btn-light">Pièce jointe  <ButtonFileUpload/></button>
-                              <button type="button" class="btn btn-light">ENVOYER</button>
+                              <button type="button" class="pj">Pièce jointe  <ButtonFileUpload/></button>
+                              <button type="button" class="whi">ENVOYER</button>
                           </div>
                       </div>
                       <div class="row">
                           <div class="offset-5 col">
-                              <a class="nav-link" href="https://fr.lipsum.com/feed/html">mention légale</a>
+                              <a class="nav-link" href="https://fr.lipsum.com/feed/html">Copyright 2020 - mentions légales</a>
                           </div>
                       </div>
                   </form>
