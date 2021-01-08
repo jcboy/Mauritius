@@ -29,10 +29,13 @@ export const Home = () => {
 
                 </div>
 
-                <div>
-                    <img src="../src/styles/img/Mauritius.PNG" alt=""/>
-                </div>
+                <div className="map text-center">
 
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1FWxXyu67RYMXsJFb_-V6WUuwJ-o&hl=fr"
+                            width="640" height="480" frameBorder="0" style={{border: 0}} allowFullScreen=""
+                            aria-hidden="false" tabIndex="0"/>
+                </div>
             </div>
     )
 }
+

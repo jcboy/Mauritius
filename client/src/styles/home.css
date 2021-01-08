@@ -39,7 +39,10 @@ a {text-decoration: none; color: #000;}
     margin-top: 250px;
 }
 
-
+.map iframe {
+    width: 582px;
+    height: 485px;
+}
 
 @media (min-width: 768px) {
 
