@@ -30,7 +30,7 @@ export const Home = () => {
                 </div>
 
                 <div>
-                    <img src="https://www.google.com/maps/d/embed?mid=1FWxXyu67RYMXsJFb_-V6WUuwJ-o&hl=fr" width="340" height="380"/>
+                    <img src="../src/styles/img/Mauritius.PNG" alt=""/>
                 </div>
 
             </div>
