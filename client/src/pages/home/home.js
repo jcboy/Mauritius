@@ -33,9 +33,6 @@ export const Home = () => {
                     <img src="https://www.google.com/maps/d/embed?mid=1FWxXyu67RYMXsJFb_-V6WUuwJ-o&hl=fr" width="340" height="380"/>
                 </div>
 
-
-
-
             </div>
     )
 }
