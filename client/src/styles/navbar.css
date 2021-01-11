@@ -1,7 +1,6 @@
 .Nav {
     background-color: inherit;
-    filter: brightness(0.5);
-    position: absolute;
+    position: sticky;
 }
 
 .NavBloc {
