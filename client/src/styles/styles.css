@@ -29,6 +29,16 @@ a {text-decoration: none; color: #000;}
 
 /* Ici mettez vos codes css qui concerne du style global */
 /* Pour la home page codez votre style dans home.css */
+.blockContact {background-color: #10DED0;}
+.blue {background-color: #10DED0; border-left: #10DED0; border-right: #10DED0; border-top: #10DED0;}
+.blue {color: #FFFFFF;}
+
+.ml {color: #FFFFFF}
+
+.pj {color: #10DED0;}
+
+.whi {background-color: #10DED0;}
+.whi {color: white;}
 
 @media (min-width: 768px) {
     .h1 {font-size: 3.75rem;}
