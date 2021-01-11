@@ -1,0 +1,18 @@
+.Nav {
+    background-color: inherit;
+    filter: brightness(0.5);
+    position: absolute;
+}
+
+.NavBloc {
+    display: flex;
+    justify-content: center;
+}
+
+.LinkStyle {
+    padding: 20px 10px;
+}
+
+h1 {
+    font-weight: 600;
+}
