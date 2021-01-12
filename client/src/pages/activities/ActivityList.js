@@ -16,7 +16,6 @@ const ActivityList = () => {
     return (
         <div className="container activities">
             <div className="filter-content">
-                Filtre <br/><br/>
 
                 <AddCategory />
 
