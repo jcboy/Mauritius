@@ -31,7 +31,8 @@ a {text-decoration: none; color: #000;}
 /* Pour la home page codez votre style dans home.css */
 
 
-.blockContact {background-color: #00A8A7;}
+
+.blockContact-AddContent {background-color: #757474;}
 .form-floating textarea.form-control {height: 100px;}
 
 
@@ -45,7 +46,7 @@ a {text-decoration: none; color: #000;}
 .whi {background-color: #10DED0;}
 .whi {color: white;}
 
-form .form-control {background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0; color: #fff;}
+form .form-control {multiple:true; background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0; color: #fff;}
 form .form-control:focus { color: #fff; background-color: transparent;border-color: #fff; outline: 0;box-shadow: none;}
 
 .form-select {color: #fff; background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0;}
