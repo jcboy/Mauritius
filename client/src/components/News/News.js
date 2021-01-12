@@ -11,6 +11,8 @@ class TestTableau extends Component {
                 <option value="valeur2" selected>Ordre décroissant</option>
             </select>
             <script type='javascript'>
+                {/*
+
                 let array = [];
 
                 array.push({id:1,  'actu','utca', 1997, 'oikdzfj'}),
@@ -23,6 +25,12 @@ class TestTableau extends Component {
                 let temp = 1997;
 
                 array.date = temp |> array.map |> console.log
+
+
+
+
+
+                */}
             </script>
         </div>
     };
