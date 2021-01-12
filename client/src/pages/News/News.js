@@ -1,38 +1,49 @@
-import React from "react";
+import React, { useState }  from "react";
 import {Component} from "react";
-
+import './../../styles/activities.css';
+import thumb01 from "../../assets/images/thumb-01.jpg";
+import {Link} from "react-router-dom";
 
 class TestTableau extends Component {
 
     render() {
-        return <div>
-            <select id="monselect">
-                <option value="valeur1"> Ordre croissant</option>
-                <option value="valeur2" selected>Ordre décroissant</option>
-            </select>
-            <script type='javascript'>
-                {/*
+            let array = [
+            {id:1, title:'actu',  date:"05/11/1997", text:'oikdzfjplsdplsld psdplplsdl plsdpl', link:"okdfokok"},
+            {id:2,  title:'actu',date:"07/03/1964", text:'oikdzfj odsokdok doksokdsk kodsodok', link:"odokfo"},
+            {id:3, title:'actu', date:"03/11/1999", text:'oikdzfj dsodkosd kodskdokds okdsodsk ', link:"okfdsok"},
+            {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
+        ];
 
-                let array = [];
+            const [news, setNews] = useState([{},{},{},{}]);
 
-                array.push({id:1,  'actu','utca', 1997, 'oikdzfj'}),
-                {2,  'actu', 'utca', 1964, 'oikdzfj'},
-                {3, 'actu', 'utca', 1999, 'oikdzfj'},
-                {4,  'actu', 'utca', 1997, 'oikdzfj'}
-                ;
+        return <div className="container news">
+            <div className="row mb-4">
+                <div className="col-2 text-end">
+                    <select className="form-select" id="monselect">
+                        <option value="valeur1"> Ordre croissant</option>
+                        <option value="valeur2" selected>Ordre décroissant</option>
+                    </select>
+                </div>
+            </div>
 
+            <div className="item  mb-5">
+                <div className="row">
+                    <div className="col-md-4 img-content">
+                        <img src={thumb01} alt=""/>
+                    </div>
+                    <div className="col-md-8 desc-content">
+                        <div className="wrapper ">
+                            <h3 className="h3 red">Plongé sous-marine</h3>
+                            <p>Date : </p>
+                            <p> </p>
+                            <Link to="/">&gt; Voir l'article</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                let temp = 1997;
-
-                array.date = temp |> array.map |> console.log
-
-
-
-
-
-                */}
-            </script>
         </div>
+
     };
 }
 
