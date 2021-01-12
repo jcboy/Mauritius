@@ -7,64 +7,71 @@ class Contact extends Component {
 
       render() {
 
-          return <div className="blockContact">
-                  <div class="row justify-content-center">
-                      <div class="col-12">
-                          <div class="blue">
-                              <h1 class="offset-2"> Mauritius - Contact </h1>
-                          </div>
-                      </div>
-                  </div>
-                  <form>
-                      <div class="row justify-content-around">
-                          <div class="offset-2 col-5">
-                              <label>
-                                  <input  class="blue" type="text" placeholder="PRENOM"/>
-                              </label>
-                          </div>
-                          <div class="col-5">
-                              <label>
-                                  <input class="blue" type="text" placeholder="NOM"/>
-                              </label>
-                          </div>
-                      </div>
-                      <div class="row justify-content-around">
-                          <div class="offset-2 col-5">
-                              <label>
-                                  <input class="blue" type="text" placeholder="EMAIL"/>
-                              </label>
-                          </div>
-                          <div class="col-5">
-                              <label>
+          return <div className="blockContact pt-3">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-10">
+                                <h1 className="white"> Mauritius - Contact </h1>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center mt-2">
+                            <div className="col-9 ">
+                                <form>
+                                    <div className="row mb-3">
+                                        <div className="col-md-6 form-floating">
+                                            <input className="blue form-control" type="text" placeholder="Prénom"/>
+                                            <label>Prénom</label>
+                                        </div>
+                                        <div className="col-md-6 form-floating">
+                                            <input className="blue form-control" type="text" placeholder="Nom"/>
+                                            <label>Nom</label>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-md-6 form-floating">
+                                            <input className="blue form-control" type="text" placeholder="Email"/>
+                                            <label>Email</label>
+                                        </div>
+                                        <div className="col-md-6 form-floating">
+                                            <select className="form-select blue" id="monselect">
+                                                <option value="valeur1">question</option>
+                                                <option value="valeur2">proposer un article</option>
+                                            </select>
+                                            <label>Objet (« question » ou « proposer un article »)</label>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-4">
+                                        <div className="col form-floating">
+                                            <textarea className="blue form-control"  placeholder="Message"/>
+                                            <label>Message</label>
+                                        </div>
+                                    </div>
 
-                                  <select class="blue" id="monselect">
-                                      <option value="valeur1">question</option>
-                                      <option value="valeur2" selected>proposer un article</option>
-                                  </select>
-                              </label>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class=" offset-2 col-8">
-                              <div class="form-group">
-                                  <input className="blue" type="text" placeholder="MESSAGE"/>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="offset-8 col">
-                              <button type="button" class="whi">ENVOYER</button>
-                          </div>
-                      </div>
-                      <div class="offset-2">
-                          <button type="button" className="pj">Pièce jointe <ButtonFileUpload/></button>
-                      </div>
-                      <div class="row">
-                          <div class="offset-5 col">
-                              <a class="nav-link" href="https://fr.lipsum.com/feed/html">Copyright 2020 - mentions légales</a>
-                          </div>
-                      </div>
-                  </form>
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <input className="form-control" type="file" id="formFile" />
+                                            {/* <button type="button" className="pj">Pièce jointe <ButtonFileUpload/></button> */}
+                                        </div>
+                                    </div>
+
+                                    <div className="row ">
+                                        <div className=" col text-end">
+                                            <button type="button" className="btn btn-outline ">Envoyer</button>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                        <div className="row footer">
+                            <div className=" col text-center">
+                                <a className="nav-link white" href="https://fr.lipsum.com/feed/html">Copyright 2020 -
+                                    mentions légales</a>
+                            </div>
+                        </div>
+                    </div>
+
               </div>
 
 
