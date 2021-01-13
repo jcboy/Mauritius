@@ -28,12 +28,18 @@ export class Welcome extends Component {
         const welcomeContentToDisplay = this.welcomeContent.find((content) => {
             return content.path === route.path;
         });
+        const backgroundSize = welcomeContentToDisplay.path === '/' ? '120%' : '50%';
         return {
             backgroundImage: welcomeContentToDisplay.background,
-            backgroundSize: 'cover',
-            width: '100vw',
-            height: '100vh'
+            backgroundPositionX: 'center',
+            backgroundSize,
         }
+    }
+
+    headerSize(route) {
+        const mainHeaderSize = {marginTop: '12%', marginBottom: 140};
+        const subHeaderSize = {marginTop: 70, marginBottom: 70};
+        return route.path === '/' ? mainHeaderSize : subHeaderSize;
     }
 
     render() {
@@ -41,9 +47,9 @@ export class Welcome extends Component {
             <div className="container-fluid"
                  style={this.backgroundStyle(this.route)}>
                 <Navbar/>
-                <div className="row py-5" style={{display: 'flex', justifyContent: 'center'}}>
-                    <div className="col-5 py-5">
-                        <h1 className="h1 text-center"> WELCOME TO PARADISE </h1>
+                <div className="row justify-content-center">
+                    <div className="col-7" style={this.headerSize(this.route)}>
+                        <h1 className="h1 text-center" style={{color: 'white'}}> WELCOME TO PARADISE </h1>
                     </div>
                 </div>
             </div>
