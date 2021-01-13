@@ -1,22 +1,22 @@
-import React, { useState }  from "react";
+import React, {useState} from "react";
 import {Component} from "react";
 import './../../styles/activities.css';
 import thumb01 from "../../assets/images/thumb-01.jpg";
-import {Link} from "react-router-dom";
+/*import {Link} from "react-router-dom";*/
 
-class TestTableau extends Component {
+export const News = () => {
 
-    render() {
-            let array = [
-            {id:1, title:'actu',  date:"05/11/1997", text:'oikdzfjplsdplsld psdplplsdl plsdpl', link:"okdfokok"},
-            {id:2,  title:'actu',date:"07/03/1964", text:'oikdzfj odsokdok doksokdsk kodsodok', link:"odokfo"},
-            {id:3, title:'actu', date:"03/11/1999", text:'oikdzfj dsodkosd kodskdokds okdsodsk ', link:"okfdsok"},
-            {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
-        ];
 
-            const [news, setNews] = useState([{},{},{},{}]);
+    const [news, setNews] = useState([
+        {id: 1, title: 'actu', date: "05/11/1997", text: 'oikdzfjplsdplsld psdplplsdl plsdpl', link: "okdfokok"},
+        {id: 2, title: 'actu', date: "07/03/1964", text: 'oikdzfj odsokdok doksokdsk kodsodok', link: "odokfo"},
+        {id: 3, title: 'actu', date: "03/11/1999", text: 'oikdzfj dsodkosd kodskdokds okdsodsk ', link: "okfdsok"},
+        {id: 4, title: 'actu', date: "09/051997", text: 'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link: "okfdkf"},
+    ]);
 
-        return <div className="container news">
+
+    return (
+        <div className="container news">
             <div className="row mb-4">
                 <div className="col-2 text-end">
                     <select className="form-select" id="monselect">
@@ -26,28 +26,42 @@ class TestTableau extends Component {
                 </div>
             </div>
 
-            <div className="item  mb-5">
-                <div className="row">
-                    <div className="col-md-4 img-content">
-                        <img src={thumb01} alt=""/>
-                    </div>
+            {news.map(item => (
+                <div className="item  mb-5" key={news}>
                     <div className="col-md-8 desc-content">
                         <div className="wrapper ">
-                            <h3 className="h3 red">Plongé sous-marine</h3>
-                            <p>Date : </p>
-                            <p> </p>
-                            <Link to="/">&gt; Voir l'article</Link>
+                            <h3 className="h3 red">
+                                {item.title}
+                            </h3>
+                            <p>Date : {item.date} </p>
                         </div>
                     </div>
                 </div>
-            </div>
+
+
+                /*
+
+                    <div className="row">
+                        <div className="col-md-4 img-content">
+                            <img src={thumb01} alt=""/>
+                        </div>
+
+
+                                <p>
+
+                                </p>
+                                <Link to="/">&gt; Voir l'article</Link>
+                            </div>
+                */
+
+
+            ))};
 
         </div>
+    )
 
-    };
 }
 
-export default TestTableau;
 
 
 

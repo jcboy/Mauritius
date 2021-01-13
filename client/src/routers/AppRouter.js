@@ -8,7 +8,7 @@ import {
 import {Home} from "../pages/home/home";
 import {Navbar} from "../components/Navbar/Navbar";
 import ActivityList from "../pages/activities/ActivityList";
-import News from "../pages/News/News";
+import {News} from "../pages/News/News";
 
 export const AppRouter = () => {
     return (
