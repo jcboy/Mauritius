@@ -37,7 +37,7 @@ export class Welcome extends Component {
     }
 
     headerSize(route) {
-        const mainHeaderSize = {marginTop: '12%', marginBottom: 140};
+        const mainHeaderSize = {marginTop: '12%', marginBottom: '12%'};
         const subHeaderSize = {marginTop: 70, marginBottom: 70};
         return route.path === '/' ? mainHeaderSize : subHeaderSize;
     }
