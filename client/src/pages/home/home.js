@@ -5,8 +5,8 @@ import {Welcome} from "../../components/Welcome/welcome";
 export const Home = () => {
     return (
         <div>
-            <Welcome/>
-            <div className="container">
+            <Welcome param={{path: '/'}}/>
+            <div className="container-fluid">
                 {/* Ceci est juste un exemple */}
                 <h1 className="h1 green text-center mb-5">Un titre header</h1>
                 <h2 className="h2 text-center mb-5">Un soutitre</h2>

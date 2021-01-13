@@ -1,17 +1,13 @@
 .Nav {
-    background-image: inherit;
-    position: sticky;
+    background-color: rgba(255,255,255,0.4);
 }
 
 .NavBloc {
     display: flex;
     justify-content: center;
+    padding-top: 1rem;
 }
 
 .LinkStyle {
-    padding: 20px 10px;
-}
-
-h1 {
-    font-weight: 600;
+    padding: 0 10px;
 }

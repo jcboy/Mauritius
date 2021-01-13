@@ -4,16 +4,20 @@ import '../../styles/navbar.css';
 
 export const Navbar = () => {
     return (
-        <nav className="Nav row py-3">
+        <nav className="Nav row py-2">
             <div className="NavBloc col-6">
-                <Link to="/mauritius">
-                    <h1> Mauritius </h1>
-                </Link>
+                <Link to="/"> Mauritius </Link>
             </div>
             <div className="NavBloc col-6">
-                <Link to="/" className="LinkStyle"> Accueil </Link>
-                <Link to="/activities" className="LinkStyle"> Que faire ? </Link>
-                <Link to="/news" className="LinkStyle"> Actualités </Link>
+                <Link to="/" className="LinkStyle">
+                    Accueil
+                </Link>
+                <Link to="/activities" className="LinkStyle">
+                    Que faire ?
+                </Link>
+                <Link to="/news" className="LinkStyle">
+                    Actualités
+                </Link>
             </div>
         </nav>
     )
