@@ -22,7 +22,6 @@ const ActivityList = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat pretium risus, sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae dignissim mauris maximus id.</p>
                             <Link to="/">&gt; en savoir plus</Link>
                         </div>
-
                     </div>
                 </div>
             </div>

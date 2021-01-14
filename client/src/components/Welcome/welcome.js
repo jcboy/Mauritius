@@ -44,12 +44,15 @@ export class Welcome extends Component {
 
     render() {
         return (
-            <div className="container-fluid"
-                 style={this.backgroundStyle(this.route)}>
-                <Navbar/>
-                <div className="row justify-content-center">
-                    <div className="col-7" style={this.headerSize(this.route)}>
-                        <h1 className="h1 text-center" style={{color: 'white'}}> WELCOME TO PARADISE </h1>
+            <div
+                style={this.backgroundStyle(this.route)}>
+                <div className="container-fluid">
+
+                    <Navbar/>
+                    <div className="row justify-content-center">
+                        <div className="col-7" style={this.headerSize(this.route)}>
+                            <h1 className="h1 text-center" style={{color: 'white'}}> WELCOME TO PARADISE </h1>
+                        </div>
                     </div>
                 </div>
             </div>
