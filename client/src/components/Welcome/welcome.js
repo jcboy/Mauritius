@@ -47,7 +47,6 @@ export class Welcome extends Component {
             <div
                 style={this.backgroundStyle(this.route)}>
                 <div className="container-fluid">
-
                     <Navbar/>
                     <div className="row justify-content-center">
                         <div className="col-7" style={this.headerSize(this.route)}>
