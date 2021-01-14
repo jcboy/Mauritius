@@ -45,7 +45,7 @@ class FileUploadAddContentOtherImages extends Component {
         return (
             <form onSubmit={this.onFormSubmit}>
                 <input type="file" multiple="true" onChange={this.onChange} />
-                <button type="submit">Upload</button>
+
             </form>
         )
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 import {Component} from 'react';
 import ButtonFileUploadAddContent from "../ButtonFileUploadAddContent/ButtonFileUploadAddContent";
 import ButtonFileUploadAddContentOtherImages
@@ -52,9 +53,9 @@ class AddContent extends Component {
                                     <label>Objet (« question » ou « proposer un article »)</label>
                                 </div>
 
-                                    <div className="col-md-6 form-floating">
-                                        <input className="form-control" type="file" id="formFile" />
-                                        {/* <button type="button" className="pj">Pièce jointe <ButtonFileUploadAddContent/></button> */}
+                                    <div className="col-md-4 form-floating">
+
+                                         <button type="button" className="pj"><ButtonFileUploadAddContent/></button>
                                     </div>
 
                             </div>
@@ -72,9 +73,9 @@ class AddContent extends Component {
                             </div>
 
                             <div className="row mb-3">
-                                <div className="col">
-                                    <input className="form-control"  type="file" id="formFile" />
-                                    {/* <button type="button" className="pj">Pièce jointe <ButtonFileUploadAddContentOtherImages/></button> */}
+                                <div className="col-4">
+
+                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/></button>
                                 </div>
                             </div>
 
@@ -83,7 +84,7 @@ class AddContent extends Component {
                                     <button type="button" className="btn btn-outline ">Annuler</button>
                                 </div>
                                 <div className=" col text-end">
-                                    <button type="button" className="btn btn-outline ">Envoyer</button>
+                                    <button type="button" className="btn-b btn ">Envoyer</button>
                                 </div>
                             </div>
 

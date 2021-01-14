@@ -36,17 +36,23 @@ a {text-decoration: none; color: #000;}
 .form-floating textarea.form-control {height: 100px;}
 
 
+
 .blue {/*background-color: #10DED0; border-left: #10DED0; border-right: #10DED0; border-top: #10DED0;*/}
 .grey {/* background-color: #757474; */}
 
 .ml {color: #FFFFFF}
 
-.pj {color: #10DED0;}
+
+.pj { border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;  height: 38px;}
+
+.pj2 { border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; height: 38px;}
 
 .whi {background-color: #10DED0;}
 .whi {color: white;}
 
-form .form-control {multiple:true; background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0; color: #fff;}
+.btn-b {padding: .375rem 1.75rem; border-color: #fff; color: #fff;}
+
+form .form-control { background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0; color: #fff;}
 form .form-control:focus { color: #fff; background-color: transparent;border-color: #fff; outline: 0;box-shadow: none;}
 
 .form-select {color: #fff; background-color: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0;}

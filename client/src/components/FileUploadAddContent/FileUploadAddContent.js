@@ -42,7 +42,6 @@ class FileUploadAddContent extends Component {
         return (
             <form onSubmit={this.onFormSubmit}>
                 <input type="file" onChange={this.onChange} />
-                <button type="submit">Upload</button>
             </form>
         )
     }
