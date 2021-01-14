@@ -39,7 +39,6 @@ export class Welcome extends Component {
     headerSize(route) {
         const mainHeaderSize = {marginTop: '9.6em', marginBottom: '9.6em'};
         const subHeaderSize = {marginTop: 70, marginBottom: 70};
-
         return route.path === '/' ? mainHeaderSize : subHeaderSize;
     }
 
@@ -51,7 +50,7 @@ export class Welcome extends Component {
                     <Navbar/>
                     <div className="row justify-content-center">
                         <div className="col-7" style={this.headerSize(this.route)}>
-                            <h1 className="h1 text-center" style={{color: 'white'}}> WELCOME TO PARADISE </h1>
+                            <h1 className="h1 text-center" style={{color: 'white'}}> {this.welcomeContent.title} </h1>
                         </div>
                     </div>
                 </div>
