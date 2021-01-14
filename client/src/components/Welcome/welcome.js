@@ -5,28 +5,31 @@ import {Component} from "react/cjs/react.production.min";
 
 import img from '../../assets/images/Le-morne-Unesco-ile-maurice.jpg';
 
+
+const welcomeContent = [
+    {
+        path: '/',
+        background: 'url(' + img + ')',
+        title: 'WELCOME TO PARADISE'
+    }
+]
+
+
 export class Welcome extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            title: 'WELCOME TO PARADISE'
+            title: 'WELCOME TO PARADISE',
+            route: props.param.path
         }
-        this.route = props.param;
         this.backgroundStyle = this.backgroundStyle.bind(this);
-        this.welcomeContent = [
-            {
-                path: '/',
-                background: 'url(' + img + ')',
-                title: 'WELCOME TO PARADISE'
-            }
-        ]
 
     }
 
     backgroundStyle(route) {
         const welcomeContentToDisplay = this.welcomeContent.find((content) => {
-            return content.path === route.path;
+            return content.path === route;
         });
         const backgroundSize = welcomeContentToDisplay.path === '/' ? '120%' : '50%';
         return {
@@ -45,12 +48,12 @@ export class Welcome extends Component {
     render() {
         return (
             <div
-                style={this.backgroundStyle(this.route)}>
+                style={this.backgroundStyle(this.state.route)}>
                 <div className="container-fluid">
                     <Navbar/>
                     <div className="row justify-content-center">
-                        <div className="col-7" style={this.headerSize(this.route)}>
-                            <h1 className="h1 text-center" style={{color: 'white'}}> {this.welcomeContent.title} </h1>
+                        <div className="col-7" style={this.headerSize(this.state.route)}>
+                            <h1 className="h1 text-center" style={{color: 'white'}}> {this.state.title} </h1>
                         </div>
                     </div>
                 </div>
