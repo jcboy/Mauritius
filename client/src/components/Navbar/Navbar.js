@@ -4,9 +4,9 @@ import '../../styles/navbar.css';
 
 export const Navbar = () => {
     return (
-        <nav className="Nav row py-1">
+        <nav className="Nav row" style={{paddingTop:'4px'}}>
             <div className="NavBloc col-6">
-                <Link to="/"> Mauritius </Link>
+                <Link to="/" style={{fontSize: 30}}> Mauritius </Link>
             </div>
             <div className="NavBloc col-6">
                 <Link to="/" className="LinkStyle">
