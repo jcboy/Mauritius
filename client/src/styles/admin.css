@@ -43,9 +43,10 @@ a {text-decoration: none; color: #000;}
 .ml {color: #FFFFFF}
 
 
-.pj { border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;  height: 38px;}
+.pj { position:absolute; bottom:0; border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;
+}
 
-.pj2 { border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; height: 38px;}
+.pj2 {  border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; margin-bottom: 0;}
 
 .whi {background-color: #10DED0;}
 .whi {color: white;}
