@@ -8,5 +8,7 @@
 }
 
 .LinkStyle {
-    padding: 18px 0 12px 12px;
+    padding: 0 0 6px 18px;
+    display: flex;
+    align-self: flex-end;
 }

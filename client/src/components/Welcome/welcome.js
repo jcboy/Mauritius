@@ -20,7 +20,7 @@ const welcomeContent = [
     {
         path: '/actualities',
         background: 'url(' + mainHeaderBackground + ')',
-        title: 'ACTUALITIES'
+        title: 'ACTUALITÉS'
     },
     {
         path: '/activity',
