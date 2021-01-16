@@ -11,26 +11,8 @@ export const Home = () => {
     return (
         <div>
             <Welcome param={{path: '/'}}/>
-            <div className="container mb-5 pb-4">
-                {/* Ceci est juste un exemple */}
-                <h1 className="h1 green text-center mb-5">Un titre header</h1>
-                <h2 className="h2 text-center mb-5">Un soutitre</h2>
-                <p>
-                    Latrones timore latrones praesidiis fore populationum magnis et propinqua stataria per diu per
-                    documentis intactam cum Lycaoniam congressione parte scirent igitur campestrem Lycaoniam inpares
-                    fore per petivere timore diu inpares timore campestrem congressione magnis milite scirent sed igitur
-                    et latrones
-                </p>
-                <p>
-                    Inpares fore intactam undique parte parte magnis campestrem petive
-                </p>
-                <a href="#" className="bold">en savoir plus</a>
-                <h3 className="h3 red">Un titre de niveau 3</h3>
-                <p className="h3">Un texte avec du style</p>
-            </div>
 
-
-            <div className="container text-center mb-5 pb-4">
+            <div className="container text-center my-5 py-4">
                 <div className="row justify-content-center">
                     <div className="col-9 mb-4">
                         <h2 className="h2 green mb-5">L'ILE MAURICE EN QUELQUES MOTS</h2>
@@ -64,7 +46,6 @@ export const Home = () => {
                 </div>
             </div>
 
-
             <Parallax bgImage={ImageBg} strength={-100}>
                 <div style={{height: 430}}>
                     <div style={insideStyles}>
@@ -79,7 +60,7 @@ export const Home = () => {
                 </div>
             </Parallax>
 
-            <div className="last-news text-center my-5">
+            <div className="last-news text-center my-5 py-5">
                 <h2 className="h2 green text-uppercase">Les dernières actus</h2>
                 <p>Remplecer par component last-qq</p>
             </div>

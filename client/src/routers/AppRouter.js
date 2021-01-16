@@ -1,18 +1,22 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-
-import {Home} from "../pages/home/home";
-import ActivityList from "../pages/activities/ActivityList";
-import Actualities from "../pages/actualities/Actualities";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import {UserRoutes} from "./UserRoutes";
+import {AdminRoutes} from "./AdminRoutes";
+import {AuthRoutes} from "./AuthRoutes";
 
 export const AppRouter = () => {
     return (
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/activities" component={ActivityList}/>
-                    <Route to="/actualities" component={Actualities}/>
+                    <Route path="/login" component={AuthRoutes} />
+                    <Route path="/admin" component={AdminRoutes} />
+                    <Route path="/" component={UserRoutes} />
+
                 </Switch>
             </div>
         </Router>
