@@ -15,7 +15,7 @@ export const Navbar = () => {
                 <Link to="/activities" className="LinkStyle">
                     Que faire ?
                 </Link>
-                <Link to="/actualities" className="LinkStyle">
+                <Link to="/news" className="LinkStyle">
                     Actualités
                 </Link>
             </div>
