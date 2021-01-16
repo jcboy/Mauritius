@@ -7,7 +7,7 @@ const categories = ([{id: 1, name: 'tag1'}, {id: 2, name: 'tag2'}, {id: 3, name:
 
 
 
-class Tags extends Component {
+class ActivityTags extends Component {
 
     constructor(props) {
         super(props)
@@ -39,4 +39,4 @@ class Tags extends Component {
     }
 }
 
-export default Tags;
+export default ActivityTags;

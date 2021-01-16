@@ -1,4 +1,4 @@
-import thumb01 from "../../../../assets/images/thumb-01.jpg";
+import thumb01 from "../../../assets/images/thumb-01.jpg";
 
 const activities = [
     {

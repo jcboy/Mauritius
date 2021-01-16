@@ -4,19 +4,23 @@ import {Component} from "react/cjs/react.production.min";
 import './../../styles/activities.css';
 
 import Welcome from "../../components/Welcome/welcome";
-import Tags from "./Tags";
-import ActivityMapping from "./ActivitiesConfig/Test/ActivityMapping";
-import activities from "./ActivitiesConfig/Test/ActivityList";
+import ActivityTags from "./ActivitiesConfig/ActivityTags";
+import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
+import activities from "./ActivitiesConfig/ActivityList";
+import Pagination from "./Pagination";
 
 
-class Activity extends Component {
+class Activities extends Component {
 
     activityNumberPerPage = 6;
 
     constructor() {
         super();
+        console.log(activities.length);
+        console.log(this.activityNumberPerPage);
         this.state = {
             pageNumber: 0,
+            pagination : ((activities.length % this.activityNumberPerPage) + 1),
             activities: [activities.splice(0, this.activityNumberPerPage)]
         }
     }
@@ -32,24 +36,19 @@ class Activity extends Component {
         });
     }
 
+    navigation() {
+
+    }
+
     render() {
         return (
             <div>
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities">
-                    <Tags/>
+                    <ActivityTags/>
                     <ActivityMapping infos={{activities: this.state.activities[this.state.pageNumber]}}/>
                     <br/>
-                    <div className="btn-toolbar justify-content-center" role="toolbar"
-                         aria-label="Toolbar with button groups">
-                        <div className="btn-group" role="group" aria-label="First group">
-                            <button type="button" className="btn btn-outline-secondary">&laquo;</button>
-                            <button type="button" className="btn btn-outline-secondary">1</button>
-                            <button type="button" className="btn btn-outline-secondary">2</button>
-                            <button type="button" className="btn btn-outline-secondary">3</button>
-                            <button type="button" className="btn btn-outline-secondary">&raquo;</button>
-                        </div>
-                    </div>
+                    <Pagination size={{size: this.state.pagination}}/>
                 </div>
                 <br/>
                 <br/>
@@ -58,4 +57,4 @@ class Activity extends Component {
     }
 }
 
-export default Activity;
+export default Activities;

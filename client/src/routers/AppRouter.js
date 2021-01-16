@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import {Home} from "../pages/home/home";
-import Activity from "../pages/activities/Activity";
+import Activities from "../pages/activities/Activities";
 
 export const AppRouter = () => {
     return (
@@ -10,7 +10,7 @@ export const AppRouter = () => {
             <div>
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/activities" component={Activity}/>
+                    <Route exact path="/activities" component={Activities}/>
                 </Switch>
             </div>
         </Router>

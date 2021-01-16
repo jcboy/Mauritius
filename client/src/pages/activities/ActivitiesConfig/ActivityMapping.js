@@ -1,5 +1,5 @@
 import {Component} from "react/cjs/react.production.min";
-import ActivityPreview from "../ActivityPreview";
+import ActivityPreview from "./ActivityPreview";
 
 class ActivityMapping extends Component {
 
