@@ -3,14 +3,34 @@ import '../../styles/welcome.css'
 import {Navbar} from "../Navbar/Navbar";
 import {Component} from "react/cjs/react.production.min";
 
-import img from '../../assets/images/Le-morne-Unesco-ile-maurice.jpg';
-
+import mainHeaderBackground from '../../assets/images/Le-morne-Unesco-ile-maurice.jpg';
+import subHeaderBackground from '../../assets/images/2048px-Île_aux_Cerfs__île_Maurice.jpg'
 
 const welcomeContent = [
     {
         path: '/',
-        background: 'url(' + img + ')',
+        background: 'url(' + mainHeaderBackground + ')',
         title: 'WELCOME TO PARADISE'
+    },
+    {
+        path: '/activities',
+        background: 'url(' + mainHeaderBackground + ')',
+        title: 'QUE FAIRE ?'
+    },
+    {
+        path: '/actualities',
+        background: 'url(' + mainHeaderBackground + ')',
+        title: 'ACTUALITÉS'
+    },
+    {
+        path: '/activity',
+        background: 'url(' + subHeaderBackground + ')',
+        title: 'TITLE ACTIVITY'
+    },
+    {
+        path: '/arcticle',
+        background: 'url(' + subHeaderBackground + ')',
+        title: 'TITLE ACTUALITY'
     }
 ]
 
@@ -19,40 +39,38 @@ export class Welcome extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'WELCOME TO PARADISE',
-            route: props.param.path
-        }
+        this.state = welcomeContent.find((header) => {
+            return header.path === props.param.path;
+        })
         this.backgroundStyle = this.backgroundStyle.bind(this);
 
     }
 
     backgroundStyle(route) {
-        const welcomeContentToDisplay = this.welcomeContent.find((content) => {
+        const welcomeContentToDisplay = welcomeContent.find((content) => {
             return content.path === route;
         });
-        const backgroundSize = welcomeContentToDisplay.path === '/' ? '120%' : '50%';
         return {
             backgroundImage: welcomeContentToDisplay.background,
             backgroundPositionX: 'center',
-            backgroundSize,
+            backgroundSize: '120%'
         }
     }
 
     headerSize(route) {
-        const mainHeaderSize = {marginTop: '9.6em', marginBottom: '9.6em'};
-        const subHeaderSize = {marginTop: 70, marginBottom: 70};
-        return route.path === '/' ? mainHeaderSize : subHeaderSize;
+        const mainHeaderSize = {marginTop: '10.3em', marginBottom: '10.3em'};
+        const subHeaderSize = {marginTop: '4.8em', marginBottom: '4.8em'};
+        return route === '/' ? mainHeaderSize : subHeaderSize;
     }
 
     render() {
         return (
             <div
-                style={this.backgroundStyle(this.state.route)}>
+                style={this.backgroundStyle(this.state.path)}>
                 <div className="container-fluid">
                     <Navbar/>
                     <div className="row justify-content-center">
-                        <div className="col-7" style={this.headerSize(this.state.route)}>
+                        <div className="col-7" style={this.headerSize(this.state.path)}>
                             <h1 className="h1 text-center" style={{color: 'white'}}> {this.state.title} </h1>
                         </div>
                     </div>

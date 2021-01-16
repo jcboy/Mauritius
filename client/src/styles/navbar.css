@@ -5,9 +5,10 @@
 .NavBloc {
     display: flex;
     justify-content: center;
-    padding-top: 1rem;
 }
 
 .LinkStyle {
-    padding: 0 10px;
+    padding: 0 0 6px 18px;
+    display: flex;
+    align-self: flex-end;
 }
