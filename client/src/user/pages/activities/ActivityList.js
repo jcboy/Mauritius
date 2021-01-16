@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {AddCategory} from "./AddCategory";
 import {Link} from 'react-router-dom';
-import './../../styles/activities.css';
-import thumb01 from './../../assets/images/thumb-01.jpg';
+import '../../styles/activities.css';
+import thumb01 from '../../assets/images/thumb-01.jpg';
 import Welcome from "../../components/Welcome/welcome";
 
 

@@ -7,7 +7,7 @@ import {Filters} from "../admin/dashboard/filters/Filters";
 import {EmailList} from "../admin/dashboard/mailbox/EmailList";
 import {Email} from "../admin/dashboard/mailbox/Email";
 import {Password} from "../admin/dashboard/password/Password";
-import '../styles/admin.css';
+import '../admin/styles/admin.css';
 
 
 export const AdminRoutes = () => {
