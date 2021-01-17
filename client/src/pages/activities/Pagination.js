@@ -1,26 +1,36 @@
 import React from "react";
+import {BehaviorSubject} from "rxjs";
 
 const {Component} = require("react/cjs/react.production.min");
 
+export let pageIndex$ = new BehaviorSubject(0);
+
 class Pagination extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = props.pageInfos;
-        console.log(this.state)
+        this.navigation = props.onClick;
+    }
+
+    getNavigationPage(value) {
+        return this.navigation(value);
     }
 
     buttonBar() {
-        let ext = this.state.pageNumber === this.state.totalPageNumber ? -2 : -1;
-        ext = this.state.pageNumber === 1 ? 0 : ext;
-        let buttonBar = Array.from({length: 3}, (v, i) => this.state.pageNumber + ext + i);
-        return buttonBar.map((buttonNumber, index) => {
+        let ext = this.state.pageIndex === this.state.pageIndexMax ? -2 : -1;
+        ext = this.state.pageIndex === 0 ? 1 : ext;
+        let buttonBar = Array.from({length: 3}, (v, i) => this.state.pageIndex + ext + i);
+        console.log('value from pagination', this.state.pageIndex)
+        // console.log(buttonBar)
+        return buttonBar.map((buttonIndex, index) => {
             return <button type="button"
                            key={index}
-                           className="btn btn-outline-secondary"> {buttonNumber} </button>
+                           className="btn btn-outline-secondary"
+                           onClick={this.getNavigationPage.bind(this, index)}
+            > {buttonIndex} </button>
         })
     }
-
 
 
     render() {
@@ -29,15 +39,17 @@ class Pagination extends Component {
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
-                            id="start"
+                            id="0"
                             className="btn btn-outline-secondary"
+                            onClick={this.getNavigationPage.bind(this, 0)}
                     >&laquo;</button>
 
                     {this.buttonBar()}
 
                     <button type="button"
-                            id="end"
+                            id="4"
                             className="btn btn-outline-secondary"
+                            onClick={this.getNavigationPage.bind(this, 4)}
                     >&raquo;</button>
                 </div>
             </div>

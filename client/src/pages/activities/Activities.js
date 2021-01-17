@@ -7,35 +7,50 @@ import Welcome from "../../components/Welcome/welcome";
 import ActivityTags from "./ActivitiesConfig/ActivityTags";
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import activities from "./ActivitiesConfig/ActivityList";
-import Pagination from "./Pagination";
+import Pagination, {pageIndex$} from "./Pagination";
 
 
 class Activities extends Component {
 
     activityNumberPerPage = 3;
-    totalPageNumber = Math.ceil(activities.length / this.activityNumberPerPage);
+    pageIndexMax = Math.floor(activities.length / this.activityNumberPerPage);
+    subscription;
+
 
     constructor() {
         super();
         this.state = {
-            pageNumber: 1,
+            pageIndex: 0,
             activities: [activities.splice(0, this.activityNumberPerPage)]
         }
     }
 
     componentDidMount() {
-        const page = [];
+        let page = this.state.activities;
         while (activities.length > this.activityNumberPerPage) {
             page.push(activities.splice(0, this.activityNumberPerPage))
         }
-        page.push(activities.splice(0, this.activityNumberPerPage))
+        page.push(activities);
+
+        this.subscription = pageIndex$.subscribe(() => {
+        }, (err)=> {
+        })
+
         return this.setState({
             activities: page
         });
+
     }
 
-    navigation() {
+    async navigation(value) {
+        console.log('value from navigation', value)
 
+        const newState = await
+            this.setState(() => ({
+                pageIndex: value
+            }))
+        console.log('newState', this.state.pageIndex)
+        return newState
     }
 
     render() {
@@ -44,12 +59,26 @@ class Activities extends Component {
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities">
                     <ActivityTags/>
-                    <ActivityMapping infos={{activities: this.state.activities[this.state.pageNumber - 1]}}/>
+                    <div>
+                        <pre>
+                            {
+                                // console.log(this.state.activities[this.state.pageIndex])
+                            }
+                            <br/>
+                            {
+                                console.log(this.subscription)
+                            }
+                        </pre>
+                    </div>
+                    <ActivityMapping infos={{activities: this.state.activities[this.state.pageIndex]}}/>
                     <br/>
-                    <Pagination pageInfos={{
-                        pageNumber: this.state.pageNumber,
-                        totalPageNumber: this.totalPageNumber,
-                    }}/>
+                    <Pagination
+                        pageInfos={{
+                            pageIndex: this.state.pageIndex,
+                            pageIndexMax: this.pageIndexMax,
+                        }}
+                        onClick={this.navigation.bind(this)}
+                    />
                 </div>
                 <br/>
                 <br/>
