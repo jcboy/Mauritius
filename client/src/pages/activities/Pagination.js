@@ -6,14 +6,21 @@ class Pagination extends Component {
 
     constructor(props){
         super(props)
-        this.state = props.size
+        this.state = props.pageInfos;
         console.log(this.state)
     }
 
     buttonBar() {
-
-        return
+        let ext = this.state.pageNumber === this.state.totalPageNumber ? -2 : -1;
+        ext = this.state.pageNumber === 1 ? 0 : ext;
+        let buttonBar = Array.from({length: 3}, (v, i) => this.state.pageNumber + ext + i);
+        return buttonBar.map((buttonNumber, index) => {
+            return <button type="button"
+                           key={index}
+                           className="btn btn-outline-secondary"> {buttonNumber} </button>
+        })
     }
+
 
 
     render() {
@@ -22,21 +29,14 @@ class Pagination extends Component {
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
+                            id="start"
                             className="btn btn-outline-secondary"
                     >&laquo;</button>
+
+                    {this.buttonBar()}
+
                     <button type="button"
-                            className="btn btn-outline-secondary"
-                    >1
-                    </button>
-                    <button type="button"
-                            className="btn btn-outline-secondary"
-                    >2
-                    </button>
-                    <button type="button"
-                            className="btn btn-outline-secondary"
-                    >3
-                    </button>
-                    <button type="button"
+                            id="end"
                             className="btn btn-outline-secondary"
                     >&raquo;</button>
                 </div>
