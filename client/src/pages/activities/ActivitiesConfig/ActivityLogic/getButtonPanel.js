@@ -1,4 +1,4 @@
-const btnCaroussel = (pageIndex, pageIndexMax) => {
+const getButtonPanel = (pageIndex, pageIndexMax) => {
     let buttonBar = Array.from({length: 3}, (v, i) => i - 1);
     let add = pageIndex < 1 ? 1 : pageIndex;
     if (add === pageIndex) {
@@ -11,7 +11,7 @@ const btnCaroussel = (pageIndex, pageIndexMax) => {
 
 
 /*
-const btnCaroussel = (pageIndex, pageIndexMax) => {
+const getButtonPanel = (pageIndex, pageIndexMax) => {
     let buttonBar = Array.from({length: 3}, (v, i) => i - 1);
     if (pageIndex < 1) {
         return buttonBar.map((btn) => {
@@ -39,4 +39,4 @@ Utilisation de () => {
 }
  */
 
-export default btnCaroussel;
+export default getButtonPanel;

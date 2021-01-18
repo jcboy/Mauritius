@@ -1,6 +1,6 @@
 import activities from "../ActivityList";
 
-const sequencedState = (activityNumberPerPage) => {
+const sequenceState = (activityNumberPerPage) => {
     let cutActivities = [...activities];
     let page = [cutActivities.splice(0, activityNumberPerPage)];
     while (cutActivities.length > activityNumberPerPage) {
@@ -10,4 +10,4 @@ const sequencedState = (activityNumberPerPage) => {
     return page;
 }
 
-export default sequencedState;
+export default sequenceState;

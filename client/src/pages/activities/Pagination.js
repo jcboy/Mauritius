@@ -1,33 +1,32 @@
-import React from "react";
+import React, {Component} from "react";
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
-import btnCaroussel from "./ActivitiesConfig/ActivityLogic/buttonCaroussel";
-import sequencedState from "./ActivitiesConfig/ActivityLogic/sequencedStateActivities";
+import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
+import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
 import activities from "./ActivitiesConfig/ActivityList";
 
-const {Component} = require("react/cjs/react.production.min");
 
 let pageIndex = 0;
 const activityNumberPerPage = 4;
 const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
 
-const act = sequencedState(activityNumberPerPage);
+const act = sequenceState(activityNumberPerPage);
 
 class Pagination extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
         this.state = {
-            pageIndex,
-            act: act[pageIndex],
-            buttonBar: btnCaroussel(pageIndex, pageIndexMax)
+            activities: [...act[pageIndex]],
+            buttonBar: [...getButtonPanel(pageIndex, pageIndexMax)]
         };
+        this.getNavigationPage = this.getNavigationPage.bind(this)
     }
 
-    getNavigationPage(value) {
-        this.setState({
-            pageIndex: value,
-            act: act[value],
-            buttonBar: btnCaroussel(value, pageIndexMax)
+    getNavigationPage(e) {
+        const value = Number(e.target.id);
+        return this.setState({
+            activities: [...act[value]],
+            buttonBar: [...getButtonPanel(value, pageIndexMax)]
         })
     }
 
@@ -40,33 +39,31 @@ class Pagination extends Component {
      */
 
     render() {
-        const {act, buttonBar} = this.state;
-        // console.log('act', act, 'buttonBar', buttonBar)
-        console.log(<ActivityMapping info={{toDisplay: act}}/>.props.info.toDisplay)
-        const toDisplay = <ActivityMapping info={{toDisplay: act}}/>
+        // STACKING HOC
         return <div>
-            {toDisplay}
+            <ActivityMapping info={{toDisplay: this.state.activities}}/>
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
                             id="0"
                             className="btn btn-outline-secondary"
-                            onClick={this.getNavigationPage.bind(this, 0)}
+                            onClick={this.getNavigationPage}
                     > &laquo; </button>
                     {
-                        buttonBar.map((buttonIndex) => {
+                        this.state.buttonBar.map((buttonIndex) => {
                             return <button type="button"
                                            key={buttonIndex}
+                                           id={buttonIndex}
                                            className="btn btn-outline-secondary"
-                                           onClick={this.getNavigationPage.bind(this, buttonIndex)}
+                                           onClick={this.getNavigationPage}
                             > {buttonIndex + 1} </button>
                         })
                     }
                     <button type="button"
-                            id="4"
+                            id={pageIndexMax}
                             className="btn btn-outline-secondary"
-                            onClick={this.getNavigationPage.bind(this, 4)}
+                            onClick={this.getNavigationPage}
                     > &raquo; </button>
                 </div>
             </div>

@@ -12,7 +12,6 @@ class ActivityMapping extends Component {
     }
 
     render() {
-        console.log(this.state.activities)
         return (
             <div> {
                 this.state.activities.map(
