@@ -2,26 +2,23 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Redirect,
+    Route
 } from "react-router-dom";
-import {Home} from "../pages/home/home";
-import {Navbar} from "../components/Navbar/Navbar";
-import ActivityList from "../pages/activities/ActivityList";
-import {AdminList} from "../pages/admin-list/Adminlist";
+import {UserRoutes} from "./UserRoutes";
+import {AdminRoutes} from "./AdminRoutes";
+import {AuthRoutes} from "./AuthRoutes";
+
 export const AppRouter = () => {
     return (
         <Router>
             <div>
-                <Navbar />
                 <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/activities" component={ActivityList} />
-                    <Route exact path="/adminlist" component={AdminList} />
-                    <Redirect to="/" />
+                    <Route path="/login" component={AuthRoutes} />
+                    <Route path="/admin" component={AdminRoutes} />
+                    <Route path="/" component={UserRoutes} />
+
                 </Switch>
             </div>
         </Router>
-
     )
 }
