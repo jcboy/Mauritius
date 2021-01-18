@@ -1,29 +1,32 @@
 import React from "react";
-import {Subject} from "rxjs";
-import {pageIndexMax} from "./ActivitiesConfig/ActivityMapping";
+import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import btnCaroussel from "./ActivitiesConfig/ActivityLogic/buttonCaroussel";
+import paginationService from './ActivitiesConfig/Services/paginationService';
+import sequencedState from "./ActivitiesConfig/ActivityLogic/sequencedStateActivities";
+import activities from "./ActivitiesConfig/ActivityList";
 
 const {Component} = require("react/cjs/react.production.min");
 
-
-export let pageIndex$ = new Subject(0);
 let pageIndex = 0;
+const activityNumberPerPage = 4;
+const pageIndexMax = Math.floor(activities.length / activityNumberPerPage)
+
+const act = sequencedState(activityNumberPerPage);
 
 class Pagination extends Component {
 
     constructor() {
         super()
         this.state = {
-            pageIndexMax,
             pageIndex,
             buttonBar: btnCaroussel(pageIndex, pageIndexMax)
         };
     }
 
     getNavigationPage(value) {
-        pageIndex$.next(value);
+        paginationService.setPageIndex(value);
         this.setState({
-            pageIndex: this.state.pageIndex + value,
+            pageIndex: value,
             buttonBar: btnCaroussel(value, pageIndexMax)
         })
     }
@@ -38,6 +41,7 @@ class Pagination extends Component {
 
     render() {
         return <div>
+            <ActivityMapping info={{toDisplay: act[this.state.pageIndex]}}/>
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">

@@ -17,7 +17,7 @@ class Activities extends Component {
                 <div className="container activities">
                     <ActivityTags/>
                     <br/>
-                    <ActivityMapping/>
+
                     <br/>
                     <Pagination/>
                 </div>

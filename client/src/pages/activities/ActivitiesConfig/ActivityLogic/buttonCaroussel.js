@@ -1,3 +1,15 @@
+const btnCaroussel = (pageIndex, pageIndexMax) => {
+    let buttonBar = Array.from({length: 3}, (v, i) => i - 1);
+    let add = pageIndex < 1 ? 1 : pageIndex;
+    if (add === pageIndex) {
+        add = pageIndex < pageIndexMax ? pageIndex : pageIndex - 1;
+    }
+    return buttonBar.map((btn) => {
+        return btn + add;
+    });
+}
+
+
 /*
 const btnCaroussel = (pageIndex, pageIndexMax) => {
     let buttonBar = Array.from({length: 3}, (v, i) => i - 1);
@@ -17,17 +29,14 @@ const btnCaroussel = (pageIndex, pageIndexMax) => {
 }
 */
 
-
-const btnCaroussel = (pageIndex, pageIndexMax) => {
-    let buttonBar = Array.from({length: 3}, (v, i) => i - 1);
-    let add = pageIndex < 1 ? 1 : pageIndex;
-    if (add === pageIndex) {
-        add = pageIndex < pageIndexMax ? pageIndex : pageIndex - 1;
+/*
+Utilisation de () => {
+    switch () {
+        case 1
+        case 2
+        case 3
     }
-    return buttonBar.map((btn) => {
-        return btn + add;
-    });
 }
-
+ */
 
 export default btnCaroussel;
