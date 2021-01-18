@@ -11,9 +11,6 @@ const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
 
 const sequencedActivities = sequenceState(activityNumberPerPage);
 
-
-
-
 class Pagination extends Component {
 
     constructor(props) {
