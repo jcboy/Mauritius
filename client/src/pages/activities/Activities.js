@@ -5,7 +5,6 @@ import './../../styles/activities.css';
 
 import Welcome from "../../components/Welcome/welcome";
 import ActivityTags from "./ActivitiesConfig/ActivityTags";
-import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import Pagination from "./Pagination";
 
 class Activities extends Component {

@@ -1,7 +1,6 @@
 import React from "react";
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import btnCaroussel from "./ActivitiesConfig/ActivityLogic/buttonCaroussel";
-import paginationService from './ActivitiesConfig/Services/paginationService';
 import sequencedState from "./ActivitiesConfig/ActivityLogic/sequencedStateActivities";
 import activities from "./ActivitiesConfig/ActivityList";
 
@@ -9,7 +8,7 @@ const {Component} = require("react/cjs/react.production.min");
 
 let pageIndex = 0;
 const activityNumberPerPage = 4;
-const pageIndexMax = Math.floor(activities.length / activityNumberPerPage)
+const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
 
 const act = sequencedState(activityNumberPerPage);
 
@@ -19,14 +18,15 @@ class Pagination extends Component {
         super()
         this.state = {
             pageIndex,
+            act: act[pageIndex],
             buttonBar: btnCaroussel(pageIndex, pageIndexMax)
         };
     }
 
     getNavigationPage(value) {
-        paginationService.setPageIndex(value);
         this.setState({
             pageIndex: value,
+            act: act[value],
             buttonBar: btnCaroussel(value, pageIndexMax)
         })
     }
@@ -40,8 +40,12 @@ class Pagination extends Component {
      */
 
     render() {
+        const {act, buttonBar} = this.state;
+        // console.log('act', act, 'buttonBar', buttonBar)
+        console.log(<ActivityMapping info={{toDisplay: act}}/>.props.info.toDisplay)
+        const toDisplay = <ActivityMapping info={{toDisplay: act}}/>
         return <div>
-            <ActivityMapping info={{toDisplay: act[this.state.pageIndex]}}/>
+            {toDisplay}
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
@@ -51,7 +55,7 @@ class Pagination extends Component {
                             onClick={this.getNavigationPage.bind(this, 0)}
                     > &laquo; </button>
                     {
-                        this.state.buttonBar.map((buttonIndex) => {
+                        buttonBar.map((buttonIndex) => {
                             return <button type="button"
                                            key={buttonIndex}
                                            className="btn btn-outline-secondary"
