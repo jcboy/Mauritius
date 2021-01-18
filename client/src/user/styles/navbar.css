@@ -1,0 +1,14 @@
+.Nav {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.NavBloc {
+    display: flex;
+    justify-content: center;
+}
+
+.LinkStyle {
+    padding: 0 0 6px 18px;
+    display: flex;
+    align-self: flex-end;
+}

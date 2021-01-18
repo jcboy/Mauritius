@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './styles/styles.css';
-import './styles/admin.css'
+import './user/styles/styles.css';
 
 ReactDOM.render(
     <App />,
