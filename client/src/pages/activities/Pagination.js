@@ -1,34 +1,29 @@
 import React from "react";
-import {BehaviorSubject} from "rxjs";
+import {Subject} from "rxjs";
+import {pageIndexMax} from "./ActivitiesConfig/ActivityMapping";
+import btnCaroussel from "./ActivitiesConfig/ActivityLogic/buttonCaroussel";
 
 const {Component} = require("react/cjs/react.production.min");
 
-export let pageIndex$ = new BehaviorSubject(0);
+export let pageIndex$ = new Subject(0);
+let pageIndex = 0;
 
 class Pagination extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = props.pageInfos;
-        this.navigation = props.onClick;
+    constructor() {
+        super()
+        this.state = {
+            pageIndexMax,
+            pageIndex,
+            buttonBar: btnCaroussel(pageIndex, pageIndexMax)
+        };
     }
 
     getNavigationPage(value) {
-        return this.navigation(value);
-    }
-
-    buttonBar() {
-        let ext = this.state.pageIndex === this.state.pageIndexMax ? -2 : -1;
-        ext = this.state.pageIndex === 0 ? 1 : ext;
-        let buttonBar = Array.from({length: 3}, (v, i) => this.state.pageIndex + ext + i);
-        console.log('value from pagination', this.state.pageIndex)
-        // console.log(buttonBar)
-        return buttonBar.map((buttonIndex, index) => {
-            return <button type="button"
-                           key={index}
-                           className="btn btn-outline-secondary"
-                           onClick={this.getNavigationPage.bind(this, index)}
-            > {buttonIndex} </button>
+        pageIndex$.next(value);
+        this.setState({
+            pageIndex: this.state.pageIndex + value,
+            buttonBar: btnCaroussel(value, pageIndexMax)
         })
     }
 
@@ -42,18 +37,23 @@ class Pagination extends Component {
                             id="0"
                             className="btn btn-outline-secondary"
                             onClick={this.getNavigationPage.bind(this, 0)}
-                    >&laquo;</button>
-
-                    {this.buttonBar()}
-
+                    > &laquo; </button>
+                    {
+                        this.state.buttonBar.map((buttonIndex) => {
+                            return <button type="button"
+                                           key={buttonIndex}
+                                           className="btn btn-outline-secondary"
+                                           onClick={this.getNavigationPage.bind(this, buttonIndex)}
+                            > {buttonIndex + 1} </button>
+                        })
+                    }
                     <button type="button"
                             id="4"
                             className="btn btn-outline-secondary"
                             onClick={this.getNavigationPage.bind(this, 4)}
-                    >&raquo;</button>
+                    > &raquo; </button>
                 </div>
             </div>
-
         </div>
     }
 }
