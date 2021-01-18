@@ -30,18 +30,23 @@ class Pagination extends Component {
         })
     }
 
-    /* réfléchir à onChange={} sur
-                             <button type="button"
-                                           key={buttonIndex}
-                                           className="btn btn-outline-secondary"
-     et voir si il est possible de faire remonter vers ActivityMapping
-     pour régler problème observable
-     */
+    renderHOC(ActivityMapping) {
+        return <ActivityMapping info={{toDisplay: this.state.activities}}/>
+    }
 
     render() {
         // STACKING HOC
+        // CROSS-CUTTING CONCERNS
+
         return <div>
             <ActivityMapping info={{toDisplay: this.state.activities}}/>
+            <div>
+                <pre>
+            {
+                JSON.stringify(this.state.activities, null, 4)
+            }
+                </pre>
+            </div>
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
@@ -72,3 +77,11 @@ class Pagination extends Component {
 }
 
 export default Pagination;
+
+/* réfléchir à onChange={} sur
+                         <button type="button"
+                                       key={buttonIndex}
+                                       className="btn btn-outline-secondary"
+ et voir si il est possible de faire remonter vers ActivityMapping
+ pour régler problème observable
+ */
