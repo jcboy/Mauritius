@@ -5,6 +5,7 @@ import btnCaroussel from "./ActivitiesConfig/ActivityLogic/buttonCaroussel";
 
 const {Component} = require("react/cjs/react.production.min");
 
+
 export let pageIndex$ = new Subject(0);
 let pageIndex = 0;
 
@@ -27,6 +28,13 @@ class Pagination extends Component {
         })
     }
 
+    /* réfléchir à onChange={} sur
+                             <button type="button"
+                                           key={buttonIndex}
+                                           className="btn btn-outline-secondary"
+     et voir si il est possible de faire remonter vers ActivityMapping
+     pour régler problème observable
+     */
 
     render() {
         return <div>

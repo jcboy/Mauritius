@@ -4,7 +4,7 @@ import activities from "./ActivityList";
 import {pageIndex$} from "../Pagination";
 import sequencedState from "./ActivityLogic/sequencedStateActivities";
 
-const activityNumberPerPage = 5;
+const activityNumberPerPage = 4;
 export const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
 
 class ActivityMapping extends Component {
@@ -19,7 +19,6 @@ class ActivityMapping extends Component {
 
     componentDidMount() {
         this.subscription = pageIndex$.subscribe((newPageIndex) => {
-            console.log(newPageIndex)
             this.setState(() => ({
                 pageIndex: newPageIndex
             }));
