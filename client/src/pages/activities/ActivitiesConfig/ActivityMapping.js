@@ -1,27 +1,16 @@
-import {Component} from "react/cjs/react.production.min";
 import ActivityPreview from "./ActivityPreview";
 
-
-class ActivityMapping extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            activities: props.info.toDisplay
-        }
-    }
-
-    render() {
-        return (
-            <div> {
-                this.state.activities.map(
+const ActivityMapping = (props) => {
+    return (
+        <div>
+            {
+                props.info.map(
                     (activity, index) => {
-                        return <ActivityPreview key={index} info={activity}/>
+                        return <ActivityPreview key={index} activity={activity}/>
                     })
-            } </div>
-        )
-    }
-
+            }
+        </div>
+    )
 }
 
 export default ActivityMapping;

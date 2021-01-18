@@ -9,14 +9,17 @@ let pageIndex = 0;
 const activityNumberPerPage = 4;
 const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
 
-const act = sequenceState(activityNumberPerPage);
+const sequencedActivities = sequenceState(activityNumberPerPage);
+
+
+
 
 class Pagination extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            activities: [...act[pageIndex]],
+            info: [...sequencedActivities[pageIndex]],
             buttonBar: [...getButtonPanel(pageIndex, pageIndexMax)]
         };
         this.getNavigationPage = this.getNavigationPage.bind(this)
@@ -25,28 +28,20 @@ class Pagination extends Component {
     getNavigationPage(e) {
         const value = Number(e.target.id);
         return this.setState({
-            activities: [...act[value]],
+            info: [...sequencedActivities[value]],
             buttonBar: [...getButtonPanel(value, pageIndexMax)]
         })
     }
 
-    renderHOC(ActivityMapping) {
-        return <ActivityMapping info={{toDisplay: this.state.activities}}/>
-    }
 
     render() {
         // STACKING HOC
         // CROSS-CUTTING CONCERNS
-
+        const info = {
+            info: this.state.info
+        }
         return <div>
-            <ActivityMapping info={{toDisplay: this.state.activities}}/>
-            <div>
-                <pre>
-            {
-                JSON.stringify(this.state.activities, null, 4)
-            }
-                </pre>
-            </div>
+            <ActivityMapping {...info} />
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
