@@ -11,12 +11,13 @@ import activities from "./ActivitiesConfig/ActivityList";
 import TagComponent from "./ActivitiesConfig/TagComponent";
 
 
-const activityNumberPerPage = 6;
-const sequencedActivities = sequenceState(activityNumberPerPage,activities);
+const activityNumberPerPage = 3;
+const sequencedActivities = sequenceState(activityNumberPerPage, activities);
 
-export const pageIndexMax = sequencedActivities.length;
-
-
+export const pageIndexMax = sequencedActivities.length - 1;
+console.log('pageIndexMax', pageIndexMax);
+console.log('activityNumberPerPage', activityNumberPerPage);
+console.log('ActivityTotalNumber', activities.length);
 
 class Activities extends Component {
 

@@ -19,7 +19,7 @@ class Pagination extends Component {
         this.updateIndex(value);
         console.log(value)
         return this.setState({
-            buttonPanel: [...getButtonPanel(value, pageIndexMax - 1)]
+            buttonPanel: [...getButtonPanel(value, pageIndexMax)]
         });
     }
 
@@ -45,7 +45,7 @@ class Pagination extends Component {
                         })
                     }
                     <button type="button"
-                            id={pageIndexMax - 1}
+                            id={pageIndexMax}
                             className="btn btn-outline-secondary"
                             onClick={this.newIndex}
                     > &raquo; </button>
