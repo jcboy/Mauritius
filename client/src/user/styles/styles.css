@@ -2,11 +2,11 @@
 
 @font-face {
     font-family: 'Brush-Up';
-    src:url('./fonts/Brush-Up.woff') format('woff'),
-    url('./fonts/Brush-Up.woff2') format('woff2'),
-    url('./fonts/Brush-Up.eot'),
-    url('./fonts/Brush-Up.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/Brush-Up.otf') format('truetype');
+    src:url('fonts/Brush-Up.woff') format('woff'),
+    url('fonts/Brush-Up.woff2') format('woff2'),
+    url('fonts/Brush-Up.eot'),
+    url('fonts/Brush-Up.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Brush-Up.otf') format('truetype');
 
     font-weight: normal;
     font-style: normal;
@@ -35,12 +35,8 @@ a {text-decoration: none; color: #000;}
 .form-floating textarea.form-control {height: 100px;}
 
 
-.blue {/*background-color: #10DED0; border-left: #10DED0; border-right: #10DED0; border-top: #10DED0;*/}
-
 .ml {color: #FFFFFF}
-
 .pj {color: #10DED0;}
-
 .whi {background-color: #10DED0;}
 .whi {color: white;}
 
