@@ -9,7 +9,7 @@ const ManageTags = (props) => {
 
     const saveTag = (e) => {
         let newTag = e.target["previousSibling"].value;
-        if (newTag !== '' && !checkExistTag(newTag, [...tagList])) {
+        if (newTag !== '' && !(checkExistTag(newTag, [...tagList])[0])) {
             setId((previousId) => previousId + 1);
             e.target["previousSibling"].value = '';
             return updateTagList([...tagList, {id, tagName: newTag}]);
