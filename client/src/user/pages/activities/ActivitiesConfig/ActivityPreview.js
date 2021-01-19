@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Component} from "react/cjs/react.production.min";
-import './Activity.css';
+import '../../../styles/activity.css';
 
 
 const ActivityPreview = (props) => {

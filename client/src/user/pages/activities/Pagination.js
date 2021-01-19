@@ -4,11 +4,9 @@ import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
 import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
 import activities from "./ActivitiesConfig/ActivityList";
 
-
 let pageIndex = 0;
 const activityNumberPerPage = 4;
 const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
-
 const sequencedActivities = sequenceState(activityNumberPerPage);
 
 class Pagination extends Component {
@@ -19,7 +17,7 @@ class Pagination extends Component {
             info: [...sequencedActivities[pageIndex]],
             buttonBar: [...getButtonPanel(pageIndex, pageIndexMax)]
         };
-        this.getNavigationPage = this.getNavigationPage.bind(this)
+        this.getNavigationPage = this.getNavigationPage.bind(this);
     }
 
     getNavigationPage(e) {
@@ -27,7 +25,7 @@ class Pagination extends Component {
         return this.setState({
             info: [...sequencedActivities[value]],
             buttonBar: [...getButtonPanel(value, pageIndexMax)]
-        })
+        });
     }
 
 
@@ -69,11 +67,3 @@ class Pagination extends Component {
 }
 
 export default Pagination;
-
-/* réfléchir à onChange={} sur
-                         <button type="button"
-                                       key={buttonIndex}
-                                       className="btn btn-outline-secondary"
- et voir si il est possible de faire remonter vers ActivityMapping
- pour régler problème observable
- */
