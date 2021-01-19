@@ -1,0 +1,25 @@
+.img-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.img-content img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 218px;
+}
+
+.item .desc-content .wrapper {
+    padding: 20px 30px;
+    border: 1px solid #adadad;
+    border-radius: 8px;
+}
+
+.item .desc-content .wrapper:hover {
+}
+
+@media (min-width: 1200px) {
+    .item .desc-content .wrapper {
+        padding: 28px 36px;
+    }
+}
