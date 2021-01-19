@@ -30,8 +30,6 @@ class Pagination extends Component {
 
 
     render() {
-        // STACKING HOC
-        // CROSS-CUTTING CONCERNS
         const info = {
             info: this.state.info
         }
