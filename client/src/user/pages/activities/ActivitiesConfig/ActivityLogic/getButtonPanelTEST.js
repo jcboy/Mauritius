@@ -11,4 +11,4 @@ const getButtonPanel = (pageIndex, pageIndexMax) => {
     }
 }
 
-export default getButtonPanel;
+getButtonPanel(0, 4);

@@ -1,11 +1,7 @@
 import React, {Component} from "react";
 import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
-import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
-import activities from "./ActivitiesConfig/ActivityList";
+import {pageIndexMax} from "./Activities";
 
-const activityNumberPerPage = 4;
-const sequencedActivities = sequenceState(activityNumberPerPage,activities);
-const pageIndexMax = sequencedActivities.length - 1;
 
 class Pagination extends Component {
 
@@ -21,8 +17,9 @@ class Pagination extends Component {
     newIndex(e) {
         const value = Number(e.target.id);
         this.updateIndex(value);
+        console.log(value)
         return this.setState({
-            buttonPanel: [...getButtonPanel(value, pageIndexMax)]
+            buttonPanel: [...getButtonPanel(value, pageIndexMax - 1)]
         });
     }
 
@@ -48,10 +45,10 @@ class Pagination extends Component {
                         })
                     }
                     <button type="button"
-                            id={pageIndexMax}
+                            id={pageIndexMax - 1}
                             className="btn btn-outline-secondary"
                             onClick={this.newIndex}
-                    > &raquo; </button>
+                    > &raquo; {pageIndexMax} </button>
                 </div>
             </div>
         </div>

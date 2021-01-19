@@ -4,15 +4,19 @@ import {Component} from "react/cjs/react.production.min";
 import './../../styles/activities.css';
 
 import Welcome from "../../components/Welcome/welcome";
-import ManageTags from "./ActivitiesConfig/ManageTags";
 import Pagination from "./Pagination";
 import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import activities from "./ActivitiesConfig/ActivityList";
 import TagComponent from "./ActivitiesConfig/TagComponent";
 
-const activityNumberPerPage = 4;
+
+const activityNumberPerPage = 3;
 const sequencedActivities = sequenceState(activityNumberPerPage,activities);
+
+export const pageIndexMax = sequencedActivities.length;
+
+
 
 class Activities extends Component {
 
@@ -20,9 +24,14 @@ class Activities extends Component {
         super();
         this.state = {
             pageIndex: 0,
-            activities : activities
+            activities: activities
         }
         this.updateIndex = this.updateIndex.bind(this);
+        this.updateActivities = this.updateActivities.bind(this);
+    }
+
+    updateActivities(value) {
+        console.log(value)
     }
 
     updateIndex(value) {
@@ -39,7 +48,7 @@ class Activities extends Component {
             <div>
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities">
-                    <TagComponent activities={activities} />
+                    <TagComponent activities={activities} activityListUpdate={this.updateActivities}/>
                     <br/>
                     <ActivityMapping {...info} />
                     <br/>

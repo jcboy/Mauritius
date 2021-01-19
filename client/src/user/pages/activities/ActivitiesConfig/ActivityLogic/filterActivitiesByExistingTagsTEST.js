@@ -1,11 +1,11 @@
 const tagList = [
     {
         id: 1,
-        tagName: 'BBBBB'
+        tagName: 'AAAAA'
     },
     {
         id: 1,
-        tagName: 'AAAAA'
+        tagName: 'BBBBB'
     },
 ]
 
@@ -16,7 +16,7 @@ const activities = [
         tags: [
             {
                 id: 0,
-                tagName: 'a',
+                tagName: 'AAAAA',
             },
             {
                 id: 1,
@@ -30,7 +30,7 @@ const activities = [
         tags: [
             {
                 id: 0,
-                tagName: 'b',
+                tagName: 'BBBBB',
             },
             {
                 id: 1,
@@ -58,16 +58,18 @@ const checkExistTag = (tag, tagList) => {
 }
 
 const filterActivitiesByExistingTags = (tagList, activities) => {
-    return activities.filter((activity) => {
-        for (let j = 0; j <= activity.tags.length; j++) {
-            if (activity.tags.length > 1) {
-                for (let i = 0; i < tagList.length; i++) {
-                    return checkExistTag(activity.tags[i].tagName, [tagList[j]])[0];
-                }
-            } else {
-                return checkExistTag(activity.tags[0].tagName, [tagList[j]])[0];
+    let match = [];
+    for (let i = 0; i < tagList.length; i++) {
+        let truc = activities.filter((activity) => {
+            const match = checkExistTag(tagList[i].tagName, activity.tags);
+            if (match[0]) {
+                return activity
             }
-        }
-    })
+            return false;
+        })
+        match.push(truc[0]);
+    }
+    return match;
 }
+
 console.log(filterActivitiesByExistingTags(tagList, activities));

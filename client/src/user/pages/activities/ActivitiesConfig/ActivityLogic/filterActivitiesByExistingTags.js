@@ -1,18 +1,18 @@
 import checkExistTag from "./checkExistTag";
 
 const filterActivitiesByExistingTags = (tagList, activities) => {
-    const activitiesMatchingTags = [];
+    let match = [];
     for (let i = 0; i < tagList.length; i++) {
-        for (let j = 0; j < activities.length; j++) {
-            for (let k = 0; k < activities[j].tags.length; k++) {
-                const match = checkExistTag(activities[j].tags[k].tagName, [tagList[i]]);
-                if (match[0]) {
-                    activitiesMatchingTags.push(match[1][0]);
-                }
+        let truc = activities.filter((activity) => {
+            const match = checkExistTag(tagList[i].tagName, activity.tags);
+            if (match[0]) {
+                return activity
             }
-        }
+            return false;
+        })
+        match.push(truc[0]);
     }
-    return activitiesMatchingTags;
+    return match;
 }
 
 export default filterActivitiesByExistingTags;
