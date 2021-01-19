@@ -9,7 +9,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'AAAAA',
+            }
+        ]
     },
     {
         id : 1,
@@ -19,7 +25,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'BBBBB',
+            }
+        ]
     },
     {
         id : 2,
@@ -29,7 +41,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'CCCCC',
+            }
+        ]
     },
     {
         id : 3,
@@ -39,7 +57,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'DDDDD',
+            }
+        ]
     },
     {
         id : 4,
@@ -49,7 +73,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'EEEEE',
+            }
+        ]
     },
     {
         id : 5,
@@ -59,7 +89,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'FFFFF',
+            }
+        ]
     },
     {
         id : 6,
@@ -69,7 +105,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'GGGGG',
+            }
+        ]
     },
     {
         id : 7,
@@ -79,7 +121,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'HHHHH',
+            }
+        ]
     },
     {
         id : 8,
@@ -89,7 +137,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'IIIII',
+            }
+        ]
     },
     {
         id : 9,
@@ -99,7 +153,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'JJJJJ',
+            }
+        ]
     },
     {
         id : 10,
@@ -109,7 +169,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'KKKKK',
+            }
+        ]
     },
     {
         id : 11,
@@ -119,7 +185,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'LLLLL',
+            }
+        ]
     },
     {
         id : 12,
@@ -129,7 +201,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'MMMMM',
+            }
+        ]
     },
     {
         id : 13,
@@ -139,7 +217,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'NNNNN',
+            }
+        ]
     },
     {
         id : 14,
@@ -149,7 +233,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'OOOOO',
+            }
+        ]
     },
     {
         id : 15,
@@ -159,7 +249,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'PPPPP',
+            }
+        ]
     },
     {
         id : 16,
@@ -169,7 +265,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'QQQQQ',
+            }
+        ]
     },
     {
         id : 17,
@@ -179,7 +281,13 @@ const activities = [
             ' sit amet rhoncus arcu sodales et. Vestibulum ante ipsum primis in faucibus orci\n' +
             ' luctus et ultrices posuere cubilia curae; Phasellus pulvinar urna velit, vitae\n' +
             ' dignissim mauris maximus id.',
-        scenery: thumb01
+        scenery: thumb01,
+        tags : [
+            {
+                id : 0,
+                tagName: 'RRRRR',
+            }
+        ]
     }
 ]
 

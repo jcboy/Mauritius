@@ -1,12 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Component} from "react/cjs/react.production.min";
 import '../../../styles/activity.css';
 
 
 const ActivityPreview = (props) => {
-
-    console.log('props from preview', props)
     return (<div>
             <div className="row item mb-5">
                 <div className="col-md-4 img-content">

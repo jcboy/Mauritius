@@ -10,3 +10,5 @@ PROBLEM : HOCs Inside the render Method
 https://reactjs.org/docs/higher-order-components.html
 
 https://codesandbox.io/s/withered-bash-0604e?file=/src/index.js
+
+https://daveceddia.com/usestate-hook-examples/
