@@ -1,5 +1,5 @@
 const getButtonPanel = (pageIndex, pageIndexMax) => {
-    if (pageIndexMax >= 3) {
+    if (pageIndexMax >= 2) {
         let buttonPanel = Array.from({length: 3}, (v, i) => i - 1);
         const start = (pageIndex < 1) ? 1 : 0;
         const end = (pageIndex >= pageIndexMax) ? -1 : 0;

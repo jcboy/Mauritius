@@ -48,7 +48,7 @@ class Pagination extends Component {
                             id={pageIndexMax - 1}
                             className="btn btn-outline-secondary"
                             onClick={this.newIndex}
-                    > &raquo; {pageIndexMax} </button>
+                    > &raquo; </button>
                 </div>
             </div>
         </div>
