@@ -32,7 +32,7 @@ export const ContentList = () => {
                                 <td>{article.filters}</td>
                                 <td>{article.date}</td>
                                 <td className="icon " ><IconUpdate/></td>
-                                <td className="icon" >archiver</td>
+                                <td className="icon" >archiver-</td>
                             </tr>
                         })}
 
