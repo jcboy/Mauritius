@@ -1,5 +1,4 @@
 import '../../styles/styles.css'
-import '../../styles/welcome.css'
 import {Navbar} from "../Navbar/Navbar";
 import {Component} from "react/cjs/react.production.min";
 
@@ -18,7 +17,7 @@ const welcomeContent = [
         title: 'QUE FAIRE ?'
     },
     {
-        path: '/actualities',
+        path: '/news',
         background: 'url(' + mainHeaderBackground + ')',
         title: 'ACTUALITÉS'
     },
@@ -46,12 +45,9 @@ export class Welcome extends Component {
 
     }
 
-    backgroundStyle(route) {
-        const welcomeContentToDisplay = welcomeContent.find((content) => {
-            return content.path === route;
-        });
+    backgroundStyle() {
         return {
-            backgroundImage: welcomeContentToDisplay.background,
+            backgroundImage: this.state.background,
             backgroundPositionX: 'center',
             backgroundSize: '120%'
         }
@@ -66,7 +62,7 @@ export class Welcome extends Component {
     render() {
         return (
             <div
-                style={this.backgroundStyle(this.state.path)}>
+                style={this.backgroundStyle()}>
                 <div className="container-fluid">
                     <Navbar/>
                     <div className="row justify-content-center">
