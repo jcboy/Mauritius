@@ -1,4 +1,4 @@
-import activities from "./ActivityList";
+import activities from "../ActivityList";
 
 const getAllTags = () => {
     let tagList = [];

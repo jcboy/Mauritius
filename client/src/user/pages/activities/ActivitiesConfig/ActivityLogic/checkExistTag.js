@@ -1,8 +1,8 @@
 const checkExistTag = (tag, tagList) => {
     const tagExist = tagList.filter((existingTag) => {
-        return existingTag.tagName === tag;
+        return existingTag === tag;
     })
-    return [!!tagExist[0], tagExist];
+    return [!!tagExist[0], tag];
 }
 
 export default checkExistTag;

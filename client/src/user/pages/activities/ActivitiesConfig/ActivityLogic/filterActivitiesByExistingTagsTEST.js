@@ -1,12 +1,8 @@
 const tagList = [
     {
         id: 1,
-        tagName: 'AAAAA'
-    },
-    {
-        id: 1,
-        tagName: 'BBBBB'
-    },
+        tagName: 'aa'
+    }
 ]
 
 const activities = [
@@ -30,7 +26,7 @@ const activities = [
         tags: [
             {
                 id: 0,
-                tagName: 'BBBBB',
+                tagName: 'aa',
             },
             {
                 id: 1,

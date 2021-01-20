@@ -1,20 +1,18 @@
 import React, {useState} from 'react';
 import checkExistTag from "./ActivityLogic/checkExistTag";
-import getAllTags from "./tagList";
+import getAllTags from "./ActivityLogic/tagList";
 
 const TagComponent = (props) => {
 
     const [tagList, updateTagList] = useState([]);
-    const [id, setId] = useState(0);
     const updateTags = props.onTagChange;
 
     const saveTag = (e) => {
         let newTag = e.target["previousSibling"].value;
         const isNewTag = (checkExistTag(newTag, getAllTags())[0]) && !(checkExistTag(newTag, [...tagList])[0])
         if (isNewTag) {
-            setId((previousId) => previousId + 1);
             e.target["previousSibling"].value = '';
-            return updateTagList([...tagList, {id, tagName: newTag}]);
+            return updateTagList([...tagList, newTag]);
         }
     }
 
