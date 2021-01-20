@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
 import {pageIndexMax} from "./Activities";
 
-
 class Pagination extends Component {
 
     constructor(props) {
@@ -17,7 +16,6 @@ class Pagination extends Component {
     newIndex(e) {
         const value = Number(e.target.id);
         this.updateIndex(value);
-        console.log(value)
         return this.setState({
             buttonPanel: [...getButtonPanel(value, pageIndexMax)]
         });

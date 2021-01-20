@@ -6,7 +6,7 @@ const getButtonPanel = (pageIndex, pageIndexMax) => {
         return buttonPanel.map((buttonIndex) => {
             return buttonIndex + pageIndex + end + start;
         })
-    } else if (pageIndexMax < 1) {
+    } else if (pageIndexMax <= 0) {
         return [0]
     } else {
         return Array.from({length: pageIndexMax + 1}, (v, i) => i);

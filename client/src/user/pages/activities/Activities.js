@@ -9,13 +9,10 @@ import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivit
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import activities from "./ActivitiesConfig/ActivityList";
 import TagComponent from "./ActivitiesConfig/TagComponent";
-import getAllTags from "./ActivitiesConfig/tagList";
-import checkExistTag from "./ActivitiesConfig/ActivityLogic/checkExistTag";
-
+import filterActivitiesByExistingTags from "./ActivitiesConfig/ActivityLogic/filterActivitiesByExistingTags";
 
 const activityNumberPerPage = 3;
 const sequencedActivities = sequenceState(activityNumberPerPage, activities);
-
 export const pageIndexMax = sequencedActivities.length - 1;
 
 class Activities extends Component {
@@ -31,9 +28,12 @@ class Activities extends Component {
     }
 
     updateTags(value) {
-        console.log(typeof value.tagName);
-        console.log(checkExistTag(value.tagName, getAllTags()));
-        console.log(getAllTags());
+        if (value[0]) {
+            console.log('activities', this.state.activities);
+            console.log('value', value);
+            const filteredActivities = filterActivitiesByExistingTags(value, this.state.activities);
+            console.log('filtered', filteredActivities);
+        }
     }
 
     updateIndex(value) {
@@ -43,19 +43,20 @@ class Activities extends Component {
     }
 
     render() {
-        // console.log('ACT COMP : activities', this.state.activities)
+        const sequencedActivities = [...sequenceState(activityNumberPerPage, this.state.activities)];
         const info = {
-            info: [...sequencedActivities[this.state.pageIndex]]
+            info: sequencedActivities[this.state.pageIndex]
         };
         return (
             <div>
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities">
-                    <TagComponent tagListUpdate={this.updateTags}/>
+                    <TagComponent onTagChange={this.updateTags}/>
                     <br/>
-                    <ActivityMapping {...info} />
+                    <ActivityMapping {...info}/>
                     <br/>
-                    <Pagination indexChange={this.updateIndex}/>
+                    <Pagination indexChange={this.updateIndex}
+                    />
                 </div>
                 <br/>
                 <br/>
@@ -65,6 +66,7 @@ class Activities extends Component {
             </div>
         );
     }
+
 }
 
 export default Activities;

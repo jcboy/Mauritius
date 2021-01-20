@@ -53,10 +53,11 @@ const activities = [
             },
             {
                 id : 0,
-                tagName: 'y',
+                tagName: 'a',
             }
         ]
-    },
+    }
+    ,
     {
         id : 3,
         title: 'DDDDD',
@@ -73,7 +74,7 @@ const activities = [
             },
             {
                 id : 0,
-                tagName: 'x',
+                tagName: 'a',
             }
         ]
     },
@@ -93,7 +94,7 @@ const activities = [
             },
             {
                 id : 0,
-                tagName: 'w',
+                tagName: 'a',
             }
         ]
     }
@@ -235,7 +236,6 @@ const activities = [
             }
         ]
     }
-    /*
     ,
     {
         id : 13,
@@ -316,7 +316,7 @@ const activities = [
                 tagName: 'RRRRR',
             }
         ]
-    }*/
+    }
 ]
 
 export default activities;

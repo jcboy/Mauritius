@@ -7,7 +7,7 @@ const filterActivitiesByExistingTags = (tagList, activities) => {
             let filteredActivities = activities.filter((activity) => {
                 const match = checkExistTag(tagList[i].tagName, activity.tags);
                 if (match[0]) {
-                    return activity
+                    return activity;
                 }
                 return false;
             })
