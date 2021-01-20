@@ -9,15 +9,14 @@ import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivit
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import activities from "./ActivitiesConfig/ActivityList";
 import TagComponent from "./ActivitiesConfig/TagComponent";
+import getAllTags from "./ActivitiesConfig/tagList";
+import checkExistTag from "./ActivitiesConfig/ActivityLogic/checkExistTag";
 
 
 const activityNumberPerPage = 3;
 const sequencedActivities = sequenceState(activityNumberPerPage, activities);
 
 export const pageIndexMax = sequencedActivities.length - 1;
-console.log('pageIndexMax', pageIndexMax);
-console.log('activityNumberPerPage', activityNumberPerPage);
-console.log('ActivityTotalNumber', activities.length);
 
 class Activities extends Component {
 
@@ -28,20 +27,23 @@ class Activities extends Component {
             activities: activities
         }
         this.updateIndex = this.updateIndex.bind(this);
-        this.updateActivities = this.updateActivities.bind(this);
+        this.updateTags = this.updateTags.bind(this);
     }
 
-    updateActivities(value) {
-        console.log(value)
+    updateTags(value) {
+        console.log(typeof value.tagName);
+        console.log(checkExistTag(value.tagName, getAllTags()));
+        console.log(getAllTags());
     }
 
     updateIndex(value) {
         return this.setState({
             pageIndex: value,
-        })
+        });
     }
 
     render() {
+        // console.log('ACT COMP : activities', this.state.activities)
         const info = {
             info: [...sequencedActivities[this.state.pageIndex]]
         };
@@ -49,7 +51,7 @@ class Activities extends Component {
             <div>
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities">
-                    <TagComponent activities={activities} activityListUpdate={this.updateActivities}/>
+                    <TagComponent tagListUpdate={this.updateTags}/>
                     <br/>
                     <ActivityMapping {...info} />
                     <br/>

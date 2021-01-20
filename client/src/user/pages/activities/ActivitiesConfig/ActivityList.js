@@ -13,7 +13,7 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'a',
             }
         ]
     },
@@ -29,11 +29,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'BBBBB',
+                tagName: 'b',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'z',
             }
         ]
     },
@@ -49,11 +49,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'CCCCC',
+                tagName: 'c',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'y',
             }
         ]
     },
@@ -69,11 +69,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'DDDDD',
+                tagName: 'd',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'x',
             }
         ]
     },
@@ -89,11 +89,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'EEEEE',
+                tagName: 'e',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'w',
             }
         ]
     }
@@ -110,11 +110,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'FFFFF',
+                tagName: 'f',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'v',
             }
         ]
     },
@@ -130,11 +130,11 @@ const activities = [
         tags : [
             {
                 id : 0,
-                tagName: 'GGGGG',
+                tagName: 'g',
             },
             {
                 id : 0,
-                tagName: 'AAAAA',
+                tagName: 'u',
             }
         ]
     },

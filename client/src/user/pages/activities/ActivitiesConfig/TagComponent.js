@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
-import filterActivitiesByExistingTags from "./ActivityLogic/filterActivitiesByExistingTags";
 import checkExistTag from "./ActivityLogic/checkExistTag";
-
 
 const TagComponent = (props) => {
 
     const [tagList, updateTagList] = useState([]);
     const [id, setId] = useState(0);
 
-    const updateActivities = props.activityListUpdate;
+    const updateTags = props.tagListUpdate;
 
     const saveTag = (e) => {
         let newTag = e.target["previousSibling"].value;
@@ -19,13 +17,9 @@ const TagComponent = (props) => {
         }
     }
 
-    if (tagList[0]) {
-        updateActivities(filterActivitiesByExistingTags(tagList, props.activities));
-    }
+    updateTags(tagList);
 
-
-    return <div>
-        (
+    return (
         <div className="row py-4 filter-content">
             <div className="col-5 d-flex justify-content-center no-wrap">
                 <input className="form-control"
@@ -40,8 +34,7 @@ const TagComponent = (props) => {
                 </button>
             </div>
         </div>
-        )
-    </div>
+    )
 }
 
 export default TagComponent;
