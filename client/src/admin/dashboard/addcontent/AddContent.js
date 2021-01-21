@@ -1,9 +1,9 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import {Sidebar} from "../../common/Sidebar";
 import {Component} from 'react';
-import ButtonFileUploadAddContent from "../ButtonFileUploadAddContent/ButtonFileUploadAddContent";
+import ButtonFileUploadAddContent from "../../common/ButtonFileUploadAddContent/ButtonFileUploadAddContent";
 import ButtonFileUploadAddContentOtherImages
-    from "../ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
+    from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
 
 class AddContent extends Component {
@@ -17,24 +17,22 @@ class AddContent extends Component {
             {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
         ];
 
-        return <div className="blockContact-AddContent pt-3">
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-10">
-                        <h1 className="white"> Mauritius  Admin </h1>
-                    </div>
-                </div>
-                <div className="row justify-content-center mt-2">
-                    <div className="col-9 ">
+        return <div className="blockContact-AddContent pt-3 container-fluid">
+            <div className="row">
+                <Sidebar />
+
+
+                <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div>
                         <form>
                             <div className="row mb-3">
                                 <div className="col-md-4 form-floating">
                                     <input className="grey form-control" type="text" placeholder="Titre"/>
-                                    <label>Prénom</label>
+                                    <label>Titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
                                     <input className="grey form-control" type="text" placeholder="Sous-titre"/>
-                                    <label>Nom</label>
+                                    <label>Sous-titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
                                     <select className="form-select grey" id="monselect">
@@ -46,17 +44,22 @@ class AddContent extends Component {
                             </div>
                             <div className="row mb-3">
                                 <div className="col-md-6 form-floating">
-                                    <select className="form-select grey" id="monselect">
-                                        <option value="valeur1">question</option>
-                                        <option value="valeur2">proposer un article</option>
-                                    </select>
-                                    <label>Objet (« question » ou « proposer un article »)</label>
+                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
+                                    <input className="form-control" list="datalistOptions" id="exampleDataList"
+                                           placeholder="Type to search..."/>
+                                        <datalist id="datalistOptions">
+                                            <option value="Filter 1"></option>
+                                            <option value="Filter 2"></option>
+                                            <option value="Filter 3"></option>
+                                            <option value="Filter 4"></option>
+                                        </datalist>
+
                                 </div>
 
-                                    <div className="col-md-4 form-floating">
+                                <div className="col-md-4 form-floating">
 
-                                         <button type="button" className="pj"><ButtonFileUploadAddContent/></button>
-                                    </div>
+                                    <button type="button" className="pj"><ButtonFileUploadAddContent/></button>
+                                </div>
 
                             </div>
                             <div className="row mb-4">
@@ -91,7 +94,7 @@ class AddContent extends Component {
 
                         </form>
                     </div>
-                </div>
+                </main>
                 <div className="row footer">
                     <div className=" col text-center">
                         <a className="nav-link white" href="https://fr.lipsum.com/feed/html">Copyright 2020 -

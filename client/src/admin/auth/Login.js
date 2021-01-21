@@ -9,9 +9,9 @@ export const Login = () => {
                 </div>
 
                 <div className="form-floating mb-2">
-                    <input type="email" name="email" placeholder="Email" className="form-control mb-1" required />
-                    <label htmlFor="floatingInput">Email*</label>
-                    {/* <span className="text-danger fst-italic mt-1">Email incorrect</span> */}
+                    <input type="email" name="email" placeholder="Email2" className="form-control mb-1" required />
+                    <label htmlFor="floatingInput">Email2*</label>
+                    {/* <span className="text-danger fst-italic mt-1">Email2 incorrect</span> */}
                 </div>
 
                 <div className="form-floating mb-3">

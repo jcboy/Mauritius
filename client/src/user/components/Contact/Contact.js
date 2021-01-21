@@ -29,8 +29,8 @@ class Contact extends Component {
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" placeholder="Email"/>
-                                            <label>Email</label>
+                                            <input className="blue form-control" type="text" placeholder="Email2"/>
+                                            <label>Email2</label>
                                         </div>
                                         <div className="col-md-6 form-floating">
                                             <select className="form-select blue" id="monselect">

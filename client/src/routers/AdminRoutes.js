@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
 import {NavbarAdmin} from "../admin/common/NavbarAdmin";
 import {ContentList} from "../admin/dashboard/contentListe/ContentList";
-import {AddContent} from "../admin/dashboard/addContent/AddContent";
+import AddContent from "../admin/dashboard/addcontent/AddContent";
 import {Filters} from "../admin/dashboard/filters/Filters";
 import {EmailList} from "../admin/dashboard/mailbox/EmailList";
 import {Email} from "../admin/dashboard/mailbox/Email";

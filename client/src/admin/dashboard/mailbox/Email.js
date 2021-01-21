@@ -1,6 +1,7 @@
 import React from 'react';
 import {Sidebar} from "../../common/Sidebar";
 
+
 export const Email = () => {
     return (
         <div className="container-fluid">
