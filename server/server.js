@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
-const db = require('./database');
+require('./database');
 const HomeRouter = require("./router/HomeRouter");
 
 const PORT = 8080;
@@ -12,6 +12,7 @@ server.use(cors({
 }))
 
 server.use(express.json());
+
 server.use(HomeRouter.prefix, HomeRouter.router);
 
 
