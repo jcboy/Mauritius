@@ -4,3 +4,5 @@ const HomeSchema = mongoose.schema({
     id: Number,
     title: String,
 })
+
+module.exports = HomeSchema;
