@@ -3,7 +3,7 @@ const server = express();
 const cors = require('cors');
 const db = require('./database');
 
-const HomeRouter = require("./Router/RouterHome/homeRouter");
+const HomeRouter = require("./router/HomeRouter");
 
 const PORT = 8080;
 
