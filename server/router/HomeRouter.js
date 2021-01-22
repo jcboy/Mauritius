@@ -1,4 +1,4 @@
-const HomeController = require('../../Controller/ControllerHome/homeController');
+const HomeController = require('../../http/Controllers/homeController');
 const {index, update, delete: remove, read, create} = HomeController;
 
 const express = require('express');
