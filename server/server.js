@@ -14,7 +14,7 @@ server.use(cors({
 server.use(express.json());
 
 server.use(HomeRouter.prefix, HomeRouter.router);
-
+server.use(ActivitiesRouter.prefix, ActivitiesRouter.router);
 
 server.listen(8080, "localhost", function () {
     console.log("Server now running on port : " + PORT);
