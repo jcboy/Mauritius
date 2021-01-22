@@ -1,3 +1,16 @@
+1. [STRUCTURE](#structure)
+1. [ANNEXE](#ANNEXE)
+
+## STRUCTURE 
+
+La page Activities est composée de 3 composants :
+
+* PAGINATION : state : pageIndex
+* MAPPING : state : activities/page mapped with style
+* TAGS : gère les tags entrés par l'utilisateur
+
+## ANNEXE
+
 redux
 
 STACKING HOC
@@ -10,3 +23,9 @@ PROBLEM : HOCs Inside the render Method
 https://reactjs.org/docs/higher-order-components.html
 
 https://codesandbox.io/s/withered-bash-0604e?file=/src/index.js
+
+https://daveceddia.com/usestate-hook-examples/
+
+https://stackoverflow.com/questions/37387351/reactjs-warning-setstate-cannot-update-during-an-existing-state-transiti
+
+
