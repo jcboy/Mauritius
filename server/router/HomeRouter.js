@@ -11,8 +11,4 @@ router.post('/', create);
 
 router.get('/', read);
 
-router.put('/', update);
-
-router.delete('/', remove);
-
 module.exports = {router, prefix};

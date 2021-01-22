@@ -10,6 +10,6 @@ const bd = mongoose.connection;
 bd.once('open', function (){
     console.log('Connection has been made...');
 }).on('error', function (err){
-    console.log('An error has occured : ', err.message);
+    console.log('An error has occurred : ', err.message);
 })
 
