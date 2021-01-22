@@ -1,6 +1,7 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
+const db = require('./database');
 
 const HomeRouter = require("./Router/RouterHome/homeRouter");
 
