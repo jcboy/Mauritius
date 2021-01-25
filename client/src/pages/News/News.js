@@ -47,7 +47,7 @@ export const News = () => {
                                 </h3>
                                 <p>Date : {item.date} </p>
                                 <p>text: {item.text} </p>
-                                <Link to={item.link}>&gt; Voir l'article </Link>
+                                <Link to={item.link}>&gt; Voir l  article </Link>
                             </div>
                         </div>
                     </div>
