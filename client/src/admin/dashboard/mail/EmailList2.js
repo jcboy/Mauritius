@@ -22,22 +22,22 @@ class EmailList2 extends Component {
         return (
             <div className="container mails">
 
-
-                <div className="row titlerow">
+                <div className="row titlerow col-md-12">
                     <div className="col-md-4">
-                        Date d'envoi
+                        <div className="offset-md-5">Date d'envoi</div>
                     </div>
                     <div className="col-md-4">
-                        Mail
+                        <div className="offset-md-5">Mail</div>
                     </div>
                     <div className="col-md-4">
-                        0bjet
+                        <div className="offset-md-4">0bjet</div>
                     </div>
                 </div>
 
                 {mails.map(item => (
                     <div className="item" key={mails}>
-                        <div type="button" class="btn btn-secondary" className="row mailrow hoverrow">
+                        <Link type="button" className="btn btn-secondary  row mailrow hoverrow" to={'/admin/emaillist/' + item.id}>
+                        <div className="row ">
                             <div className="col-md-4">
                                 {item.date}
                             </div>
@@ -48,6 +48,7 @@ class EmailList2 extends Component {
                                 {item.objet}
                             </div>
                         </div>
+                        </Link>
                     </div>
                 ))}
 
