@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material/fab": "^9.0.0",
-    "@material/react-fab": "^0.15.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-parallax": "^3.1.2",
@@ -41,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cors": "^2.8.5"
   }
 }
