@@ -1,64 +1,51 @@
 import React, {Component} from "react";
-import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
 import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
-import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
-import activities from "./ActivitiesConfig/ActivityList";
-
-let pageIndex = 0;
-const activityNumberPerPage = 4;
-const pageIndexMax = Math.floor(activities.length / activityNumberPerPage);
-const sequencedActivities = sequenceState(activityNumberPerPage);
+import {pageIndexMax} from "./Activities";
 
 class Pagination extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            info: [...sequencedActivities[pageIndex]],
-            buttonBar: [...getButtonPanel(pageIndex, pageIndexMax)]
+            buttonPanel: [...getButtonPanel(0, pageIndexMax)]
         };
-        this.getNavigationPage = this.getNavigationPage.bind(this);
+        this.updateIndex = props.indexChange;
+        this.newIndex = this.newIndex.bind(this);
     }
 
-    getNavigationPage(e) {
+    newIndex(e) {
         const value = Number(e.target.id);
+        this.updateIndex(value);
         return this.setState({
-            info: [...sequencedActivities[value]],
-            buttonBar: [...getButtonPanel(value, pageIndexMax)]
+            buttonPanel: [...getButtonPanel(value, pageIndexMax)]
         });
     }
 
 
     render() {
-        // STACKING HOC
-        // CROSS-CUTTING CONCERNS
-        const info = {
-            info: this.state.info
-        }
         return <div>
-            <ActivityMapping {...info} />
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
                             id="0"
                             className="btn btn-outline-secondary"
-                            onClick={this.getNavigationPage}
+                            onClick={this.newIndex}
                     > &laquo; </button>
                     {
-                        this.state.buttonBar.map((buttonIndex) => {
+                        this.state.buttonPanel.map((buttonIndex) => {
                             return <button type="button"
                                            key={buttonIndex}
                                            id={buttonIndex}
                                            className="btn btn-outline-secondary"
-                                           onClick={this.getNavigationPage}
+                                           onClick={this.newIndex}
                             > {buttonIndex + 1} </button>
                         })
                     }
                     <button type="button"
                             id={pageIndexMax}
                             className="btn btn-outline-secondary"
-                            onClick={this.getNavigationPage}
+                            onClick={this.newIndex}
                     > &raquo; </button>
                 </div>
             </div>
