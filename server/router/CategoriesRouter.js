@@ -22,7 +22,7 @@ router.post(
 
 router.delete('/:id', remove);
 
-/* // Exemple de route pour enregistrer un utilisateur valider nom email et pwd
+/* // Exemple de route pour enregistrer un utilisateur et valider nom email pwd
 router.post(
     '/new',
     [ // middlewares
