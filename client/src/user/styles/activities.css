@@ -11,6 +11,9 @@ a:hover {
     color: #00A8A7;
 }
 
+/* === PAGE ACTUALITES (NEWS) === */
+.news .form-select {border: 1px solid #ced4da; border-radius: .25rem; color: inherit; font-size: 14px;}
+
 @media (min-width: 1200px) {
     .container {
         max-width: 1140px;
