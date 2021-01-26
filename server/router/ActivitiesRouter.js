@@ -1,9 +1,9 @@
-const HomeController = require('../http/Controllers/HomeController');
-const {index, update, delete: remove, read, create} = HomeController;
+const ActivitiesController = require('../http/Controllers/ActivitiesController');
+const {index, update, delete: remove, read, create} = ActivitiesController;
 
 const express = require('express');
 const router = express.Router();
-const prefix = '/'
+const prefix = '/activities';
 
 router.get('/', index);
 
