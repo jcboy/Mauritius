@@ -39,7 +39,7 @@ export const Filters = () => {
 
                     <h2>Gestion des filtres</h2>
 
-                    <div className="form-row mb-3">test
+                    <div className="form-row mb-3">test filter
                         <div className="form-floating mb-3">
                             <input type="text" onChange={handleInputChange}
                                    name="catName"
@@ -61,9 +61,6 @@ export const Filters = () => {
                         } )
                     }
                     </div>
-
-
-
 
                 </main>
             </div>
