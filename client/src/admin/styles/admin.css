@@ -63,3 +63,11 @@ html, body { height: 100%;}
 @media (min-width: 768px) {
     .admin_main .navbar-nav {padding-right: 1rem;}
 }
+
+/* === Filter management === */
+
+.admin_main .filterBtn {background-color: #fff; margin: 0 10px 10px 0; border-radius: 1rem;}
+.admin_main .filterBtn:hover {background-color: #00627B; color: #fff;}
+
+.admin_main .filterBtn .delete{background-color:rgba(0, 0, 0, .6); width: 16px; height: 16px;  border-radius: 50%; color: #fff;line-height: 16px; margin-left: 15px;}
+.admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
