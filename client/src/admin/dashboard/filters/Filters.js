@@ -42,7 +42,6 @@ export const Filters = () => {
                     <div className="form-row mb-3">test
                         <div className="form-floating mb-3">
                             <input type="text" onChange={handleInputChange}
-
                                    name="catName"
                                    className="form-control" id="floatingInput"
                                    placeholder="name@example.com" />
@@ -51,6 +50,7 @@ export const Filters = () => {
                     </div>
 
                     <h3>Liste des filtres (ordre alphabétique)</h3>
+
                     <div className='d-flex flex-wrap'>
                     {
                         state.categories.map( (category) => {
