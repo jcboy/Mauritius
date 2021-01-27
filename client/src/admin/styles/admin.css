@@ -30,7 +30,14 @@ html, body { height: 100%;}
         margin-left: auto !important;
     }
 }
-.admin_main .icon svg{color:white;width: 28px;}
+
+/* === Pieces Jointes AddContent === */
+.pj { position:absolute; bottom:0; border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;
+}
+
+.pj2 {  border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; margin-bottom: 0;}
+
+
 /* === SIDEBAR === */
 .sidebar {position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; padding: 80px 0 48px 0; box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); background-color: #212529;}
 .sidebar-sticky {position: -webkit-sticky; position: sticky; top: 80px; height: calc(100vh - 80px); padding-top: 0; overflow-x: hidden; overflow-y: auto;}
@@ -38,6 +45,13 @@ html, body { height: 100%;}
 .sidebar li {border-bottom: 1px solid #979797;}
 .sidebar li a {color: #ABABAB; font-size: 20px;}
 .sidebar li a.active, .sidebar li a:hover {background-color: #00627B}
+
+
+/* === MAILROW === */
+.titlerow {background-color: #212529 ; border:  2px solid #757474 ; }
+.mailrow  {background-color: #454444; border:  2px solid #757474 ; width: 100% ;  }
+.hoverrow:hover {   background-color: #9f9f9f; }
+
 
 /* === NAVBAR === */
 .admin_main .navbar {height: 80px;}
@@ -49,3 +63,11 @@ html, body { height: 100%;}
 @media (min-width: 768px) {
     .admin_main .navbar-nav {padding-right: 1rem;}
 }
+
+/* === Filter management === */
+
+.admin_main .filterBtn {background-color: #fff; margin: 0 10px 10px 0; border-radius: 1rem;}
+.admin_main .filterBtn:hover {background-color: #00627B; color: #fff;}
+
+.admin_main .filterBtn .delete{background-color:rgba(0, 0, 0, .6); width: 16px; height: 16px;  border-radius: 50%; color: #fff;line-height: 16px; margin-left: 15px;}
+.admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
