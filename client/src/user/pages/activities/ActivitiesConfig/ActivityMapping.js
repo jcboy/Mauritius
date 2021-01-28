@@ -7,7 +7,8 @@ const ActivityMapping = (props) => {
                 props.info.map(
                     (activity, index) => {
                         return <ActivityPreview key={index} activity={activity}/>
-                    })
+                    }
+                )
             }
         </div>
     )

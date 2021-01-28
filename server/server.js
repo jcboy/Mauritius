@@ -3,9 +3,11 @@ const server = express();
 const cors = require('cors');
 require('./database');
 const HomeRouter = require("./router/HomeRouter");
+const ActivitiesRouter = require("./router/ActivitiesRouter");
 
 const PORT = 8080;
 
+server.use(express.json());
 server.use(cors({
     origin: '*',
     optionsSuccessStatus: 200
