@@ -73,6 +73,6 @@ html, body { height: 100%;}
 .admin_main .filterBtn .delete{background-color:rgba(0, 0, 0, .6); width: 16px; height: 16px;  border-radius: 50%; color: #fff;line-height: 16px; margin-left: 15px;}
 .admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
 
-/* === content (news activities) management === */
+/* === content ( news activities ) management === */
 
 .admin_main .table .icon svg{max-width: 20px;}
