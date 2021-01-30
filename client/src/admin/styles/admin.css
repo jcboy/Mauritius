@@ -24,7 +24,8 @@ html, body { height: 100%;}
 /* === ADMIN === */
 .admin_main {color: #fff;}
 .admin_main .navbar-brand {font-size: 34px;}
-
+.admin_main .form-control {padding: 1rem 0.2rem;}
+.admin_main .form-floating>label {padding-left: 0}
 @media (min-width: 576px) {
     .admin_main main {
         margin-left: auto !important;
@@ -43,7 +44,7 @@ html, body { height: 100%;}
 .sidebar-sticky {position: -webkit-sticky; position: sticky; top: 80px; height: calc(100vh - 80px); padding-top: 0; overflow-x: hidden; overflow-y: auto;}
 .sidebar ul {border-top: 1px solid #979797; border-left: 1px solid #979797; border-right: 1px solid #979797;}
 .sidebar li {border-bottom: 1px solid #979797;}
-.sidebar li a {color: #ABABAB; font-size: 20px;}
+.sidebar li a {color: #ABABAB; font-size: 1.125rem; /*18px;*/}
 .sidebar li a.active, .sidebar li a:hover {background-color: #00627B}
 
 
@@ -71,3 +72,7 @@ html, body { height: 100%;}
 
 .admin_main .filterBtn .delete{background-color:rgba(0, 0, 0, .6); width: 16px; height: 16px;  border-radius: 50%; color: #fff;line-height: 16px; margin-left: 15px;}
 .admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
+
+/* === content ( news activities ) management === */
+
+.admin_main .table .icon svg{max-width: 20px;}
