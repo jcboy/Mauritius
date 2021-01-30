@@ -24,7 +24,8 @@ html, body { height: 100%;}
 /* === ADMIN === */
 .admin_main {color: #fff;}
 .admin_main .navbar-brand {font-size: 34px;}
-
+.admin_main .form-control {padding: 1rem 0.2rem;}
+.admin_main .form-floating>label {padding-left: 0}
 @media (min-width: 576px) {
     .admin_main main {
         margin-left: auto !important;

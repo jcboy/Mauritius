@@ -14,8 +14,6 @@ class CategoriesController {
 
     store (req, res) {
         const category = new Category( req.body ); // asigne un modèle à la req du body
-
-        // Pour sauvegarder cette company :
         category.save().then( () => {
             res.status(201).send({ msg: `new category has been added`})
         }).catch( () => {
