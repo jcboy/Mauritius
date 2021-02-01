@@ -27,7 +27,7 @@ const welcomeContent = [
         title: 'TITLE ACTIVITY'
     },
     {
-        path: '/arcticle',
+        path: '/article',
         background: 'url(' + subHeaderBackground + ')',
         title: 'TITLE ACTUALITY'
     }
