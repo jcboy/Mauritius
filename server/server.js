@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 const cors = require('cors');
 require('./database');
+
 const HomeRouter = require("./router/HomeRouter");
 const CategoriesRouter = require('./router/CategoriesRouter');
 const ActivitiesRouter = require("./router/ActivitiesRouter");
@@ -16,6 +17,7 @@ server.use(cors({
 
 server.use(express.json());
 server.use(HomeRouter.prefix, HomeRouter.router);
+server.use(ActivitiesRouter.prefix, ActivitiesRouter.router);
 server.use(CategoriesRouter.prefix, CategoriesRouter.router );
 
 
