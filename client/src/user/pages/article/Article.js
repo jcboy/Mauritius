@@ -6,7 +6,7 @@ import Welcome from "../../components/Welcome/welcome";
 export const Article = () => {
     return (
         <div>
-            <Welcome param={{path: '/'}}/>
+            <Welcome param={{path: '/article'}}/>
 
             <div className="container">
                 <div className="row">
