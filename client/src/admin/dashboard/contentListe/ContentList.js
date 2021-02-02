@@ -3,14 +3,12 @@ import React, {useState} from 'react'
 import {Sidebar} from "../../common/Sidebar";
 import IconUpdate from "./IconUpdate";
 
-
 export const ContentList = () => {
 
     const [articles, setArticles] = useState([
         {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
         {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
         {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'}
-        // appel à l'api pour récupérer la liste avec useEffect
     ]);
 
 
@@ -38,10 +36,6 @@ export const ContentList = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {
-                            // <MapArticle props={actualities}/>
-                        }
-
                         {articles.map((article, i) => {
                             return <tr key={i}>
                                 <td scope="row">{article.title}</td>
