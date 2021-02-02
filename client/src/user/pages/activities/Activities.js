@@ -59,10 +59,6 @@ class Activities extends Component {
                     />
                 </div>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
             </div>
         );
     }
