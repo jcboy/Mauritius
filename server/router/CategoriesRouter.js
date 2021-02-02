@@ -9,7 +9,8 @@ const CategoriesController = require('../http/Controllers/CategoriesController')
 const {index, store, delete:remove } = CategoriesController;
 
 const router = Router();
-const prefix = '/categories'
+
+const prefix = '/categories';
 
 router.get('/', index);
 

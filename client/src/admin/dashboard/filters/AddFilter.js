@@ -10,12 +10,14 @@ export const AddFilter = ({setCategories}) => {
             ...values,   // create new object
             [target.name] : target.value    //  & modify only the one I receive in this event
         })
-        console.log(target.value);
+        console.log('values', values);
         // Option 2: setValues({[target.name]: target.value});
     }
 
     const handleSubmit = (e) =>{ // 3. submit values
         e.preventDefault();
+
+
         if (values.name.trim().length > 3) {
             axios.post('http://localhost:8080/categories/store', values)
                 .then( (res)=> {
