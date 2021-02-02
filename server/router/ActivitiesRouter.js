@@ -7,12 +7,10 @@ const prefix = '/activities';
 
 router.get('/', index);
 
-router.post('/', create);
+router.post('/create', create);
 
-router.get('/', read);
+router.put('/update', update);
 
-router.put('/', update);
-
-router.delete('/', remove);
+router.delete('/delete', remove);
 
 module.exports = {router, prefix};
