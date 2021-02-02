@@ -16,7 +16,6 @@ const TagComponent = (props) => {
         }
     }
 
-    console.log('taglist from TagComp', tagList);
     updateTags(tagList);
 
     return (

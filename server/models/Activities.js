@@ -13,12 +13,24 @@ const ActivitySchema = new mongoose.Schema({
         type : String,
         required: true
     },
+    scenery: {
+        type : String,
+        required: true
+    },
     description: {
         type : String,
         required: true
     },
-    pageNumber: {
-        type : String,
+    previousPage: {
+        type : Number,
+        required: false
+    },
+    currentPage: {
+        type : Number,
+        required: true
+    },
+    nextPage: {
+        type : Number,
         required: false
     },
     tags: {
