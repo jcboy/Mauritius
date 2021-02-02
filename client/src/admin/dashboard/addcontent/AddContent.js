@@ -48,10 +48,10 @@ class AddContent extends Component {
                                     <input className="form-control" list="datalistOptions" id="exampleDataList"
                                            placeholder="Type to search..."/>
                                         <datalist id="datalistOptions">
-                                            <option value="Filter 1"></option>
-                                            <option value="Filter 2"></option>
-                                            <option value="Filter 3"></option>
-                                            <option value="Filter 4"></option>
+                                            <option value="Filter 1"/>
+                                            <option value="Filter 2"/>
+                                            <option value="Filter 3"/>
+                                            <option value="Filter 4"/>
                                         </datalist>
 
                                 </div>
@@ -112,4 +112,3 @@ class AddContent extends Component {
 }
 
 export default AddContent;
-
