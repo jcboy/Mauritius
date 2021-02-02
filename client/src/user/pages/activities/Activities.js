@@ -21,7 +21,7 @@ class Activities extends Component {
         super();
         this.state = {
             pageIndex: 0,
-            activities: activities
+            activities: activities,
         }
         this.updateIndex = this.updateIndex.bind(this);
         this.updateTags = this.updateTags.bind(this);
