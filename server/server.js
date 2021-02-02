@@ -6,6 +6,7 @@ require('./database');
 const HomeRouter = require("./router/HomeRouter");
 const CategoriesRouter = require('./router/CategoriesRouter');
 const ActivitiesRouter = require("./router/ActivitiesRouter");
+const ActualitiesRouter = require("./router/ActivitiesRouter");
 
 const PORT = 8080;
 
@@ -18,6 +19,7 @@ server.use(cors({
 server.use(express.json());
 server.use(HomeRouter.prefix, HomeRouter.router);
 server.use(ActivitiesRouter.prefix, ActivitiesRouter.router);
+server.use(ActualitiesRouter.prefix, ActualitiesRouter.router);
 server.use(CategoriesRouter.prefix, CategoriesRouter.router );
 
 
