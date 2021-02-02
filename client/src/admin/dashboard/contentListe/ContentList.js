@@ -11,11 +11,9 @@ export const ContentList = () => {
         {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'}
     ]);
 
-
     const getArticles = (e) => {
         console.log(e.target.id);
     }
-
 
     return (
         <div className="container-fluid">
