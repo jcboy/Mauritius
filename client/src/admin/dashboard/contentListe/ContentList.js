@@ -1,35 +1,57 @@
 import React, {useState} from 'react'
 
 import {Sidebar} from "../../common/Sidebar";
-import MapArticle from "./MapArticle";
+import IconUpdate from "./IconUpdate";
 
 
 export const ContentList = () => {
 
-    const [path, setPath] = useState({
-        path: 'actualities'
-    })
+    const [articles, setArticles] = useState([
+        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
+        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
+        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'}
+        // appel à l'api pour récupérer la liste avec useEffect
+    ]);
+
 
     const getArticles = (e) => {
-        if (e.target.id !== path.path) {
-            setPath({
-                path: e.target.id
-            })
-        }
+        console.log(e.target.id);
     }
+
 
     return (
         <div className="container-fluid">
             <div className="row">
                 <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
                     <table className="table white">
                         <thead>
                         <button id="actualities" onClick={getArticles}> Actualités</button>
                         <button id="activities" onClick={getArticles}> Activités</button>
+                        <tr>
+                            <th scope="col">Nom de l'article</th>
+                            <th scope="col">Filtres</th>
+                            <th scope="col">Date de publication</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
                         </thead>
                         <tbody>
-                        <MapArticle props={path}/>
+                        {
+                            // <MapArticle props={actualities}/>
+                        }
+
+                        {articles.map((article, i) => {
+                            return <tr key={i}>
+                                <td scope="row">{article.title}</td>
+                                <td>{article.filters}</td>
+                                <td>{article.date}</td>
+                                <td className="icon "><IconUpdate/></td>
+                                <td className="icon">archiver-</td>
+                            </tr>
+                        })}
+
                         </tbody>
                     </table>
                 </main>
