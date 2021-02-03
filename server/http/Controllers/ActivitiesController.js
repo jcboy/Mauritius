@@ -1,33 +1,67 @@
 const Activity = require('../../models/Activities');
 
+
+let indexMax = Activity.countDocuments().exec((err, response) => {
+    console.log(response);
+    indexMax = response;
+});
+
 class ActivitiesController {
     index(req, res) {
         const query = Activity.find();
-        if (!!req.query) {
-            if (!!req.query.title) {
-                query.where('title').equals(req.query.title);
-            }
-            if (!!req.query.date) {
-                query.where('date').equals(req.query.date);
-            }
-            if (!!req.query.currentPage) {
-                query.where('currentPage').equals(req.query.currentPage);
-            }
+        let indexMax = 0;
+        console.log(indexMax);
+        if (!!req.query.title) {
+            query.where('title').equals(req.query.title);
+        }
+
+        if (!!req.query.date) {
+            query.where('date').equals(req.query.date);
+        }
+
+        if (!!req.query.currentPage) {
+            let page = {
+                previousPage: indexMax - 2,
+                currentPage: indexMax - 1,
+                nextPage: indexMax,
+            };
+            Activity.find({currentPage: req.query.currentPage}, (err, response) => {
+                console.log('Query empty : ', !response[0]);
+                if (!!response[0]) {
+                    query.where('currentPage').equals(req.query.currentPage);
+                    if (req.query.currentPage + 1 < indexMax) {
+                        page = {
+                            previousPage: req.query.previousPage,
+                            currentPage: req.query.currentPage,
+                            nextPage: req.query.nextPage,
+                        }
+                        console.log('PAGE', page);
+                    }
+                } else {
+                    query.where('currentPage').equals(req.query.previousPage);
+                    console.log('PAGE', page);
+                    console.log('req.query')
+                }
+            });
         }
         query.exec((err, response) => {
             if (!!err) {
                 console.log('An error has occurred : ', err.message);
                 res.status(404).send(err);
             }
-            res.send(response);
+            res.send({
+                pageIndex :
+                response
+            });
         });
     }
+
 
     create(req, res) {
         const newActivity = new Activity(req.body);
         newActivity.save().then((response) => {
             res.send({
-                message : 'Activité ajoutée à la base de donnée...',
+                message: 'Activité ajoutée à la base de donnée...',
                 response
             });
         }).catch((err) => {
@@ -45,7 +79,7 @@ class ActivitiesController {
                     res.status(404).send(err);
                 }
                 res.send({
-                    message : 'Activité correctement actualisée',
+                    message: 'Activité correctement actualisée',
                     response
                 });
             });
@@ -58,7 +92,7 @@ class ActivitiesController {
                 res.status(404).send(err);
             }
             res.send({
-                message : 'Activité correctement supprimée !',
+                message: 'Activité correctement supprimée !',
                 response
             });
         });

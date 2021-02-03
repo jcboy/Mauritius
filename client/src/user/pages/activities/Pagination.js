@@ -8,17 +8,16 @@ class Pagination extends Component {
         this.state = {
             buttonPanel: [...getButtonPanel(1)]
         };
-        this.updateIndex = props.indexChange;
-        this.newIndex = this.newIndex.bind(this);
+        this.updateCurrentPage = props.onPage;
+        this.newPageIndex = this.newPageIndex.bind(this);
     }
 
-    newIndex(e) {
+    newPageIndex(e) {
         const value = Number(e.target.id);
-        console.log(value);
-        if (value < 1 || value === -1) {
-            this.updateIndex(1);
+        if (value === 0) {
+            this.updateCurrentPage(1);
         } else {
-            this.updateIndex(value);
+            this.updateCurrentPage(value);
         }
         return this.setState({
             buttonPanel: [...getButtonPanel(value)]
@@ -34,7 +33,7 @@ class Pagination extends Component {
                     <button type="button"
                             id="0"
                             className="btn btn-outline-secondary"
-                            onClick={this.newIndex}
+                            onClick={this.newPageIndex}
                     > &laquo; </button>
                     {
                         this.state.buttonPanel.map((buttonIndex, i) => {
@@ -42,14 +41,14 @@ class Pagination extends Component {
                                            key={i}
                                            id={buttonIndex}
                                            className="btn btn-outline-secondary"
-                                           onClick={this.newIndex}
+                                           onClick={this.newPageIndex}
                             > {buttonIndex} </button>
                         })
                     }
                     <button type="button"
                             id="-1"
                             className="btn btn-outline-secondary"
-                            onClick={this.newIndex}
+                            onClick={this.newPageIndex}
                     > &raquo; </button>
                 </div>
             </div>
