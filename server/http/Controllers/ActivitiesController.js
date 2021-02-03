@@ -3,12 +3,15 @@ const Activity = require('../../models/Activities');
 class ActivitiesController {
     index(req, res) {
         const query = Activity.find();
-        if (!!req.body) {
-            if (!!req.body.title) {
-                query.where('title').equals(req.body.title);
+        if (!!req.query) {
+            if (!!req.query.title) {
+                query.where('title').equals(req.query.title);
             }
-            if (!!req.body.date) {
-                query.where('date').equals(req.body.date);
+            if (!!req.query.date) {
+                query.where('date').equals(req.query.date);
+            }
+            if (!!req.query.currentPage) {
+                query.where('currentPage').equals(req.query.currentPage);
             }
         }
         query.exec((err, response) => {

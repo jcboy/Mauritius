@@ -1,13 +1,12 @@
 import React, {Component} from "react";
 import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
-import {pageIndexMax} from "./Activities";
 
 class Pagination extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            buttonPanel: [...getButtonPanel(0, pageIndexMax)]
+            buttonPanel: [...getButtonPanel(1)]
         };
         this.updateIndex = props.indexChange;
         this.newIndex = this.newIndex.bind(this);
@@ -15,9 +14,14 @@ class Pagination extends Component {
 
     newIndex(e) {
         const value = Number(e.target.id);
-        this.updateIndex(value);
+        console.log(value);
+        if (value < 1 || value === -1) {
+            this.updateIndex(1);
+        } else {
+            this.updateIndex(value);
+        }
         return this.setState({
-            buttonPanel: [...getButtonPanel(value, pageIndexMax)]
+            buttonPanel: [...getButtonPanel(value)]
         });
     }
 
@@ -33,17 +37,17 @@ class Pagination extends Component {
                             onClick={this.newIndex}
                     > &laquo; </button>
                     {
-                        this.state.buttonPanel.map((buttonIndex) => {
+                        this.state.buttonPanel.map((buttonIndex, i) => {
                             return <button type="button"
-                                           key={buttonIndex}
+                                           key={i}
                                            id={buttonIndex}
                                            className="btn btn-outline-secondary"
                                            onClick={this.newIndex}
-                            > {buttonIndex + 1} </button>
+                            > {buttonIndex} </button>
                         })
                     }
                     <button type="button"
-                            id={pageIndexMax}
+                            id="-1"
                             className="btn btn-outline-secondary"
                             onClick={this.newIndex}
                     > &raquo; </button>

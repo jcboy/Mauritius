@@ -19,7 +19,7 @@ const TagComponent = (props) => {
     updateTags(tagList);
 
     return (
-        <div className="row py-4 filter-content">
+        <div className="row pb-5 filter-content">
             <div className="col-5 d-flex justify-content-center no-wrap">
                 <input className="form-control"
                        id="exampleDataList"

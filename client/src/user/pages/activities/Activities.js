@@ -3,17 +3,10 @@ import {Component} from "react/cjs/react.production.min";
 import './../../styles/activities.css';
 import Welcome from "../../components/Welcome/welcome";
 import Pagination from "./Pagination";
-import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
 import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
-import activities from "./ActivitiesConfig/ActivityList";
 import TagComponent from "./ActivitiesConfig/TagComponent";
 import filterActivitiesByExistingTags from "./ActivitiesConfig/ActivityLogic/filterActivitiesByExistingTags";
 import axios from "axios";
-
-const activityNumberPerPage = 3;
-const sequencedActivities = sequenceState(activityNumberPerPage, activities);
-export const pageIndexMax = sequencedActivities.length - 1;
-
 
 class Activities extends Component {
 
@@ -21,19 +14,20 @@ class Activities extends Component {
         super();
         this.state = {
             currentPage: 1,
-            activities: activities,
-            act : [],
-            tag : []
+            activities: [],
+            tag: []
         }
         this.updateIndex = this.updateIndex.bind(this);
         this.updateTags = this.updateTags.bind(this);
     }
 
     componentDidMount() {
-        const currentPage = this.state.currentPage;
-        axios.get('http://localhost:8080/activities', currentPage).then((response) => {
+        const params = {
+            currentPage: this.state.currentPage
+        };
+        axios.get('http://localhost:8080/activities', {params}).then((response) => {
             this.setState({
-                act : response.data
+                activities: response.data
             })
         }).catch((err) => {
             console.log('ERREUR : ', err.message)
@@ -42,40 +36,39 @@ class Activities extends Component {
 
     updateTags(value) {
         if (value[0]) {
-            console.log('activities', this.state.activities);
-            console.log('value', value);
             const filteredActivities = filterActivitiesByExistingTags(value, this.state.activities);
             console.log('filtered', filteredActivities);
         }
     }
 
     updateIndex(value) {
-        return this.setState({
-            currentPage: value,
+        const params = {
+            currentPage: value
+        };
+        axios.get('http://localhost:8080/activities', {params}).then((response) => {
+            console.log('value from parent', value);
+            console.log(response);
+            this.setState({
+                currentPage: value,
+                activities: response.data
+            });
+        }).catch((err) => {
+            console.log(err.message);
         });
     }
 
     render() {
-        console.log(this.state.act);
-        console.log(this.state.activities);
-        const sequencedActivities = [...sequenceState(activityNumberPerPage, this.state.activities)];
-        console.log(sequencedActivities);
         const info = {
-            info: sequencedActivities[this.state.currentPage]
+            info: this.state.activities
         };
-        console.log(info);
         return (
             <div>
                 <Welcome param={{path: '/activities'}}/>
-                <div className="container activities">
+                <div className="container activities py-5">
                     <TagComponent onTagChange={this.updateTags}/>
-                    <br/>
                     <ActivityMapping {...info}/>
-                    <br/>
-                    <Pagination indexChange={this.updateIndex}
-                    />
+                    <Pagination indexChange={this.updateIndex} index={this.state.currentPage}/>
                 </div>
-                <br/>
             </div>
         );
     }

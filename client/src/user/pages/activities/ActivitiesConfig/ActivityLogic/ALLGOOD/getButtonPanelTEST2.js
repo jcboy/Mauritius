@@ -6,4 +6,4 @@ const getButtonPanel = (pageIndex) => {
     }
 }
 
-export default getButtonPanel;
+console.log(getButtonPanel(0));
