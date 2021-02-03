@@ -6,7 +6,11 @@ import IconOff from "../../common/IconOff";
 
 
 export const ContentList = () => {
-    const [articles, setArticles] = useState([{id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'},{id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'},{id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'}]);
+    const [articles, setArticles] = useState([
+        {id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'},
+        {id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'},
+        {id:33, title:"tstts", filters:['filt A', 'filt B',  'filt B'], date: '12/09/2020'}
+        ]);
 
 
     return (
