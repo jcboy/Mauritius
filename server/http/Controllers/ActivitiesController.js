@@ -1,16 +1,15 @@
 const Activity = require('../../models/Activities');
 
-
+/*
 let indexMax = Activity.countDocuments().exec((err, response) => {
     console.log(response);
     indexMax = response;
-});
+});*/
 
 class ActivitiesController {
     index(req, res) {
         const query = Activity.find();
-        let indexMax = 0;
-        console.log(indexMax);
+
         if (!!req.query.title) {
             query.where('title').equals(req.query.title);
         }
@@ -19,40 +18,21 @@ class ActivitiesController {
             query.where('date').equals(req.query.date);
         }
 
-        if (!!req.query.currentPage) {
-            let page = {
-                previousPage: indexMax - 2,
-                currentPage: indexMax - 1,
-                nextPage: indexMax,
-            };
-            Activity.find({currentPage: req.query.currentPage}, (err, response) => {
-                console.log('Query empty : ', !response[0]);
-                if (!!response[0]) {
-                    query.where('currentPage').equals(req.query.currentPage);
-                    if (req.query.currentPage + 1 < indexMax) {
-                        page = {
-                            previousPage: req.query.previousPage,
-                            currentPage: req.query.currentPage,
-                            nextPage: req.query.nextPage,
-                        }
-                        console.log('PAGE', page);
-                    }
-                } else {
-                    query.where('currentPage').equals(req.query.previousPage);
-                    console.log('PAGE', page);
-                    console.log('req.query')
-                }
-            });
-        }
+        /*
+    if (!!req.query.currentPage) {
+        query.where('currentPage').equals(req.query.currentPage);
+        Activity.countDocuments((err, response) => {
+            const indexMax = Math.ceil(response/6);
+        })
+    }
+       */
+
         query.exec((err, response) => {
             if (!!err) {
                 console.log('An error has occurred : ', err.message);
                 res.status(404).send(err);
             }
-            res.send({
-                pageIndex :
-                response
-            });
+            res.send(response);
         });
     }
 
