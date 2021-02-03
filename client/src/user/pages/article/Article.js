@@ -156,14 +156,14 @@ export const Article = () => {
                             <h2 className="h3 red text-center bord">TITRE ARTICLE 1</h2>
                         </div>
                         <div className="col">
-                            <img src={parasol01} class="rounded-circle img-form" alt=""/>
+                            <img src={waterfall01} class="rounded-circle img-form" alt=""/>
                             <br/>
                             <br/>
                             <br/>
                             <h2 className="h3 red text-center bord">ARTICLE 2</h2>
                         </div>
                         <div className="col">
-                            <img src={waterfall01} class="rounded-circle img-form" alt=""/>
+                            <img src={parasol01} class="rounded-circle img-form" alt=""/>
                             <br/>
                             <br/>
                             <br/>
