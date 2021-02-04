@@ -24,7 +24,7 @@ const welcomeContent = [
     {
         path: '/actu',
         background: 'url(' + subHeaderBackground + ')',
-        title: 'TITLE ACTIVITY'
+        title: 'TITLE ACTU'
     },
     {
         path: '/article',

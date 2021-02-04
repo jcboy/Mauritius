@@ -6,7 +6,7 @@ import thumb01 from "../../assets/images/thumb-01.jpg";
 import parasol01 from "../../assets/images/parasols-2393938_1280.jpg";
 import waterfall01 from "../../assets/images/waterfall-5056207_1280.jpg";
 import Contact from "../../components/Contact/Contact";
-import {Link} from "react-router-dom";
+
 
 
 export const Actu = () => {
@@ -18,8 +18,7 @@ export const Actu = () => {
                 <div className="row">
 
                     <div className="col-12 mb-4 mt-5">
-                        <button type="button" className="btn btn-link" >Retour aux actualités</button>
-                        <a href={'/activities'}>Retour aux actualités</a>
+                        <a href={'/activities'}> > Retour aux actualités</a>
 
                         <h2 className="h2 green text-center">SOUS-TITRE</h2>
                         <br/>
@@ -128,7 +127,7 @@ export const Actu = () => {
                     </div>
 
                     <div className="row my-4">
-                        <h2 className="h2 green text-center">ARTICLE QUI POURRAIENT VOUS INTÉRESSER</h2>
+                        <h2 className="h2 green text-center">DERNIÈRE ACTU</h2>
                     </div>
 
                     <div className="row my-4">
