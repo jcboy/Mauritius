@@ -10,7 +10,7 @@ import Contact from "../../components/Contact/Contact";
 
 export const Article = () => {
     return (
-        <div>
+        <div className="articleContent">
             <Welcome param={{path: '/article'}}/>
 
             <div className="container">
@@ -18,7 +18,7 @@ export const Article = () => {
 
 
                     <div className="col-9 mb-4 mt-5">
-                        <a href={'/activities'}> > Retour aux articles</a>
+                        <a href={'/activities'} className="button">Retour aux articles</a>
 
                         <h2 className="h2 green text-center">SOUS-TITRE</h2>
                         <br/>
@@ -109,37 +109,37 @@ export const Article = () => {
 
                     <div className="row my-4">
                         <div className="col-3">
-                            <img src={thumb01} class="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} class="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                     </div>
                     <div className="row my-4">
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
 
                         <div className="col-3">
-                            <img src={thumb01} className="rounded float-start img-thumb" alt=""/>
+                            <img src={thumb01} className="rounded float-start img-block" alt=""/>
                         </div>
                     </div>
 
@@ -147,27 +147,36 @@ export const Article = () => {
                         <h2 className="h2 green text-center">ARTICLE QUI POURRAIENT VOUS INTÉRESSER</h2>
                     </div>
 
-                    <div className="row my-4">
-                        <div className="col">
-                            <img src={thumb01} class="rounded-circle img-form" alt=""/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">TITRE ARTICLE 1</a>
+                    <div className="col">
+                        <div className="row">
+                            <div className="col-12 d-flex justify-content-center">
+                                <img src={thumb01} className="rounded-circle img-form" alt=""/>
+                            </div>
+                            <div className="col-12 d-flex justify-content-center actuName">
+                                <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                            </div>
                         </div>
-                        <div className="col">
-                            <img src={waterfall01} class="rounded-circle img-form" alt=""/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">ARTICLE 2</a>
+                    </div>
+
+                    <div className="col">
+                        <div className="row">
+                            <div className="col-12 d-flex justify-content-center">
+                                <img src={waterfall01} className="rounded-circle img-form" alt=""/>
+                            </div>
+                            <div className="col-12 d-flex justify-content-center actuName">
+                                <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                            </div>
                         </div>
-                        <div className="col">
-                            <img src={parasol01} class="rounded-circle img-form" alt=""/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">ARTICLE 3</a>
+                    </div>
+
+                    <div className="col">
+                        <div className="row">
+                            <div className="col-12 d-flex justify-content-center">
+                                <img src={parasol01} className="rounded-circle img-form" alt=""/>
+                            </div>
+                            <div className="col-12 d-flex justify-content-center actuName">
+                                <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                            </div>
                         </div>
                     </div>
 

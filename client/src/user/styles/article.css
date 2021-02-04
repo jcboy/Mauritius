@@ -1,23 +1,28 @@
-.img-thumb {
+.articleContent .img-thumb, .actuContent .img-thumb {
     height: 192px;
     width: 256px
 }
 
-.img-form {
+.articleContent .img-block, .actuContent .img-block {
+    height: 192px;
+    width: 256px
+}
+
+.articleContent .img-form, .actuContent .img-form {
     width: 200px;
     height: 200px;
     margin: 0 auto;
     z-index: 3;
 }
 
-.bord {
+.articleContent .bord, .actuContent .bord {
     padding: 50px;
     margin: 50px;
     border: 1px solid #adadad;
     border-radius: 8px;
 }
 
-.actuName {
+.articleContent .actuName, .actuContent .actuName {
     margin-top: -80px;
     z-index: 2;
 }
