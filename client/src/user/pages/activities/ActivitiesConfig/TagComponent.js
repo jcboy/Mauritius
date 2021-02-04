@@ -1,36 +1,45 @@
 import React, {useState} from 'react';
-import checkExistTag from "./ActivityLogic/checkExistTag";
-import getAllTags from "./ActivityLogic/tagList";
+import TagPreview from "../tagConfig/TagPreview";
+import InputTag from "../tagConfig/InputTag";
 
 const TagComponent = (props) => {
 
     const [tagList, updateTagList] = useState([]);
     const updateTags = props.onTagChange;
 
-    const saveTag = (e) => {
-        let newTag = e.target["previousSibling"].value;
-        const isNewTag = (checkExistTag(newTag, getAllTags())[0]) && !(checkExistTag(newTag, [...tagList])[0])
-        if (isNewTag) {
-            e.target["previousSibling"].value = '';
-            return updateTagList([...tagList, newTag]);
-        }
+    const saveTag = (value) => {
+        return updateTagList([...tagList, value]);
     }
+
+    const deleteTag = (event) => {
+        console.log(event);
+        const id = tagList.findIndex((tag) => {
+            return tag === event;
+        })
+        const newTagList = [...tagList];
+        newTagList.splice(id, 1);
+        updateTagList(newTagList);
+    }
+
 
     updateTags(tagList);
 
     return (
-        <div className="row pb-5 filter-content">
-            <div className="col-5 d-flex justify-content-center no-wrap">
-                <input className="form-control"
-                       id="exampleDataList"
-                       style={{width: '50%'}}
-                       placeholder="Type to search..."
-                />
-                <button type="button"
-                        className="btn btn-outline-primary"
-                        onClick={saveTag}
-                > Valider
-                </button>
+        <div className="row pb-3 filter-content flex-column">
+            <InputTag onSave={saveTag}/>
+            <div className="col">
+                <div className="row">
+                    <div className="col my-2 display-block">
+                        {
+                            (!!tagList[0]) && (tagList.map((tag, index) => {
+                                return <TagPreview key={index}
+                                                   tagName={tag}
+                                                   noTag={deleteTag}/>
+                            }))
+
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -20,6 +20,10 @@ class ActivitiesController {
             query.where('date').equals(req.query.date);
         }
 
+        if (!!req.query.tags) {
+            query.where('tags').equals(req.query.tags);
+        }
+
         /*
     if (!!req.query.currentPage) {
         query.where('currentPage').equals(req.query.currentPage);

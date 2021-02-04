@@ -59,7 +59,7 @@ class Activities extends Component {
         return (
             <div>
                 <Welcome param={{path: '/activities'}}/>
-                <div className="container activities py-5">
+                <div className="container activities pt-4 pb-5">
                     <TagComponent onTagChange={this.updateTags}/>
                     <ActivityMapping info={this.state.activities}/>
                     <Pagination onPage={this.updateCurrentPage}

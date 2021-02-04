@@ -24,7 +24,13 @@ const Composant = () => {
             <option value="/actualities">Actualities</option>
         </select>
     </div>
-
-
 }
 ```
+
+
+résumé de la situation
+
+ennuyée car pas connaissance de la procédure et je veux connaitre le jugement
+
+demande par écrit pour avoir les coordonnées de l'avocat
+
