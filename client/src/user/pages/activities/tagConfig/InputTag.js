@@ -3,6 +3,7 @@ import AsyncSelect from 'react-select/async';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
+
 const InputTag = (props) => {
 
     const [tagList, setTagList] = useState([]);
@@ -16,18 +17,6 @@ const InputTag = (props) => {
         });
     }, [])
 
-    const filterColors = (tagName) => {
-        return tagList.filter(i =>
-            i.label.toLowerCase().includes(tagName.toLowerCase())
-        );
-    };
-
-    const promiseOptions = tagName =>
-        new Promise(resolve => {
-            setTimeout(() => {
-                resolve(filterColors(tagName));
-            }, 1000);
-        });
 
     const sendTag = props.onSave;
 
@@ -36,8 +25,23 @@ const InputTag = (props) => {
         event.target["previousSibling"].value = '';
     }
 
-    return <div className="col-5 d-flex pl-5 no-wrap">
-        <AsyncSelect cacheOptions defaultOptions loadOptions={promiseOptions}/>
+    const promiseOptions = (tagName) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(filterColors(tagName));
+            }, 1000);
+        });
+    }
+    const filterColors = (tagName) => {
+        console.log(tagName);
+        return tagList.filter((i) => {
+            console.log(i);
+            i.tagName.toLowerCase().includes(tagName.toLowerCase())
+        });
+    };
+
+    return <div className="col-8 d-flex pl-5 no-wrap">
+        <AsyncSelect cacheOptions loadOptions={promiseOptions}/>
         <input className="form-control"
                id="exampleDataList"
                style={{width: '50%'}}
