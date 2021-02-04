@@ -131,13 +131,18 @@ export const Actu = () => {
                     </div>
 
                     <div className="row my-4">
+
                         <div className="col">
-                            <img src={thumb01} class="rounded-circle img-form" alt=""/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                            <div className="row">
+                                <div className="col-12 d-flex justify-content-center">
+                                    <img src={thumb01} className="rounded-circle img-form" alt=""/>
+                                </div>
+                                <div className="col-12 d-flex justify-content-center actuName">
+                                    <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                                </div>
+                            </div>
                         </div>
+
                         <div className="col">
                             <img src={waterfall01} class="rounded-circle img-form" alt=""/>
                             <br/>

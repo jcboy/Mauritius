@@ -4,9 +4,10 @@
 }
 
 .img-form {
-    width: 300px;
+    width: 200px;
     height: 200px;
-    text-align: center;
+    margin: 0 auto;
+    z-index: 3;
 }
 
 .bord {
@@ -16,3 +17,7 @@
     border-radius: 8px;
 }
 
+.actuName {
+    margin-top: -80px;
+    z-index: 2;
+}
