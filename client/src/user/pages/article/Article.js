@@ -19,6 +19,7 @@ export const Article = () => {
 
                     <div className="col-9 mb-4 mt-5">
                         <button type="button" className="btn btn-link">Retour aux articles</button>
+                        <a href={'/activities'}>Retour aux articles</a>
 
                         <h2 className="h2 green text-center">SOUS-TITRE</h2>
                         <br/>
