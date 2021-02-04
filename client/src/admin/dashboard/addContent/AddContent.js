@@ -1,25 +1,49 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Sidebar} from "../../common/Sidebar";
-import {Component} from 'react';
 import ButtonFileUploadAddContent from "../../common/ButtonFileUploadAddContent/ButtonFileUploadAddContent";
 import ButtonFileUploadAddContentOtherImages
     from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
+import axios from 'axios';
 
 class AddContent extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            totalFilters : [],
+            page: '/actualities',
+            filters: []
+        }
+        this.changePage = this.changePage.bind(this)
+        this.saveArticle = this.saveArticle.bind(this)
+        this.getFilters = this.getFilters.bind(this)
+    }
+
+    componentDidMount() {
+    }
+
+
+    changePage(event) {
+        const option = event.target.value;
+        console.log(option);
+    }
+
+    saveArticle() {
+        axios.post('http://localhost/' + this.state.page + 'create').then(() => {
+
+        })
+    }
+
+    getFilters(event) {
+
+    }
 
     render() {
-
-        let array = [ {id:1, title:'actu',  date:"05/11/1997", text:'oikdzfjplsdplsld psdplplsdl plsdpl', link:"okdfokok"},
-            {id:2,  title:'actu',date:"07/03/1964", text:'oikdzfj odsokdok doksokdsk kodsodok', link:"odokfo"},
-            {id:3, title:'actu', date:"03/11/1999", text:'oikdzfj dsodkosd kodskdokds okdsodsk ', link:"okfdsok"},
-            {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
-        ];
-
+        console.log(this.state.filters);
         return <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
-                <Sidebar />
+                <Sidebar/>
 
 
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -34,25 +58,30 @@ class AddContent extends Component {
                                     <input className="grey form-control" type="text" placeholder="Sous-titre"/>
                                     <label>Sous-titre</label>
                                 </div>
+
+
                                 <div className="col-md-4 form-floating">
-                                    <select className="form-select grey" id="monselect">
-                                        <option value="valeur1">article</option>
-                                        <option value="valeur2">actu</option>
+                                    <select className="form-select grey" id="monselect" onChange={this.changePage}>
+                                        <option value="/actualities">actualities</option>
+                                        <option value="/activities">activities</option>
                                     </select>
-                                    <label>Sélectionner type de contenu ( article  ou  actu »)</label>
+                                    <label>Sélectionner type de contenu ( article ou actu »)</label>
                                 </div>
+
+
                             </div>
                             <div className="row mb-3">
                                 <div className="col-md-6 form-floating">
-                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
-                                    <input className="form-control" list="datalistOptions" id="exampleDataList"
+                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres
+                                        (apparait si article sélectionné)</label>
+                                    <input className="form-control" onChange={this.getFilters} list="datalistOptions" id="exampleDataList"
                                            placeholder="Type to search..."/>
-                                        <datalist id="datalistOptions">
-                                            <option value="Filter 1"></option>
-                                            <option value="Filter 2"></option>
-                                            <option value="Filter 3"></option>
-                                            <option value="Filter 4"></option>
-                                        </datalist>
+                                    <datalist id="datalistOptions" >
+                                        <option value="Filter 1"></option>
+                                        <option value="Filter 2"></option>
+                                        <option value="Filter 3"></option>
+                                        <option value="Filter 4"></option>
+                                    </datalist>
 
                                 </div>
 
@@ -64,13 +93,13 @@ class AddContent extends Component {
                             </div>
                             <div className="row mb-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control"  placeholder="Courte description"/>
+                                    <textarea className="grey form-control" placeholder="Courte description"/>
                                     <label>Courte description</label>
                                 </div>
                             </div>
                             <div className="row mb-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control"  placeholder="Contenu"/>
+                                    <textarea className="grey form-control" placeholder="Contenu"/>
                                     <label>Contenu</label>
                                 </div>
                             </div>
@@ -78,7 +107,8 @@ class AddContent extends Component {
                             <div className="row mb-3">
                                 <div className="col-4">
 
-                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/></button>
+                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/>
+                                    </button>
                                 </div>
                             </div>
 
@@ -87,7 +117,8 @@ class AddContent extends Component {
                                     <button type="button" className="btn btn-outline ">Annuler</button>
                                 </div>
                                 <div className=" col text-end">
-                                    <button type="button" className="btn-b btn ">Envoyer</button>
+                                    <button type="button" className="btn-b btn" onClick={this.saveArticle}>Envoyer
+                                    </button>
                                 </div>
                             </div>
 
