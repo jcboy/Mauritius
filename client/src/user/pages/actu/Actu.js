@@ -6,25 +6,29 @@ import thumb01 from "../../assets/images/thumb-01.jpg";
 import parasol01 from "../../assets/images/parasols-2393938_1280.jpg";
 import waterfall01 from "../../assets/images/waterfall-5056207_1280.jpg";
 import Contact from "../../components/Contact/Contact";
+import {Link} from "react-router-dom";
 
 
-export const Article = () => {
+export const Actu = () => {
     return (
         <div>
-            <Welcome param={{path: '/article'}}/>
+            <Welcome param={{path: '/actu'}}/>
 
             <div className="container">
                 <div className="row">
 
-
-                    <div className="col-9 mb-4 mt-5">
-                        <button type="button" className="btn btn-link">Retour aux articles</button>
+                    <div className="col-12 mb-4 mt-5">
+                        <button type="button" className="btn btn-link" >Retour aux actualités</button>
+                        <a href={'/activities'}>voir</a>
 
                         <h2 className="h2 green text-center">SOUS-TITRE</h2>
                         <br/>
                         <br/>
                         <br/>
-                        <div className="row text">
+                        <div>
+                            <p>Publié le JJ/MM/AAAA</p>
+                        </div>
+                        <div className="row text justify-content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat pretium
                                 risus,
                                 sit
@@ -86,26 +90,6 @@ export const Article = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 mt-5">
-                        <div className="content-filter mt-5 pt-5">
-                            <h2 className="h3 red text-align">FILTRES ASSOCIES</h2>
-                        </div>
-                        <div className="row my-4">
-                            <div className="col-3">
-                                <button type="button" className="btn btn-info btn-sm">Excursion</button>
-                            </div>
-                            <div className="col-3">
-                                <button type="button" className="btn btn-info btn-sm">Excursion</button>
-                            </div>
-                            <div className="col-3">
-                                <button type="button" className="btn btn-info btn-sm">Ville</button>
-                            </div>
-                            <div className="col-5">
-                                <button type="button" className="btn btn-info btn-sm">Ville</button>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div className="row my-4">
                         <div className="col-3">
@@ -153,21 +137,21 @@ export const Article = () => {
                             <br/>
                             <br/>
                             <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">TITRE ARTICLE 1</a>
+                            <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
                         </div>
                         <div className="col">
                             <img src={waterfall01} class="rounded-circle img-form" alt=""/>
                             <br/>
                             <br/>
                             <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">ARTICLE 2</a>
+                            <a href={'/activities'} className="h3 red text-center bord">ACTU 2</a>
                         </div>
                         <div className="col">
                             <img src={parasol01} class="rounded-circle img-form" alt=""/>
                             <br/>
                             <br/>
                             <br/>
-                            <a href={'/activities'} className="h3 red text-center bord">ARTICLE 3</a>
+                            <a href={'/activities'} className="h3 red text-center bord">ACTU 3</a>
                         </div>
                     </div>
 
