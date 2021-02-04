@@ -33,6 +33,7 @@ class Activities extends Component {
     }
 
     updateTags(value) {
+        console.log(value);
     }
 
     updateCurrentPage(value) {

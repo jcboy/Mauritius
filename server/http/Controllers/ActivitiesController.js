@@ -1,5 +1,7 @@
 const Activity = require('../../models/Activities');
 
+const perPage = 6;
+
 /*
 let indexMax = Activity.countDocuments().exec((err, response) => {
     console.log(response);
@@ -32,7 +34,10 @@ class ActivitiesController {
                 console.log('An error has occurred : ', err.message);
                 res.status(404).send(err);
             }
-            res.send(response);
+            res.send({
+                message: 'Activités récupérées à la base de donnée...',
+                response
+            });
         });
     }
 
