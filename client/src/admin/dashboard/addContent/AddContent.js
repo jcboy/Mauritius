@@ -11,11 +11,7 @@ class AddContent extends Component {
 
     render() {
 
-        let array = [ {id:1, title:'actu',  date:"05/11/1997", text:'oikdzfjplsdplsld psdplplsdl plsdpl', link:"okdfokok"},
-            {id:2,  title:'actu',date:"07/03/1964", text:'oikdzfj odsokdok doksokdsk kodsodok', link:"odokfo"},
-            {id:3, title:'actu', date:"03/11/1999", text:'oikdzfj dsodkosd kodskdokds okdsodsk ', link:"okfdsok"},
-            {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
-        ];
+
 
         return <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
