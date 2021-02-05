@@ -1,37 +1,73 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
+import Select from 'react-select';
+
 import {Sidebar} from "../../common/Sidebar";
-import {Component} from 'react';
+
 import ButtonFileUploadAddContent from "../../common/ButtonFileUploadAddContent/ButtonFileUploadAddContent";
 import ButtonFileUploadAddContentOtherImages
     from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
+export const AddContent = () => {
 
-class AddContent extends Component {
+    const [filters, setFilters] = useState ([]);
 
+    useEffect( () => {
+        axios.get('http://localhost:8080/categories')
+            .then( (response)=>{
+                setFilters(response.data);
+            } )
+    }, [] );
 
-    render() {
+    const [inputValues, setInputValues] = useState({title: ''});
 
-        let array = [ {id:1, title:'actu',  date:"05/11/1997", text:'oikdzfjplsdplsld psdplplsdl plsdpl', link:"okdfokok"},
-            {id:2,  title:'actu',date:"07/03/1964", text:'oikdzfj odsokdok doksokdsk kodsodok', link:"odokfo"},
-            {id:3, title:'actu', date:"03/11/1999", text:'oikdzfj dsodkosd kodskdokds okdsodsk ', link:"okfdsok"},
-            {id:4,  title:'actu' ,date:"09/051997", text:'oikdzfjfd kfdodfok dokjfkdfo dfokdof', link:"okfdkf"},
-        ];
+    const handleInputChange = ({target}) => {
+        setInputValues({
+            ...inputValues,
+            [target.name] : target.value
+        })
+    }
+    const handleSelectChange = ({target}) =>{
+        setInputValues({
+            ...inputValues,
+            [target.name]: target
+        });
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(inputValues.title.trim().length > 3  ){
+            axios.post('http://localhost:8080/actualities', inputValues)
+                .then((res) => {
+                    console.log(res.status);
 
-        return <div className="blockContact-AddContent pt-3 container-fluid">
+                    // inputValues(  )
+                })
+        }
+    }
+    return (
+        <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
                 <Sidebar />
-
-
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <h2>Nouveau contenu</h2>
                     <div>
                         <form>
                             <div className="row mb-3">
                                 <div className="col-md-4 form-floating">
-                                    <input className="grey form-control" type="text" placeholder="Titre"/>
+                                    <input type="text"
+                                           name="title"
+                                           value={inputValues.title}
+                                           onChange={handleInputChange}
+                                           className="grey form-control" placeholder="Titre"/>
                                     <label>Titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
-                                    <input className="grey form-control" type="text" placeholder="Sous-titre"/>
+                                    <input name="subtitle"
+                                           value={inputValues.subtitle}
+                                           onChange={handleInputChange}
+                                           className="grey form-control"
+                                           type="text"
+                                           placeholder="Sous-titre"/>
                                     <label>Sous-titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
@@ -39,20 +75,28 @@ class AddContent extends Component {
                                         <option value="valeur1">article</option>
                                         <option value="valeur2">actu</option>
                                     </select>
-                                    <label>Sélectionner type de contenu ( article  ou  actu »)</label>
+                                    <label>Sélectionner type de contenu ( article  ou  actu )</label>
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-md-6 form-floating">
+                                <div className="col-md-4 form-floating">
                                     <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
-                                    <input className="form-control" list="datalistOptions" id="exampleDataList"
-                                           placeholder="Type to search..."/>
-                                        <datalist id="datalistOptions">
-                                            <option value="Filter 1"></option>
-                                            <option value="Filter 2"></option>
-                                            <option value="Filter 3"></option>
-                                            <option value="Filter 4"></option>
-                                        </datalist>
+                                    {/*<input className="form-control" list="datalistOptions" id="exampleDataList"
+                                           placeholder="Type to search..."/>*/}
+
+                                    <Select
+                                        defaultValue={[]}
+                                        isMulti
+                                        name="filters"
+                                        value={inputValues.filters}
+                                        onInputChange={handleInputChange}
+                                        options={filters.map((filter, index)=>{
+                                            return { label: filter.name, value: filter.name }
+                                        })}
+                                        className="basic-multi-select text-dark form-control"
+                                        classNamePrefix="select"
+                                        placeholder=""
+                                    />
 
                                 </div>
 
@@ -62,7 +106,7 @@ class AddContent extends Component {
                                 </div>
 
                             </div>
-                            <div className="row mb-4">
+                            <div className="row my-4">
                                 <div className="col form-floating">
                                     <textarea className="grey form-control"  placeholder="Courte description"/>
                                     <label>Courte description</label>
@@ -70,7 +114,10 @@ class AddContent extends Component {
                             </div>
                             <div className="row mb-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control"  placeholder="Contenu"/>
+                                    <textarea name="description"
+                                              onChange={handleInputChange}
+                                              value={inputValues.description}
+                                              className="grey form-control"  placeholder="Contenu"/>
                                     <label>Contenu</label>
                                 </div>
                             </div>
@@ -87,7 +134,7 @@ class AddContent extends Component {
                                     <button type="button" className="btn btn-outline ">Annuler</button>
                                 </div>
                                 <div className=" col text-end">
-                                    <button type="button" className="btn-b btn ">Envoyer</button>
+                                    <button onClick={handleSubmit} type="button" className="btn-b btn ">Envoyer</button>
                                 </div>
                             </div>
 
@@ -102,14 +149,7 @@ class AddContent extends Component {
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-    }
-
-
+    )
 }
-
-export default AddContent;
 
