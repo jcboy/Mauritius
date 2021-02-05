@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const ActualitySchema = new mongoose.Schema({
     index : Number,
     title : String,
+    subtitle : String,
     date : String,
     description : String,
+    shortDescription: String,
     pageNumber : String,
-    tags : [
-        Categories
-    ]
+    tags : []
 }, {
     timestamps : true
 })
