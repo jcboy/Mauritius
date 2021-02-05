@@ -8,7 +8,6 @@ import ButtonFileUploadAddContent from "../../common/ButtonFileUploadAddContent/
 import ButtonFileUploadAddContentOtherImages
     from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
-
 export const AddContent = () => {
 
     const [filters, setFilters] = useState ([]);
