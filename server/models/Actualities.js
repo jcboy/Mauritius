@@ -8,7 +8,7 @@ const ActualitySchema = new mongoose.Schema({
     description : String,
     shortDescription: String,
     pageNumber : String,
-    tags : []
+    filters : []
 }, {
     timestamps : true
 })

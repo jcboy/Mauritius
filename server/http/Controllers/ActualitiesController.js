@@ -3,7 +3,7 @@ const Actuality = require ('../../models/Actualities');
 class ActualitiesController{
     index(req, res){
         const query = Actuality.find(); // recuperation de donnée
-        query.select('title description tags createdAt'); // séléction des attributs a recuperé
+        query.select('title description shortDescription filters createdAt'); // séléction des attributs a recuperé
 
         // const reqQueryOrder = req.query.OrderBy;
 
@@ -30,7 +30,7 @@ class ActualitiesController{
     store(req, res){
         const actuality = new Actuality(req.body); // assigné un model a la requete du body
         actuality.save().then(() => {
-            res.status(201).send({message : 'actuality sauvegarder correctement'})
+            res.status(201).send({message : 'Content recorded correctly'})
         }).catch(() => {
             res.status(400).send({message: 'une erreur est survenu'})
         })
