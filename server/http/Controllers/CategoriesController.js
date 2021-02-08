@@ -5,7 +5,7 @@ class CategoriesController {
 
     index(req, res) {
         const query = Category.find();  // 1. On récupère : https://mongoosejs.com/docs/queries.html
-        query.select('name').sort({name: 1});   // 2. On selectionne les attributs à récupèrer
+        query.select('tagName').sort({tagName: 1});   // 2. On selectionne les attributs à récupèrer
 
         query.exec((err, categories) => {  // 3. On execute la query que j'ai construit
             res.send(categories)

@@ -3,7 +3,7 @@ import {Component} from "react/cjs/react.production.min";
 import './../../styles/activities.css';
 import Welcome from "../../components/Welcome/welcome";
 import Pagination from "./Pagination";
-import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
+import MapActivities from "./ActivitiesConfig/MapActivities";
 import TagComponent from "./ActivitiesConfig/TagComponent";
 import axios from "axios";
 
@@ -12,9 +12,7 @@ class Activities extends Component {
     constructor() {
         super();
         this.state = {
-            previousPage : 0,
-            currentPage: 1,
-            nextPage: 2,
+            tags: [],
             activities: [],
         }
         this.updateCurrentPage = this.updateCurrentPage.bind(this);
@@ -22,8 +20,7 @@ class Activities extends Component {
     }
 
     componentDidMount() {
-        const params = this.state;
-        axios.get('http://localhost:8080/activities', {params}).then((response) => {
+        axios.get('http://localhost:8080/activities').then((response) => {
             this.setState({
                 activities: response.data.response
             })
@@ -33,21 +30,13 @@ class Activities extends Component {
     }
 
     updateTags(value) {
-        console.log(value);
+        //console.log(value);
     }
 
     updateCurrentPage(value) {
-        const params = {
-            previousPage : value - 1,
-            currentPage: value,
-            nextPage: value + 1
-        };
-        axios.get('http://localhost:8080/activities', {params})
+        axios.get('http://localhost:8080/activities')
             .then((response) => {
                 this.setState({
-                    previousPage : value -1,
-                    currentPage: value,
-                    nextPage: value++,
                     activities: response.data.response
                 });
             }).catch((err) => {
@@ -61,7 +50,7 @@ class Activities extends Component {
                 <Welcome param={{path: '/activities'}}/>
                 <div className="container activities pt-4 pb-5">
                     <TagComponent onTagChange={this.updateTags}/>
-                    <ActivityMapping info={this.state.activities}/>
+                    <MapActivities info={this.state.activities}/>
                     <Pagination onPage={this.updateCurrentPage}
                                 index={this.state.currentPage}/>
                 </div>

@@ -2,47 +2,26 @@ const Activity = require('../../models/Activities');
 
 const perPage = 6;
 
-/*
-let indexMax = Activity.countDocuments().exec((err, response) => {
-    console.log(response);
-    indexMax = response;
-});*/
-
 class ActivitiesController {
     index(req, res) {
+
+        // req.query.page OBLIGATOIRE
+        const pageNumber = Number(req.query.page);
+        const firstIndex = (pageNumber - 1) * perPage;
+
         const query = Activity.find();
 
-        if (!!req.query.title) {
-            query.where('title').equals(req.query.title);
-        }
+        query.where('tags').equals(req.query.tag);
 
-        if (!!req.query.date) {
-            query.where('date').equals(req.query.date);
-        }
+        query.limit(perPage);
+        query.skip(firstIndex);
 
-        if (!!req.query.tags) {
-            query.where('tags').equals(req.query.tags);
-        }
-
-        /*
-    if (!!req.query.currentPage) {
-        query.where('currentPage').equals(req.query.currentPage);
-        Activity.countDocuments((err, response) => {
-            const indexMax = Math.ceil(response/6);
-        })
-    }
-       */
 
         query.exec((err, response) => {
-            if (!!err) {
-                console.log('An error has occurred : ', err.message);
-                res.status(404).send(err);
-            }
-            res.send({
-                message: 'Activités récupérées à la base de donnée...',
-                response
-            });
-        });
+            console.log(response);
+            res.send({totalActivities: response.length, response});
+        })
+
     }
 
 

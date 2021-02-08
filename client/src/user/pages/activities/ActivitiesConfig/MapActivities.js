@@ -1,6 +1,6 @@
 import ActivityPreview from "./ActivityPreview";
 
-const ActivityMapping = (props) => {
+const MapActivities = (props) => {
     return (
         <div>
             {
@@ -14,4 +14,4 @@ const ActivityMapping = (props) => {
     )
 }
 
-export default ActivityMapping;
+export default MapActivities;

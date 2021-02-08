@@ -23,7 +23,7 @@ const TagComponent = (props) => {
 
 
     updateTags(tagList);
-
+    console.log(tagList);
     return (
         <div className="row pb-3 filter-content flex-column">
             <InputTag onSave={saveTag}/>
@@ -36,7 +36,6 @@ const TagComponent = (props) => {
                                                    tagName={tag}
                                                    noTag={deleteTag}/>
                             }))
-
                         }
                     </div>
                 </div>
@@ -46,3 +45,4 @@ const TagComponent = (props) => {
 }
 
 export default TagComponent;
+
