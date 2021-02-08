@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const ActualitiesSchema = mongoose.schema({
     id : Number,
     title : String,
-    date : String,
+    subtitle : String,
     description : String,
-    pageNumber : String,
+    shortDescription : String,
+    filters : String
 })
 
 const Actualities = mongoose.model('Actualities', ActualitiesSchema);
