@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import paginate from "./ActivitiesConfig/ActivityLogic/paginate";
 import pagination from "./ActivitiesConfig/ActivityLogic/paginate";
 
 const Pagination = ({setPage, currentPage, pageMax}) => {
@@ -15,8 +14,6 @@ const Pagination = ({setPage, currentPage, pageMax}) => {
         }
         return paginate(pagination(value, pageMax));
     }
-
-    console.table({currentPage, pageMax});
 
     return (<div>
             <div className="btn-toolbar justify-content-center" role="toolbar"

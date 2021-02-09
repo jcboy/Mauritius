@@ -1,30 +1,61 @@
 import React, {useState} from 'react';
 import TagPreview from "../tagConfig/TagPreview";
-import InputTag from "../tagConfig/InputTag";
+import Select from "react-select/async/dist/react-select.esm";
 
 const TagComponent = ({setTags}) => {
 
     const [tagList, updateTagList] = useState([]);
+    const [input, saveInput] = useState('')
 
-    const saveTag = (value) => {
-        setTags(value);
-        return updateTagList([...tagList, value]);
+    const saveTag = () => {
+        setTags(input.toLowerCase());
+        return updateTagList([...tagList, input.toLowerCase()]);
     }
 
     const deleteTag = (event) => {
-        //console.log(event);
         const id = tagList.findIndex((tag) => {
             return tag === event;
         })
+        console.log(event)
         const newTagList = [...tagList];
         newTagList.splice(id, 1);
         updateTagList(newTagList);
     }
 
+    /*
+        const filterColors = (tagName) => {
+            return tagList.filter((tag) => {
+                return tag.tagName.toLowerCase().includes(tagName.toLowerCase());
+            });
+        };
+        const promiseOptions = (tagName) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(filterColors(tagName));
+                }, 1000);
+            });
+        }
+     */
 
+    //loadOptions={promiseOptions}
     return (
         <div className="row pb-3 filter-content flex-column">
-            <InputTag onSave={saveTag}/>
+            <div className="col-5 d-flex pl-5 no-wrap">
+                <Select cacheOptions
+                        defaultValue={[]}
+                        options={tagList.map((filter) => {
+                            return {label: filter, value: filter}
+                        })}
+                        className="text-dark"
+                        name="filters"
+                        onInputChange={(value) => saveInput(value)}
+                        placeholder=""/>
+                <button type="button"
+                        className="btn btn-outline-primary"
+                        onClick={saveTag}
+                > Valider
+                </button>
+            </div>
             <div className="col">
                 <div className="row">
                     <div className="col my-2 display-block">
@@ -41,6 +72,7 @@ const TagComponent = ({setTags}) => {
         </div>
     )
 }
+
 
 export default TagComponent;
 
