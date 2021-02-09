@@ -2,17 +2,17 @@ import React, {useState} from 'react';
 import TagPreview from "../tagConfig/TagPreview";
 import InputTag from "../tagConfig/InputTag";
 
-const TagComponent = (props) => {
+const TagComponent = ({setTags}) => {
 
     const [tagList, updateTagList] = useState([]);
-    const updateTags = props.onTagChange;
 
     const saveTag = (value) => {
+        setTags(value);
         return updateTagList([...tagList, value]);
     }
 
     const deleteTag = (event) => {
-        console.log(event);
+        //console.log(event);
         const id = tagList.findIndex((tag) => {
             return tag === event;
         })
@@ -22,8 +22,6 @@ const TagComponent = (props) => {
     }
 
 
-    updateTags(tagList);
-    console.log(tagList);
     return (
         <div className="row pb-3 filter-content flex-column">
             <InputTag onSave={saveTag}/>

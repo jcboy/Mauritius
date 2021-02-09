@@ -3,23 +3,32 @@ const Activity = require('../../models/Activities');
 const perPage = 6;
 
 class ActivitiesController {
+
     index(req, res) {
-
-        // req.query.page OBLIGATOIRE
+        if (!req.query.page) {
+            res.status(404).send({message: 'Numéro de page introuvable...'})
+        }
         const pageNumber = Number(req.query.page);
-        const firstIndex = (pageNumber - 1) * perPage;
-
         const query = Activity.find();
-
-        query.where('tags').equals(req.query.tag);
-
-        query.limit(perPage);
-        query.skip(firstIndex);
-
+        if (!!req.query.tag) {
+            query.where("tags").equals(req.query.tag);
+        }
 
         query.exec((err, response) => {
-            console.log(response);
-            res.send({totalActivities: response.length, response});
+            if (!!err) {
+                res.status(500).send(err.message)
+            } else {
+                const count = response.length;
+                const firstIndexOfCurrentPage = (pageNumber - 1) * perPage;
+                response = response.splice(firstIndexOfCurrentPage, perPage);
+                const payload = {
+                    currentPage : req.query.page,
+                    pageMax : Math.ceil(count/perPage),
+                    count,
+                    response,
+                }
+                res.send(payload);
+            }
         })
 
     }

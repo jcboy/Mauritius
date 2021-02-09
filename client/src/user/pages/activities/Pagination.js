@@ -1,59 +1,51 @@
-import React, {Component} from "react";
-import getButtonPanel from "./ActivitiesConfig/ActivityLogic/getButtonPanel";
+import React, {useState} from "react";
+import paginate from "./ActivitiesConfig/ActivityLogic/paginate";
+import pagination from "./ActivitiesConfig/ActivityLogic/paginate";
 
-class Pagination extends Component {
+const Pagination = ({setPage, currentPage, pageMax}) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            buttonPanel: [...getButtonPanel(1)]
-        };
-        this.updateCurrentPage = props.onPage;
-        this.newPageIndex = this.newPageIndex.bind(this);
-    }
+    const [btnPanel, paginate] = useState(pagination(currentPage, pageMax));
 
-    newPageIndex(e) {
+    const newPageIndex = (e) => {
         const value = Number(e.target.id);
         if (value === 0) {
-            this.updateCurrentPage(1);
+            setPage(1);
         } else {
-            this.updateCurrentPage(value);
+            setPage(value);
         }
-        return this.setState({
-            buttonPanel: [...getButtonPanel(value)]
-        });
+        return paginate(pagination(value, pageMax));
     }
 
+    console.table({currentPage, pageMax});
 
-    render() {
-        return <div>
+    return (<div>
             <div className="btn-toolbar justify-content-center" role="toolbar"
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
                             id="0"
                             className="btn btn-outline-secondary"
-                            onClick={this.newPageIndex}
+                            onClick={newPageIndex}
                     > &laquo; </button>
                     {
-                        this.state.buttonPanel.map((buttonIndex, i) => {
+                        btnPanel.map((buttonIndex, i) => {
                             return <button type="button"
                                            key={i}
                                            id={buttonIndex}
                                            className="btn btn-outline-secondary"
-                                           onClick={this.newPageIndex}
+                                           onClick={newPageIndex}
                             > {buttonIndex} </button>
                         })
                     }
                     <button type="button"
                             id="-1"
                             className="btn btn-outline-secondary"
-                            onClick={this.newPageIndex}
+                            onClick={newPageIndex}
                     > &raquo; </button>
                 </div>
             </div>
         </div>
-    }
+    )
 }
 
 export default Pagination;
