@@ -1,9 +1,10 @@
-//const paginate = require('./paginate');
+const paginate = require('./paginate');
 
-//const currentPage = 3;
-//const pageMax = 5;
+const currentPage = 1;
+const pageMax = 5;
+
 const randocall = (fn) => {
-return fn(Math.floor(Math.random() * 6 + 1));
+    return fn(Math.floor(Math.random() * 6 + 1));
 }
 
 test('randocall calls its callback with a number', () => {
@@ -11,7 +12,6 @@ test('randocall calls its callback with a number', () => {
     randocall(mock);
     expect(mock).toBeCalledWith(expect.any(Number));
 });
-
 
 
 describe('Beware of a misunderstanding! A sequence of dice rolls', () => {
@@ -29,11 +29,8 @@ describe('Beware of a misunderstanding! A sequence of dice rolls', () => {
 });
 
 
-/*
-describe('arrayContaining', () => {
-    const result = [2, 3, 4];
-    it('matches even if received contains additional elements', () => {
-        expect(paginate(currentPage,pageMax)).toEqual(expect.arrayContaining(result));
-    });
+const result = [1, 2, 3];
+test('arrayContaining', () => {
+    expect(paginate(currentPage, pageMax)).toEqual(expect.arrayContaining(result));
 });
- */
+

@@ -23,7 +23,7 @@ const Pagination = ({setPage, currentPage, pageMax}) => {
                  aria-label="Toolbar with button groups">
                 <div className="btn-group" role="group" aria-label="First group">
                     <button type="button"
-                            id="0"
+                            id="1"
                             className="btn btn-outline-secondary"
                             onClick={newPageIndex}
                     > &laquo; </button>
@@ -38,7 +38,7 @@ const Pagination = ({setPage, currentPage, pageMax}) => {
                         })
                     }
                     <button type="button"
-                            id="-1"
+                            id={pageMax}
                             className="btn btn-outline-secondary"
                             onClick={newPageIndex}
                     > &raquo; </button>
