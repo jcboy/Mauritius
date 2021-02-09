@@ -32,7 +32,29 @@ const Composant = () => {
 
 search engine optimisation
 
+react snap (postbuild) : react-snap && firebase deploy --only hosting
 
+webpack : optimize, uglify, minimise
+
+codewar
+
+skillvalue
+
+next
+
+dockerjs
+
+electronjs
+
+react-helmet
+
+cda diplome
+
+méthode uml et merise
+
+certificat ssh
+
+uml diagramme entité association dev
 
 
 
