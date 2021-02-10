@@ -1,7 +1,6 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
-require('./database');
 
 const HomeRouter = require("./router/HomeRouter");
 const CategoriesRouter = require('./router/CategoriesRouter');
@@ -16,7 +15,6 @@ server.use(cors({
     optionsSuccessStatus: 200
 }))
 
-server.use(express.json());
 server.use(HomeRouter.prefix, HomeRouter.router);
 server.use(ActivitiesRouter.prefix, ActivitiesRouter.router);
 server.use(ActualitiesRouter.prefix, ActualitiesRouter.router);
