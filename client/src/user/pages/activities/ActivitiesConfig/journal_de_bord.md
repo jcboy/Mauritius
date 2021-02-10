@@ -29,3 +29,32 @@ https://daveceddia.com/usestate-hook-examples/
 https://stackoverflow.com/questions/37387351/reactjs-warning-setstate-cannot-update-during-an-existing-state-transiti
 
 
+
+### MASTERCLASS
+
+search engine optimisation
+
+react snap (postbuild) : react-snap && firebase deploy --only hosting
+
+webpack : optimize, uglify, minimise
+
+codewar
+
+skillvalue
+
+next
+
+dockerjs
+
+electronjs
+
+react-helmet
+
+cda diplome
+
+méthode uml et merise
+
+certificat ssh
+
+uml diagramme entité association dev
+

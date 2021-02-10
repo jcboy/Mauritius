@@ -1,68 +1,59 @@
-import React from 'react';
-import {Component} from "react/cjs/react.production.min";
-
+import React, {useState} from 'react';
 import './../../styles/activities.css';
 
 import Welcome from "../../components/Welcome/welcome";
-import Pagination from "./Pagination";
-import sequenceState from "./ActivitiesConfig/ActivityLogic/sequenceStateActivities";
-import ActivityMapping from "./ActivitiesConfig/ActivityMapping";
-import activities from "./ActivitiesConfig/ActivityList";
-import TagComponent from "./ActivitiesConfig/TagComponent";
-import filterActivitiesByExistingTags from "./ActivitiesConfig/ActivityLogic/filterActivitiesByExistingTags";
+import Pagination from "../../components/Activities/Pagination";
+import MapActivities from "../../components/Activities/MapActivities";
+import TagComponent from "../../components/Activities/TagComponent";
 
-const activityNumberPerPage = 3;
-const sequencedActivities = sequenceState(activityNumberPerPage, activities);
-export const pageIndexMax = sequencedActivities.length - 1;
+import {useQuery} from 'react-query';
+import {getActivities} from "../../API/activities/getSomeActivities";
 
-class Activities extends Component {
+const Activities = () => {
 
-    constructor() {
-        super();
-        this.state = {
-            pageIndex: 0,
-            activities: activities
-        }
-        this.updateIndex = this.updateIndex.bind(this);
-        this.updateTags = this.updateTags.bind(this);
-    }
+    const [currentPage, setPage] = useState(1);
+    const [tags, setTags] = useState([]);
+    let endpoints = ['activities', currentPage, ...tags];
 
-    updateTags(value) {
-        if (value[0]) {
-            console.log('activities', this.state.activities);
-            console.log('value', value);
-            const filteredActivities = filterActivitiesByExistingTags(value, this.state.activities);
-            console.log('filtered', filteredActivities);
-        }
-    }
+    const {status, data} = useQuery(endpoints, getActivities);
 
-    updateIndex(value) {
-        return this.setState({
-            pageIndex: value,
-        });
-    }
-
-    render() {
-        const sequencedActivities = [...sequenceState(activityNumberPerPage, this.state.activities)];
-        const info = {
-            info: sequencedActivities[this.state.pageIndex]
-        };
-        return (
-            <div>
-                <Welcome param={{path: '/activities'}}/>
-                <div className="container activities">
-                    <TagComponent onTagChange={this.updateTags}/>
-                    <br/>
-                    <ActivityMapping {...info}/>
-                    <br/>
-                    <Pagination indexChange={this.updateIndex}
-                    />
-                </div>
-                <br/>
+    return (
+        <>
+            <Welcome param={{path: '/activities'}}/>
+            <div className="container activities pt-4 pb-5">
+                <TagComponent setTags={setTags}/>
+                {
+                    (status === 'loading') && <div className="row">
+                        <h3 className="text-center my-5">
+                            Recherche en cours...
+                        </h3>
+                    </div>
+                }
+                {
+                    (status === 'success') && (
+                        ((data.response.length === 0) && <div className="row">
+                            <p className="text-center my-5">
+                                Aucun résultat trouvé
+                            </p>
+                        </div>) || <>
+                            <MapActivities activities={data.response}/>
+                            <Pagination setPage={setPage} currentPage={currentPage} pageMax={data.pageMax}/>
+                        </>
+                    )
+                }
             </div>
-        );
-    }
-
+        </>
+    );
 }
 
 export default Activities;
+
+
+/*
+
+Submit preventDefault
+https://www.robinwieruch.de/react-preventdefault
+
+https://stackoverflow.com/questions/43040721/how-to-update-nested-state-properties-in-react
+
+ */
