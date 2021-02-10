@@ -1,87 +1,102 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
+import Select from 'react-select';
+
 import {Sidebar} from "../../common/Sidebar";
+
 import ButtonFileUploadAddContent from "../../common/ButtonFileUploadAddContent/ButtonFileUploadAddContent";
 import ButtonFileUploadAddContentOtherImages
     from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
-import axios from 'axios';
+export const AddContent = () => {
 
-class AddContent extends Component {
+    const [filters, setFilters] = useState ([]);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            totalFilters : [],
-            page: '/actualities',
-            filters: []
-        }
-        this.changePage = this.changePage.bind(this)
-        this.saveArticle = this.saveArticle.bind(this)
-        this.getFilters = this.getFilters.bind(this)
-    }
+    useEffect( () => {
+        axios.get('http://localhost:8080/categories')
+            .then( (response)=>{
+                setFilters(response.data);
+            } )
+    }, [] );
 
-    componentDidMount() {
-    }
+    const [inputValues, setInputValues] = useState({title: ''});
 
-
-    changePage(event) {
-        const option = event.target.value;
-        console.log(option);
-    }
-
-    saveArticle() {
-        axios.post('http://localhost/' + this.state.page + 'create').then(() => {
-
+    const handleInputChange = ({target}) => {
+        setInputValues({
+            ...inputValues,
+            [target.name] : target.value
         })
     }
-
-    getFilters(event) {
-
+    const handleSelectChange = ({target}) =>{
+        setInputValues({
+            ...inputValues,
+            [target.name]: target
+        });
     }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(inputValues.title.trim().length > 3  ){
+            axios.post('http://localhost:8080/actualities', inputValues)
+                .then((res) => {
+                    console.log(res.status);
 
-    render() {
-        console.log(this.state.filters);
-        return <div className="blockContact-AddContent pt-3 container-fluid">
+                    // inputValues(  )
+                })
+        }
+    }
+    return (
+        <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
-                <Sidebar/>
-
-
+                <Sidebar />
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <h2>Nouveau contenu</h2>
                     <div>
                         <form>
                             <div className="row mb-3">
                                 <div className="col-md-4 form-floating">
-                                    <input className="grey form-control" type="text" placeholder="Titre"/>
+                                    <input type="text"
+                                           name="title"
+                                           value={inputValues.title}
+                                           onChange={handleInputChange}
+                                           className="grey form-control" placeholder="Titre"/>
                                     <label>Titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
-                                    <input className="grey form-control" type="text" placeholder="Sous-titre"/>
+                                    <input name="subtitle"
+                                           value={inputValues.subtitle}
+                                           onChange={handleInputChange}
+                                           className="grey form-control"
+                                           type="text"
+                                           placeholder="Sous-titre"/>
                                     <label>Sous-titre</label>
                                 </div>
-
-
                                 <div className="col-md-4 form-floating">
-                                    <select className="form-select grey" id="monselect" onChange={this.changePage}>
-                                        <option value="/actualities">actualities</option>
-                                        <option value="/activities">activities</option>
+                                    <select className="form-select grey" id="monselect">
+                                        <option value="valeur1">article</option>
+                                        <option value="valeur2">actu</option>
                                     </select>
-                                    <label>Sélectionner type de contenu ( article ou actu »)</label>
+                                    <label>Sélectionner type de contenu ( article  ou  actu )</label>
                                 </div>
-
-
                             </div>
                             <div className="row mb-3">
-                                <div className="col-md-6 form-floating">
-                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres
-                                        (apparait si article sélectionné)</label>
-                                    <input className="form-control" onChange={this.getFilters} list="datalistOptions" id="exampleDataList"
-                                           placeholder="Type to search..."/>
-                                    <datalist id="datalistOptions" >
-                                        <option value="Filter 1"></option>
-                                        <option value="Filter 2"></option>
-                                        <option value="Filter 3"></option>
-                                        <option value="Filter 4"></option>
-                                    </datalist>
+                                <div className="col-md-4 form-floating">
+                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
+                                    {/*<input className="form-control" list="datalistOptions" id="exampleDataList"
+                                           placeholder="Type to search..."/>*/}
+
+                                    <Select
+                                        defaultValue={[]}
+                                        isMulti
+                                        name="filters"
+                                        value={inputValues.filters}
+                                        onInputChange={handleInputChange}
+                                        options={filters.map((filter, index)=>{
+                                            return { label: filter.name, value: filter.name }
+                                        })}
+                                        className="basic-multi-select text-dark form-control"
+                                        classNamePrefix="select"
+                                        placeholder=""
+                                    />
 
                                 </div>
 
@@ -91,15 +106,18 @@ class AddContent extends Component {
                                 </div>
 
                             </div>
-                            <div className="row mb-4">
+                            <div className="row my-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control" placeholder="Courte description"/>
+                                    <textarea className="grey form-control"  placeholder="Courte description"/>
                                     <label>Courte description</label>
                                 </div>
                             </div>
                             <div className="row mb-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control" placeholder="Contenu"/>
+                                    <textarea name="description"
+                                              onChange={handleInputChange}
+                                              value={inputValues.description}
+                                              className="grey form-control"  placeholder="Contenu"/>
                                     <label>Contenu</label>
                                 </div>
                             </div>
@@ -107,8 +125,7 @@ class AddContent extends Component {
                             <div className="row mb-3">
                                 <div className="col-4">
 
-                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/>
-                                    </button>
+                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/></button>
                                 </div>
                             </div>
 
@@ -117,8 +134,7 @@ class AddContent extends Component {
                                     <button type="button" className="btn btn-outline ">Annuler</button>
                                 </div>
                                 <div className=" col text-end">
-                                    <button type="button" className="btn-b btn" onClick={this.saveArticle}>Envoyer
-                                    </button>
+                                    <button onClick={handleSubmit} type="button" className="btn-b btn ">Envoyer</button>
                                 </div>
                             </div>
 
@@ -133,14 +149,7 @@ class AddContent extends Component {
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-    }
-
-
+    )
 }
-
-export default AddContent;
 

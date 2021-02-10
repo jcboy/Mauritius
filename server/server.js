@@ -5,7 +5,7 @@ const cors = require('cors');
 const HomeRouter = require("./router/HomeRouter");
 const CategoriesRouter = require('./router/CategoriesRouter');
 const ActivitiesRouter = require("./router/ActivitiesRouter");
-const ActualitiesRouter = require("./router/ActivitiesRouter");
+const ActualitiesRouter = require("./router/ActualitiesRouter");
 
 const PORT = 8080;
 
