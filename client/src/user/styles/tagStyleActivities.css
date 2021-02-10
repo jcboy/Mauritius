@@ -2,13 +2,22 @@
     background: #4dded9;
     color: black;
     width: fit-content;
-    border : none;
+    border: none;
     border-radius: 3px;
     margin-right: 10px;
 }
 
 .croix {
-    color : #5fa7a7;
+    color: #5fa7a7;
     font-family: "Comic Sans MS", SansSerif sans-serif;
     font-weight: 700;
 }
+
+.css-1rhbuit-multiValue {
+    display: none !important;
+}
+
+/*
+.select__indicators {display:none!important;}
+ */
+

@@ -21,7 +21,7 @@ const Activities = () => {
         <>
             <Welcome param={{path: '/activities'}}/>
             <div className="container activities pt-4 pb-5">
-                <TagComponent setTags={setTags}/>
+                <TagComponent setTags={setTags} setPage={setPage}/>
                 {
                     (status === 'loading') && <div className="row">
                         <h3 className="text-center my-5">
