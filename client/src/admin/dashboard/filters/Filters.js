@@ -15,6 +15,11 @@ export const Filters = () => {
             });
     }, []);
 
+    const addNewCategory = inputCategory => {
+        const newCategories = [...categories, inputCategory];
+        setCategories(newCategories);
+    }
+
     const deleteCategory = (id) => {
         axios.delete( 'http://localhost:8080/categories/'+id )
             .then((response) => {
@@ -37,7 +42,7 @@ export const Filters = () => {
 
                     <h2>Gestion des filtres</h2>
 
-                    <AddFilter setCategories={setCategories} />
+                    <AddFilter addNewCategory={addNewCategory} />
 
                     <h3 className="mt-5">Liste des filtres (ordre alphabétique)</h3>
 

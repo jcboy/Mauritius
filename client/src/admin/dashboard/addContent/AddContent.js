@@ -10,40 +10,52 @@ import ButtonFileUploadAddContentOtherImages
 
 export const AddContent = () => {
 
-    const [filters, setFilters] = useState ([]);
-
+    const [data, setData] = useState ([]);
     useEffect( () => {
         axios.get('http://localhost:8080/categories')
             .then( (response)=>{
-                setFilters(response.data);
+                setData(response.data);
             } )
     }, [] );
 
-    const [inputValues, setInputValues] = useState({title: ''});
-
+    const [inputValues, setInputValues] = useState({title: '', subtitle: '', shortDescription:'', description:''});
     const handleInputChange = ({target}) => {
-        setInputValues({
-            ...inputValues,
-            [target.name] : target.value
-        })
+        setInputValues({ ...inputValues, [target.name] : target.value })
     }
-    const handleSelectChange = ({target}) =>{
-        setInputValues({
-            ...inputValues,
-            [target.name]: target
-        });
+
+    const [selectedValue, setSelectedValue] = useState([]);
+    const handleSelectChange = (e) =>{
+        setSelectedValue( e.map(x => x.value) );
+
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(inputValues.title.trim().length > 3  ){
-            axios.post('http://localhost:8080/actualities', inputValues)
+            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue} )
                 .then((res) => {
                     console.log(res.status);
-
-                    // inputValues(  )
+                    setInputValues( {title: '', subtitle: '', shortDescription:'', description:''} );
+                    setSelectedValue([]);
                 })
         }
     }
+
+
+    const handleReset = () => {
+        setSelectedValue([]);
+
+        /* Select.defaultProps= {
+            value: []
+        } */
+
+        // Select.current.select.clearValue();
+        // Select.value( ()=> {});
+
+        setInputValues( {title: '', subtitle: '', shortDescription:'', description:''} );
+        // setSelectedValue(null);
+    }
+
     return (
         <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
@@ -62,11 +74,11 @@ export const AddContent = () => {
                                     <label>Titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
-                                    <input name="subtitle"
+                                    <input type="text"
+                                           name="subtitle"
                                            value={inputValues.subtitle}
                                            onChange={handleInputChange}
                                            className="grey form-control"
-                                           type="text"
                                            placeholder="Sous-titre"/>
                                     <label>Sous-titre</label>
                                 </div>
@@ -79,26 +91,25 @@ export const AddContent = () => {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-md-4 form-floating">
+                                <div className="col-md-4 form-floating mb-4">
                                     <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
                                     {/*<input className="form-control" list="datalistOptions" id="exampleDataList"
                                            placeholder="Type to search..."/>*/}
-
                                     <Select
                                         defaultValue={[]}
-                                        isMulti
-                                        name="filters"
-                                        value={inputValues.filters}
-                                        onInputChange={handleInputChange}
-                                        options={filters.map((filter, index)=>{
-                                            return { label: filter.name, value: filter.name }
+                                        name="data"
+                                        // value={data.filter(obj => selectedValue.includes(obj.value))}
+                                        options={data.map((cat, index)=>{
+                                            return { value: cat.name, label: cat.name }
                                         })}
+                                        onChange={handleSelectChange}
                                         className="basic-multi-select text-dark form-control"
                                         classNamePrefix="select"
                                         placeholder=""
+                                        isMulti
                                     />
 
-                                </div>
+                                </div>{selectedValue}
 
                                 <div className="col-md-4 form-floating">
 
@@ -108,7 +119,10 @@ export const AddContent = () => {
                             </div>
                             <div className="row my-4">
                                 <div className="col form-floating">
-                                    <textarea className="grey form-control"  placeholder="Courte description"/>
+                                    <textarea name="shortDescription"
+                                              onChange={handleInputChange}
+                                              value={inputValues.shortDescription}
+                                              className="grey form-control"  placeholder="Courte description"/>
                                     <label>Courte description</label>
                                 </div>
                             </div>
@@ -131,7 +145,7 @@ export const AddContent = () => {
 
                             <div className="row ">
                                 <div className="offset-8 col text-end">
-                                    <button type="button" className="btn btn-outline ">Annuler</button>
+                                    <button onClick={handleReset} type="button" className="btn btn-outline ">Annuler</button>
                                 </div>
                                 <div className=" col text-end">
                                     <button onClick={handleSubmit} type="button" className="btn-b btn ">Envoyer</button>
