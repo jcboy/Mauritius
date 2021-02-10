@@ -22,8 +22,6 @@ const TagComponent = ({setTags}) => {
         setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
     }
 
-    console.log(data)
-
     const saveTag = () => {
         console.log(input)
         setTags(input.toLowerCase());
