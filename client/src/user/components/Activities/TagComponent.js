@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import TagPreview from "../tagConfig/TagPreview";
+import TagPreview from "./TagPreview";
 import Select from "react-select/async/dist/react-select.esm";
 
 const TagComponent = ({setTags}) => {
@@ -8,6 +8,7 @@ const TagComponent = ({setTags}) => {
     const [input, saveInput] = useState('')
 
     const saveTag = () => {
+        console.log(input)
         setTags(input.toLowerCase());
         return updateTagList([...tagList, input.toLowerCase()]);
     }
@@ -48,7 +49,10 @@ const TagComponent = ({setTags}) => {
                         })}
                         className="text-dark"
                         name="filters"
-                        onInputChange={(value) => saveInput(value)}
+                        onInputChange={(value) => {
+                            console.log(value)
+                            saveInput(value)
+                        }}
                         placeholder=""/>
                 <button type="button"
                         className="btn btn-outline-primary"

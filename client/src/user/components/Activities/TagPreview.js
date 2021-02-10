@@ -1,4 +1,4 @@
-import './tagStyleActivities.css';
+import '../../styles/tagStyleActivities.css';
 
 const TagPreview = (props) => {
 

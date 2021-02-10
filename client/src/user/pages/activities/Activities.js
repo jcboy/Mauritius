@@ -1,34 +1,21 @@
 import React, {useState} from 'react';
 import './../../styles/activities.css';
+
 import Welcome from "../../components/Welcome/welcome";
-import Pagination from "./Pagination";
-import MapActivities from "./ActivitiesConfig/MapActivities";
-import TagComponent from "./ActivitiesConfig/TagComponent";
+import Pagination from "../../components/Activities/Pagination";
+import MapActivities from "../../components/Activities/MapActivities";
+import TagComponent from "../../components/Activities/TagComponent";
+
 import {useQuery} from 'react-query';
-import axios from 'axios';
-
-const fetch = async (key, currentPage, ...tags) => {
-    let endpoints = '';
-    let URL = key + '?page=' + currentPage;
-    if (!!tags[0]) {
-        endpoints = tags.reduce((red, acc) => {
-            return red + '&tag=' + acc
-        }, '&tag=')
-        URL = URL + endpoints;
-    }
-    console.log('URL', URL);
-    const {data} = await axios.get('http://localhost:8080/' + URL)
-    return data
-}
-
+import {getActivities} from "../../API/activities/getSomeActivities";
 
 const Activities = () => {
 
     const [currentPage, setPage] = useState(1);
     const [tags, setTags] = useState([]);
-
     let endpoints = ['activities', currentPage, ...tags];
-    const {status, data} = useQuery(endpoints, fetch);
+
+    const {status, data} = useQuery(endpoints, getActivities);
 
     return (
         <>

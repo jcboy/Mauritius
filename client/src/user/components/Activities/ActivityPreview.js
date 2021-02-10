@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import '../../../styles/activity.css';
+import '../../styles/activity.css';
 
-import thumb01 from '../../../assets/images/thumb-01.jpg'
+import thumb01 from '../../assets/images/thumb-01.jpg'
 
 const ActivityPreview = (props) => {
     return (

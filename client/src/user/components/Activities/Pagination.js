@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import pagination from "./ActivitiesConfig/ActivityLogic/paginate";
+import pagination from "../../pages/activities/ActivitiesConfig/paginate";
 
 const Pagination = ({setPage, currentPage, pageMax}) => {
 
