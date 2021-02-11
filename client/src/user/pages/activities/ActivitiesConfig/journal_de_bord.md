@@ -2,7 +2,29 @@
 
 Mettre à jour les styles de l'input et des preview
 
+## JEST
 
+Remarque : Attention lorsqu'on teste des fonctions à les exporter comme module !
+```javascript
+// bien
+module.exports = maFonction;
+// pas bien
+export default maFonction;
+```
+
+Remarque 2 : Jest ne reconnait pas la syntaxe ES6 pour l'importation:
+
+```javascript
+// bien
+const maFonction = require('./maFonction.js'); 
+
+// pas bien
+import {maFonction} from './maFonction.js'
+```
+
+
+
+* commande utile : `npm run test -- --watch` (surveille les erreurs)
 
 ### ANNEXE
 
@@ -52,4 +74,6 @@ méthode uml et merise
 certificat ssh
 
 uml diagramme entité association dev
+
+puppeteer
 

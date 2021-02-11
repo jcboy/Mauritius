@@ -14,4 +14,4 @@ const paginate = (currentPage, pageMax) => {
     }
 }
 
-export default paginate;
+module.exports = paginate;
