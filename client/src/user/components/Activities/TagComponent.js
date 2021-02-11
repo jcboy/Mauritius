@@ -12,6 +12,7 @@ const TagComponent = ({setTags, setPage}) => {
 
     const {data, status} = useQuery('categories', getCategories)
 
+
     useEffect(() => {
         axios.get('http://localhost:8080/categories')
             .then((response) => {
