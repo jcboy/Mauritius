@@ -19,7 +19,7 @@ Remarque 2 : Jest ne reconnait pas la syntaxe ES6 pour l'importation:
 const maFonction = require('./maFonction.js'); 
 
 // pas bien
-import {maFonction} from './maFonction.js'
+import maFonction from './maFonction.js'
 ```
 
 
