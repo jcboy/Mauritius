@@ -5,12 +5,4 @@ export const getCategories = async (key) => {
     return data;
 }
 
-let non = false;
-
-const reset = (value) => non === true ? [] : value;
-
-const handleReset = ( ) => {
-
-
-}
 

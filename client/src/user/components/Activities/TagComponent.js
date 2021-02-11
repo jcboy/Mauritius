@@ -2,11 +2,15 @@ import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 import axios from 'axios';
 import '../../styles/tagStyleActivities.css';
+import {useQuery} from "react-query";
+import {getCategories} from "../../API/categories/getSomeCategories";
 
 const TagComponent = ({setTags, setPage}) => {
 
     const [options, setOptions] = useState([]);
     const [selectedValues, setSelectedValues] = useState([]);
+
+    const {data, status} = useQuery('categories', getCategories)
 
     useEffect(() => {
         axios.get('http://localhost:8080/categories')
@@ -40,6 +44,8 @@ const TagComponent = ({setTags, setPage}) => {
 
     return (<div className="row pb-3 filter-content flex-column">
             <div className="col-5 d-flex pl-5 no-wrap">
+                {
+                    (status === 'success') &&
                 <Select
                     name="options"
                     options={options.map((tag) => {
@@ -53,9 +59,10 @@ const TagComponent = ({setTags, setPage}) => {
                         menu: base => (
                             {...base, marginBottom: 76})
                     }}
-                    value={x => []}
+                    value={() => []}
                     isMulti
                 />
+                }
                 <button type="button"
                         className="btn btn-outline-primary"
                         onClick={sendTags}
@@ -71,7 +78,7 @@ const TagComponent = ({setTags, setPage}) => {
                                                 key={tag}
                                                 id={tag}
                                                 onClick={(event) => {
-                                                    action(event.target.id, 'remove-value')
+                                                    action(event.target["id"], 'remove-value')
                                                 }}>
                                     {tag} &nbsp; <span className="croix" id={tag}> x </span>
                                 </button>)
