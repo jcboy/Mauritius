@@ -21,17 +21,9 @@ const ActivitySchema = new mongoose.Schema({
         type : String,
         required: true
     },
-    previousPage: {
-        type : Number,
-        required: false
-    },
     currentPage: {
         type : Number,
         required: true
-    },
-    nextPage: {
-        type : Number,
-        required: false
     },
     tags: {
         type : String,
