@@ -25,12 +25,15 @@ html, body { height: 100%;}
 .admin_main {color: #fff;}
 .admin_main .navbar-brand {font-size: 34px;}
 .admin_main .form-control {padding: 1rem 0.2rem;}
-.admin_main .form-floating>label {padding-left: 0}
+.admin_main .form-floating>label {padding-left: 12px;}
 @media (min-width: 576px) {
     .admin_main main {
         margin-left: auto !important;
     }
 }
+
+.admin_main .btn-primary { padding: .375rem 1.75rem; background-color: #00627B; border-color: #00627B;}
+.admin_main .btn-primary:hover{ background-color: transparent;}
 
 .admin_main .basic-multi-select {margin-top: 20px;}
 .admin_main .css-yk16xz-control {background: transparent; border: 0 none; border-bottom: 1px solid #fff; border-radius: 0;}
@@ -43,11 +46,11 @@ html, body { height: 100%;}
 .admin_main .css-tlfecz-indicatorContainer,
 .admin_main .css-1hb7zxy-IndicatorsContainer{display: none}
 
+.admin_main .shortDescription textarea {height: 70px;}
 
 /* === Pieces Jointes AddContent === */
 .pj { /*position:absolute; bottom:0;*/ border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;
 }
-
 .pj2 {  border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; margin-bottom: 0;}
 
 
