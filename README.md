@@ -8,7 +8,11 @@
 
 
 ## Introduction
-Ce projet s'inscrit dans le cadre de la formation de Developement Fullstack Javascript
-proposé par l'école informatique [White Rabbit](link){:target="_blank"}
+Ce projet s'inscrit dans le cadre de la formation de Développement Fullstack Javascript
+proposé par l'école informatique [White Rabbit](link) et a pour but réaliser une application
+web (backend/frontend).
+
+
+
 
 
