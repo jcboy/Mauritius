@@ -20,12 +20,12 @@ web complète (backend/frontend).
 
 ### L'Équipe (Ordre alphabétique) 
 
-Juan Carlos Boy
-Audrey Igouassel
-Hadi Jamal Ahmad
-Kayaam LOISEAU
-Maxime Roche-Thorel
-Salah Salaheddine
+- Juan Carlos Boy
+- Audrey Igouassel
+- Hadi Jamal Ahmad
+- Kayaam LOISEAU
+- Maxime Roche-Thorel
+- Salah Salaheddine
 
 ## Les maquettes
 
