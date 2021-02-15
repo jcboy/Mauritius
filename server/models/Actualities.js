@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
 
-const ActualitiesSchema = mongoose.schema({
-    id : Number,
+const ActualitySchema = new mongoose.Schema({
     title : String,
     subtitle : String,
+    date : String,
     description : String,
-    shortDescription : String,
-    filters : String
+    shortDescription: String,
+    image: String,
+    otherImages: [],
+    pageNumber : String
+}, {
+    timestamps : true
 })
 
-const Actualities = mongoose.model('Actualities', ActualitiesSchema);
+module.exports = mongoose.model('Actuality', ActualitySchema);
 
-module.exports = Actualities;

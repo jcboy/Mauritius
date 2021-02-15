@@ -40,9 +40,10 @@ class FileUploadAddContent extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onFormSubmit}>
+            <>
                 <input type="file" onChange={this.onChange} />
-            </form>
+                {/*<form onSubmit={this.onFormSubmit}> </form>*/}
+            </>
         )
     }
 }

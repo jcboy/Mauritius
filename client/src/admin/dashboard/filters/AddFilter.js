@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from "axios";
 
-export const AddFilter = ({setCategories}) => {
+export const AddFilter = ({addNewCategory}) => {
 
     const [values, setValues] = useState({name: ''}); // 1. state of the inputs & initial value
 
@@ -10,21 +10,18 @@ export const AddFilter = ({setCategories}) => {
             ...values,   // create new object
             [target.name] : target.value    //  & modify only the one I receive in this event
         })
-        console.log('values', values);
-        // Option 2: setValues({[target.name]: target.value});
+        console.log(target.value);  // Option 2: setValues({[target.name]: target.value});
     }
 
     const handleSubmit = (e) =>{ // 3. submit values
         e.preventDefault();
-
-
         if (values.name.trim().length > 3) {
             axios.post('http://localhost:8080/categories/store', values)
                 .then( (res)=> {
                     console.log(res.status);
                     // on a plus accès au categories ça n a pas été passé comme arg
                     // mais il est suffit en faisant referenc à setCategories qui possède un callback qui garde l'état antérieur
-                    setCategories( (cats)=> [values, ...cats] );
+                    addNewCategory( (cats)=> [values, ...cats] );
                     setValues({name:''});
                 });
         }
@@ -49,6 +46,6 @@ export const AddFilter = ({setCategories}) => {
                 <button onClick={handleSubmit} type="button" className="btn btn-primary ">Ok</button>
             </div>
         </div>
-        </>
+    </>
 
 }

@@ -1,13 +1,45 @@
 const mongoose = require('mongoose');
 
-const ActivitySchema = mongoose.schema({
-    id : Number,
-    title : String,
-    date : String,
-    description : String,
-    pageNumber : String,
+const ActivitySchema = new mongoose.Schema({
+    index: {
+        type : Number,
+        required: true
+    },
+    title: {
+        type : String,
+        required: true
+    },
+    date: {
+        type : String,
+        required: true
+    },
+    scenery: {
+        type : String,
+        required: true
+    },
+    description: {
+        type : String,
+        required: true
+    },
+    previousPage: {
+        type : Number,
+        required: false
+    },
+    currentPage: {
+        type : Number,
+        required: true
+    },
+    nextPage: {
+        type : Number,
+        required: false
+    },
+    tags: {
+        type : String,
+        required: false
+    }
+}, {
+    timestamps: true
 })
 
-const Activity = mongoose.model('Activity', ActivitySchema);
+module.exports = mongoose.model('Activity', ActivitySchema);
 
-module.exports = Activity;
