@@ -2,6 +2,7 @@ import React from 'react';
 import {Sidebar} from "../../common/Sidebar";
 import EmailList2 from "../mail/EmailList2";
 
+
 export const EmailList = () => {
     return (
         <div className="container-fluid">

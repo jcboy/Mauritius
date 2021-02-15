@@ -20,8 +20,8 @@ export const AdminRoutes = () => {
             <Switch>
                 <Route exact path="/admin/contentlist" component={ ContentList }/>
                 <Route exact path="/admin/addcontent" component={ AddContent }/>
-                <Route exact path="/admin/emaillist" component={ EmailList }/>
-                <Route exact path="/admin/emaillist/:emailId" component={ Email }/>
+                <Route exact path="/admin/mails" component={ EmailList }/>
+                <Route exact path="/admin/mails/:mailId" component={ Email }/>
                 <Route exact path="/admin/filters" component={ Filters }/>
                 <Route exact path="/admin/password" component={ Password }/>
 

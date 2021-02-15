@@ -1,12 +1,82 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
+import {Sidebar} from "../../common/Sidebar";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import './../../styles/admin.css';
 
 
 
+export const EmailList2 = () => {
+
+    const [mails, setMails] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/mails')
+            .then((response) => {
+                console.log(response.data);
+                setMails(response.data );
+            });
+    }, []);
+
+    /*
+    const deleteMail = (id) => {
+        axios.delete( 'http://localhost:8080/mails/'+id )
+            .then((response) => {
+                console.log(response);
+                const messages = [...mails]; // 1. new array messages
+                // 2. idx = index de le message supprimé // 3. cherche le message qui a un id égal à celui qu'on cliqué
+                const idx = messages.findIndex( (mail)=>mail._id === id );
+                // mise à jour du tableau en supprimant le message dont l'index on a trouvé
+                messages.splice(idx, 1);
+                // on mat à jour le state du tableau on créant un nvo tableau
+                setMails([...messages]);
+            });
+    }
 
 
+     */
+
+    return (
+        <div className="container mails">
+
+            <div className="row titlerow col-md-12">
+                <div className="col-md-4">
+                    <div className="offset-md-5">Date d'envoi</div>
+                </div>
+                <div className="col-md-4">
+                    <div className="offset-md-5">Mail</div>
+                </div>
+                <div className="col-md-4">
+                    <div className="offset-md-4">0bjet</div>
+                </div>
+            </div>
+
+            {mails.map(item => (
+                <div className="item" key={mails}>
+                    <Link type="button" className="btn btn-secondary  row mailrow hoverrow" to={`/admin/mails/${item._id}`}>
+                        <div className="row ">
+                            <div className="col-md-4">
+                                {item.date}
+                            </div>
+                            <div className="col-md-4">
+                                {item.mail}
+                            </div>
+                            <div className="col-md-4">
+                                {item.object}
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            ))}
+
+        </div>
+
+    )
+}
+
+
+/*
 class EmailList2 extends Component {
 
     render() {
@@ -30,7 +100,7 @@ class EmailList2 extends Component {
                         <div className="offset-md-5">Mail</div>
                     </div>
                     <div className="col-md-4">
-                        <div className="offset-md-4">  0bjet</div>
+                        <div className="offset-md-4">0bjet</div>
                     </div>
                 </div>
 
@@ -61,5 +131,7 @@ class EmailList2 extends Component {
 
 
     }
+    
+ */
 
     export default EmailList2;

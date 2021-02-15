@@ -6,7 +6,7 @@ import {AddFilter} from "./AddFilter";
 export const Filters = () => {
 
     const [categories, setCategories] = useState([]);
-
+ 
     useEffect(() => {
         axios.get('http://localhost:8080/categories')
             .then((response) => {

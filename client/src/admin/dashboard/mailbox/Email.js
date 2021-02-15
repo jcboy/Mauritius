@@ -1,5 +1,6 @@
 import React from 'react';
 import {Sidebar} from "../../common/Sidebar";
+import Email2 from "../mail/Email2";
 
 
 export const Email = () => {
@@ -9,7 +10,7 @@ export const Email = () => {
                 <Sidebar />
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-                    Email
+                    <Email2 />
 
 
                 </main>

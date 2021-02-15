@@ -16,7 +16,7 @@ export const Sidebar = () => {
                             <NavLink exact activeClassName="active" to="/admin/filters" className="nav-link" >Gestion des filtres</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName="active" to="/admin/emaillist" className="nav-link" >Messagerie</NavLink>
+                            <NavLink exact activeClassName="active" to="/admin/mails" className="nav-link" >Messagerie</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink exact activeClassName="active" to="/admin/password" className="nav-link" >Mot de passe</NavLink>

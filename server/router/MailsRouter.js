@@ -6,12 +6,14 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const MailsController = require('../http/Controllers/MailsController');
-const {index, store, delete:remove } = MailsController;
+const {index, store, show, delete:remove } = MailsController;
 
 const router = Router();
 const prefix = '/mails'
 
-router.get('/', index);
+router.get('/', index)
+
+router.get('/:id', show);
 
 router.post(
     '/store',
@@ -24,6 +26,8 @@ router.post(
         check('pieceJointe', ),
     ],
     store);
+
+
 
 
 /*
