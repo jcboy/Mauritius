@@ -10,47 +10,56 @@ import ButtonFileUploadAddContentOtherImages
 
 export const AddContent = () => {
 
-    const [filters, setFilters] = useState ([]);
-
-    useEffect( () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
         axios.get('http://localhost:8080/categories')
-            .then( (response)=>{
-                setFilters(response.data);
-            } )
-    }, [] );
+            .then((response) => {
+                setData(response.data);
+            })
+    }, []);
 
-    const [inputValues, setInputValues] = useState({title: ''});
-
+    const [inputValues, setInputValues] = useState({title: '', subtitle: '', shortDescription: '', description: ''});
     const handleInputChange = ({target}) => {
-        setInputValues({
-            ...inputValues,
-            [target.name] : target.value
-        })
+        setInputValues({...inputValues, [target.name]: target.value})
     }
-    const handleSelectChange = ({target}) =>{
-        setInputValues({
-            ...inputValues,
-            [target.name]: target
-        });
+
+    const [selectedValue, setSelectedValue] = useState([]);
+    const handleSelectChange = (e) => {
+        setSelectedValue(e.map(x => x.value));
     }
+
+    const [emptyInput, setEmptyInput] = useState(false);
+    const reset = (value) => emptyInput === true ? [] : value;
+    const handleReset = () => {
+        setSelectedValue([]);
+
+        setEmptyInput(!emptyInput);
+        reset();
+        setEmptyInput(!emptyInput);
+
+        setInputValues({title: '', subtitle: '', shortDescription: '', description: ''});
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(inputValues.title.trim().length > 3  ){
-            axios.post('http://localhost:8080/actualities', inputValues)
+        if (inputValues.title.trim().length > 3) {
+            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue})
                 .then((res) => {
                     console.log(res.status);
-
-                    // inputValues(  )
+                    handleReset()
                 })
         }
     }
+
+    const [contentType, setContentType] = useState('activities');
+
     return (
         <div className="blockContact-AddContent pt-3 container-fluid">
             <div className="row">
-                <Sidebar />
+                <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <h2>Nouveau contenu</h2>
-                    <div>
+                    <h2>Nouveau contenu - {contentType}</h2>
+                    <div className="px-2">
                         <form>
                             <div className="row mb-3">
                                 <div className="col-md-4 form-floating">
@@ -62,53 +71,58 @@ export const AddContent = () => {
                                     <label>Titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
-                                    <input name="subtitle"
+                                    <input type="text"
+                                           name="subtitle"
                                            value={inputValues.subtitle}
                                            onChange={handleInputChange}
                                            className="grey form-control"
-                                           type="text"
                                            placeholder="Sous-titre"/>
                                     <label>Sous-titre</label>
                                 </div>
                                 <div className="col-md-4 form-floating">
-                                    <select className="form-select grey" id="monselect">
-                                        <option value="valeur1">article</option>
-                                        <option value="valeur2">actu</option>
+                                    <select name="typeOfContent" onChange={(e) => setContentType(e.target.value)}
+                                            className="form-select grey"
+                                            id="monselect">
+                                        <option value="activities">article</option>
+                                        <option value="actualities">actu</option>
                                     </select>
-                                    <label>Sélectionner type de contenu ( article  ou  actu )</label>
+                                    <label>Sélectionner type de contenu ( article ou actu )</label>
                                 </div>
                             </div>
+
                             <div className="row mb-3">
+                                {contentType === 'activities' && (
+                                    <div className="col-md-4 form-floating mb-4">
+                                        <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres à
+                                            votre article</label>
+                                        <Select
+                                            defaultValue={[]}
+                                            name="data"
+                                            value={reset()}
+                                            options={data.map((cat, index) => {
+                                                return {value: cat.name, label: cat.name}
+                                            })}
+                                            onChange={handleSelectChange}
+                                            className="basic-multi-select text-dark form-control"
+                                            classNamePrefix="select"
+                                            placeholder=""
+                                            isMulti
+                                        />
+                                    </div>
+                                )
+                                }
+
                                 <div className="col-md-4 form-floating">
-                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres (apparait si article sélectionné)</label>
-                                    {/*<input className="form-control" list="datalistOptions" id="exampleDataList"
-                                           placeholder="Type to search..."/>*/}
-
-                                    <Select
-                                        defaultValue={[]}
-                                        isMulti
-                                        name="filters"
-                                        value={inputValues.filters}
-                                        onInputChange={handleInputChange}
-                                        options={filters.map((filter, index)=>{
-                                            return { label: filter.name, value: filter.name }
-                                        })}
-                                        className="basic-multi-select text-dark form-control"
-                                        classNamePrefix="select"
-                                        placeholder=""
-                                    />
-
-                                </div>
-
-                                <div className="col-md-4 form-floating">
-
                                     <button type="button" className="pj"><ButtonFileUploadAddContent/></button>
                                 </div>
 
                             </div>
                             <div className="row my-4">
-                                <div className="col form-floating">
-                                    <textarea className="grey form-control"  placeholder="Courte description"/>
+                                <div className="col-md-8 form-floating shortDescription">
+                                    <textarea name="shortDescription"
+                                              onChange={handleInputChange}
+                                              value={inputValues.shortDescription}
+                                              className="grey form-control" placeholder="Courte description"/>
                                     <label>Courte description</label>
                                 </div>
                             </div>
@@ -117,7 +131,7 @@ export const AddContent = () => {
                                     <textarea name="description"
                                               onChange={handleInputChange}
                                               value={inputValues.description}
-                                              className="grey form-control"  placeholder="Contenu"/>
+                                              className="grey form-control" placeholder="Contenu"/>
                                     <label>Contenu</label>
                                 </div>
                             </div>
@@ -125,16 +139,19 @@ export const AddContent = () => {
                             <div className="row mb-3">
                                 <div className="col-4">
 
-                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/></button>
+                                    <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/>
+                                    </button>
                                 </div>
                             </div>
 
                             <div className="row ">
                                 <div className="offset-8 col text-end">
-                                    <button type="button" className="btn btn-outline ">Annuler</button>
-                                </div>
-                                <div className=" col text-end">
-                                    <button onClick={handleSubmit} type="button" className="btn-b btn ">Envoyer</button>
+                                    <button onClick={handleReset} type="button"
+                                            className="btn btn-outline m-e-4">Annuler
+                                    </button>
+
+                                    <button onClick={handleSubmit} type="button" className="btn-primary btn ">Valider
+                                    </button>
                                 </div>
                             </div>
 
