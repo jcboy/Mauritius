@@ -49,7 +49,7 @@ html, body { height: 100%;}
 .admin_main .shortDescription textarea {height: 70px;}
 
 /* === Pieces Jointes AddContent === */
-.pj { /*position:absolute; bottom:0;*/ border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;
+.pj { /*position:absolute; bottom:0; border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem;*/
 }
 .pj2 {  border-bottom: 0; color: #FFFFFF; background-color: #757474; border-color: #757474; padding: .375rem 1.75rem; margin-bottom: 0;}
 
