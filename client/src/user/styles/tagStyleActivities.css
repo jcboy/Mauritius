@@ -17,3 +17,20 @@
     display: none !important;
 }
 
+.activities .form-control {
+    margin-right : 10px;
+}
+
+.activities .css-yk16xz-control, .css-yk16xz-control:focus, .css-yk16xz-control:hover {
+    border :0 none !important
+}
+
+/*
+
+.select__menu .css-6h26xx-menu {
+    margin-right : 20px
+}
+
+select__control select__control--is-focused
+
+ */
