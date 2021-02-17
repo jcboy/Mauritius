@@ -13,16 +13,12 @@ const ActivitySchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    currentPage: {
-        type: String,
-        required: true
-    },
     description: {
         type: String,
         required: true
     },
     tags: {
-        type: [String],
+        type: mongoose.Schema.Types.Mixed,
         required: true
     }
 }, {

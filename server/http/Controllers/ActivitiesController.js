@@ -9,8 +9,12 @@ class ActivitiesController {
             res.status(404).send({message: 'Numéro de page introuvable...'})
         }
         const pageNumber = Number(req.query.page);
+
         const query = Activity.find();
+
         if (!!req.query.tag) {
+            console.log(req.query.tag);
+            console.log(req.query.tag.length);
             query.where("tags").equals(req.query.tag);
         }
 
@@ -22,9 +26,10 @@ class ActivitiesController {
                 const firstIndexOfCurrentPage = (pageNumber - 1) * perPage;
                 response = response.splice(firstIndexOfCurrentPage, perPage);
                 const payload = {
-                    currentPage : req.query.page,
-                    pageMax : Math.ceil(count/perPage),
-                    count,
+                    currentPage: req.query.page,
+                    pageMax: Math.ceil(count / perPage),
+                    total: count,
+                    displayed: response.length,
                     response,
                 }
                 res.send(payload);

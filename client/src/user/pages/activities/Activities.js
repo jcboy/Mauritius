@@ -17,7 +17,7 @@ const Activities = () => {
     let endpoints = ['activities', currentPage, ...tags];
 
     const {status, data} = useQuery(endpoints, getActivities);
-    const {status : categoriesSucess, data : categories} = useQuery('categories', getCategories);
+    const {status: categoriesSucess, data: categories} = useQuery('categories', getCategories);
 
     return (
         <>
@@ -25,7 +25,7 @@ const Activities = () => {
             <div className="container activities pt-4 pb-5">
                 {
                     (categoriesSucess === 'success') &&
-                <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
+                    <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
                 }
                 {
                     (status === 'loading') && <div className="row">
