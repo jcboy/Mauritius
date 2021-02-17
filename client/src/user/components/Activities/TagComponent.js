@@ -1,24 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Select from "react-select";
-import axios from 'axios';
 import '../../styles/tagStyleActivities.css';
-import {useQuery} from "react-query";
-import {getCategories} from "../../API/categories/getSomeCategories";
 
-const TagComponent = ({setTags, setPage}) => {
+const TagComponent = ({setTags, setPage, data}) => {
 
-    const [options, setOptions] = useState([]);
+    const [options, setOptions] = useState(data);
     const [selectedValues, setSelectedValues] = useState([]);
-
-    const {data, status} = useQuery('categories', getCategories)
-
-
-    useEffect(() => {
-        axios.get('http://localhost:8080/categories')
-            .then((response) => {
-                setOptions(response.data);
-            })
-    }, []);
 
     const sendTags = () => {
         setTags(selectedValues);
@@ -38,15 +25,12 @@ const TagComponent = ({setTags, setPage}) => {
                 return val !== option;
             })
             setOptions([...options, {name: option}]);
-            setSelectedValues(newValues);
+            return setSelectedValues(newValues);
         }
     }
 
-
     return (<div className="row pb-3 filter-content flex-column">
             <div className="col-5 d-flex pl-5 no-wrap">
-                {
-                    (status === 'success') &&
                 <Select
                     name="options"
                     options={options.map((tag) => {
@@ -63,7 +47,6 @@ const TagComponent = ({setTags, setPage}) => {
                     value={() => []}
                     isMulti
                 />
-                }
                 <button type="button"
                         className="btn btn-outline-primary"
                         onClick={sendTags}
@@ -75,14 +58,15 @@ const TagComponent = ({setTags, setPage}) => {
                     <div className="col my-2 display-block">
                         {
                             (!!selectedValues[0]) && (selectedValues.map((tag) => {
-                                return (<button className="wrapBtn"
-                                                key={tag}
-                                                id={tag}
-                                                onClick={(event) => {
-                                                    action(event.target["id"], 'remove-value')
-                                                }}>
-                                    {tag} &nbsp; <span className="croix" id={tag}> x </span>
-                                </button>)
+                                return (
+                                    <button className="wrapBtn"
+                                            key={tag}
+                                            id={tag}
+                                            onClick={(event) => {
+                                                action(event.target["id"], 'remove-value')
+                                            }}>
+                                        {tag} &nbsp; <span className="croix" id={tag}> x </span>
+                                    </button>)
                             }))
                         }
                     </div>

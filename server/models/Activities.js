@@ -1,41 +1,25 @@
 const mongoose = require('mongoose');
 
 const ActivitySchema = new mongoose.Schema({
-    index: {
-        type : Number,
-        required: true
-    },
     title: {
-        type : String,
+        type: String,
         required: true
     },
-    date: {
-        type : String,
-        required: true
+    subTitle: {
+        type: String,
+        required: false
     },
     scenery: {
-        type : String,
-        required: true
+        type: String,
+        required: false
     },
     description: {
-        type : String,
+        type: String,
         required: true
-    },
-    previousPage: {
-        type : Number,
-        required: false
-    },
-    currentPage: {
-        type : Number,
-        required: true
-    },
-    nextPage: {
-        type : Number,
-        required: false
     },
     tags: {
-        type : String,
-        required: false
+        type: mongoose.Schema.Types.Mixed,
+        required: true
     }
 }, {
     timestamps: true
