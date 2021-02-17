@@ -30,7 +30,7 @@ class EmailList2 extends Component {
                         <div className="offset-md-5">Mail</div>
                     </div>
                     <div className="col-md-4">
-                        <div className="offset-md-4">0bjet</div>
+                        <div className="offset-md-4">  0bjet</div>
                     </div>
                 </div>
 

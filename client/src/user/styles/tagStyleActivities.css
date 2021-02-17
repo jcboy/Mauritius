@@ -2,13 +2,35 @@
     background: #4dded9;
     color: black;
     width: fit-content;
-    border : none;
+    border: none;
     border-radius: 3px;
     margin-right: 10px;
 }
 
 .croix {
-    color : #5fa7a7;
+    color: #5fa7a7;
     font-family: "Comic Sans MS", SansSerif sans-serif;
     font-weight: 700;
 }
+
+.css-1rhbuit-multiValue {
+    display: none !important;
+}
+
+.activities .form-control {
+    margin-right : 10px;
+}
+
+.activities .css-yk16xz-control, .css-yk16xz-control:focus, .css-yk16xz-control:hover {
+    border :0 none !important
+}
+
+/*
+
+.select__menu .css-6h26xx-menu {
+    margin-right : 20px
+}
+
+select__control select__control--is-focused
+
+ */

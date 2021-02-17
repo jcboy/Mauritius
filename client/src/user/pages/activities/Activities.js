@@ -8,6 +8,7 @@ import TagComponent from "../../components/Activities/TagComponent";
 
 import {useQuery} from 'react-query';
 import {getActivities} from "../../API/activities/getSomeActivities";
+import {getCategories} from "../../API/categories/getSomeCategories";
 
 const Activities = () => {
 
@@ -16,12 +17,16 @@ const Activities = () => {
     let endpoints = ['activities', currentPage, ...tags];
 
     const {status, data} = useQuery(endpoints, getActivities);
+    const {status: categoriesSucess, data: categories} = useQuery('categories', getCategories);
 
     return (
         <>
             <Welcome param={{path: '/activities'}}/>
             <div className="container activities pt-4 pb-5">
-                <TagComponent setTags={setTags}/>
+                {
+                    (categoriesSucess === 'success') &&
+                    <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
+                }
                 {
                     (status === 'loading') && <div className="row">
                         <h3 className="text-center my-5">
