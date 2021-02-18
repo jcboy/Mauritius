@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect, useState} from "react";
 import '../../styles/styles.css';
 import '../../styles/article.css';
 import Welcome from "../../components/Welcome/welcome";
@@ -6,12 +7,27 @@ import thumb01 from "../../assets/images/thumb-01.jpg";
 import parasol01 from "../../assets/images/parasols-2393938_1280.jpg";
 import waterfall01 from "../../assets/images/waterfall-5056207_1280.jpg";
 import Contact from "../../components/Contact/Contact";
+import axios from "axios";
+
 
 
 export const Article = () => {
+    const [article, setArticle] = useState({});
+
+    useEffect(() => {
+
+        axios.get('http://localhost:8080/mails')
+            .then(({data}) => {
+                console.log(data);
+                setArticle(data);
+            });
+    }, []);
+
+
     return (
         <div className="articleContent">
             <Welcome param={{path: '/article'}}/>
+
 
             <div className="container">
                 <div className="row">
