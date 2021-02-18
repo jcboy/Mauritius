@@ -66,7 +66,8 @@ const TagComponent = ({setTags, setPage, data}) => {
                                                 action(event.target["id"], 'remove-value')
                                             }}>
                                         {tag} &nbsp; <span className="croix" id={tag}> x </span>
-                                    </button>)
+                                    </button>
+                                )
                             }))
                         }
                     </div>
