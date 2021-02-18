@@ -30,7 +30,7 @@ export const Actu = () => {
                 <div className="row">
 
                     <div className="col-12 mb-4 mt-5">
-                        <a href={'/activities'}> > Retour aux actualités</a>
+                        <a href={'/activities'}>Retour aux actualités</a>
 
                         <h2 className="h2 green text-center">SOUS-TITRE</h2>
                         <br/>
