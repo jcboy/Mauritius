@@ -161,7 +161,7 @@ export const Actu = () => {
                                     <img src={waterfall01} className="rounded-circle img-form" alt=""/>
                                 </div>
                                 <div className="col-12 d-flex justify-content-center actuName">
-                                    <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                                    <a href={'/activities'} className="h3 red text-center bord">ACTU 2</a>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,7 @@ export const Actu = () => {
                                     <img src={parasol01} className="rounded-circle img-form" alt=""/>
                                 </div>
                                 <div className="col-12 d-flex justify-content-center actuName">
-                                    <a href={'/activities'} className="h3 red text-center bord">TITRE ACTU 1</a>
+                                    <a href={'/activities'} className="h3 red text-center bord">ACTU 3</a>
                                 </div>
                             </div>
                         </div>
