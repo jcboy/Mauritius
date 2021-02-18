@@ -16,7 +16,7 @@ export const Article = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:8080/mails')
+        axios.get('http://localhost:8080/actualities')
             .then(({data}) => {
                 console.log(data);
                 setArticle(data);

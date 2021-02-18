@@ -15,7 +15,7 @@ export const Actu = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:8080/mails')
+        axios.get('http://localhost:8080/actualities')
             .then(({data}) => {
                 console.log(data);
                 setActu(data);
