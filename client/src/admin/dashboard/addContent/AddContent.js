@@ -3,10 +3,6 @@ import axios from "axios";
 import Select from 'react-select';
 
 import {Sidebar} from "../../common/Sidebar";
-
-import ButtonFileUploadAddContentOtherImages
-    from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
-
 import {AddImage} from "./AddImage";
 
 export const AddContent = () => {
@@ -46,13 +42,16 @@ export const AddContent = () => {
     }
 
     // -- SUBMIT FORM  -- //
+    const [msgConfirm, setMsgConfirm] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValues.title.trim().length > 3) {
             axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue, mainImage:image})
                 .then((res) => {
                     console.log(res.status);
-                    handleReset()
+                    handleReset();
+                    if(res.status === 200) {setMsgConfirm(!msgConfirm);}
                 })
         }
     }
@@ -149,29 +148,31 @@ export const AddContent = () => {
                         <div className="row mb-3">
                             <div className="col-4">
 
-                                <button type="button" className="pj2"><ButtonFileUploadAddContentOtherImages/>
-                                </button>
+                                {/*<button type="button" className="pj2">
+                                </button>*/}
                             </div>
                         </div>
 
                         <div className="row ">
                             <div className="offset-8 col text-end">
-                                <button onClick={handleReset} type="button"
-                                        className="btn btn-outline m-e-4">Annuler
-                                </button>
-
-                                <button onClick={handleSubmit} type="button" className="btn-primary btn ">Valider
-                                </button>
+                                <button onClick={handleReset} type="button" className="btn btn-outline ">Annuler </button>
+                                <button onClick={handleSubmit} type="button" className="btn-primary btn ms-4">Valider </button>
                             </div>
                         </div>
 
                     </form>
 
+                    { msgConfirm &&
+                        <div className="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Bonne nouvelle!</strong> Votre contenu a bien été crée.
+                            <button type="button" onClick={() => { setMsgConfirm(!msgConfirm) }} className="btn-close" aria-label="Close">&nbsp;</button>
+                        </div>
+                    }
                 </main>
+
                 <div className="row footer">
                     <div className=" col text-center">
-                        <a className="nav-link white" href="https://fr.lipsum.com/feed/html">Copyright 2020 -
-                            mentions légales</a>
+                        <a className="nav-link white" href="https://fr.lipsum.com/feed/html">Copyright 2020 - mentions légales</a>
                     </div>
                 </div>
             </div>

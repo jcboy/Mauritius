@@ -3,18 +3,15 @@ import React, {} from 'react';
 export const AddImage = ({setImage}) => {
 
     // -- IMAGE SELECTOR  -- //
-    const handlePictureClick = () => { document.querySelector('#fileSelector').click(); }
+    // const handlePictureClick = () => { document.querySelector('#fileSelector').click(); }
 
     const handleFileChange = async (e) => {
-        const file = e.target.files[0];
+        const file = e.target.files[0];  // console.log(file);
 
         if(file) {
             const url = await StartUploading(file);
-            setImage(url);
-
-            console.log('url ::', url)
+            setImage(url); // console.log('url ::', url);
         }
-        // console.log(file);
     }
 
     const StartUploading = async (file) => {
@@ -43,8 +40,8 @@ export const AddImage = ({setImage}) => {
 
     return (
         <>
-            <button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>
-            <input onChange={handleFileChange} id="fileSelector" name="file" type="file" className="d-none" />
+            {/*<button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>*/}
+            <input onChange={handleFileChange} id="fileSelector" name="file" type="file" />
         </>
     )
 
