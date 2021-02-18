@@ -49,7 +49,7 @@ export const AddContent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValues.title.trim().length > 3) {
-            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue, images:image})
+            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue, mainImage:image})
                 .then((res) => {
                     console.log(res.status);
                     handleReset()
