@@ -7,10 +7,11 @@ import {Sidebar} from "../../common/Sidebar";
 import ButtonFileUploadAddContentOtherImages
     from "../../common/ButtonFileUploadAddContentOtherImages/ButtonFileUploadAddContentOtherImages";
 
-import {StartUploading} from "./StartUploading";
+import {AddImage} from "./AddImage";
 
 export const AddContent = () => {
 
+    // -- GET FILTERS FROM DATABASE  -- //
     const [data, setData] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:8080/categories')
@@ -19,6 +20,7 @@ export const AddContent = () => {
             })
     }, []);
 
+    // -- GET VALUES FROM FORM  -- //
     const [inputValues, setInputValues] = useState({title: '', subtitle: '', shortDescription: '', description: ''});
     const handleInputChange = ({target}) => {
         setInputValues({...inputValues, [target.name]: target.value})
@@ -47,7 +49,7 @@ export const AddContent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValues.title.trim().length > 3) {
-            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue})
+            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue, images:image})
                 .then((res) => {
                     console.log(res.status);
                     handleReset()
@@ -55,19 +57,11 @@ export const AddContent = () => {
         }
     }
 
+    // -- CHOOSE TYPE OF CONTENT  -- //
     const [contentType, setContentType] = useState('activities');
 
-    // -- IMAGE SELECTOR  -- //
-    const handlePictureClick = () => {
-        document.querySelector('#fileSelector').click();
-    }
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-
-        if(file) {
-            return StartUploading (file);
-        }
-    }
+    // -- IMAGE  -- //
+    const [image, setImage] = useState('');
 
     return (
         <div className="blockContact-AddContent pt-3 container-fluid">
@@ -128,8 +122,7 @@ export const AddContent = () => {
                             }
 
                             <div className="col-md-4 form-floating">
-                                <button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>
-                                <input id="fileSelector" name="file" type="file"  onChange={handleFileChange} />
+                                <AddImage setImage={setImage}  />
                             </div>
                         </div>
 
