@@ -5,12 +5,16 @@ const ActivitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    subTitle: {
+    subtitle: {
         type: String,
         required: false
     },
-    scenery: {
+    mainImage: {
         type: String,
+        required: false
+    },
+    secondaryImages: {
+        type: [String],
         required: false
     },
     description: {
