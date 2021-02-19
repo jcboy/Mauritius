@@ -40,8 +40,8 @@ export const AddImage = ({setImage}) => {
 
     return (
         <>
-            {/*<button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>*/}
             <input onChange={handleFileChange} id="fileSelector" name="file" type="file" />
+            {/*<button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>*/}
         </>
     )
 

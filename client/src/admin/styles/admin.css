@@ -42,6 +42,8 @@ html, body { height: 100%;}
 .admin_main .css-1pahdxg-control:focus {border: 0; border-bottom: 1px solid #fff;}
 .admin_main .css-2b097c-container {border: 0;}
 
+.admin_main .css-1rhbuit-multiValue { border-radius: 16px;}
+
 .admin_main .css-1okebmr-indicatorSeparator,
 .admin_main .css-tlfecz-indicatorContainer,
 .admin_main .css-1hb7zxy-IndicatorsContainer{display: none}

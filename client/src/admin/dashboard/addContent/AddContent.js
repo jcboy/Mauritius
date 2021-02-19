@@ -7,6 +7,12 @@ import {AddImage} from "./AddImage";
 
 export const AddContent = () => {
 
+    // -- CHOOSE TYPE OF CONTENT  -- //
+    const [contentType, setContentType] = useState('activities');
+
+    // -- IMAGE (main) -- //
+    const [image, setImage] = useState('');
+
     // -- GET FILTERS FROM DATABASE  -- //
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -44,23 +50,21 @@ export const AddContent = () => {
     // -- SUBMIT FORM  -- //
     const [msgConfirm, setMsgConfirm] = useState(false);
 
+    let endpoint = contentType === 'activities' ?  'activities/create' : 'actualities';
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValues.title.trim().length > 3) {
-            axios.post('http://localhost:8080/actualities', {...inputValues, filters: selectedValue, mainImage:image})
+            axios.post(`http://localhost:8080/${endpoint}`,
+                {...inputValues, mainImage:image, tags: selectedValue }
+                )
                 .then((res) => {
                     console.log(res.status);
                     handleReset();
-                    if(res.status === 200) {setMsgConfirm(!msgConfirm);}
+                    if(res.status === 200 || res.status === 201) {setMsgConfirm(!msgConfirm);}
                 })
         }
     }
-
-    // -- CHOOSE TYPE OF CONTENT  -- //
-    const [contentType, setContentType] = useState('activities');
-
-    // -- IMAGE  -- //
-    const [image, setImage] = useState('');
 
     return (
         <div className="blockContact-AddContent pt-3 container-fluid">
@@ -89,13 +93,11 @@ export const AddContent = () => {
                                 <label>Sous-titre</label>
                             </div>
                             <div className="col-md-4 form-floating">
-                                <select name="typeOfContent" onChange={(e) => setContentType(e.target.value)}
-                                        className="form-select grey"
-                                        id="monselect">
+                                <select name="typeOfContent" onChange={(e) => setContentType(e.target.value)} id="monselect" className="form-select grey">
                                     <option value="activities">article</option>
-                                    <option value="actualities">actu</option>
+                                    <option value="actualities">actualité</option>
                                 </select>
-                                <label>Sélectionner type de contenu ( article ou actu )</label>
+                                <label>Sélectionner type de contenu</label>
                             </div>
                         </div>
 
@@ -120,20 +122,22 @@ export const AddContent = () => {
                                 )
                             }
 
-                            <div className="col-md-4 form-floating">
+                            <div className="col-md-4 mb-4 d-flex align-items-end">
                                 <AddImage setImage={setImage}  />
                             </div>
                         </div>
 
-                        <div className="row my-4">
-                            <div className="col-md-8 form-floating shortDescription">
-                                <textarea name="shortDescription"
-                                          onChange={handleInputChange}
-                                          value={inputValues.shortDescription}
-                                          className="grey form-control" placeholder="Courte description"/>
-                                <label>Courte description</label>
+                        {contentType === 'actualities' &&
+                            <div className="row my-4">
+                                <div className="col-md-8 form-floating shortDescription">
+                                    <textarea name="shortDescription"
+                                              onChange={handleInputChange}
+                                              value={inputValues.shortDescription}
+                                              className="grey form-control" placeholder="Courte description"/>
+                                    <label>Courte description</label>
+                                </div>
                             </div>
-                        </div>
+                        }
 
                         <div className="row mb-4">
                             <div className="col form-floating">
@@ -170,10 +174,8 @@ export const AddContent = () => {
                     }
                 </main>
 
-                <div className="row footer">
-                    <div className=" col text-center">
-                        <a className="nav-link white" href="https://fr.lipsum.com/feed/html">Copyright 2020 - mentions légales</a>
-                    </div>
+                <div className="row footer mt-5">
+                    <div className=" col text-center white">Copyright 2020 - mentions légales</div>
                 </div>
             </div>
         </div>
