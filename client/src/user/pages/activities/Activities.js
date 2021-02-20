@@ -22,7 +22,7 @@ const Activities = () => {
     return (
         <>
             <Welcome param={{path: '/activities'}}/>
-            <div className="container activities pt-4 pb-5">
+            <div className="container activities pt-5 pb-5">
                 {
                     (categoriesSucess === 'success') &&
                     <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
