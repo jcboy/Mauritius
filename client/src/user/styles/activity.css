@@ -3,10 +3,16 @@
     margin-bottom: 20px;
 }
 
-.img-content img {
+.img-content .wrapper {
     border-radius: 50%;
-    width: 100%;
-    max-width: 218px;
+    overflow: hidden;
+    width: 224px; height: 224px;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-content img {
+    width: 100%; max-width: 218px; display: none;
 }
 
 .item .desc-content .wrapper {

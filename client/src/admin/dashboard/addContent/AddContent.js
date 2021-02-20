@@ -34,17 +34,20 @@ export const AddContent = () => {
         setSelectedValue(e.map(x => x.value));
     }
 
+    //console.dir();
     // -- RESET FORM  -- //
     const [emptyInput, setEmptyInput] = useState(false);
     const reset = (value) => emptyInput === true ? [] : value;
     const handleReset = () => {
+        document.getElementById('fileSelector').value = "";
+
         setSelectedValue([]);
 
-        setEmptyInput(!emptyInput);
-        reset();
-        setEmptyInput(!emptyInput);
-
         setInputValues({title: '', subtitle: '', shortDescription: '', description: ''});
+
+        setEmptyInput(!emptyInput); // On modifie l'état initial (false) pour le passer à true
+        reset();  // execution de fn reset: les inputs sont réinitialisés
+        setEmptyInput(!emptyInput); // Retour à l'état initial : les inputs ont bien été réinitialisés, on peut retourner à l'état normal
     }
 
     // -- SUBMIT FORM  -- //
