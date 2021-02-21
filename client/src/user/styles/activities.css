@@ -1,6 +1,6 @@
 /* Styles general */
 
-.desc-content p {
+.desc-content p, .newsItem .description  {
     white-space: pre-line;
 }
 

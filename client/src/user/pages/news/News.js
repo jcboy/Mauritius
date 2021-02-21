@@ -54,7 +54,7 @@ export const News = () => {
                                             (((item.description).substring(0,260-3)) + '...') :
                                             item.description }</p>
 
-                                        <Link to={`/news/${item._id}`}>&gt; Voir l'article</Link>
+                                        <Link to={`/news-item/${item._id}`}>&gt; Voir l'article</Link>
                                     </div>
                                 </div>
                             </div>

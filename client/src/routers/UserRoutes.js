@@ -11,7 +11,7 @@ export const UserRoutes = () => {
             <Switch>
                 <Route path="/activities" component={Activities}/>
                 <Route path="/news" component={News}/>
-                <Route path="/news/:_id" component={NewsItem}/>
+                <Route path="/news-item/:id" component={NewsItem}/>
                 <Route path="/" component={Home}/>
 
                 <Redirect to="/"/>
