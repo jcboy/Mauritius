@@ -38,6 +38,9 @@ class ActivitiesController {
 
     }
 
+    getOne(req,res) {
+
+    }
 
     create(req, res) {
         const newActivity = new Activity(req.body);
