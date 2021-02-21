@@ -4,7 +4,7 @@ export const NewsItem = () => {
 
     return (
         <div>
-            <p>item</p>
+            <p>item texte</p>
         </div>
     )
 
