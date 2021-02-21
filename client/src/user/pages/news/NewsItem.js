@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import moment from 'moment';
 import {Link, useParams} from "react-router-dom";
-import Welcome from "../../components/Welcome/welcome";
+import Welcome from "../../components/Welcome/Welcome";
 import Contact from "../../components/Contact/Contact";
 
 export const NewsItem = () => {
@@ -11,17 +11,23 @@ export const NewsItem = () => {
     const [newsItem, setNewsItem] = useState({});
 
 
-    useEffect(()=>{
+    useEffect(() => {
         axios.get(`http://localhost:8080/actualities/${id}`)
-            .then((res)=>{
+            .then((res) => {
                 setNewsItem(res.data);
             })
     }, []);
 
     return (
         <div>
-            <Welcome param={{path: '/news'}}/>
-
+            <Welcome params={{
+                title : newsItem.title,
+                background : 'url(' + newsItem.mainImage + ')',
+                type : "notMain"
+            }}/>
+            {
+                console.log(newsItem.mainImage)
+            }
             <div className="container newsItem mb-5">
                 <div className="row">
 

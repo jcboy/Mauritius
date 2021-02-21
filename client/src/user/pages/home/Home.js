@@ -3,14 +3,19 @@ import Contact from "../../components/Contact/Contact";
 import '../../styles/home.css';
 import {Parallax} from 'react-parallax';
 import ImageBg from '../../assets/images/ready-bg.jpg';
-import Welcome from "../../components/Welcome/welcome";
+import Welcome from "../../components/Welcome/Welcome";
+import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
 const insideStyles = {position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)"};
 
 export const Home = () => {
     return (
         <div>
-            <Welcome param={{path: '/'}}/>
+            <Welcome params={{
+                title : "WELCOME TO PARADISE",
+                background : 'url(' + mainHeaderBackground + ')',
+                type : "main"
+            }}/>
 
             <div className="container text-center my-5 py-4">
                 <div className="row justify-content-center">
