@@ -6,9 +6,8 @@ const ActualitySchema = new mongoose.Schema({
     date : String,
     description : String,
     shortDescription: String,
-    image: String,
-    otherImages: [],
-    pageNumber : String
+    mainImage: String,
+    secondaryImages: [String]
 }, {
     timestamps : true
 })

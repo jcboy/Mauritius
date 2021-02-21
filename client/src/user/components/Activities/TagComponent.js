@@ -30,7 +30,7 @@ const TagComponent = ({setTags, setPage, data}) => {
     }
 
     return (<div className="row pb-3 filter-content flex-column">
-            <div className="col-5 d-flex pl-5 no-wrap">
+            <div className="col-md-4 d-flex pl-5 no-wrap">
                 <Select
                     name="options"
                     options={options.map((tag) => {
@@ -39,7 +39,7 @@ const TagComponent = ({setTags, setPage, data}) => {
                     onChange={action}
                     className="basic-multi-select text-dark form-control"
                     classNamePrefix="select"
-                    placeholder=""
+                    placeholder="Filtrer"
                     styles={{
                         menu: base => (
                             {...base, marginBottom: 76})

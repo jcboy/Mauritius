@@ -13,18 +13,28 @@
     font-weight: 700;
 }
 
-.css-1rhbuit-multiValue {
+.activities .css-1rhbuit-multiValue {
     display: none !important;
 }
 
 .activities .form-control {
-    margin-right : 10px;
+    margin-right : 10px; padding: 0;
 }
 
-.activities .css-yk16xz-control, .css-yk16xz-control:focus, .css-yk16xz-control:hover {
+.activities .css-yk16xz-control,
+.css-yk16xz-control:focus,
+.css-yk16xz-control:hover {
     border :0 none !important
 }
 
+
+.activities .css-1pahdxg-control,
+.activities .css-1pahdxg-control:focus  {box-shadow: none!important; border: 0;}
+
+.activities .css-1okebmr-indicatorSeparator,
+.activities .css-1hb7zxy-IndicatorsContainer{display: none;}
+
+.filter-content .btn {border-color: #00A8A7; color:#00A8A7; background: transparent; box-shadow: none;}
 /*
 
 .select__menu .css-6h26xx-menu {

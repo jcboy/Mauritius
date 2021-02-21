@@ -3,7 +3,7 @@ const Actuality = require ('../../models/Actualities');
 class ActualitiesController{
     index(req, res){
         const query = Actuality.find(); // recuperation de donnée
-        query.select('title description shortDescription filters createdAt'); // séléction des attributs a recuperé
+        query.select('title description shortDescription mainImage createdAt'); // séléction des attributs a recuperé
 
         // const reqQueryOrder = req.query.OrderBy;
 

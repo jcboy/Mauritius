@@ -1,47 +1,25 @@
-
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
+import moment from 'moment';
 import './../../styles/activities.css';
-import thumb01 from "../../assets/images/thumb-01.jpg";
 import {Link} from "react-router-dom";
 import Welcome from "../../components/Welcome/welcome";
 
 export const News = () => {
 
-    const [news, setNews] = useState([
-        {id: 1, title: 'actu', date: "05/11/1997", text: 'oikdzfjplsdplsld psdplplsdl plsdpl'},
-        {id: 2, title: 'actu2', date: "07/03/1964", text: 'oikdzfj odsokdok doksokdsk kodsodok'},
-        {id: 3, title: 'actu3', date: "03/11/1999", text: 'oikdzfj dsodkosd kodskdokds okdsodsk '},
-        {id: 4, title: 'actu4', date: "09/051997", text: 'oikdzfjfd kfdodfok dokjfkdfo dfokdof'},
-    ]);
+    const [news, setNews] = useState([]);
 
     // set value for default selection (default, asc, desc)
     const [selectedValue, setSelectedValue] = useState('default');
 
-    let sortedNews = [...news];
+    let endpoint = (selectedValue === 'desc') ? '?sortBy=createdAt&OrderBy=desc' : '';
 
-    // value after change selection
-    const handleChange = (e) =>{
-        setSelectedValue(e.target.value);
-        console.log(e.target.value);
-
-        if (selectedValue !== undefined) {
-            sortedNews.sort((a,b)=>{
-                // return a - b;
-
-                if (a[selectedValue] < b[selectedValue]) {
-                    return -1;
-                }
-
-
+    useEffect(()=>{
+        axios.get(`http://localhost:8080/actualities${endpoint}`)
+            .then((res)=>{
+                setNews(res.data);
             })
-        }
-    }
-
-
-    sortedNews.sort( (a,b) => {
-        return a.date - b.date;
-    });
-
+    }, [endpoint]);
 
     return (
         <div>
@@ -50,7 +28,8 @@ export const News = () => {
             <div className="container news mt-5">
                 <div className="row mb-4 justify-content-end">
                     <div className="col-md-2 ">
-                        <select className="form-select" onChange={handleChange} value={selectedValue}>
+                        <select className="form-select"  value={selectedValue}
+                        onChange={(e)=> setSelectedValue(e.target.value)}>
                             <option value="default" disabled>Trier par</option>
                             <option value="asc">Ordre croissant</option>
                             <option value="desc">Ordre décroissant</option>
@@ -59,21 +38,23 @@ export const News = () => {
                 </div>
                 <div className="row">
 
-                    {news.map(item => (
-                        <div className="col-md-6 item  mb-5" key={item.id}>
-                            <div className="row">
-                                <div className="col-md-4 img-content">
-                                    <img src={thumb01} alt=""/>
+                    {news.map((item, index) => (
+                        <div className="col-md-6 item  mb-5" key={index}>
+                            <div className="row align-items-center">
+                                <div className="col-lg-5 img-content ">
+                                    <div className="wrapper" style={{backgroundImage: `url(${item.mainImage})`}}><img src={item.mainImage} alt=""/></div>
                                 </div>
-                                <div className="col-md-8 desc-content">
+                                <div className="col-lg-7 desc-content">
                                     <div className="wrapper">
                                         <h3 className="h3 red">
                                             {item.title}
                                         </h3>
-                                        <p>Date : {item.date} </p>
-                                        <p>text: {item.text} </p>
+                                        <div className="date mb-2">Publié le {moment(item.createdAt).format('DD/MM/YYYY')} </div>
+                                        <p>{ ((item.description).length > 260) ?
+                                            (((item.description).substring(0,260-3)) + '...') :
+                                            item.description }</p>
 
-                                        <Link to={'/news/'+item.id}>&gt; Voir l'article  {item.id}</Link>
+                                        <Link to={`/news-item/${item._id}`}>&gt; Voir l'article</Link>
                                     </div>
                                 </div>
                             </div>
