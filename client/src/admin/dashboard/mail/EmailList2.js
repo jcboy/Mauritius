@@ -15,7 +15,7 @@ export const EmailList2 = () => {
         axios.get('http://localhost:8080/mails')
             .then((response) => {
                 console.log(response.data);
-                setMails(response.data );
+                setMails(response.data);
             });
     }, []);
 
@@ -52,8 +52,8 @@ export const EmailList2 = () => {
                 </div>
             </div>
 
-            {mails.map(item => (
-                <div className="item" key={mails}>
+            {mails.map((item,index) => (
+                <div className="item" key={index}>
                     <Link type="button" className="btn btn-secondary  row mailrow hoverrow" to={`/admin/mails/${item._id}`}>
                         <div className="row ">
                             <div className="col-md-4">

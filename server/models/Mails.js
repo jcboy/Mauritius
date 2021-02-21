@@ -33,6 +33,11 @@ const MailsSchema = new Schema({
         required: false,
         lowercase: true
     },
+    date: {
+        type: Date,
+        required: false,
+        lowercase: true
+    },
 
 });
 

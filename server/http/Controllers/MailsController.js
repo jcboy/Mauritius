@@ -25,17 +25,15 @@ class MailsController {
         })
     }
 
-      show(request, response) {
-
-        Mails.findById(request.body.mail._id).exec((err, mail) => { // Exécution du query
-             const {_id} = request.body.mail;
-             console.log(_id);
-             console.log(mail);
-             response.send(mail);
+    show (req, res) {
+        const id = req.params.id;
+        Mails.findById(id, (err, mail) => {
+            res.send(mail);
         });
-
-
     }
+
+
+
 
     /*   delete (req, res) {
            const id = req.params.id;
