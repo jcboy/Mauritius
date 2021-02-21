@@ -12,14 +12,14 @@ export const News = () => {
     // set value for default selection (default, asc, desc)
     const [selectedValue, setSelectedValue] = useState('default');
 
+    let endpoint = (selectedValue === 'desc') ? '?sortBy=createdAt&OrderBy=desc' : '';
+
     useEffect(()=>{
-        axios.get('http://localhost:8080/actualities')
+        axios.get(`http://localhost:8080/actualities${endpoint}`)
             .then((res)=>{
                 setNews(res.data);
             })
-    }, []);
-
-
+    }, [endpoint]);
 
     return (
         <div>
@@ -28,7 +28,8 @@ export const News = () => {
             <div className="container news mt-5">
                 <div className="row mb-4 justify-content-end">
                     <div className="col-md-2 ">
-                        <select className="form-select"  value={selectedValue}>
+                        <select className="form-select"  value={selectedValue}
+                        onChange={(e)=> setSelectedValue(e.target.value)}>
                             <option value="default" disabled>Trier par</option>
                             <option value="asc">Ordre croissant</option>
                             <option value="desc">Ordre décroissant</option>
@@ -53,7 +54,7 @@ export const News = () => {
                                             (((item.description).substring(0,260-3)) + '...') :
                                             item.description }</p>
 
-                                        <Link to={'/news/'+item._id}>&gt; Voir l'article</Link>
+                                        <Link to={`/news/${item._id}`}>&gt; Voir l'article</Link>
                                     </div>
                                 </div>
                             </div>
