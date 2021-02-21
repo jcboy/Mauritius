@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './../../styles/activities.css';
 
-import Welcome from "../../components/Welcome/welcome";
+import Welcome from "../../components/Welcome/Welcome";
 import Pagination from "../../components/Activities/Pagination";
 import MapActivities from "../../components/Activities/MapActivities";
 import TagComponent from "../../components/Activities/TagComponent";
@@ -9,8 +9,9 @@ import TagComponent from "../../components/Activities/TagComponent";
 import {useQuery} from 'react-query';
 import {getActivities} from "../../API/activities/getSomeActivities";
 import {getCategories} from "../../API/categories/getSomeCategories";
+import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
-const Activities = () => {
+const Activities = (props) => {
 
     const [currentPage, setPage] = useState(1);
     const [tags, setTags] = useState([]);
@@ -21,7 +22,11 @@ const Activities = () => {
 
     return (
         <>
-            <Welcome param={{path: '/activities'}}/>
+            <Welcome params={{
+                title : "ACTIVITIES",
+                background : 'url(' + mainHeaderBackground + ')',
+                type : "notMain"
+            }}/>
             <div className="container activities pt-5 pb-5">
                 {
                     (categoriesSucess === 'success') &&

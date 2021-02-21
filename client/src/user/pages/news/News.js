@@ -3,7 +3,8 @@ import axios from "axios";
 import moment from 'moment';
 import './../../styles/activities.css';
 import {Link} from "react-router-dom";
-import Welcome from "../../components/Welcome/welcome";
+import Welcome from "../../components/Welcome/Welcome";
+import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
 export const News = () => {
 
@@ -23,8 +24,11 @@ export const News = () => {
 
     return (
         <div>
-            <Welcome param={{path: '/news'}}/>
-
+            <Welcome params={{
+                title : "ACTUALITIES",
+                background : 'url(' + mainHeaderBackground + ')',
+                type : "article"
+            }}/>
             <div className="container news mt-5">
                 <div className="row mb-4 justify-content-end">
                     <div className="col-md-2 ">
@@ -37,7 +41,6 @@ export const News = () => {
                     </div>
                 </div>
                 <div className="row">
-
                     {news.map((item, index) => (
                         <div className="col-md-6 item  mb-5" key={index}>
                             <div className="row align-items-center">
@@ -53,15 +56,12 @@ export const News = () => {
                                         <p>{ ((item.description).length > 260) ?
                                             (((item.description).substring(0,260-3)) + '...') :
                                             item.description }</p>
-
                                         <Link to={`/news-item/${item._id}`}>&gt; Voir l'article</Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     ))};
-
-
                 </div>
             </div>
 

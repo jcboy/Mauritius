@@ -2,9 +2,6 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../../styles/activity.css';
 
-import thumb01 from '../../assets/images/thumb-01.jpg'
-import * as url from "url";
-
 const ActivityPreview = (props) => {
     return (
         <div className="row item mb-5">
