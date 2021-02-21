@@ -26,7 +26,7 @@ export const NewsItem = () => {
                 <div className="row">
 
                     <div className="col-12 mb-4 mt-5">
-                        <Link to={`/news`}>&gt; Retour aux actus</Link>
+                        <Link to={`/news`}>&gt; Retour aux actus </Link>
 
                         <h2 className="h2 green text-center my-5">{newsItem.subtitle}</h2>
 
