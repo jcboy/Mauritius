@@ -13,7 +13,12 @@ export const Filters = () => {
                 console.log(response.data);
                 setCategories(response.data );
             });
-    }, [categories]);
+    }, []);
+
+    const addNewCategory = inputCategory => {
+        const newCategories = [...categories, inputCategory];
+        setCategories(newCategories);
+    }
 
     const deleteCategory = (id) => {
         axios.delete( 'http://localhost:8080/categories/'+id )
@@ -37,19 +42,19 @@ export const Filters = () => {
 
                     <h2>Gestion des filtres</h2>
 
-                    <AddFilter setCategories={setCategories} />
+                    <AddFilter addNewCategory={addNewCategory} />
 
                     <h3 className="mt-5">Liste des filtres (ordre alphabétique)</h3>
 
                     <div className='d-flex flex-wrap'>
-                    {
-                        categories.map( (category, index) => {
-                            return  <button onClick={ () => deleteCategory(category._id) } key={index}  type="button" className="btn btn-sm filterBtn d-flex align-items-center">
+                        {
+                            categories.map( (category, index) => {
+                                return  <button onClick={ () => deleteCategory(category._id) } key={index}  type="button" className="btn btn-sm filterBtn d-flex align-items-center">
                                     <div>{category.name}</div>
                                     <div className='text-center pl-3 delete'>x</div>
                                 </button>
-                        } )
-                    }
+                            } )
+                        }
                     </div>
 
                 </main>

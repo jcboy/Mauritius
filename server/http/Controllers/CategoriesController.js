@@ -1,9 +1,9 @@
-const { validationResult } = require('express-validator');
+const {validationResult} = require('express-validator');
 const Category = require('../../models/Categories');
 
 class CategoriesController {
 
-    index (req, res) {
+    index(req, res) {
         const query = Category.find();  // 1. On récupère : https://mongoosejs.com/docs/queries.html
         query.select('name').sort({name: 1});   // 2. On selectionne les attributs à récupèrer
 
@@ -12,26 +12,25 @@ class CategoriesController {
         });
     }
 
-    store (req, res) {
-        const category = new Category( req.body ); // asigne un modèle à la req du body
-        category.save().then( () => {
-            res.status(201).send({ msg: `new category has been added`})
-        }).catch( () => {
+    store(req, res) {
+        const category = new Category(req.body); // asigne un modèle à la req du body
+        category.save().then(() => {
+            res.status(201).send({msg: `new category has been added`})
+        }).catch(() => {
             // res.status(500).send({message: 'Error' })
-            const errors =  validationResult(req);
-            if( !errors.isEmpty() ){
-                return res.status(400).send({ errors: errors.mapped() });
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).send({errors: errors.mapped()});
             }
         })
     }
 
-    delete (req, res) {
+    delete(req, res) {
         const id = req.params.id;
-        Category.findByIdAndDelete(id, {}, (err, category)=>{
+        Category.findByIdAndDelete(id, (err, category) => {
             if (!!err) {
                 return res.status(404).send({message: 'Category not found'})
             }
-
             return res.status(201).send({message: 'Category deleted', category});
         })
     }

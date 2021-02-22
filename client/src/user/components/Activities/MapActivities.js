@@ -1,16 +1,17 @@
 import ActivityPreview from "./ActivityPreview";
 
-const ActivityMapping = (props) => {
+const MapActivities = ({activities}) => {
     return (
         <div>
             {
-                props.info.map(
+                activities.map(
                     (activity, index) => {
                         return <ActivityPreview key={index} activity={activity}/>
-                    })
+                    }
+                )
             }
         </div>
     )
 }
 
-export default ActivityMapping;
+export default MapActivities;

@@ -1,0 +1,48 @@
+import React from "react";
+import {Link, useParams} from "react-router-dom";
+import Welcome from "../../components/Welcome/Welcome";
+import Contact from "../../components/Contact/Contact";
+import {getActivity} from "../../API/activities/getSomeActivity";
+import {useQuery} from "react-query";
+
+export const ActivitiesItem = () => {
+
+    const {id: endpoint} = useParams();
+    const {data, status} = useQuery(endpoint, getActivity)
+
+    return (
+        <div>
+            {
+                ((status === "loading") &&
+                    <div className="text-center py-5 my-5">
+                        Recherche en cours...
+                    </div>)
+                || ((status === "success") &&
+                    <>
+                        <Welcome params={{
+                            title: data[0].title,
+                            background: 'url(' + data[0].mainImage + ')',
+                            type: "notMain"
+                        }}/>
+                        <div className="container data[0] mb-5">
+                            <div className="row">
+                                <div className="col-12 mb-4 mt-5">
+                                    <Link to={`/activities`}>&gt; Retour aux activités </Link>
+                                    <h2 className="h2 green text-center my-5">{data[0].subtitle}</h2>
+                                    <p className="description">{data[0].description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                )
+                || ((status === "error") &&
+                    <div className="text-center py-5 my-5">
+                        Une erreur est survenue...
+                    </div>)
+            }
+            <Contact/>
+        </div>
+    )
+}
+
+export default ActivitiesItem;
