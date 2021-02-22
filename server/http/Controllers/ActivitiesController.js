@@ -35,11 +35,15 @@ class ActivitiesController {
                 res.send(payload);
             }
         })
-
     }
 
-    getOne(req,res) {
-
+    getOne(req, res) {
+        Activity.find({_id: req.params.id}, (err, data) => {
+            if (err) return res.statusCode(500).send({message: 'SERVER_ERROR'})
+            console.log(data)
+            console.log(req.params.id)
+            res.send(data);
+        })
     }
 
     create(req, res) {

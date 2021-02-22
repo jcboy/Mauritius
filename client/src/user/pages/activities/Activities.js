@@ -11,7 +11,7 @@ import {getActivities} from "../../API/activities/getSomeActivities";
 import {getCategories} from "../../API/categories/getSomeCategories";
 import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
-const Activities = (props) => {
+const Activities = () => {
 
     const [currentPage, setPage] = useState(1);
     const [tags, setTags] = useState([]);
@@ -23,9 +23,9 @@ const Activities = (props) => {
     return (
         <div className="activities">
             <Welcome params={{
-                title : "ACTIVITIES",
-                background : 'url(' + mainHeaderBackground + ')',
-                type : "notMain"
+                title: "ACTIVITIES",
+                background: 'url(' + mainHeaderBackground + ')',
+                type: "notMain"
             }}/>
             <div className="container  pt-5 pb-5">
                 {
