@@ -23,13 +23,13 @@ export const News = () => {
     }, [endpoint]);
 
     return (
-        <div>
+        <div className="news">
             <Welcome params={{
                 title : "ACTUALITIES",
                 background : 'url(' + mainHeaderBackground + ')',
                 type : "article"
             }}/>
-            <div className="container news mt-5">
+            <div className="container mt-5">
                 <div className="row mb-4 justify-content-end">
                     <div className="col-md-2 ">
                         <select className="form-select"  value={selectedValue}
