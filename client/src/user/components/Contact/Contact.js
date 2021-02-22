@@ -1,13 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Component} from 'react';
 import ButtonFileUpload from "../ButtonFileUpload/ButtonFileUpload";
+import axios from "axios";
 
-class Contact extends Component {
 
 
-      render() {
+ export  const Contact = ()=>  {
 
-          return <div className="blockContact pt-3">
+     // -- GET VALUES FROM FORM  -- //
+     const [inputValues, setInputValues] = useState({firstname: '', lastname: '', mail: '', objet: '', message: '' });
+     const handleInputChange = ({target}) => {
+         setInputValues({...inputValues, [target.name]: target.value})
+     }
+
+     const handleSubmit = (event)=> {
+         event.preventDefault();
+         axios.post('http://localhost:8080/mails/store',{inputValues})
+             .then((response) => {
+                 console.log(response.data);
+                 //        setMail(response.data);
+             });
+     }
+
+
+      return (
+
+
+
+
+
+                <div className="blockContact pt-3">
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-10">
@@ -19,30 +41,30 @@ class Contact extends Component {
                                 <form>
                                     <div className="row mb-3">
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" placeholder="Prénom"/>
+                                            <input className="blue form-control" type="text" name="firstname" value="inputValue.firstname" onChange={handleInputChange} placeholder="Prénom"/>
                                             <label>Prénom</label>
                                         </div>
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" placeholder="Nom"/>
+                                            <input className="blue form-control" type="text" name="lastname" value="inputValue.lastname" onChange={handleInputChange} placeholder="Nom"/>
                                             <label>Nom</label>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" placeholder="Email2"/>
+                                            <input className="blue form-control" type="text" name="mail" value="inputValue.mail" onChange={handleInputChange} placeholder="Email2"/>
                                             <label>Email2</label>
                                         </div>
                                         <div className="col-md-6 form-floating">
-                                            <select className="form-select blue" id="monselect">
-                                                <option value="valeur1">question</option>
-                                                <option value="valeur2">proposer un article</option>
+                                            <select className="form-select blue" id="monselect" name="objet" value="inputValue.objet" onChange={handleInputChange}>
+                                                <option value="Question">Question</option>
+                                                <option value="Proposer un article">Proposer un article</option>
                                             </select>
                                             <label>Objet (« question » ou « proposer un article »)</label>
                                         </div>
                                     </div>
                                     <div className="row mb-4">
                                         <div className="col form-floating">
-                                            <textarea className="blue form-control"  placeholder="Message"/>
+                                            <textarea className="blue form-control" name="message" value="inputValue.message" onChange={handleInputChange}  placeholder="Message"/>
                                             <label>Message</label>
                                         </div>
                                     </div>
@@ -56,7 +78,7 @@ class Contact extends Component {
 
                                     <div className="row ">
                                         <div className=" col text-end">
-                                            <button type="button" className="btn btn-outline ">Envoyer</button>
+                                            <button type="button" onClick={handleSubmit} className="btn btn-outline ">Envoyer</button>
                                         </div>
                                     </div>
 
@@ -75,7 +97,7 @@ class Contact extends Component {
               </div>
 
 
-      }
+ )
 
 
 }

@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link,useParams} from "react-router-dom";
 import './../../styles/admin.css';
 import FileUploadMailAttachement from "./FileUploadMailAttachement";
-
+import moment from 'moment';
 
 
 export const Email2 = () => {
@@ -43,7 +43,7 @@ export const Email2 = () => {
                <div className="item" key={mail}>
                <Link  className="btn btn-secondary  row mailrow hoverrow">
                     <div className="row ">
-                        Envoyé le :  { mail.Date }
+                        Envoyé le :  {moment(mail.Date).format('DD/MM/YYYY')}
                         <div  className="row">
 
 

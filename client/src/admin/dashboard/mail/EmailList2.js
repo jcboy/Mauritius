@@ -4,7 +4,7 @@ import {Sidebar} from "../../common/Sidebar";
 import {Component} from "react";
 import {Link} from "react-router-dom";
 import './../../styles/admin.css';
-
+import moment from 'moment';
 
 
 export const EmailList2 = () => {
@@ -57,7 +57,7 @@ export const EmailList2 = () => {
                     <Link type="button" className="btn btn-secondary  row mailrow hoverrow" to={`/admin/mails/${item._id}`}>
                         <div className="row ">
                             <div className="col-md-4">
-                                {item.Date}
+                                 {moment(item.Date).format('DD/MM/YYYY')}
                             </div>
                             <div className="col-md-4">
                                 {item.mail}
