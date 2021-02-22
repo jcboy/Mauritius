@@ -15,7 +15,6 @@ export const getActivities = async (key, currentPage, ...tags) => {
         }
         URL = URL + endpoints;
     }
-    console.log('URL', URL);
     const {data} = await axios.get('http://localhost:8080/' + URL);
     return data;
 }
