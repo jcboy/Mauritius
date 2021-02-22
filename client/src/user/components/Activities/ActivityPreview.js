@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import '../../styles/activity.css';
 
 const ActivityPreview = (props) => {
+
     return (
         <div className="row item mb-5">
             <div className="col-md-4 img-content">
@@ -18,7 +19,7 @@ const ActivityPreview = (props) => {
                     <p>{((props.activity.description).length > 330) ?
                         (((props.activity.description).substring(0, 330 - 3)) + '...') :
                         props.activity.description}</p>
-                    <Link to={`${props.activity._id}`}>&gt; en savoir plus </Link>
+                    <Link to={`/activitiesitem/${props.activity._id}`}>&gt; en savoir plus </Link>
                 </div>
             </div>
         </div>
