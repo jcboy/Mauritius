@@ -57,7 +57,7 @@ export const EmailList2 = () => {
                     <Link type="button" className="btn btn-secondary  row mailrow hoverrow" to={`/admin/mails/${item._id}`}>
                         <div className="row ">
                             <div className="col-md-4">
-                                {item.date}
+                                {item.Date}
                             </div>
                             <div className="col-md-4">
                                 {item.mail}

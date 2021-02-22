@@ -43,8 +43,10 @@ export const Email2 = () => {
                <div className="item" key={mail}>
                <Link  className="btn btn-secondary  row mailrow hoverrow">
                     <div className="row ">
-                        <div className="col-md-4" className="row">
-                           Envoyé le  { mail.Date }
+                        Envoyé le :  { mail.Date }
+                        <div  className="row">
+
+
                             <div className="row">
                                 Objet:  {mail.object}
 
@@ -55,7 +57,7 @@ export const Email2 = () => {
                             <div className="row">
                                 Pièce jointe : {  }
                                 <div className="offset-md-7" className="row">
-                                    <FileUploadMailAttachement/>
+
                                 </div>
                             </div>
 

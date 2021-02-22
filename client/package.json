@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "prettier": "^2.2.1"
   }
 }
