@@ -17,6 +17,7 @@ export const UserRoutes = () => {
                 <Route exact path="/" component={Home}/>
                 <Redirect to="/"/>
             </Switch>
+
         </div>
     )
 }
