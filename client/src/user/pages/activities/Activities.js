@@ -21,13 +21,13 @@ const Activities = () => {
     const {status: categoriesSucess, data: categories} = useQuery('categories', getCategories);
 
     return (
-        <>
+        <div className="activities">
             <Welcome params={{
                 title: "ACTIVITIES",
                 background: 'url(' + mainHeaderBackground + ')',
                 type: "notMain"
             }}/>
-            <div className="container activities pt-5 pb-5">
+            <div className="container  pt-5 pb-5">
                 {
                     (categoriesSucess === 'success') &&
                     <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
@@ -52,7 +52,7 @@ const Activities = () => {
                     )
                 }
             </div>
-        </>
+        </div>
     );
 }
 

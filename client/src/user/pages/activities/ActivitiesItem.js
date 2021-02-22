@@ -24,14 +24,22 @@ export const ActivitiesItem = () => {
                             background: 'url(' + data[0].mainImage + ')',
                             type: "notMain"
                         }}/>
-                        <div className="container data[0] mb-5">
+                        <div className="container activitiesItem data[0] mb-5">
                             <div className="row">
-                                <div className="col-12 mb-4 mt-5">
+                                <div className="col-9 mb-4 mt-5">
                                     <Link to={`/activities`}>&gt; Retour aux activités </Link>
                                     <h2 className="h2 green text-center my-5">{data[0].subtitle}</h2>
                                     <p className="description">{data[0].description}</p>
+
+                                </div>
+                                <div className="col-md-3 mt-5">
+                                    <div className="content-filter mt-5 pt-4">
+                                        <h2 className="h3 red text-align">FILTRES ASSOCIES</h2>
+                                        <p>{data[0].tags}</p>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </>
                 )
