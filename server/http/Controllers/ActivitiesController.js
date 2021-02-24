@@ -5,16 +5,10 @@ const perPage = 6;
 class ActivitiesController {
 
     index(req, res) {
-        if (!req.query.page) {
-            res.status(404).send({message: 'Numéro de page introuvable...'})
-        }
-        const pageNumber = Number(req.query.page);
 
         const query = Activity.find();
 
         if (!!req.query.tag) {
-            console.log(req.query.tag);
-            console.log(req.query.tag.length);
             query.where("tags").equals(req.query.tag);
         }
 
@@ -22,15 +16,20 @@ class ActivitiesController {
             if (!!err) {
                 res.status(500).send(err.message)
             } else {
+                let payload = {};
                 const count = response.length;
-                const firstIndexOfCurrentPage = (pageNumber - 1) * perPage;
-                response = response.splice(firstIndexOfCurrentPage, perPage);
-                const payload = {
-                    currentPage: req.query.page,
-                    pageMax: Math.ceil(count / perPage),
-                    total: count,
-                    displayed: response.length,
-                    response,
+                if (!!req.query.page) {
+                    const pageNumber = Number(req.query.page);
+                    const firstIndexOfCurrentPage = (pageNumber - 1) * perPage;
+                    payload.currentPage = req.query.page;
+                    response = response.splice(firstIndexOfCurrentPage, perPage);
+                    payload.response = response;
+                    payload.displayed = response.length;
+                    payload.total = count;
+                    payload.pageMax = Math.ceil(count / perPage);
+                } else {
+                    payload = response;
+
                 }
                 res.send(payload);
             }
