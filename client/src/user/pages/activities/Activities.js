@@ -24,7 +24,7 @@ const Activities = () => {
         <div className="activities">
             <Welcome params={{
                 title: "ACTIVITIES",
-                background: 'url(' + mainHeaderBackground + ')',
+                background: 'url(' + 'https://images.pexels.com/photos/1603454/pexels-photo-1603454.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' + ')',
                 type: "notMain"
             }}/>
             <div className="container  pt-5 pb-5">

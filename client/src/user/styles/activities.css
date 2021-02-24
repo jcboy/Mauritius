@@ -1,7 +1,7 @@
 /* Styles page activities & actualities */
 
-.activities .welcome, .news .welcome {
-    background-position: center top!important;
+.news .welcome {
+    /*background-position: center top!important;*/
 }
 
 .desc-content p,
@@ -52,7 +52,6 @@
     .item .desc-content .wrapper {
         padding: 28px 36px;
     }
-
     .news .item .desc-content .wrapper {
         padding: 20px 25px 16px 50px; left: 0; margin-left: -20px;
     }

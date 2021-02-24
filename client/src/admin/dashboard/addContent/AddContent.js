@@ -170,7 +170,7 @@ export const AddContent = () => {
                     </form>
 
                     { msgConfirm &&
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
+                        <div className="alert alert-success alert-dismissible fade show mt-3" role="alert">
                             <strong>Bonne nouvelle!</strong> Votre contenu a bien été crée.
                             <button type="button" onClick={() => { setMsgConfirm(!msgConfirm) }} className="btn-close" aria-label="Close">&nbsp;</button>
                         </div>
