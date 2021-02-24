@@ -1,7 +1,7 @@
 /* Styles page activities & actualities */
 
-.activities .welcome, .news .welcome {
-    background-position: center top!important;
+.news .welcome {
+    /*background-position: center top!important;*/
 }
 
 .desc-content p,

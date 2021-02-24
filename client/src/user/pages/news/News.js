@@ -26,7 +26,7 @@ export const News = () => {
         <div className="news">
             <Welcome params={{
                 title : "ACTUALITIES",
-                background : 'url(' + mainHeaderBackground + ')',
+                background : 'url(' + 'https://static1.mclcm.net/iod/images/v2/69/citytheque/localite_101_2178/1200x630_100_300_000000x30x0.jpg' + ')',
                 type : "article"
             }}/>
             <div className="container mt-5">
