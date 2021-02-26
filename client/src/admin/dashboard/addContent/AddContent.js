@@ -125,7 +125,7 @@ export const AddContent = () => {
                                 )
                             }
 
-                            <div className="col-md-4 mb-4 d-flex align-items-end">
+                            <div className="col-md-4 form-floating mb-4 addImage">
                                 <AddImage setImage={setImage}  />
                             </div>
                         </div>
@@ -170,7 +170,7 @@ export const AddContent = () => {
                     </form>
 
                     { msgConfirm &&
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
+                        <div className="alert alert-success alert-dismissible fade show mt-3" role="alert">
                             <strong>Bonne nouvelle!</strong> Votre contenu a bien été crée.
                             <button type="button" onClick={() => { setMsgConfirm(!msgConfirm) }} className="btn-close" aria-label="Close">&nbsp;</button>
                         </div>

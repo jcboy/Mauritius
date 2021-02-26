@@ -22,7 +22,7 @@ const Welcome = (props) => {
     }
 
     return (
-        <div style={headerSize(props.params.type)}>
+        <div style={headerSize(props.params.type)} className="welcome">
             <div className="container-fluid">
                 <Navbar/>
                 <div className="row justify-content-center py-5">

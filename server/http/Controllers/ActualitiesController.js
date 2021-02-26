@@ -10,7 +10,11 @@ class ActualitiesController{
         if (req.query.sortBy === 'createdAt' && req.query.OrderBy==='desc') {
             query.sort({createdAt: 'desc', test: -1})
         }
-        // query.sort({createdAt: 'desc', test: -1})
+
+        const limiting = req.query.limit;
+        if (limiting!==undefined) {
+            query.limit(parseInt(limiting));
+        }
 
         query.exec((err, actualities) => {  // execution de query construit dans la premiere etape
             res.send(actualities)

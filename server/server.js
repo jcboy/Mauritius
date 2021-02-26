@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+
 const server = express();
 const cors = require('cors');
 
@@ -9,7 +11,7 @@ const ActualitiesRouter = require("./router/ActualitiesRouter");
 const AdminRouter = require("./router/AdminRouter");
 const MailsRouter  = require('./router/MailsRouter');
 
-const PORT = 8080;
+const PORT = process.env.SERVER_PORT;
 
 server.use(express.json());
 server.use(cors({
@@ -25,6 +27,6 @@ server.use(MailsRouter.prefix, MailsRouter.router);
 server.use(AdminRouter.prefix, AdminRouter.router);
 
 
-server.listen(8080, "localhost", function () {
+server.listen(PORT, "localhost", function () {
     console.log("Server now running on port : " + PORT);
 })

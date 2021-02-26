@@ -23,13 +23,13 @@ export const News = () => {
     }, [endpoint]);
 
     return (
-        <div>
+        <div className="news">
             <Welcome params={{
                 title : "ACTUALITIES",
-                background : 'url(' + mainHeaderBackground + ')',
+                background : 'url(' + 'https://static1.mclcm.net/iod/images/v2/69/citytheque/localite_101_2178/1200x630_100_300_000000x30x0.jpg' + ')',
                 type : "article"
             }}/>
-            <div className="container news mt-5">
+            <div className="container mt-5">
                 <div className="row mb-4 justify-content-end">
                     <div className="col-md-2 ">
                         <select className="form-select"  value={selectedValue}

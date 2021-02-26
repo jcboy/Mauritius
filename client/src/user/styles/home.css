@@ -9,9 +9,13 @@
     height:320px;
 }
 
+.last-news .img-content .wrapper {
+    position: relative; z-index: 2; bottom: -30px; margin: 0 auto -20px auto;
+}
 
-
-
+.last-news .item .desc-content .wrapper {
+    position: relative; z-index: 1; padding-top: 3.75rem;
+}
 
 @media (min-width: 768px) {
 
@@ -26,4 +30,7 @@
         height:480px;
     }
 
+}
+@media (min-width: 992px) {
+    .item .desc-content .wrapper { min-height: 190px;}
 }
