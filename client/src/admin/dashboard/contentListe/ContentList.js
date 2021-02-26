@@ -1,18 +1,22 @@
 import React, {useState} from 'react'
 
 import {Sidebar} from "../../common/Sidebar";
-import IconUpdate from "./IconUpdate";
+import {useQuery} from "react-query";
+import {getField} from "../../../API/getField";
+
+import Article from "./Article";
 
 export const ContentList = () => {
 
-    const [articles, setArticles] = useState([
-        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
-        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'},
-        {id: 33, title: "tstts", filters: ['filt A', 'filt B', 'filt B'], date: '12/09/2020'}
-    ]);
+    const [field, setField] = useState("actualities");
+    const {data, status} = useQuery(field, getField)
 
     const getArticles = (e) => {
-        console.log(e.target.id);
+        setField(e.target.id);
+    }
+
+    const updateArticle = () => {
+
     }
 
     return (
@@ -20,30 +24,24 @@ export const ContentList = () => {
             <div className="row">
                 <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
-                    <table className="table white">
+                    <button id="actualities" onClick={getArticles}> Actualités</button>
+                    <button id="activities" onClick={getArticles}> Activités</button>
+                    <table className="table white mt-3 mb-5">
                         <thead>
-                        <button id="actualities" onClick={getArticles}> Actualités</button>
-                        <button id="activities" onClick={getArticles}> Activités</button>
                         <tr>
                             <th scope="col">Nom de l'article</th>
-                            <th scope="col">Filtres</th>
+                            {
+                                (field === "activities") && <th scope="col">Filtres</th>
+                            }
                             <th scope="col">Date de publication</th>
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {articles.map((article, i) => {
-                            return <tr key={i}>
-                                <td scope="row">{article.title}</td>
-                                <td>{article.filters}</td>
-                                <td>{article.date}</td>
-                                <td className="icon "><IconUpdate/></td>
-                                <td className="icon">archiver-</td>
-                            </tr>
-                        })}
-
+                        {
+                            (status === "success") && <Article data={data} field={field}/>
+                        }
                         </tbody>
                     </table>
                 </main>

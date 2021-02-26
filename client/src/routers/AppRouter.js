@@ -18,7 +18,6 @@ export const AppRouter = () => {
                     <Route path="/login" component={AuthRoutes} />
                     <Route path="/admin" component={AdminRoutes} />
                     <Route path="/" component={UserRoutes} />
-
                 </Switch>
             </div>
         </Router>
