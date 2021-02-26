@@ -125,7 +125,7 @@ export const AddContent = () => {
                                 )
                             }
 
-                            <div className="col-md-4 mb-4 d-flex align-items-end">
+                            <div className="col-md-4 form-floating mb-4 addImage">
                                 <AddImage setImage={setImage}  />
                             </div>
                         </div>

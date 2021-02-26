@@ -40,8 +40,9 @@ export const AddImage = ({setImage}) => {
 
     return (
         <>
+            <label htmlFor="fileSelector" className="form-label w-100">+ Image d'accueil</label>
             <input onChange={handleFileChange} id="fileSelector" name="file" type="file" />
-            {/*<button onClick={handlePictureClick} type="button" className="btn btn-primary">ddd</button>*/}
+
         </>
     )
 
