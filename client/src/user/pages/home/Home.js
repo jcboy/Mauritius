@@ -4,11 +4,15 @@ import '../../styles/home.css';
 import {Parallax} from 'react-parallax';
 import ImageBg from '../../assets/images/ready-bg.jpg';
 import Welcome from "../../components/Welcome/Welcome";
+import LastNews from "../../components/LastNews/LastNews"
 import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
+
+import {Link} from "react-router-dom";
 
 const insideStyles = {position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)"};
 
 export const Home = () => {
+
     return (
         <div>
             <Welcome params={{
@@ -65,9 +69,10 @@ export const Home = () => {
                 </div>
             </Parallax>
 
-            <div className="last-news text-center my-5 py-5">
-                <h2 className="h2 green text-uppercase">Les dernières actus</h2>
-                <p>Remplecer par component last-qq</p>
+            <LastNews />
+
+            <div className="container text-center mb-5 pb-5">
+                <Link to={'/news/'} className="fs-4">|&nbsp;&nbsp;&nbsp;Plus d’actus&nbsp;&nbsp;&nbsp;|</Link>
             </div>
 
             <Contact/>

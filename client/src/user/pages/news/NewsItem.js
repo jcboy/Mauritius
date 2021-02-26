@@ -4,6 +4,7 @@ import moment from 'moment';
 import {Link, useParams} from "react-router-dom";
 import Welcome from "../../components/Welcome/Welcome";
 import Contact from "../../components/Contact/Contact";
+import LastNews from "../../components/LastNews/LastNews";
 
 export const NewsItem = () => {
     // const params = useParams(); // avant destructuring
@@ -43,6 +44,10 @@ export const NewsItem = () => {
                     </div>
                 </div>
             </div>
+            <LastNews />
+
+            <br/><br/>
+
             <Contact/>
         </div>
     )
