@@ -76,7 +76,6 @@ export const Home = () => {
             </div>
 
             <Contact/>
-
         </div>
     )
 }
