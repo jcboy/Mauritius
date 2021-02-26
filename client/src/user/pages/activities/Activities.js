@@ -7,8 +7,8 @@ import MapActivities from "../../components/Activities/MapActivities";
 import TagComponent from "../../components/Activities/TagComponent";
 
 import {useQuery} from 'react-query';
-import {getActivities} from "../../API/activities/getSomeActivities";
-import {getCategories} from "../../API/categories/getSomeCategories";
+import {getActivities} from "../../../API/activities/getSomeActivities";
+import {getCategories} from "../../../API/categories/getSomeCategories";
 import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
 const Activities = () => {

@@ -1,5 +1,5 @@
 const express = require('express');
-const AdminController = require("../http/Controllers/AdminController");
+const AdminController = require("../http/Controllers/LoginController");
 const router = express.Router();
 const prefix = "/login";
 

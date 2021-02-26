@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
 import {Sidebar} from "../../common/Sidebar";
-import IconUpdate from "./IconUpdate";
 import {useQuery} from "react-query";
-import {getField} from "../../../user/API/getField";
+import {getField} from "../../../API/getField";
 
+import Article from "./Article";
 
 export const ContentList = () => {
 
@@ -15,6 +15,10 @@ export const ContentList = () => {
         setField(e.target.id);
     }
 
+    const updateArticle = () => {
+
+    }
+
     return (
         <div className="container-fluid">
             <div className="row">
@@ -22,7 +26,7 @@ export const ContentList = () => {
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <button id="actualities" onClick={getArticles}> Actualités</button>
                     <button id="activities" onClick={getArticles}> Activités</button>
-                    <table className="table white">
+                    <table className="table white mt-3 mb-5">
                         <thead>
                         <tr>
                             <th scope="col">Nom de l'article</th>
@@ -35,19 +39,9 @@ export const ContentList = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {(status === "success") && data.data.map((article, i) => {
-                                return <tr key={i}>
-                                    <td>{article.title}</td>
-                                    {
-                                        (field === "activities") && <td>{article.tags}</td>
-                                    }
-                                    <td>{article.createdAt.slice(0, 10)}</td>
-                                    <td className="icon "><IconUpdate/></td>
-                                    <td className="icon">archiver-</td>
-                                </tr>
-                            }
-                        )}
-
+                        {
+                            (status === "success") && <Article data={data} field={field}/>
+                        }
                         </tbody>
                     </table>
                 </main>

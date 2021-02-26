@@ -1,6 +1,6 @@
 const Admin = require("../../models/Admin");
 
-class AdminController {
+class LoginController {
 
     signIn(req, res) {
         Admin.find(req.body, (err, response) => {
@@ -18,4 +18,4 @@ class AdminController {
     }
 }
 
-module.exports = new AdminController();
+module.exports = new LoginController();

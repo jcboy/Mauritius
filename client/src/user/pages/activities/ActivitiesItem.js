@@ -2,7 +2,7 @@ import React from "react";
 import {Link, useParams} from "react-router-dom";
 import Welcome from "../../components/Welcome/Welcome";
 import Contact from "../../components/Contact/Contact";
-import {getActivity} from "../../API/activities/getSomeActivity";
+import {getActivity} from "../../../API/activities/getSomeActivity";
 import {useQuery} from "react-query";
 
 export const ActivitiesItem = () => {
