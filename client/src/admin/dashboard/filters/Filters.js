@@ -10,26 +10,23 @@ export const Filters = () => {
 
     useEffect(() => {
         // let mounted = true;
-
         if (categories.length && !alert) {
             return
         }
 
         axios.get('http://localhost:8080/categories')
             .then((response) => {
-                console.log(response.data);
                 setCategories(response.data );
             });
         // return () => mounted = false;
     }, [alert]);
 
-
     const addNewCategory = inputCategory => {
         const newCategories = [...categories, inputCategory];
         setCategories(newCategories);
-
         setAlert(true);
     }
+
     useEffect(()=>{
         if (alert) {
             setTimeout(()=> {
