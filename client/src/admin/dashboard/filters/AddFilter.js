@@ -6,7 +6,7 @@ export const AddFilter = ({addNewCategory}) => {
     const [values, setValues] = useState({name: ''}); // 1. state of the inputs & initial value
 
     const handleInputChange = ({target}) => { // 4. Fn Change value input, we need only target
-        setValues({ // setValues will change default value
+        setValues({
             ...values,   // create new object
             [target.name] : target.value    //  & modify only the one I receive in this event
         })
@@ -21,14 +21,18 @@ export const AddFilter = ({addNewCategory}) => {
                     console.log(res.status);
                     // on a plus accès au categories ça n a pas été passé comme arg
                     // mais il est suffit en faisant referenc à setCategories qui possède un callback qui garde l'état antérieur
-                    addNewCategory( (cats)=> [values, ...cats] );
+
+                    // setCategories(cats => [...cats, values]);
+
+                    /*addNewCategory( (cats)=> [values, ...cats] );*/
+                    addNewCategory( values );
                     setValues({name:''});
                 });
         }
     }
 
     return <>
-        <div className="row">
+        <div className="row mb-3">
             <div className="col-md-4">
                 <form className="form-row mb-3" onSubmit={handleSubmit}>
                     <div className="form-floating mb-3"> {/* 2. declare initial values : value={ values } 3. add onChange */}

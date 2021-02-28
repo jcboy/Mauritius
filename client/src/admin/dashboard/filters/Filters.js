@@ -6,20 +6,37 @@ import {AddFilter} from "./AddFilter";
 export const Filters = () => {
 
     const [categories, setCategories] = useState([]);
+    const [alert, setAlert] = useState(false);
 
     useEffect(() => {
+        // let mounted = true;
+
+        if (categories.length && !alert) {
+            return
+        }
+
         axios.get('http://localhost:8080/categories')
             .then((response) => {
                 console.log(response.data);
                 setCategories(response.data );
             });
-    }, []);
+        // return () => mounted = false;
+    }, [alert]);
+
 
     const addNewCategory = inputCategory => {
         const newCategories = [...categories, inputCategory];
         setCategories(newCategories);
-    }
 
+        setAlert(true);
+    }
+    useEffect(()=>{
+        if (alert) {
+            setTimeout(()=> {
+                setAlert(false);
+            }, 2000)
+        }
+    })
     const deleteCategory = (id) => {
         axios.delete( 'http://localhost:8080/categories/'+id )
             .then((response) => {
@@ -42,7 +59,8 @@ export const Filters = () => {
 
                     <h2>Gestion des filtres</h2>
 
-                    <AddFilter addNewCategory={addNewCategory} />
+                    <AddFilter addNewCategory={addNewCategory}/>
+                    {alert && <span className="alert alert-success">Le nouveau filtre a été créé</span>}
 
                     <h3 className="mt-5">Liste des filtres (ordre alphabétique)</h3>
 
