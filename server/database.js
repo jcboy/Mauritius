@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 mongoose.connect(process.env.DB_CONN, {
-    useNewUrlParser : true,
+    useNewUrlParser: true,
     useUnifiedTopology: true
-})
-
-const bd = mongoose.connection;
-
-bd.once('open', function (){
+}).then(() => {
     console.log('Connection has been made...');
-}).on('error', function (err){
+}).catch((err) => {
     console.log('An error has occurred : ', err.message);
 })
 

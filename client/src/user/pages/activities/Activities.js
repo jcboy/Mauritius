@@ -8,8 +8,7 @@ import TagComponent from "../../components/Activities/TagComponent";
 
 import {useQuery} from 'react-query';
 import {getActivities} from "../../../API/activities/getSomeActivities";
-import {getCategories} from "../../../API/categories/getSomeCategories";
-import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
+import Categories from "../../../API/categories/categories";
 
 const Activities = () => {
 
@@ -18,7 +17,7 @@ const Activities = () => {
     let endpoints = ['activities', currentPage, ...tags];
 
     const {status, data} = useQuery(endpoints, getActivities);
-    const {status: categoriesSucess, data: categories} = useQuery('categories', getCategories);
+    const {status: categoriesSucess, data: categories} = useQuery('', Categories.getCategories);
 
     return (
         <div className="activities">
