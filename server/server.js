@@ -1,5 +1,6 @@
 const express = require('express');
-require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 const server = express();
 const cors = require('cors');
@@ -9,9 +10,7 @@ const CategoriesRouter = require('./router/CategoriesRouter');
 const ActivitiesRouter = require("./router/ActivitiesRouter");
 const ActualitiesRouter = require("./router/ActualitiesRouter");
 const AdminRouter = require("./router/AdminRouter");
-const MailsRouter  = require('./router/MailsRouter');
-
-const PORT = process.env.SERVER_PORT;
+const MailsRouter = require('./router/MailsRouter');
 
 server.use(express.json());
 server.use(cors({
@@ -22,11 +21,11 @@ server.use(cors({
 server.use(HomeRouter.prefix, HomeRouter.router);
 server.use(ActivitiesRouter.prefix, ActivitiesRouter.router);
 server.use(ActualitiesRouter.prefix, ActualitiesRouter.router);
-server.use(CategoriesRouter.prefix, CategoriesRouter.router );
+server.use(CategoriesRouter.prefix, CategoriesRouter.router);
 server.use(MailsRouter.prefix, MailsRouter.router);
 server.use(AdminRouter.prefix, AdminRouter.router);
 
 
-server.listen(PORT, "localhost", function () {
-    console.log("Server now running on port : " + PORT);
+server.listen(process.env.PORT, "localhost", function () {
+    console.log("Server now running on port : " + process.env.PORT);
 })
