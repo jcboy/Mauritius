@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useQuery} from 'react-query';
 import './../../styles/activities.css';
 
 import Welcome from "../../components/Welcome/Welcome";
@@ -6,7 +7,6 @@ import Pagination from "../../components/Activities/Pagination";
 import MapActivities from "../../components/Activities/MapActivities";
 import TagComponent from "../../components/Activities/TagComponent";
 
-import {useQuery} from 'react-query';
 import {getActivities} from "../../../API/activities/getSomeActivities";
 import Categories from "../../../API/categories/categories";
 

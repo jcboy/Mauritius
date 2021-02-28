@@ -8,9 +8,6 @@ class Categories {
         return response.data;
     }
 
-
-
-
 }
 
 export default new Categories();
