@@ -41,21 +41,21 @@ import axios from "axios";
                                 <form>
                                     <div className="row mb-3">
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" name="firstname" value="inputValue.firstname" onChange={handleInputChange} placeholder="Prénom"/>
+                                            <input className="blue form-control" type="text" name="firstname" value={inputValues.firstname} onChange={handleInputChange} placeholder="Prénom"/>
                                             <label>Prénom</label>
                                         </div>
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" name="lastname" value="inputValue.lastname" onChange={handleInputChange} placeholder="Nom"/>
+                                            <input className="blue form-control" type="text" name="lastname" value={inputValues.lastname} onChange={handleInputChange} placeholder="Nom"/>
                                             <label>Nom</label>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col-md-6 form-floating">
-                                            <input className="blue form-control" type="text" name="mail" value="inputValue.mail" onChange={handleInputChange} placeholder="Email2"/>
+                                            <input className="blue form-control" type="text" name="mail" value={inputValues.mail} onChange={handleInputChange} placeholder="Email2"/>
                                             <label>Email2</label>
                                         </div>
                                         <div className="col-md-6 form-floating">
-                                            <select className="form-select blue" id="monselect" name="objet" value="inputValue.objet" onChange={handleInputChange}>
+                                            <select className="form-select blue" id="monselect" name="objet" value={inputValues.objet} onChange={handleInputChange}>
                                                 <option value="Question">Question</option>
                                                 <option value="Proposer un article">Proposer un article</option>
                                             </select>
@@ -64,7 +64,7 @@ import axios from "axios";
                                     </div>
                                     <div className="row mb-4">
                                         <div className="col form-floating">
-                                            <textarea className="blue form-control" name="message" value="inputValue.message" onChange={handleInputChange}  placeholder="Message"/>
+                                            <textarea className="blue form-control" name="message" value={inputValues.message} onChange={handleInputChange}  placeholder="Message"/>
                                             <label>Message</label>
                                         </div>
                                     </div>
