@@ -96,5 +96,14 @@ html, body { height: 100%;}
 .admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
 
 /* === content ( news activities ) management === */
+.admin_main .table .icon {cursor: pointer;}
+.admin_main .table .icon svg{max-width: 20px; min-width: 16px;}
+.tr-modal td {border-bottom: 0;}
+.modal {background-color: rgba(0, 0, 0, 0.3); color: #000;}
+.admin_main .modal input,
+.admin_main .modal textarea {padding: 1rem 0.5rem; color: #000!important; border: 1px solid #ced4da!important; border-radius: .25rem;}
 
-.admin_main .table .icon svg{max-width: 20px;}
+.admin_main .modal .btn-primary:hover {color: #00627B;}
+
+.contentList .btn.tab{border-color: #fff; color: #fff; border-radius: 0; }
+.contentList #actualities.btn{border-right: 0; }

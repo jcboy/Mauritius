@@ -18,9 +18,9 @@ router.post('/',
 
 router.get('/:id', show);
 
-router.put('/:id', update);
+router.put('/update/:id', update);
 
-router.delete('/:id', remove);
+router.delete('/delete/:id', remove);
 
 
 
