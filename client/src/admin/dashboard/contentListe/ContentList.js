@@ -20,16 +20,16 @@ export const ContentList = () => {
     }
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid contentList">
             <div className="row">
                 <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <button id="actualities" onClick={getArticles}> Actualités</button>
-                    <button id="activities" onClick={getArticles}> Activités</button>
+                    <button id="actualities" onClick={getArticles} className="btn tab">&nbsp;&nbsp;&nbsp;Actualités&nbsp;&nbsp;&nbsp;</button>
+                    <button id="activities" onClick={getArticles} className="btn tab">&nbsp;&nbsp;&nbsp;Articles&nbsp;&nbsp;&nbsp;</button>
                     <table className="table white mt-3 mb-5">
                         <thead>
                         <tr>
-                            <th scope="col">Nom de l'article</th>
+                            <th scope="col">{field ==="activities" ? "Nom de l'article" : "Titre Actu"}</th>
                             {
                                 (field === "activities") && <th scope="col">Filtres</th>
                             }
