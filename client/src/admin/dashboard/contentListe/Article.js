@@ -11,10 +11,7 @@ const Article = ({data, field}) => {
     }
 
     const [showUpdate, setShowUpdate] = useState(false);
-    const toggleShow = () => {
-        setShowUpdate(!showUpdate)
-
-    }
+    const toggleShow = () => { setShowUpdate(!showUpdate) }
 
     return (<>
             {data.data.map((article, i) => {
