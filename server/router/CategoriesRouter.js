@@ -1,12 +1,8 @@
-/*
- Routes of / Categories
- host + /prefix
-*/
-
 const { Router } = require('express');
 const { check } = require('express-validator');
 const CategoriesController = require('../http/Controllers/CategoriesController');
 const {index, store, delete:remove } = CategoriesController;
+const PrivateRoute = require("../http/PrivateRoute");
 
 const router = Router();
 
@@ -18,10 +14,10 @@ router.post(
     '/store',
     [
         check('name', 'Le nom est obligatoire').not().isEmpty(),
-    ],
+    ], PrivateRoute,
     store );
 
-router.delete('/:id', remove);
+router.delete('/:id', PrivateRoute, remove);
 
 /* // Exemple de route pour enregistrer un utilisateur et valider nom email pwd
 router.post(

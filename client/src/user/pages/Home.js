@@ -1,24 +1,24 @@
 import React from 'react';
-import Contact from "../../components/Contact/Contact";
-import '../../styles/home.css';
+import Contact from "../components/Contact";
+import '../styles/home.css';
 import {Parallax} from 'react-parallax';
-import ImageBg from '../../assets/images/ready-bg.jpg';
-import Welcome from "../../components/Welcome/Welcome";
-import LastNews from "../../components/LastNews/LastNews"
-import mainHeaderBackground from "../../assets/images/Le-morne-Unesco-ile-maurice.jpg";
+import ImageBg from '../assets/images/ready-bg.jpg';
+import Welcome from "../components/Welcome";
+import LatestActualities from "../components/Actualities/LatestActualities"
+import mainHeaderBackground from "../assets/images/Le-morne-Unesco-ile-maurice.jpg";
 
 import {Link} from "react-router-dom";
 
 const insideStyles = {position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)"};
 
-export const Home = () => {
+const Home = () => {
 
     return (
         <div>
             <Welcome params={{
-                title : "WELCOME TO PARADISE",
-                background : 'url(' + mainHeaderBackground + ')',
-                type : "main"
+                title: "WELCOME TO PARADISE",
+                background: 'url(' + mainHeaderBackground + ')',
+                type: "main"
             }}/>
 
             <div className="container text-center my-5 py-4">
@@ -69,13 +69,15 @@ export const Home = () => {
                 </div>
             </Parallax>
 
-            <LastNews />
+            <LatestActualities/>
 
             <div className="container text-center mb-5 pb-5">
-                <Link to={'/news/'} className="fs-4">|&nbsp;&nbsp;&nbsp;Plus d’actus&nbsp;&nbsp;&nbsp;|</Link>
+                <Link to={'/Actualities/'} className="fs-4">|&nbsp;&nbsp;&nbsp;Plus d’actus&nbsp;&nbsp;&nbsp;|</Link>
             </div>
 
             <Contact/>
         </div>
     )
 }
+
+export default Home;

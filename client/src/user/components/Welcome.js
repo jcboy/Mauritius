@@ -1,5 +1,5 @@
-import '../../styles/styles.css'
-import {Navbar} from "../Navbar/Navbar";
+import '../styles/styles.css'
+import {Navbar} from "./Navbar";
 
 const Welcome = (props) => {
 

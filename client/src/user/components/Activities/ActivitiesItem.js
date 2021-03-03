@@ -1,14 +1,14 @@
 import React from "react";
 import {Link, useParams} from "react-router-dom";
-import Welcome from "../../components/Welcome/Welcome";
-import Contact from "../../components/Contact/Contact";
-import {getActivity} from "../../../API/activities/getSomeActivity";
+import Welcome from "../Welcome";
+import Contact from "../Contact";
+import fetchActivities from "../../../API/fetchActivities";
 import {useQuery} from "react-query";
 
 export const ActivitiesItem = () => {
 
     const {id: endpoint} = useParams();
-    const {data, status} = useQuery(endpoint, getActivity)
+    const {data, status} = useQuery(endpoint, fetchActivities.getActivity)
 
     return (
         <div>

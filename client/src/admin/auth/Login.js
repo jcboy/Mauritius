@@ -1,17 +1,23 @@
 import React, {useState} from 'react';
-import axios from "axios";
+import auth from "../../API/authentication"
 
 export const Login = (props) => {
 
     const [email, setEmail] = useState("")
-    const [password, setPwd] = useState("")
+    const [password, setPassword] = useState("")
 
-    const signIn = () => {
-        axios.post('http://localhost:8080/', {email, password}).then((data) => {
-            console.log(data)
-            console.log(email, password)
-        })
-        props.history.push("/admin");
+    const login = async (e) => {
+        e.preventDefault();
+        try {
+            await auth.login(
+                {email, password},
+                () => {
+                    props.history.push("/admin");
+                },
+                () => alert("Wrong password"));
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     return (
@@ -35,13 +41,14 @@ export const Login = (props) => {
                     <input type="password" name="password" placeholder="Mot de passe"
                            className="form-control mb-1" required
                            onChange={(event) => {
-                               setPwd(event.target.value)
+                               setPassword(event.target.value)
                            }}/>
                     <label>Mot de passe</label>
                     {/* <span className="text-danger fst-italic">Mot de pass incorrect</span> */}
                 </div>
                 <div className=" mt-5 pt-2">
-                    <button type="submit" className="btn w-100" onClick={signIn}>
+                    <button type="submit" className="btn w-100"
+                            onClick={login}>
                         Connexion
                     </button>
                 </div>

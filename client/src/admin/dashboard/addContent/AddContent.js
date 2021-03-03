@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Select from 'react-select';
-
 import {Sidebar} from "../../common/Sidebar";
 import {AddImage} from "./AddImage";
 
@@ -53,18 +52,19 @@ export const AddContent = () => {
     // -- SUBMIT FORM  -- //
     const [msgConfirm, setMsgConfirm] = useState(false);
 
-    let endpoint = contentType === 'activities' ?  'activities/create' : 'actualities';
+    let endpoint = contentType === 'activities' ? 'activities/create' : 'actualities';
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (inputValues.title.trim().length > 3) {
-            axios.post(`http://localhost:8080/${endpoint}`,
-                {...inputValues, mainImage:image, tags: selectedValue }
-                )
+            const article = {...inputValues, mainImage: image, tags: selectedValue};
+            axios.post(`http://localhost:8080/${endpoint}`, article)
                 .then((res) => {
                     console.log(res.status);
                     handleReset();
-                    if(res.status === 200 || res.status === 201) {setMsgConfirm(!msgConfirm);}
+                    if (res.status === 200 || res.status === 201) {
+                        setMsgConfirm(!msgConfirm);
+                    }
                 })
         }
     }
@@ -96,7 +96,8 @@ export const AddContent = () => {
                                 <label>Sous-titre</label>
                             </div>
                             <div className="col-md-4 form-floating">
-                                <select name="typeOfContent" onChange={(e) => setContentType(e.target.value)} id="monselect" className="form-select grey">
+                                <select name="typeOfContent" onChange={(e) => setContentType(e.target.value)}
+                                        id="monselect" className="form-select grey">
                                     <option value="activities">article</option>
                                     <option value="actualities">actualité</option>
                                 </select>
@@ -107,7 +108,8 @@ export const AddContent = () => {
                         <div className="row mb-3">
                             {contentType === 'activities' && (
                                 <div className="col-md-4 form-floating mb-4">
-                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres à votre article</label>
+                                    <label htmlFor="exampleDataList" className="form-label">Ajouter des filtres à votre
+                                        article</label>
                                     <Select
                                         defaultValue={[]}
                                         name="data"
@@ -122,24 +124,24 @@ export const AddContent = () => {
                                         isMulti
                                     />
                                 </div>
-                                )
+                            )
                             }
 
                             <div className="col-md-4 form-floating mb-4 addImage">
-                                <AddImage setImage={setImage}  />
+                                <AddImage setImage={setImage}/>
                             </div>
                         </div>
 
                         {contentType === 'actualities' &&
-                            <div className="row my-4">
-                                <div className="col-md-8 form-floating shortDescription">
+                        <div className="row my-4">
+                            <div className="col-md-8 form-floating shortDescription">
                                     <textarea name="shortDescription"
                                               onChange={handleInputChange}
                                               value={inputValues.shortDescription}
                                               className="grey form-control" placeholder="Courte description"/>
-                                    <label>Courte description</label>
-                                </div>
+                                <label>Courte description</label>
                             </div>
+                        </div>
                         }
 
                         <div className="row mb-4">
@@ -162,18 +164,22 @@ export const AddContent = () => {
 
                         <div className="row ">
                             <div className="offset-8 col text-end">
-                                <button onClick={handleReset} type="button" className="btn btn-outline ">Annuler </button>
-                                <button onClick={handleSubmit} type="button" className="btn-primary btn ms-4">Valider </button>
+                                <button onClick={handleReset} type="button" className="btn btn-outline ">Annuler
+                                </button>
+                                <button onClick={handleSubmit} type="button" className="btn-primary btn ms-4">Valider
+                                </button>
                             </div>
                         </div>
 
                     </form>
 
-                    { msgConfirm &&
-                        <div className="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                            <strong>Bonne nouvelle!</strong> Votre contenu a bien été crée.
-                            <button type="button" onClick={() => { setMsgConfirm(!msgConfirm) }} className="btn-close" aria-label="Close">&nbsp;</button>
-                        </div>
+                    {msgConfirm &&
+                    <div className="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        <strong>Bonne nouvelle!</strong> Votre contenu a bien été crée.
+                        <button type="button" onClick={() => {
+                            setMsgConfirm(!msgConfirm)
+                        }} className="btn-close" aria-label="Close">&nbsp;</button>
+                    </div>
                     }
                 </main>
 

@@ -1,14 +1,7 @@
 import IconUpdate from "./IconUpdate";
 import React, {useState} from 'react'
-import ToUpdate from "./ToUpdate";
 
 const Article = ({data, field}) => {
-
-    const [toUpdate, displayToUpdate] = useState({display: "none"})
-
-    const updateArticle = (event) => {
-        console.log(event.target.id)
-    }
 
     const [showUpdate, setShowUpdate] = useState(false);
     const toggleShow = () => { setShowUpdate(!showUpdate) }

@@ -50,7 +50,7 @@ class ActualitiesController{
         })
     }
 
-    delete(req, res){
+    remove(req, res){
         const id = req.params.id;
         Actuality.findByIdAndDelete(id, (err, actuality) => {
             if(!!err) {

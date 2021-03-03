@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import {useQuery} from 'react-query';
-import './../../styles/activities.css';
+import '../styles/activities.css';
 
-import Welcome from "../../components/Welcome/Welcome";
-import Pagination from "../../components/Activities/Pagination";
-import MapActivities from "../../components/Activities/MapActivities";
-import TagComponent from "../../components/Activities/TagComponent";
-
-import {getActivities} from "../../../API/activities/getSomeActivities";
-import Categories from "../../../API/categories/categories";
+import Welcome from "../components/Welcome";
+import Pagination from "../components/Activities/Pagination";
+import MapActivities from "../components/Activities/MapActivities";
+import TagComponent from "../components/Activities/TagComponent";
+import fetchCategories from "../../API/fetchCategories";
+import fetchActivities from "../../API/fetchActivities";
 
 const Activities = () => {
 
@@ -16,8 +15,8 @@ const Activities = () => {
     const [tags, setTags] = useState([]);
     let endpoints = ['activities', currentPage, ...tags];
 
-    const {status, data} = useQuery(endpoints, getActivities);
-    const {status: categoriesSucess, data: categories} = useQuery('', Categories.getCategories);
+    const {status, data} = useQuery(endpoints, fetchActivities.getActivities);
+    const {status: categoriesSucess, data: categories} = useQuery('', fetchCategories.getCategories);
 
     return (
         <div className="activities">
