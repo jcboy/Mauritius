@@ -3,7 +3,11 @@ import axios from "axios";
 class FetchMail {
 
     async getMails() {
-        const {data} = await axios.get("http://localhost/8080/mails")
+        const {data} = await axios.get("http://localhost/8080/mails", {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("authorization")
+            }
+        });
         return data;
     }
 

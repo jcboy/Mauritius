@@ -70,14 +70,14 @@ class Contact extends Component {
                             <div className="row mb-3">
                                 <div className="col-md-6 form-floating">
                                     <input className="blue form-control"
-                                           id="mail" type="text" placeholder="Email"
+                                           id="mail" type="text" placeholder="EmailList"
                                            onChange={(event) => {
                                                this.setState({
                                                    mail: event.target.value
                                                })
                                            }}
                                     />
-                                    <label>Email</label>
+                                    <label>EmailList</label>
                                 </div>
                                 <div className="col-md-6 form-floating">
                                     <select className="form-select blue" id="object"
@@ -104,14 +104,12 @@ class Contact extends Component {
                                     <label>Message</label>
                                 </div>
                             </div>
-
                             <div className="row mb-3">
                                 <div className="col">
                                     <input className="form-control" type="file" id="formFile"/>
                                     {/* <button type="button" className="pj">Pièce jointe <ButtonFileUpload/></button> */}
                                 </div>
                             </div>
-
                             <div className="row ">
                                 <div className=" col text-end">
                                     <button type="button"
@@ -130,13 +128,8 @@ class Contact extends Component {
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     }
-
-
 }
 
 export default Contact;

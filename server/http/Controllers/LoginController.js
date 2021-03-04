@@ -15,7 +15,7 @@ class LoginController {
 
         try {
             const user = await Admin.findOne(email);
-            if (!user) return res.status(400).send({message: "Email introuvable"});
+            if (!user) return res.status(400).send({message: "EmailList introuvable"});
             else {
                 const validPass = await bcrypt.compare(req.body.password, user["password"]);
                 if (!validPass) return res.send('Le mot de passe ne correspond pas.')
