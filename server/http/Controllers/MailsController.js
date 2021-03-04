@@ -1,9 +1,8 @@
-const { validationResult } = require('express-validator');
 const Mails = require('../../models/Mails');
 
 class MailsController {
 
-    index (req, res) {
+    index(req, res) {
         const query = Mails.find(); // Recupération du schéma via Mongoose
         query.select(''); // Séléction les attributs à récupérer
 
@@ -12,24 +11,21 @@ class MailsController {
         });
     }
 
-   store (request, response) {
-
+    store(request, response) {
+        console.log(request.body)
         const mail = new Mails(request.body); //Assigner un modèle à la requete du body
 
-        mail.save().then( () => {
-            response.status(201).send({ msg: `new mail has been added`})
-        }).catch( () => {
-
-            const errors =  validationResult(request);
-            if( !errors.isEmpty() ){
-                return response.status(400).send({ errors: errors.mapped() });
-            }
+        mail.save()
+            .then(() => {
+                response.status(201).send({msg: `new mail has been added`})
+            }).catch((err) => {
+            response.status(400).send(err.message);
         })
     }
 
- /*   delete (req, res) {
+    remove(req, res) {
         const id = req.params.id;
-        Mails.findByIdAndDelete(id, {}, (err, Mails)=>{
+        Mails.findByIdAndDelete(id, {}, (err, Mails) => {
             if (!!err) {
                 return res.status(404).send({message: 'Mail not found'})
             }
@@ -37,7 +33,7 @@ class MailsController {
             return res.status(201).send({message: 'Mail deleted', Mails});
         })
     }
-*/
+
 }
 
 module.exports = new MailsController();

@@ -1,4 +1,4 @@
-const Activity = require('../../models/Activities');
+const {activity} = require ('../../models/Actualities');
 
 const perPage = 6;
 
@@ -6,7 +6,7 @@ class ActivitiesController {
 
     index(req, res) {
 
-        const query = Activity.find();
+        const query = activity.find();
 
         if (!!req.query.tag) {
             query.where("tags").equals(req.query.tag);
@@ -37,7 +37,7 @@ class ActivitiesController {
     }
 
     getOne(req, res) {
-        Activity.find({_id: req.params.id}, (err, data) => {
+        activity.find({_id: req.params.id}, (err, data) => {
             if (err) return res.statusCode(500).send({message: 'SERVER_ERROR'})
             console.log(data)
             console.log(req.params.id)
@@ -46,7 +46,7 @@ class ActivitiesController {
     }
 
     create(req, res) {
-        const newActivity = new Activity(req.body);
+        const newActivity = new activity(req.body);
         newActivity.save().then((response) => {
             res.send({
                 message: 'Activité ajoutée à la base de donnée...',
@@ -60,7 +60,7 @@ class ActivitiesController {
 
     update(req, res) {
         const params = req.body;
-        Activity.findOneAndUpdate(params, {title: 'AAA'},
+        activity.findOneAndUpdate(params, {title: 'AAA'},
             {new: true}, (err, response) => {
                 console.log(response);
                 if (!!err) {
@@ -75,7 +75,7 @@ class ActivitiesController {
 
     remove(req, res) {
         const id = req.params.id;
-        Activity.findByIdAndDelete(id, (err, response) => {
+        activity.findByIdAndDelete(id, (err, response) => {
             if (!!err) {
                 res.status(404).send(err);
             }

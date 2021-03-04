@@ -21,6 +21,10 @@ const ActivitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    shortDescription: {
+        type: String,
+        required: true
+    },
     tags: {
         type: mongoose.Schema.Types.Mixed,
         required: true
@@ -28,6 +32,3 @@ const ActivitySchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
-
-module.exports = mongoose.model('Activity', ActivitySchema);
-
