@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 
-const ToUpdate = ({articleToUpdate, setShowUpdate}) => {
+const CardToUpdate = ({articleToUpdate, setShowUpdate}) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -40,4 +40,4 @@ const ToUpdate = ({articleToUpdate, setShowUpdate}) => {
 
 
 }
-export default ToUpdate;
+export default CardToUpdate;

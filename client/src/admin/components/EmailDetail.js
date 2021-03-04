@@ -1,6 +1,8 @@
 const EmailDetail = () => {
 
-    return
+    return <div>
+
+    </div>
 
 }
 

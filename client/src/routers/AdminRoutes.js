@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route, Switch} from "react-router-dom";
 import {NavbarAdmin} from "../admin/components/NavbarAdmin";
-import {ContentList} from "../admin/pages/ContentList";
+import {ArticleList} from "../admin/pages/ArticleList";
 import {AddContent} from "../admin/pages/AddContent";
 import {Filters} from "../admin/pages/Filters";
 import EmailList from "../admin/pages/EmailList";
@@ -18,7 +18,7 @@ export const AdminRoutes = () => {
             <NavbarAdmin/>
 
             <Switch>
-                <Route exact path="/admin/contentlist" component={ContentList}/>
+                <Route exact path="/admin/contentlist" component={ArticleList}/>
                 <Route exact path="/admin/addcontent" component={AddContent}/>
                 <Route exact path="/admin/emaillist" component={EmailList}/>
                 <Route exact path="/admin/emaillist/:emailId" component={EmailDetail}/>

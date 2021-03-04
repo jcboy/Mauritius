@@ -3,18 +3,13 @@ const Mails = require('../../models/Mails');
 class MailsController {
 
     index(req, res) {
-        const query = Mails.find(); // Recupération du schéma via Mongoose
-        query.select(''); // Séléction les attributs à récupérer
-
-        query.exec((err, categories) => { // Exécution du query
-            res.send(categories)
+        Mails.find((err, response) => {
+            res.send(response)
         });
     }
 
     store(request, response) {
-        console.log(request.body)
-        const mail = new Mails(request.body); //Assigner un modèle à la requete du body
-
+        const mail = new Mails(request.body);
         mail.save()
             .then(() => {
                 response.status(201).send({msg: `new mail has been added`})

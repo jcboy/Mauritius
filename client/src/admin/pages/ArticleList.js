@@ -4,9 +4,9 @@ import {Sidebar} from "../components/Sidebar";
 import {useQuery} from "react-query";
 import {getField} from "../../services/getField";
 
-import Article from "../components/contentList/Article";
+import ArticleItem from "../components/ArticleItem";
 
-export const ContentList = () => {
+export const ArticleList = () => {
 
     const [field, setField] = useState("actualities");
     const {data : list, status} = useQuery(field, getField);
@@ -34,7 +34,7 @@ export const ContentList = () => {
                         </thead>
                         <tbody>
                         {
-                            (status === "success") && <Article list={list} field={field}/>
+                            (status === "success") && <ArticleItem list={list} field={field}/>
                         }
                         </tbody>
                     </table>

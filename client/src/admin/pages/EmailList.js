@@ -3,12 +3,11 @@ import {Link} from "react-router-dom";
 import '../styles/admin.css';
 import {Sidebar} from "../components/Sidebar";
 import {useQuery} from "react-query";
-import FetchMail from "../../admin/pages/"
-
+import FetchMail from "../../services/fetchMail"
 
 const EmailList = () => {
 
-    const {data : mails, status} = useQuery("email", FetchMail)
+    const {data: mails, status} = useQuery("mails", FetchMail.getMails)
 
     return <div className="container-fluid">
         <div className="row">
@@ -26,10 +25,9 @@ const EmailList = () => {
                             <div className="offset-md-4"> 0bjet</div>
                         </div>
                     </div>
-
                     {
-                        mails.map(item => (
-                            <div className="item" key={mails}>
+                        (status === "success") && mails.map((item) => (
+                            <div className="item" key={item._id}>
                                 <Link type="button" className="btn btn-secondary  row mailrow hoverrow"
                                       to={'/admin/emaillist/' + item.id}>
                                     <div className="row ">
@@ -40,7 +38,7 @@ const EmailList = () => {
                                             {item.mail}
                                         </div>
                                         <div className="col-md-4">
-                                            {item.objet}
+                                            {item.object}
                                         </div>
                                     </div>
                                 </Link>

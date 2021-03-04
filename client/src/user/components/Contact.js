@@ -16,7 +16,7 @@ class Contact extends Component {
 
     async postMail() {
         try {
-            const response = await FetchMail.postMail(this.state)
+            const response = await FetchMail.postMail(this.state);
             if (response) {
                 this.setState({
                     prenom: "",
@@ -24,7 +24,7 @@ class Contact extends Component {
                     mail: "",
                     object: "question",
                     message: "",
-                })
+                });
             }
         } catch (err) {
             console.log(err.message)
@@ -87,9 +87,9 @@ class Contact extends Component {
                                                 })
                                             }}>
                                         <option value="question">question</option>
-                                        <option value="proposer-un-article">proposer un article</option>
+                                        <option value="suggestion">proposer un article</option>
                                     </select>
-                                    <label>Objet (« question » ou « proposer un article »)</label>
+                                    <label>Objet (« question » ou « suggestion »)</label>
                                 </div>
                             </div>
                             <div className="row mb-4">
