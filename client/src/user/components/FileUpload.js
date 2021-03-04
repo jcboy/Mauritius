@@ -26,7 +26,8 @@ class FileUpload extends Component {
     onChange(e) {
         this.setState({file:e.target.files[0]})
     }
-    fileUpload(file){
+
+    async fileUpload(file){
         const url = 'http://example.com/file-upload';
         const formData = new FormData();
         formData.append('file',file)
@@ -35,7 +36,7 @@ class FileUpload extends Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        return  axios.post(url, formData,config)
+        return await axios.post(url, formData,config)
     }
 
     render() {

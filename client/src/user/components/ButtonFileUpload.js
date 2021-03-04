@@ -6,7 +6,7 @@ class ButtonFileUpload extends Component {
 
     render() {
 
-        return <div><FileUpload /></div>
+        return <FileUpload />
     }
 
 }
