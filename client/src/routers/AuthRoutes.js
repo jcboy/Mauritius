@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, Redirect} from "react-router-dom";
-import {Login} from "../admin/auth/Login";
+import {Login} from "../user/pages/Login";
 
 export const AuthRoutes = () => {
 

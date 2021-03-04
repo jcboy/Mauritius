@@ -16,9 +16,7 @@ const ActivityPreview = (props) => {
             <div className="col-md-8 desc-content">
                 <div className="wrapper">
                     <h3 className="h3 red"> {props.activity.title} </h3>
-                    <p>{((props.activity.description).length > 330) ?
-                        (((props.activity.description).substring(0, 330 - 3)) + '...') :
-                        props.activity.description}</p>
+                    <p>{props.activity.shortDescription}</p>
                     <Link to={`/activitiesitem/${props.activity._id}`}>&gt; en savoir plus </Link>
                 </div>
             </div>

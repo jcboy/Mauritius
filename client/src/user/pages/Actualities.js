@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import '../styles/activities.css';
 import Welcome from "../components/Welcome";
 import {useQuery} from "react-query";
-import fetchActualities from "../../API/fetchActualities";
+import fetchActualities from "../../services/fetchActualities";
 import ActualitiesPreview from "../components/Actualities/ActualitiesPreview";
 
 const Actualities = () => {
@@ -29,7 +29,7 @@ const Actualities = () => {
                         </select>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row flex-basis-1">
                     {
                         (status === "success") && data.map(
                             (item, index) => {

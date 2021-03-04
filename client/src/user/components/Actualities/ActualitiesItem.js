@@ -5,7 +5,7 @@ import Welcome from "../Welcome";
 import Contact from "../Contact";
 import LatestActualities from "./LatestActualities";
 import {useQuery} from "react-query";
-import fetchActualities from "../../../API/fetchActualities";
+import fetchActualities from "../../../services/fetchActualities";
 
 const ActualitiesItem = () => {
 

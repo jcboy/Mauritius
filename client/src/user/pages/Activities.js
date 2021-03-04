@@ -6,8 +6,8 @@ import Welcome from "../components/Welcome";
 import Pagination from "../components/Activities/Pagination";
 import MapActivities from "../components/Activities/MapActivities";
 import TagComponent from "../components/Activities/TagComponent";
-import fetchCategories from "../../API/fetchCategories";
-import fetchActivities from "../../API/fetchActivities";
+import fetchCategories from "../../services/fetchCategories";
+import fetchActivities from "../../services/fetchActivities";
 
 const Activities = () => {
 
@@ -16,7 +16,7 @@ const Activities = () => {
     let endpoints = ['activities', currentPage, ...tags];
 
     const {status, data} = useQuery(endpoints, fetchActivities.getActivities);
-    const {status: categoriesSucess, data: categories} = useQuery('', fetchCategories.getCategories);
+    const {status: categoriesSucess, data: categories} = useQuery("categories", fetchCategories.getCategories);
 
     return (
         <div className="activities">

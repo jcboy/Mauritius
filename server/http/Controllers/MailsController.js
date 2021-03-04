@@ -1,4 +1,3 @@
-const {validationResult} = require('express-validator');
 const Mails = require('../../models/Mails');
 
 class MailsController {
@@ -13,17 +12,14 @@ class MailsController {
     }
 
     store(request, response) {
-
+        console.log(request.body)
         const mail = new Mails(request.body); //Assigner un modèle à la requete du body
 
-        mail.save().then(() => {
-            response.status(201).send({msg: `new mail has been added`})
-        }).catch(() => {
-
-            const errors = validationResult(request);
-            if (!errors.isEmpty()) {
-                return response.status(400).send({errors: errors.mapped()});
-            }
+        mail.save()
+            .then(() => {
+                response.status(201).send({msg: `new mail has been added`})
+            }).catch((err) => {
+            response.status(400).send(err.message);
         })
     }
 

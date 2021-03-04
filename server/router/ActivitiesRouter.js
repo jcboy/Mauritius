@@ -8,7 +8,7 @@ const prefix = '/activities';
 
 router.get('/', index);
 router.get('/:id', getOne);
-router.post('/create', PrivateRoute, create);
+router.post('/', PrivateRoute, create);
 router.put('/update', PrivateRoute, update);
 router.delete('/delete/:id', PrivateRoute, remove);
 

@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import {useQuery} from "react-query";
-import fetchActualities from "../../../API/fetchActualities";
+import fetchActualities from "../../../services/fetchActualities";
 
 
 export default function LatestActualities() {

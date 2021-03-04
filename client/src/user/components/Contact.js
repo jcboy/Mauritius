@@ -1,6 +1,35 @@
 import React, {Component} from 'react';
+import FetchMail from "../../services/fetchMail";
 
 class Contact extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            prenom: "",
+            nom: "",
+            mail: "",
+            object: "question",
+            message: "",
+        }
+    }
+
+    async postMail() {
+        try {
+            const response = await FetchMail.postMail(this.state)
+            if (response) {
+                this.setState({
+                    prenom: "",
+                    nom: "",
+                    mail: "",
+                    object: "question",
+                    message: "",
+                })
+            }
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
 
     render() {
         return <div className="blockContact pt-3">
@@ -15,30 +44,63 @@ class Contact extends Component {
                         <form>
                             <div className="row mb-3">
                                 <div className="col-md-6 form-floating">
-                                    <input className="blue form-control" type="text" placeholder="Prénom"/>
+                                    <input className="blue form-control"
+                                           id="prenom" type="text"
+                                           placeholder="Prénom"
+                                           onChange={(event) => {
+                                               this.setState({
+                                                   prenom: event.target.value
+                                               })
+                                           }}
+                                    />
                                     <label>Prénom</label>
                                 </div>
                                 <div className="col-md-6 form-floating">
-                                    <input className="blue form-control" type="text" placeholder="Nom"/>
+                                    <input className="blue form-control"
+                                           id="nom" type="text" placeholder="Nom"
+                                           onChange={(event) => {
+                                               this.setState({
+                                                   nom: event.target.value
+                                               })
+                                           }}
+                                    />
                                     <label>Nom</label>
                                 </div>
                             </div>
                             <div className="row mb-3">
                                 <div className="col-md-6 form-floating">
-                                    <input className="blue form-control" type="text" placeholder="Email2"/>
-                                    <label>Email2</label>
+                                    <input className="blue form-control"
+                                           id="mail" type="text" placeholder="Email"
+                                           onChange={(event) => {
+                                               this.setState({
+                                                   mail: event.target.value
+                                               })
+                                           }}
+                                    />
+                                    <label>Email</label>
                                 </div>
                                 <div className="col-md-6 form-floating">
-                                    <select className="form-select blue" id="monselect">
-                                        <option value="valeur1">question</option>
-                                        <option value="valeur2">proposer un article</option>
+                                    <select className="form-select blue" id="object"
+                                            onChange={(event) => {
+                                                this.setState({
+                                                    object: event.target.value
+                                                })
+                                            }}>
+                                        <option value="question">question</option>
+                                        <option value="proposer-un-article">proposer un article</option>
                                     </select>
                                     <label>Objet (« question » ou « proposer un article »)</label>
                                 </div>
                             </div>
                             <div className="row mb-4">
                                 <div className="col form-floating">
-                                    <textarea className="blue form-control" placeholder="Message"/>
+                                    <textarea className="blue form-control"
+                                              id="message" placeholder="Message"
+                                              onChange={(event) => {
+                                                  this.setState({
+                                                      message: event.target.value
+                                                  })
+                                              }}/>
                                     <label>Message</label>
                                 </div>
                             </div>
@@ -52,11 +114,12 @@ class Contact extends Component {
 
                             <div className="row ">
                                 <div className=" col text-end">
-                                    <button type="button" className="btn btn-outline ">Envoyer</button>
+                                    <button type="button"
+                                            className="btn btn-outline"
+                                            onClick={this.postMail.bind(this)}>Envoyer
+                                    </button>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                 </div>

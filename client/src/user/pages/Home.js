@@ -2,10 +2,10 @@ import React from 'react';
 import Contact from "../components/Contact";
 import '../styles/home.css';
 import {Parallax} from 'react-parallax';
-import ImageBg from '../assets/images/ready-bg.jpg';
+import ImageBg from '../assets/ready-bg.jpg';
 import Welcome from "../components/Welcome";
 import LatestActualities from "../components/Actualities/LatestActualities"
-import mainHeaderBackground from "../assets/images/Le-morne-Unesco-ile-maurice.jpg";
+import mainHeaderBackground from "../assets/Le-morne-Unesco-ile-maurice.jpg";
 
 import {Link} from "react-router-dom";
 

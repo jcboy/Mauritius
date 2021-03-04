@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
-const ActualitiesController = require('../http/Controllers/ActualitiesController');
+const ActualitiesController = require('../http/Controllers/ArticleController');
 const {index, update, remove, show, store} = ActualitiesController;
 const PrivateRoute = require("../http/PrivateRoute");
 

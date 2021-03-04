@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
-import {NavbarAdmin} from "../admin/common/NavbarAdmin";
-import {ContentList} from "../admin/dashboard/contentListe/ContentList";
-import {AddContent} from "../admin/dashboard/addContent/AddContent";
-import {Filters} from "../admin/dashboard/filters/Filters";
-import {EmailList} from "../admin/dashboard/mailbox/EmailList";
-import {Email} from "../admin/dashboard/mailbox/Email";
-import {Password} from "../admin/dashboard/password/Password";
+import {NavbarAdmin} from "../admin/components/NavbarAdmin";
+import {ContentList} from "../admin/pages/ContentList";
+import {AddContent} from "../admin/pages/AddContent";
+import {Filters} from "../admin/pages/Filters";
+import {EmailList} from "../admin/components/mailbox/EmailList";
+import {Email} from "../admin/components/mailbox/Email";
+import {Password} from "../admin/pages/Password";
 import '../admin/styles/admin.css';
 
 

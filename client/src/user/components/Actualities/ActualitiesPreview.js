@@ -16,10 +16,7 @@ const ActualitiesPreview = ({item}) => {
                     <h3 className="h3 red"> {item.title} </h3>
                     <div className="date mb-2">Publié le {moment(item.createdAt).format('DD/MM/YYYY')} </div>
                     <p>
-                        {
-                            (item.description.length > 260) ?
-                                (((item.description).substring(0, 260 - 3)) + '...') : item.description
-                        }
+                        {item.shortDescription}
                     </p>
                     <Link to={`/news-item/${item._id}`}>&gt; Voir l'article</Link>
                 </div>

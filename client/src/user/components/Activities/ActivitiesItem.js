@@ -2,7 +2,7 @@ import React from "react";
 import {Link, useParams} from "react-router-dom";
 import Welcome from "../Welcome";
 import Contact from "../Contact";
-import fetchActivities from "../../../API/fetchActivities";
+import fetchActivities from "../../../services/fetchActivities";
 import {useQuery} from "react-query";
 
 export const ActivitiesItem = () => {
