@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, useParams} from "react-router-dom";
-import Welcome from "../Welcome";
-import Contact from "../Contact";
+import Header from "../Header";
+import Footer from "../Footer";
 import fetchActivities from "../../../services/fetchActivities";
 import {useQuery} from "react-query";
 
@@ -19,7 +19,7 @@ export const ActivitiesItem = () => {
                     </div>)
                 || ((status === "success") &&
                     <>
-                        <Welcome params={{
+                        <Header params={{
                             title: data[0].title,
                             background: 'url(' + data[0].mainImage + ')',
                             type: "notMain"
@@ -48,7 +48,7 @@ export const ActivitiesItem = () => {
                         Une erreur est survenue...
                     </div>)
             }
-            <Contact/>
+            <Footer/>
         </div>
     )
 }

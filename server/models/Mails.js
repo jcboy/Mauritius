@@ -33,7 +33,8 @@ const MailsSchema = new Schema({
         required: false,
         lowercase: true
     },
-
+}, {
+    timestamps: true
 });
 
 module.exports = model('Mails', MailsSchema);

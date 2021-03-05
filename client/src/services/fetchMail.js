@@ -18,6 +18,8 @@ class FetchMail {
         return data
     }
 
+
+
 }
 
 export default new FetchMail();

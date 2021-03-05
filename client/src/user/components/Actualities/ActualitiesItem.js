@@ -1,8 +1,8 @@
 import React from "react";
 import moment from 'moment';
 import {Link, useParams} from "react-router-dom";
-import Welcome from "../Welcome";
-import Contact from "../Contact";
+import Header from "../Header";
+import Footer from "../Footer";
 import LatestActualities from "./LatestActualities";
 import {useQuery} from "react-query";
 import fetchActualities from "../../../services/fetchActualities";
@@ -15,7 +15,7 @@ const ActualitiesItem = () => {
     return (
         <div>
             {(status === "success") && <>
-                <Welcome params={{
+                <Header params={{
                     title: data.title,
                     background: 'url(' + data.mainImage + ')',
                     type: "notMain"
@@ -36,7 +36,7 @@ const ActualitiesItem = () => {
 
             <br/><br/>
 
-            <Contact/>
+            <Footer/>
         </div>
     )
 }

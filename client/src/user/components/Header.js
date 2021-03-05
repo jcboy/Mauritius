@@ -1,7 +1,7 @@
 import '../styles/styles.css'
 import {Navbar} from "./Navbar";
 
-const Welcome = (props) => {
+const Header = (props) => {
 
     const headerSize = (type) => {
         const mainHeaderSize = {
@@ -35,4 +35,4 @@ const Welcome = (props) => {
     )
 }
 
-export default Welcome;
+export default Header;

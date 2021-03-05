@@ -7,7 +7,7 @@ import {Filters} from "../admin/pages/Filters";
 import EmailList from "../admin/pages/EmailList";
 import {Credentials} from "../admin/pages/Credentials";
 import '../admin/styles/admin.css';
-import EmailDetail from "../admin/components/EmailDetail";
+import EmailItem from "../admin/components/EmailItem";
 import ProtectedRoute from "../services/ProtectedRoute";
 
 
@@ -22,7 +22,7 @@ export const AdminRoutes = () => {
                 <ProtectedRoute exact path="/admin/contentlist" component={ArticleList}/>
                 <ProtectedRoute exact path="/admin/addcontent" component={AddContent}/>
                 <ProtectedRoute exact path="/admin/emaillist" component={EmailList}/>
-                <ProtectedRoute exact path="/admin/emaillist/:emailId" component={EmailDetail}/>
+                <ProtectedRoute exact path="/admin/emaillist/:emailId" component={EmailItem}/>
                 <ProtectedRoute exact path="/admin/filters" component={Filters}/>
                 <ProtectedRoute exact path="/admin/password" component={Credentials}/>
 

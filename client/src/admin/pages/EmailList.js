@@ -32,7 +32,7 @@ const EmailList = () => {
                                       to={'/admin/emaillist/' + item.id}>
                                     <div className="row ">
                                         <div className="col-md-4">
-                                            {item.date}
+                                            {item.createdAt.slice(0,10)}
                                         </div>
                                         <div className="col-md-4">
                                             {item.mail}
