@@ -25,7 +25,7 @@ router.post(
     [ // middlewares
         check('name', 'Le nombre est obligatoire').not().isEmpty(),
         check('email', 'Le email est obligatoire').isEmail(),
-        check('password', 'Password d\'au moins 6 caractères').isLength({ min: 6 })
+        check('password', 'Credentials d\'au moins 6 caractères').isLength({ min: 6 })
     ],
     createUser // ou store // ou create // comme vous voulez
 );

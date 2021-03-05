@@ -1,13 +1,14 @@
 import React from 'react';
-import {Redirect, Route, Switch} from "react-router-dom";
+import {Redirect, Switch} from "react-router-dom";
 import {NavbarAdmin} from "../admin/components/NavbarAdmin";
 import {ArticleList} from "../admin/pages/ArticleList";
 import {AddContent} from "../admin/pages/AddContent";
 import {Filters} from "../admin/pages/Filters";
 import EmailList from "../admin/pages/EmailList";
-import {Password} from "../admin/pages/Password";
+import {Credentials} from "../admin/pages/Credentials";
 import '../admin/styles/admin.css';
 import EmailDetail from "../admin/components/EmailDetail";
+import ProtectedRoute from "../services/ProtectedRoute";
 
 
 export const AdminRoutes = () => {
@@ -18,12 +19,12 @@ export const AdminRoutes = () => {
             <NavbarAdmin/>
 
             <Switch>
-                <Route exact path="/admin/contentlist" component={ArticleList}/>
-                <Route exact path="/admin/addcontent" component={AddContent}/>
-                <Route exact path="/admin/emaillist" component={EmailList}/>
-                <Route exact path="/admin/emaillist/:emailId" component={EmailDetail}/>
-                <Route exact path="/admin/filters" component={Filters}/>
-                <Route exact path="/admin/password" component={Password}/>
+                <ProtectedRoute exact path="/admin/contentlist" component={ArticleList}/>
+                <ProtectedRoute exact path="/admin/addcontent" component={AddContent}/>
+                <ProtectedRoute exact path="/admin/emaillist" component={EmailList}/>
+                <ProtectedRoute exact path="/admin/emaillist/:emailId" component={EmailDetail}/>
+                <ProtectedRoute exact path="/admin/filters" component={Filters}/>
+                <ProtectedRoute exact path="/admin/password" component={Credentials}/>
 
 
                 <Redirect to="/admin/contentlist"/>

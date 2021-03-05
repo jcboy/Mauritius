@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 import IconOff from "../assets/IconOff";
+import auth from "../../services/authentication";
 
 export const NavbarAdmin = () => {
 
+    let history = useHistory();
     const [showSidebar, setShowSidebar] = useState(false);
     const toggleShow = () => {
         setShowSidebar(!showSidebar);
@@ -15,12 +18,16 @@ export const NavbarAdmin = () => {
             <button onClick={toggleShow} className="navbar-toggler position-absolute d-md-none collapsed" type="button"
                     data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
                     aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"/>
             </button>
 
             <ul className="navbar-nav ">
                 <li className="nav-item text-nowrap">
-                    <a className="nav-link" ><IconOff/></a>
+                    <a className="nav-link" onClick={async () => {
+                        await auth.logout(() => {
+                            history.push("/login");
+                        })
+                    }}><IconOff/></a>
                 </li>
             </ul>
         </header>

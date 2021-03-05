@@ -8,6 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import {UserRoutes} from "./UserRoutes";
 import {AdminRoutes} from "./AdminRoutes";
 import {AuthRoutes} from "./AuthRoutes";
+import ProtectedRoute from "../services/ProtectedRoute";
 
 export const AppRouter = () => {
     return (
@@ -16,7 +17,7 @@ export const AppRouter = () => {
             <div>
                 <Switch>
                     <Route path="/login" component={AuthRoutes} />
-                    <Route path="/admin" component={AdminRoutes} />
+                    <ProtectedRoute path="/admin" component={AdminRoutes} />
                     <Route path="/" component={UserRoutes} />
                 </Switch>
             </div>

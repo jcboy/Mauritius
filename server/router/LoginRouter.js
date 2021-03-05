@@ -6,6 +6,8 @@ const PrivateRoute = require("../http/PrivateRoute");
 
 
 router.post("/", LoginController.login);
-router.post("/update", PrivateRoute, LoginController.updatePassword);
+router.get("/:id", PrivateRoute, LoginController.getAdminById);
+router.put("/updatepwd", PrivateRoute, LoginController.updatePassword);
+router.put("/updateemail", PrivateRoute, LoginController.updateEmail);
 
 module.exports = {router, prefix};

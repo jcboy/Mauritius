@@ -1,9 +1,8 @@
 const Admin = require("../../models/Admin");
-const {loginValidation, emailValidation} = require("../../validation");
+const {emailValidation, passwordValidation} = require("../../validation");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const {passwordValidation} = require("../../validation");
 dotenv.config();
 
 class LoginController {
@@ -26,24 +25,48 @@ class LoginController {
                     .send(user);
             }
         } catch (err) {
-            return res.send({statut: "error", message: err.message});
+            return res.send(err);
         }
     }
 
     async updatePassword(req, res) {
-        const {error, value} = passwordValidation(req.body);
-        if (error) return res.status(400).send({error: error.details[0].message, message: "Invalid password"});
+        const {error, value} = passwordValidation({password: req.body.password});
+        if (error) return res.status(400).send({error: error.details[0].message});
         else {
             const salt = await bcrypt.genSalt(10);
             value.password = await bcrypt.hash(value.password, salt);
-            Admin.findByIdAndUpdate({_id: req.params.id}, value,
+            Admin.findOneAndUpdate({_id: req.body.id}, value,
                 {new: true, useFindAndModify: false}, (err, response) => {
-                    if (!!err) return res.send({err, message: "User could not be updated"});
+                    if (!!err) return res.status(400).send({err, message: "User could not be updated"});
                     else {
-                        res.send({response, message: "Mot de passe actualisé !"});
+                        res.send({message: "Mot de passe actualisé !"});
                     }
                 });
         }
+    }
+
+    async updateEmail(req, res) {
+        const {error, value} = emailValidation({email: req.body.email});
+        console.log("BODY", req.body);
+        console.log(req.body.email);
+        if (error) return res.status(400).send({error: error.details[0].message});
+        else {
+            Admin.findOneAndUpdate({_id: req.body.id}, value,
+                {new: true, useFindAndModify: false}, (err, response) => {
+                    if (!!err) return res.send({err, message: "User could not be updated"});
+                    else {
+                        res.send(response);
+                    }
+                });
+        }
+    }
+
+    async getAdminById(req, res) {
+        const id = req.params.id;
+        console.log(id);
+        Admin.find({_id: id}, (error, response) => {
+            res.send(response)
+        })
     }
 }
 
