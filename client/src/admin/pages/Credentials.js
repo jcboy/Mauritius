@@ -25,36 +25,36 @@ export const Credentials = () => {
         <div className="container-fluid">
             <div className="row">
                 <Sidebar/>
+
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div className="row">
                         <div className="col">
                             <h3 className="my-4">Information actuelle de l'administrateur : </h3>
                             {
                                 (status === "success") &&
-                                <h5 className="my-4 px-5 text-center">
+                                <h6 className="my-4 ">
                                     Email : {data[0].email}
-                                </h5>
+                                </h6>
                             }
                         </div>
                     </div>
-
-                    <div className="row my-4">
-                        <div className="col">
-                            <label htmlFor=""> Email :
-                                <input type="text" id="email" placeholder="email" defaultValue=""
+                    <h3 className="mt-4">Changer de mot de passe</h3>
+                    <div className="row my-4 form">
+                        <div className="col-md-4 form-floating">
+                                <input type="text" id="email" placeholder="email" defaultValue="" className="form-control "
                                        onChange={
                                            (event) => {
                                                setEmail(event.target.value)
                                            }
                                        }
                                 />
-                            </label>
+                            <label htmlFor=""> Email :</label>
                         </div>
-                        <div className="col">
+                        <div className="col-md-4 d-flex align-items-end mt-3">
                             <button onClick={async () => {
                                 await emailMutation(email);
                                 return document.getElementById("email").value = "";
-                            }}>
+                            }} className="btn btn-primary">
                                 Actualiser l'adresse mail
                             </button>
                         </div>
@@ -62,17 +62,16 @@ export const Credentials = () => {
                     {alertEmail && <span className="alert text-center alert-success">Email actualisé</span>}
 
 
-                    <div className="row my-4">
-                        <div className="col">
-                            <label htmlFor=""> Mot de passe :
-                                <input type="password" id="password" placeholder="password" defaultValue=""
+                    <div className="row my-4 form">
+                        <div className="col-md-4 form-floating">
+                                <input type="password" id="password" placeholder="password" defaultValue="" className="form-control "
                                        onChange={
                                            (event) => {
                                                setPassword(event.target.value)
                                            }}/>
-                            </label>
+                            <label htmlFor=""> Mot de passe :</label>
                         </div>
-                        <div className="col">
+                        <div className="col-md-4 d-flex align-items-end mt-3">
                             <button onClick={async () => {
                                 await admin.setPassword(password);
                                 document.getElementById("password").value = "";
@@ -80,7 +79,7 @@ export const Credentials = () => {
                                 setTimeout(() => {
                                     setAlertPwd(false)
                                 }, 2000)
-                            }}>
+                            }} className="btn btn-primary">
                                 Actualiser le mot de passe
                             </button>
                         </div>
