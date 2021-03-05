@@ -1,13 +1,14 @@
 const {Router} = require('express');
 const {check} = require('express-validator');
 const MailsController = require('../http/Controllers/MailsController');
-const {index, store, remove} = MailsController;
+const {index, store, remove, getMail} = MailsController;
 const PrivateRoute = require("../http/PrivateRoute");
 
 const router = Router();
 const prefix = '/mails'
 
 router.get('/', PrivateRoute, index);
+router.get('/:id', PrivateRoute, getMail);
 
 router.post(
     '/store',

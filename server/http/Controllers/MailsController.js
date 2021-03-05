@@ -8,6 +8,16 @@ class MailsController {
         });
     }
 
+    getMail(req,res) {
+        console.log(req.params.id)
+        Mails.find({_id: req.params.id}, (err, response) => {
+            if (!!err) {
+                return res.status(404).send(err)
+            }
+            res.send(response);
+        })
+    }
+
     store(request, response) {
         const mail = new Mails(request.body);
         mail.save()
@@ -19,8 +29,7 @@ class MailsController {
     }
 
     remove(req, res) {
-        const id = req.params.id;
-        Mails.findByIdAndDelete(id, {}, (err, Mails) => {
+        Mails.findByIdAndDelete({_id : req.params.id}, {}, (err, Mails) => {
             if (!!err) {
                 return res.status(404).send({message: 'Mail not found'})
             }
