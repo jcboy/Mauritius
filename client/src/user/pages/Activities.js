@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useQuery} from 'react-query';
 import '../styles/activities.css';
 
-import Welcome from "../components/Welcome";
+import Header from "../components/Header";
 import Pagination from "../components/Activities/Pagination";
 import MapActivities from "../components/Activities/MapActivities";
 import TagComponent from "../components/Activities/TagComponent";
@@ -20,7 +20,7 @@ const Activities = () => {
 
     return (
         <div className="activities">
-            <Welcome params={{
+            <Header params={{
                 title: "ACTIVITIES",
                 background: 'url(' + 'https://images.pexels.com/photos/1603454/pexels-photo-1603454.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' + ')',
                 type: "notMain"

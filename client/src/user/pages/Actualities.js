@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import '../styles/activities.css';
-import Welcome from "../components/Welcome";
+import Header from "../components/Header";
 import {useQuery} from "react-query";
 import fetchActualities from "../../services/fetchActualities";
 import ActualitiesPreview from "../components/Actualities/ActualitiesPreview";
@@ -13,7 +13,7 @@ const Actualities = () => {
 
     return (
         <div className="news">
-            <Welcome params={{
+            <Header params={{
                 title: "ACTUALITIES",
                 background: 'url(' + 'https://static1.mclcm.net/iod/images/v2/69/citytheque/localite_101_2178/1200x630_100_300_000000x30x0.jpg' + ')',
                 type: "article"

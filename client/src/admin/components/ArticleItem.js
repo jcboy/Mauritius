@@ -1,8 +1,8 @@
-import IconUpdate from "./IconUpdate";
+import IconUpdate from "../assets/IconUpdate";
 import React, {useState} from 'react'
-import ToUpdate from "./ToUpdate";
+import CardToUpdate from "./CardToUpdate";
 
-const Article = ({list, field}) => {
+const ArticleItem = ({list, field}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);
     const [articleToUpdate, setArticleToUpdate] = useState();
@@ -28,7 +28,7 @@ const Article = ({list, field}) => {
                             <span onClick={getUpdated} title="update" id={article._id}><IconUpdate/></span>
                             {
                                 showUpdate && articleToUpdate &&
-                                <ToUpdate articleToUpdate={articleToUpdate} setShowUpdate={setShowUpdate}/>
+                                <CardToUpdate articleToUpdate={articleToUpdate} setShowUpdate={setShowUpdate}/>
                             }
                         </td>
                         <td className="icon">archiver</td>
@@ -39,4 +39,4 @@ const Article = ({list, field}) => {
     )
 }
 
-export default Article;
+export default ArticleItem;

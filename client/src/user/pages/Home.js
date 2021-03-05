@@ -1,9 +1,9 @@
 import React from 'react';
-import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import '../styles/home.css';
 import {Parallax} from 'react-parallax';
 import ImageBg from '../assets/ready-bg.jpg';
-import Welcome from "../components/Welcome";
+import Header from "../components/Header";
 import LatestActualities from "../components/Actualities/LatestActualities"
 import mainHeaderBackground from "../assets/Le-morne-Unesco-ile-maurice.jpg";
 
@@ -15,7 +15,7 @@ const Home = () => {
 
     return (
         <div>
-            <Welcome params={{
+            <Header params={{
                 title: "WELCOME TO PARADISE",
                 background: 'url(' + mainHeaderBackground + ')',
                 type: "main"
@@ -75,7 +75,7 @@ const Home = () => {
                 <Link to={'/Actualities/'} className="fs-4">|&nbsp;&nbsp;&nbsp;Plus d’actus&nbsp;&nbsp;&nbsp;|</Link>
             </div>
 
-            <Contact/>
+            <Footer/>
         </div>
     )
 }

@@ -1,13 +1,14 @@
 import React from 'react';
-import { Switch, Route, Redirect } from "react-router-dom";
+import {Redirect, Switch} from "react-router-dom";
 import {NavbarAdmin} from "../admin/components/NavbarAdmin";
-import {ContentList} from "../admin/pages/ContentList";
+import {ArticleList} from "../admin/pages/ArticleList";
 import {AddContent} from "../admin/pages/AddContent";
 import {Filters} from "../admin/pages/Filters";
-import {EmailList} from "../admin/components/mailbox/EmailList";
-import {Email} from "../admin/components/mailbox/Email";
-import {Password} from "../admin/pages/Password";
+import EmailList from "../admin/pages/EmailList";
+import {Credentials} from "../admin/pages/Credentials";
 import '../admin/styles/admin.css';
+import EmailItem from "../admin/components/EmailItem";
+import ProtectedRoute from "../services/ProtectedRoute";
 
 
 export const AdminRoutes = () => {
@@ -18,15 +19,15 @@ export const AdminRoutes = () => {
             <NavbarAdmin/>
 
             <Switch>
-                <Route exact path="/admin/contentlist" component={ ContentList }/>
-                <Route exact path="/admin/addcontent" component={ AddContent }/>
-                <Route exact path="/admin/emaillist" component={ EmailList }/>
-                <Route exact path="/admin/emaillist/:emailId" component={ Email }/>
-                <Route exact path="/admin/filters" component={ Filters }/>
-                <Route exact path="/admin/password" component={ Password }/>
+                <ProtectedRoute exact path="/admin/contentlist" component={ArticleList}/>
+                <ProtectedRoute exact path="/admin/addcontent" component={AddContent}/>
+                <ProtectedRoute exact path="/admin/emaillist" component={EmailList}/>
+                <ProtectedRoute exact path="/admin/emaillist/:emailId" component={EmailItem}/>
+                <ProtectedRoute exact path="/admin/filters" component={Filters}/>
+                <ProtectedRoute exact path="/admin/password" component={Credentials}/>
 
 
-                <Redirect to="/admin/contentlist" />
+                <Redirect to="/admin/contentlist"/>
             </Switch>
         </div>
     )
