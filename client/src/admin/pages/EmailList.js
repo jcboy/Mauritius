@@ -29,7 +29,7 @@ const EmailList = () => {
                         (status === "success") && mails.map((item) => (
                             <div className="item" key={item._id}>
                                 <Link type="button" className="btn btn-secondary  row mailrow hoverrow"
-                                      to={'/admin/emaillist/' + item.id}>
+                                      to={'/admin/emaillist/' + item._id}>
                                     <div className="row ">
                                         <div className="col-md-4">
                                             {item.createdAt.slice(0,10)}

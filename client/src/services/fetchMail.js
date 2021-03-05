@@ -18,7 +18,9 @@ class FetchMail {
         return data
     }
 
+    async getMailById(id) {
 
+    }
 
 }
 
