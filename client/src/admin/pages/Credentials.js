@@ -25,6 +25,7 @@ export const Credentials = () => {
         <div className="container-fluid">
             <div className="row">
                 <Sidebar/>
+
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div className="row">
                         <div className="col">
