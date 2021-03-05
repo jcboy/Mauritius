@@ -31,7 +31,7 @@ html, body { height: 100%;}
         margin-left: auto !important;
     }
 }
-
+.admin_main .btn {border-radius: 1.25rem;}
 .admin_main .btn-primary { padding: .375rem 1.75rem; background-color: #00627B; border-color: #00627B;}
 .admin_main .btn-primary:hover{ background-color: transparent;}
 
@@ -72,7 +72,7 @@ html, body { height: 100%;}
 
 /* === MAILROW === */
 .titlerow {background-color: #212529 ; border:  2px solid #757474 ; }
-.mailrow  {background-color: #454444; border:  2px solid #757474 ; width: 100% ;  }
+.mailrow  {background-color: #454444; border:  2px solid #757474 ; width: 100% ;  border-radius: 0!important;}
 .hoverrow:hover {   background-color: #9f9f9f; }
 
 
