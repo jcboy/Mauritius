@@ -25,6 +25,13 @@ class FetchMail {
         return data[0];
     }
 
+    async deleteMailById(id) {
+        return await axios.delete("http://localhost:8080/mails/" + id, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("authorization")
+            }
+        });
+    }
 }
 
 export default new FetchMail();

@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const CategoriesRouter = require('./router/CategoriesRouter');
 const ActivitiesRouter = require("./router/ActivitiesRouter");
-const ActualitiesRouter = require("./router/ActualitiesRouter");
+const ActualitiesRouter = require("./router/ArticleRouter");
 const AdminRouter = require("./router/LoginRouter");
 const MailsRouter = require('./router/MailsRouter');
 

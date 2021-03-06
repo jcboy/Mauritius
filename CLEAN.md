@@ -3,13 +3,13 @@
 2. domain = banque, voyage, domaine métier, domaine applicatif
 
 Dans domaine, on modélise toute la partie métier :
-les cas d'uasges : on retrouve par le nom, on s'enregistre ...
+les cas d'usages : on retrouve par le nom, on s'enregistre ...
 
-* usecase  :on décrit les cas dusages
+* usecase : on décrit les cas d'usages
 
 couche de persistance ?
 
-pas de détails dimplémentation dans les cas dusages
+pas de détails d'implémentation dans les cas d'usages
 
 repository : couche de persistance
 

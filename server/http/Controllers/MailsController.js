@@ -29,12 +29,11 @@ class MailsController {
     }
 
     remove(req, res) {
-        Mails.findByIdAndDelete({_id : req.params.id}, {}, (err, Mails) => {
+        Mails.findOneAndDelete({_id : req.params.id}, {}, (err, response) => {
             if (!!err) {
-                return res.status(404).send({message: 'Mail not found'})
+                return res.status(404).send(err.message)
             }
-
-            return res.status(201).send({message: 'Mail deleted', Mails});
+            res.send({_id : req.params.id});
         })
     }
 

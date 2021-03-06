@@ -5,7 +5,7 @@ const {index, store, remove, getMail} = MailsController;
 const PrivateRoute = require("../http/PrivateRoute");
 
 const router = Router();
-const prefix = '/mails'
+const prefix = '/mails';
 
 router.get('/', PrivateRoute, index);
 router.get('/:id', PrivateRoute, getMail);

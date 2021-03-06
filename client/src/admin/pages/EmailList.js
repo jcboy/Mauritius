@@ -2,46 +2,63 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../styles/admin.css';
 import {Sidebar} from "../components/Sidebar";
-import {useQuery} from "react-query";
-import FetchMail from "../../services/fetchMail"
+import {queryCache, useMutation, useQuery} from "react-query";
+import FetchMail from "../../services/fetchMail";
+import fetchMail from "../../services/fetchMail";
+
+const mailStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignSelf: "center",
+    textAlign: "center"
+}
+
 
 const EmailList = () => {
 
-    const {data: mails, status} = useQuery("mails", FetchMail.getMails)
+    const {data: mails, status} = useQuery("mails", FetchMail.getMails);
+
+    const [deleteMail] = useMutation(fetchMail.deleteMailById, {
+        onSuccess: (response) => {
+            queryCache.setQueryData("mails", (current) => current.filter((email) => {
+                    return email._id !== response.data._id;
+                })
+            )
+        }
+    })
+
 
     return <div className="container-fluid">
         <div className="row">
             <Sidebar/>
             <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="container mails">
-                    <div className="row titlerow col-md-12">
-                        <div className="col-md-4">
-                            <div className="offset-md-5">Date d'envoi</div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="offset-md-5">Mail</div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="offset-md-4"> 0bjet</div>
-                        </div>
+                    <div className="row titlerow col-md-12 d-flex no-wrap">
+                        <div className="col text-center">Date d'envoi</div>
+                        <div className="col text-center">Mail</div>
+                        <div className="col text-center"> Objet</div>
+                        <div className="text-center" style={{width: "6.7em"}}> &nbsp; </div>
                     </div>
                     {
-                        (status === "success") && mails.map((item) => (
-                            <div className="item" key={item._id}>
-                                <Link type="button" className="btn btn-secondary  row mailrow hoverrow"
-                                      to={'/admin/emaillist/' + item._id}>
-                                    <div className="row ">
-                                        <div className="col-md-4">
-                                            {item.createdAt.slice(0,10)}
-                                        </div>
-                                        <div className="col-md-4">
-                                            {item.mail}
-                                        </div>
-                                        <div className="col-md-4">
-                                            {item.object}
-                                        </div>
-                                    </div>
-                                </Link>
+                        (status === "success") && mails.map((mail) => (
+                            <div key={mail._id} className="btn btn-secondary row d-flex no-wrap mailrow">
+                                <div className="col" style={mailStyle}>
+                                    {mail.createdAt.slice(0, 10)}
+                                </div>
+                                <div className="col" style={mailStyle}>
+                                    {mail.mail}
+                                </div>
+                                <div className="col" style={mailStyle}>
+                                    {mail.object}
+                                </div>
+                                <div className="col-md-1" style={mailStyle}>
+                                    <button type="button"
+                                            className="btn btn-outline hoverrow"
+                                            onClick={async () => {
+                                                return await deleteMail(mail._id)
+                                            }}>Supprimer
+                                    </button>
+                                </div>
                             </div>
                         ))
                     }
