@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class ChangeArticle {
+class Articles {
 
     async getArticleList(key) {
         const {data} = await axios.get('http://localhost:8080/' + key);
@@ -27,7 +27,6 @@ class ChangeArticle {
     }
 
     async deleteArticle(keys) {
-        console.log(keys);
         const {data} = await axios.delete('http://localhost:8080/' + keys.field + '/delete/' + keys.id, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("authorization")
@@ -39,4 +38,4 @@ class ChangeArticle {
 
 }
 
-export default new ChangeArticle();
+export default new Articles();

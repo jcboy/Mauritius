@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Sidebar} from "../components/Sidebar";
 import {AddFilter} from "../components/AddFilter";
 import {queryCache, useMutation, useQuery} from "react-query";
-import fetchCategories from "../../services/fetchCategories";
+import fetchCategories from "../../services/categories";
 
 
 export const Filters = () => {

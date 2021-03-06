@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import {Sidebar} from "../components/Sidebar";
 import {queryCache, useMutation, useQuery} from "react-query";
-import ChangeArticle from "../../services/ChangeArticle";
+import ChangeArticle from "../../services/articles";
 
 import ArticleItem from "../components/ArticleItem";
 
@@ -10,24 +10,6 @@ export const ArticleList = () => {
 
     const [field, setField] = useState("actualities");
     const {data: list, status} = useQuery(field, ChangeArticle.getArticleList);
-
-
-    const [getUpdated] = useMutation(ChangeArticle.putArticle, {
-        onSuccess: async () => {
-            await queryCache.refetchQueries(field);
-        }
-    });
-
-    const [getDeleted] = useMutation(ChangeArticle.deleteArticle, {
-        onSuccess: async (response) => {
-            await queryCache.setQueryData(field, (current) => {
-                current.filter((article) => {
-                    return article._id === response._id;
-                });
-            })
-        }
-    });
-
 
     return (
         <div className="container-fluid contentList">
@@ -55,9 +37,7 @@ export const ArticleList = () => {
                             (status === "success") && list.map((article) => {
                                 return <ArticleItem article={article}
                                                     field={field}
-                                                    key={article._id}
-                                                    getDeleted={getDeleted}
-                                                    getUpdated={getUpdated}/>
+                                                    key={article._id}/>
                             })
                         }
                         </tbody>

@@ -33,7 +33,7 @@ export const Credentials = () => {
                             {
                                 (status === "success") &&
                                 <h6 className="my-4 ">
-                                    Email : {data[0].email}
+                                    Email : {data.email}
                                 </h6>
                             }
                         </div>
@@ -41,13 +41,13 @@ export const Credentials = () => {
                     <h3 className="mt-4">Changer de mot de passe</h3>
                     <div className="row my-4 form">
                         <div className="col-md-4 form-floating">
-                                <input type="text" id="email" placeholder="email" defaultValue="" className="form-control "
-                                       onChange={
-                                           (event) => {
-                                               setEmail(event.target.value)
-                                           }
+                            <input type="text" id="email" placeholder="email" defaultValue="" className="form-control "
+                                   onChange={
+                                       (event) => {
+                                           setEmail(event.target.value)
                                        }
-                                />
+                                   }
+                            />
                             <label htmlFor=""> Email :</label>
                         </div>
                         <div className="col-md-4 d-flex align-items-end mt-3">
@@ -64,11 +64,12 @@ export const Credentials = () => {
 
                     <div className="row my-4 form">
                         <div className="col-md-4 form-floating">
-                                <input type="password" id="password" placeholder="password" defaultValue="" className="form-control "
-                                       onChange={
-                                           (event) => {
-                                               setPassword(event.target.value)
-                                           }}/>
+                            <input type="password" id="password" placeholder="password" defaultValue=""
+                                   className="form-control "
+                                   onChange={
+                                       (event) => {
+                                           setPassword(event.target.value)
+                                       }}/>
                             <label htmlFor=""> Mot de passe :</label>
                         </div>
                         <div className="col-md-4 d-flex align-items-end mt-3">

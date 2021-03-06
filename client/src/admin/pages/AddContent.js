@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Select from 'react-select';
 import {Sidebar} from "../components/Sidebar";
 import {AddImage} from "../components/AddImage";
-import fetchCategories from "../../services/fetchCategories";
+import fetchCategories from "../../services/categories";
 import {useQuery} from "react-query";
-import ChangeArticle from "../../services/ChangeArticle";
+import ChangeArticle from "../../services/articles";
 
 export const AddContent = () => {
 

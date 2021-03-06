@@ -21,7 +21,7 @@ class ArticleController {
         })
     }
 
-    show(req, res){
+    getOne(req, res){
         const id = req.params.id;
         actuality.findById(id, (err, actuality)=>{
             if(!!err){
@@ -52,13 +52,12 @@ class ArticleController {
 
     remove(req, res){
         const id = {_id : req.params.id};
-        actuality.findOneAndDelete(id, (err, actuality) => {
+        actuality.findOneAndDelete(id, (err, response) => {
             if(!!err) {
                 return res.status(404).send({message: 'Content not found'})
             }
-            console.log(res)
             console.log(req.params.id)
-            return res.status(201).send(id)
+            return res.status(201).send(response)
         })
     }
 }

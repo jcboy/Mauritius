@@ -29,6 +29,19 @@ class LoginController {
         }
     }
 
+    async create(req, res) {
+        const credentials = req.body;
+        const salt = await bcrypt.genSalt(10);
+        credentials.password = await bcrypt.hash(credentials.password, salt);
+        const admin = new Admin(credentials);
+        admin.save().then((response) => {
+            res.send(response)
+        }).catch((err) => {
+            res.status(402).send(err.message)
+        })
+    }
+
+
     async updatePassword(req, res) {
         const {error, value} = passwordValidation({password: req.body.password});
         if (error) return res.status(400).send({error: error.details[0].message});

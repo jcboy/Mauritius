@@ -45,7 +45,7 @@ class ActivitiesController {
         })
     }
 
-    create(req, res) {
+    store(req, res) {
         const newActivity = new activity(req.body);
         newActivity.save().then((response) => {
             res.send({

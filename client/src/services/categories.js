@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class FetchCategories {
+class Categories {
 
     async getCategories() {
         const response = await axios.get('http://localhost:8080/categories');
@@ -26,4 +26,4 @@ class FetchCategories {
 
 }
 
-export default new FetchCategories();
+export default new Categories();

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Pagination from "../components/Activities/Pagination";
 import MapActivities from "../components/Activities/MapActivities";
 import TagComponent from "../components/Activities/TagComponent";
-import fetchCategories from "../../services/fetchCategories";
+import fetchCategories from "../../services/categories";
 import fetchActivities from "../../services/fetchActivities";
 
 const Activities = () => {

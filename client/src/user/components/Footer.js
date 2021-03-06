@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FetchMail from "../../services/fetchMail";
+import FetchMail from "../../services/mails";
 
 class Footer extends Component {
 

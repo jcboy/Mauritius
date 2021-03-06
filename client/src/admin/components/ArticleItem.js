@@ -2,10 +2,25 @@ import IconUpdate from "../assets/IconUpdate";
 import IconArchive from "../assets/IconArchive";
 import React, {useState} from 'react'
 import CardToUpdate from "./CardToUpdate";
+import {queryCache, useMutation} from "react-query";
+import ChangeArticle from "../../services/articles";
 
-const ArticleItem = ({article, field, getUpdated, getDeleted}) => {
+const ArticleItem = ({article, field}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);
+
+
+    const [getUpdated] = useMutation(ChangeArticle.putArticle, {
+        onSuccess: async () => {
+            await queryCache.refetchQueries(field);
+        }
+    });
+
+    const [getDeleted] = useMutation(ChangeArticle.deleteArticle, {
+        onSuccess: async () => {
+            await queryCache.refetchQueries(field);
+        }
+    });
 
     return (<tr>
             <td>{article.title}</td>

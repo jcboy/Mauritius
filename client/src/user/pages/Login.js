@@ -15,7 +15,7 @@ export const Login = (props) => {
                     props.history.push("/admin");
                 });
         } catch(err) {
-            setAlert(!alert);
+            setAlert(false);
             console.log(err);
         }
     }

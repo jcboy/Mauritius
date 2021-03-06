@@ -22,7 +22,22 @@ const CardToUpdate = ({articleToUpdate, setShowUpdate}) => {
                                    defaultValue={articleToUpdate.title} onChange={setTitle} />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Contenu :</label>
+                            <label className="form-label">Résumé :</label>
+                            <textarea className="form-control" rows="6"
+                                      defaultValue={articleToUpdate.shortDescription} onChange={setDescription}/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Description :</label>
+                            <textarea className="form-control" rows="6"
+                                      defaultValue={articleToUpdate.description} onChange={setDescription}/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Catégories associées :</label>
+                            <textarea className="form-control" rows="6"
+                                      defaultValue={articleToUpdate.description} onChange={setDescription}/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Images :</label>
                             <textarea className="form-control" rows="6"
                                       defaultValue={articleToUpdate.description} onChange={setDescription}/>
                         </div>

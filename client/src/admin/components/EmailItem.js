@@ -2,7 +2,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import '../styles/admin.css';
 import {useQuery} from "react-query";
-import fetchMail from "../../services/fetchMail";
+import fetchMail from "../../services/mails";
 import moment from "moment";
 import {Sidebar} from "./Sidebar";
 
