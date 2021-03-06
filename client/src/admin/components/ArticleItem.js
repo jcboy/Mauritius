@@ -1,5 +1,5 @@
 import IconUpdate from "../assets/IconUpdate";
-import IconOff from "../assets/IconOff";
+import IconArchive from "../assets/IconArchive";
 import React, {useState} from 'react'
 import CardToUpdate from "./CardToUpdate";
 
@@ -7,7 +7,7 @@ const ArticleItem = ({article, field, getUpdated, getDeleted}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);
 
-    return (<tr key={index}>
+    return (<tr>
             <td>{article.title}</td>
             {
                 (field === "activities") && <td>{article.tags}</td>
@@ -24,9 +24,12 @@ const ArticleItem = ({article, field, getUpdated, getDeleted}) => {
                 }
             </td>
             <td className="icon">
-                <button onClick={() => getDeleted(field, article._id)}
+                <button id={article._id} onClick={
+                    () => {
+                        return getDeleted({field, id: article._id})
+                    }}
                         title="update">
-                    <IconOff/>
+                    <IconArchive/>
                 </button>
             </td>
         </tr>

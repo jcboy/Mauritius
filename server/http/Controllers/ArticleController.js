@@ -51,12 +51,14 @@ class ArticleController {
     }
 
     remove(req, res){
-        const id = req.params.id;
-        actuality.findByIdAndDelete(id, (err, actuality) => {
+        const id = {_id : req.params.id};
+        actuality.findOneAndDelete(id, (err, actuality) => {
             if(!!err) {
                 return res.status(404).send({message: 'Content not found'})
             }
-            return res.status(201).send({message: 'Content deleted', actuality})
+            console.log(res)
+            console.log(req.params.id)
+            return res.status(201).send(id)
         })
     }
 }
