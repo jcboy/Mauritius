@@ -7,12 +7,10 @@ export const Login = (props) => {
     const [password, setPassword] = useState("")
     const [alert, setAlert] = useState(false)
 
-
     const login = async (e) => {
         e.preventDefault();
         try {
-            await auth.login(
-                {email, password},
+            await auth.login( {email, password},
                 () => {
                     props.history.push("/admin");
                 });
@@ -29,7 +27,7 @@ export const Login = (props) => {
                     Mauritius
                 </div>
 
-                <div className="form-floating mb-2">
+                <div className="form-floating mb-2 error">
                     <input type="email" name="email" placeholder="Email2"
                            className="form-control mb-1" required
                            onChange={(event) => {
