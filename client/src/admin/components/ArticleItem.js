@@ -1,5 +1,4 @@
-import IconUpdate from "../assets/IconUpdate";
-import IconOff from "../assets/IconOff";
+import IconArchive from "../assets/IconArchive";
 import React, {useState} from 'react'
 import CardToUpdate from "./CardToUpdate";
 import {queryCache, useMutation} from "react-query";

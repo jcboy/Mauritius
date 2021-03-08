@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import '../styles/admin.css';
 import {Sidebar} from "../components/Sidebar";
 import {queryCache, useMutation, useQuery} from "react-query";
-import FetchMail from "../../services/fetchMail";
-import fetchMail from "../../services/fetchMail";
+import FetchMail from "../../services/mails";
+import fetchMail from "../../services/mails";
 
 const mailStyle = {
     display: "flex",
