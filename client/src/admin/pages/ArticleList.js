@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 
 import {Sidebar} from "../components/Sidebar";
-import {queryCache, useMutation, useQuery} from "react-query";
-import ChangeArticle from "../../services/articles";
+import {useQuery} from "react-query";
+import articles from "../../services/articles";
 
 import ArticleItem from "../components/ArticleItem";
 
 export const ArticleList = () => {
 
     const [field, setField] = useState("actualities");
-    const {data: list, status} = useQuery(field, ChangeArticle.getArticleList);
+    const {data: list, status} = useQuery(field, articles.getArticleList);
 
     return (
         <div className="container-fluid contentList">

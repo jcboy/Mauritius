@@ -1,22 +1,22 @@
-import IconUpdate from "../assets/IconUpdate";
 import IconArchive from "../assets/IconArchive";
 import React, {useState} from 'react'
 import CardToUpdate from "./CardToUpdate";
 import {queryCache, useMutation} from "react-query";
-import ChangeArticle from "../../services/articles";
+import articles from "../../services/articles";
+import IconUpdate from "../assets/IconUpdate";
 
 const ArticleItem = ({article, field}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);
 
 
-    const [getUpdated] = useMutation(ChangeArticle.putArticle, {
+    const [getUpdated] = useMutation(articles.putArticle, {
         onSuccess: async () => {
             await queryCache.refetchQueries(field);
         }
     });
 
-    const [getDeleted] = useMutation(ChangeArticle.deleteArticle, {
+    const [getDeleted] = useMutation(articles.deleteArticle, {
         onSuccess: async () => {
             await queryCache.refetchQueries(field);
         }
@@ -29,17 +29,13 @@ const ArticleItem = ({article, field}) => {
             }
             <td>{article.createdAt.slice(0, 10)}</td>
             <td className="icon">
-                <button onClick={() => setShowUpdate(true)}
-                        title="update" id={article._id}><IconUpdate/></button>
-                {
-                    showUpdate &&
-                    <CardToUpdate articleToUpdate={article}
-                                  getUpdated={getUpdated}
-                                  setShowUpdate={setShowUpdate}/>
-                }
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <IconUpdate/>
+                </button>
+                <CardToUpdate getUpdated={getUpdated} articleToUpdate={article} field={field}/>
             </td>
             <td className="icon">
-                <button id={article._id} onClick={
+                <button id={article._id} className="btn btn-primary" onClick={
                     () => {
                         return getDeleted({field, id: article._id})
                     }}

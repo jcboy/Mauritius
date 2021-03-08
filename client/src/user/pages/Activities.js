@@ -13,7 +13,7 @@ const Activities = () => {
 
     const [currentPage, setPage] = useState(1);
     const [tags, setTags] = useState([]);
-    let endpoints = ['activities', currentPage, ...tags];
+    let endpoints = ["activities", currentPage, ...tags];
 
     const {status, data} = useQuery(endpoints, fetchActivities.getActivities);
     const {status: categoriesSucess, data: categories} = useQuery("categories", fetchCategories.getCategories);
@@ -31,14 +31,14 @@ const Activities = () => {
                     <TagComponent setTags={setTags} setPage={setPage} data={categories}/>
                 }
                 {
-                    (status === 'loading') && <div className="row">
+                    (status === "loading") && <div className="row">
                         <h3 className="text-center my-5">
                             Recherche en cours...
                         </h3>
                     </div>
                 }
                 {
-                    (status === 'success') && (
+                    (status === "success") && (
                         ((data.response.length === 0) && <div className="row">
                             <p className="text-center my-5">
                                 Aucun résultat trouvé
