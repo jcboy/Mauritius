@@ -9,6 +9,14 @@ const ActivitySchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    shortDescription: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
     mainImage: {
         type: String,
         required: false
@@ -16,14 +24,6 @@ const ActivitySchema = new mongoose.Schema({
     secondaryImages: {
         type: [String],
         required: false
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    shortDescription: {
-        type: String,
-        required: true
     },
     tags: {
         type: mongoose.Schema.Types.Mixed,

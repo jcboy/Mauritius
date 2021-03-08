@@ -17,11 +17,15 @@ const CardToUpdate = ({articleToUpdate, field}) => {
                     </div>
                     <div className="modal-body">
                         <form action="update">
-
                             <div className="mb-3">
                                 <label className="form-label">Titre :</label>
                                 <input type="email" className="form-control"
                                        defaultValue={articleToUpdate.title} onChange={setTitle}/>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Sous-titre :</label>
+                                <textarea className="form-control" rows="6"
+                                          defaultValue={articleToUpdate.subtitle} onChange={setDescription}/>
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Résumé :</label>

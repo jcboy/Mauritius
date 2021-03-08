@@ -5,6 +5,9 @@ import {queryCache, useMutation} from "react-query";
 import articles from "../../services/articles";
 import IconUpdate from "../assets/IconUpdate";
 
+const style = {display: "flex", alignSelf: "center"};
+
+
 const ArticleItem = ({article, field}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);

@@ -32,7 +32,8 @@ class ArticleController {
     }
 
     store(req, res){
-        const actuality = new actuality(req.body); // assigné un model a la requete du body
+        console.log(req.body);
+        const actuality = new actuality(req.body);
         actuality.save().then(() => {
             res.status(201).send({message : 'Content recorded correctly'})
         }).catch(() => {

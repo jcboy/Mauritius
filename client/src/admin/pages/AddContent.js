@@ -42,7 +42,8 @@ export const AddContent = () => {
 
         setEmptyInput(!emptyInput); // On modifie l'état initial (false) pour le passer à true
         reset();  // execution de fn reset: les inputs sont réinitialisés
-        setEmptyInput(!emptyInput); // Retour à l'état initial : les inputs ont bien été réinitialisés, on peut retourner à l'état normal
+        setEmptyInput(!emptyInput);
+        // Retour à l'état initial : les inputs ont bien été réinitialisés, on peut retourner à l'état normal
     }
 
     // -- SUBMIT FORM  -- //
@@ -56,6 +57,9 @@ export const AddContent = () => {
             if (data) {
                 handleReset();
                 setMsgConfirm(!msgConfirm);
+                setTimeout(() => {
+                    setMsgConfirm(false)
+                },2000)
             }
         } catch (err) {
             console.log(err.message);
@@ -128,7 +132,7 @@ export const AddContent = () => {
                             </div>
                         </div>
 
-                        {contentType === 'actualities' &&
+
                         <div className="row my-4">
                             <div className="col-md-8 form-floating shortDescription">
                                     <textarea name="shortDescription"
@@ -138,7 +142,6 @@ export const AddContent = () => {
                                 <label>Courte description</label>
                             </div>
                         </div>
-                        }
 
                         <div className="row mb-4">
                             <div className="col form-floating">
