@@ -17,7 +17,7 @@ class LoginController {
             if (!user) return res.status(400).send({message: "EmailList introuvable"});
             else {
                 const validPass = await bcrypt.compare(req.body.password, user["password"]);
-                if (!validPass) return res.send('Le mot de passe ne correspond pas.')
+                if (!validPass) return res.status(400).send('Le mot de passe ne correspond pas.')
                 const token = jwt.sign({_id: user["_id"]}, process.env.SECRET_TOKEN);
                 //res.cookie('token', token, { httpOnly: true });
                 res.header("Authorization", "Bearer " + token)
