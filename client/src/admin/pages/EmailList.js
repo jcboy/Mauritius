@@ -56,7 +56,7 @@ const EmailList = () => {
                                             className="btn btn-outline hoverrow"
                                             onClick={async () => {
                                                 return await deleteMail(mail._id)
-                                            }}>Supprimer
+                                            }}>Supprimer btn
                                     </button>
                                 </div>
                             </div>

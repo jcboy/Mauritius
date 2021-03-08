@@ -7,7 +7,7 @@ import IconUpdate from "../assets/IconUpdate";
 
 const style = {display: "flex", alignSelf: "center"};
 
-const ArticleItem = ({article, field, getUpdated, getDeleted}) => {
+const ArticleItem = ({article, field}) => {
 
     const [showUpdate, setShowUpdate] = useState(false);
 
