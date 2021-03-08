@@ -12,7 +12,7 @@ class Admin {
                 Authorization: "Bearer " + localStorage.getItem("authorization")
             }
         });
-        return data;
+        return data[0];
     }
 
     async setPassword(password) {

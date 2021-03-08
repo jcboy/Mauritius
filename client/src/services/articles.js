@@ -1,6 +1,11 @@
 import axios from "axios";
 
-class ChangeArticle {
+class Articles {
+
+    async getArticleList(key) {
+        const {data} = await axios.get('http://localhost:8080/' + key);
+        return data;
+    }
 
 
     async getArticle(endpoint, article) {
@@ -21,8 +26,8 @@ class ChangeArticle {
         return data[0];
     }
 
-    async deleteArticle(endpoint, id) {
-        const {data} = await axios.delete(`http://localhost:8080/${endpoint}/delete/${id}`, {
+    async deleteArticle(keys) {
+        const {data} = await axios.delete('http://localhost:8080/' + keys.field + '/delete/' + keys.id, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("authorization")
             }
@@ -33,4 +38,4 @@ class ChangeArticle {
 
 }
 
-export default new ChangeArticle();
+export default new Articles();

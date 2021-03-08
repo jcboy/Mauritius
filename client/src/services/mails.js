@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class FetchMail {
+class Mails {
 
     async getMails() {
         const {data} = await axios.get("http://localhost:8080/mails", {
@@ -34,4 +34,4 @@ class FetchMail {
     }
 }
 
-export default new FetchMail();
+export default new Mails();

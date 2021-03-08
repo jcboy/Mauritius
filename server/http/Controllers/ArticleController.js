@@ -21,7 +21,7 @@ class ArticleController {
         })
     }
 
-    show(req, res){
+    getOne(req, res){
         const id = req.params.id;
         actuality.findById(id, (err, actuality)=>{
             if(!!err){
@@ -32,7 +32,8 @@ class ArticleController {
     }
 
     store(req, res){
-        const actuality = new actuality(req.body); // assigné un model a la requete du body
+        console.log(req.body);
+        const actuality = new actuality(req.body);
         actuality.save().then(() => {
             res.status(201).send({message : 'Content recorded correctly'})
         }).catch(() => {
@@ -51,12 +52,13 @@ class ArticleController {
     }
 
     remove(req, res){
-        const id = req.params.id;
-        actuality.findByIdAndDelete(id, (err, actuality) => {
+        const id = {_id : req.params.id};
+        actuality.findOneAndDelete(id, (err, response) => {
             if(!!err) {
                 return res.status(404).send({message: 'Content not found'})
             }
-            return res.status(201).send({message: 'Content deleted', actuality})
+            console.log(req.params.id)
+            return res.status(201).send(response)
         })
     }
 }

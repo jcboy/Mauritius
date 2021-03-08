@@ -2271,7 +2271,7 @@
 
 "address@^1.0.1", "address@1.1.2":
   "integrity" "sha512-aT6camzM4xEA54YVJYSqxz1kv4IHnQZRtThJJHhUMRExaU5spC7jX5ugSwTaTgJliIgs4VhZOk7htClvQ/LmRA=="
-  "resolved" "https://registry.npmjs.org/address/-/address-1.1.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz"
   "version" "1.1.2"
 
 "adjust-sourcemap-loader@3.0.0":
@@ -2922,6 +2922,11 @@
   "resolved" "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
 
+"bootstrap@^4.6.0":
+  "integrity" "sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw=="
+  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-4.6.0.tgz"
+  "version" "4.6.0"
+
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="
   "resolved" "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz"
@@ -3044,7 +3049,7 @@
 
 "browserslist@4.14.2":
   "integrity" "sha512-HI4lPveGKUR0x2StIz+2FXfDk9SfVMrxn6PLh1JeGUwcuoDkdKZebWiyLRJ68iIPDpMI4JLVDf7S7XzslgWOhw=="
-  "resolved" "https://registry.npmjs.org/browserslist/-/browserslist-4.14.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/browserslist/-/browserslist-4.14.2.tgz"
   "version" "4.14.2"
   dependencies:
     "caniuse-lite" "^1.0.30001125"
@@ -3299,7 +3304,7 @@
 
 "chalk@2.4.2":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
-  "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz"
   "version" "2.4.2"
   dependencies:
     "ansi-styles" "^3.2.1"
@@ -4086,7 +4091,7 @@
 
 "debug@^2.6.0":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
-  "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
+  "resolved" "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz"
   "version" "2.6.9"
   dependencies:
     "ms" "2.0.0"
@@ -4253,7 +4258,7 @@
 
 "detect-port-alt@1.1.6":
   "integrity" "sha512-5tQykt+LqfJFBEYaDITx7S7cR7mJ/zQmLXZ2qt5w04ainYZw6tBf9dBunMjVeVOdYVRUzUOE4HkY5J7+uttb5Q=="
-  "resolved" "https://registry.npmjs.org/detect-port-alt/-/detect-port-alt-1.1.6.tgz"
+  "resolved" "https://registry.yarnpkg.com/detect-port-alt/-/detect-port-alt-1.1.6.tgz"
   "version" "1.1.6"
   dependencies:
     "address" "^1.0.1"
@@ -4422,7 +4427,7 @@
 
 "duplexer@^0.1.1":
   "integrity" "sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg=="
-  "resolved" "https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz"
   "version" "0.1.2"
 
 "duplexify@^3.4.2", "duplexify@^3.6.0":
@@ -5202,7 +5207,7 @@
 
 "filesize@6.1.0":
   "integrity" "sha512-LpCHtPQ3sFx67z+uh2HnSyWSLLu5Jxo21795uRDuar/EOuYWXib5EmPaGIBuSnRqH2IODiKA2k5re/K9OnN/Yg=="
-  "resolved" "https://registry.npmjs.org/filesize/-/filesize-6.1.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/filesize/-/filesize-6.1.0.tgz"
   "version" "6.1.0"
 
 "fill-range@^4.0.0":
@@ -5331,7 +5336,7 @@
 
 "fork-ts-checker-webpack-plugin@4.1.6":
   "integrity" "sha512-DUxuQaKoqfNne8iikd14SAkh5uw4+8vNifp6gmA73yYNS6ywLIWSLD/n/mBzHQRpW3J7rbATEakmiA8JvkTyZw=="
-  "resolved" "https://registry.npmjs.org/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-4.1.6.tgz"
+  "resolved" "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-4.1.6.tgz"
   "version" "4.1.6"
   dependencies:
     "@babel/code-frame" "^7.5.5"
@@ -5543,14 +5548,14 @@
 
 "global-modules@2.0.0":
   "integrity" "sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A=="
-  "resolved" "https://registry.npmjs.org/global-modules/-/global-modules-2.0.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/global-modules/-/global-modules-2.0.0.tgz"
   "version" "2.0.0"
   dependencies:
     "global-prefix" "^3.0.0"
 
 "global-prefix@^3.0.0":
   "integrity" "sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg=="
-  "resolved" "https://registry.npmjs.org/global-prefix/-/global-prefix-3.0.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/global-prefix/-/global-prefix-3.0.0.tgz"
   "version" "3.0.0"
   dependencies:
     "ini" "^1.3.5"
@@ -5604,7 +5609,7 @@
 
 "gzip-size@5.1.1":
   "integrity" "sha512-FNHi6mmoHvs1mxZAds4PpdCS6QG8B4C1krxJsMutgxl5t3+GlRTzzI3NEkifXx2pVsOvJdOGSmIgDhQ55FwdPA=="
-  "resolved" "https://registry.npmjs.org/gzip-size/-/gzip-size-5.1.1.tgz"
+  "resolved" "https://registry.yarnpkg.com/gzip-size/-/gzip-size-5.1.1.tgz"
   "version" "5.1.1"
   dependencies:
     "duplexer" "^0.1.1"
@@ -6354,7 +6359,7 @@
 
 "is-root@2.1.0":
   "integrity" "sha512-AGOriNp96vNBd3HtU+RzFEc75FfR5ymiYv8E553I71SCeXBiMsVDUtdio1OEFvrPyLIQ9tVR5RxXIFe5PUFjMg=="
-  "resolved" "https://registry.npmjs.org/is-root/-/is-root-2.1.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/is-root/-/is-root-2.1.0.tgz"
   "version" "2.1.0"
 
 "is-stream@^1.1.0":
@@ -6403,7 +6408,7 @@
 
 "is-wsl@^2.1.1":
   "integrity" "sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww=="
-  "resolved" "https://registry.npmjs.org/is-wsl/-/is-wsl-2.2.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.2.0.tgz"
   "version" "2.2.0"
   dependencies:
     "is-docker" "^2.0.0"
@@ -6923,6 +6928,11 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.0"
 
+"jquery@1.9.1 - 3":
+  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
+  "version" "3.6.0"
+
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -7436,7 +7446,7 @@
 
 "microevent.ts@~0.1.1":
   "integrity" "sha512-jo1OfR4TaEwd5HOrt5+tAZ9mqT4jmpNAusXtyfNzqVm9uiSYFZlKM1wYL4oU7azZW/PxQW53wM0S6OR1JHNa2g=="
-  "resolved" "https://registry.npmjs.org/microevent.ts/-/microevent.ts-0.1.1.tgz"
+  "resolved" "https://registry.yarnpkg.com/microevent.ts/-/microevent.ts-0.1.1.tgz"
   "version" "0.1.1"
 
 "micromatch@^3.1.10":
@@ -8404,7 +8414,7 @@
 
 "pkg-up@3.1.0":
   "integrity" "sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA=="
-  "resolved" "https://registry.npmjs.org/pkg-up/-/pkg-up-3.1.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/pkg-up/-/pkg-up-3.1.0.tgz"
   "version" "3.1.0"
   dependencies:
     "find-up" "^3.0.0"
@@ -8415,6 +8425,11 @@
   "version" "1.6.4"
   dependencies:
     "ts-pnp" "^1.1.6"
+
+"popper.js@^1.16.1":
+  "integrity" "sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ=="
+  "resolved" "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
+  "version" "1.16.1"
 
 "portfinder@^1.0.26":
   "integrity" "sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA=="
@@ -9662,7 +9677,7 @@
 
 "recursive-readdir@2.2.2":
   "integrity" "sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg=="
-  "resolved" "https://registry.npmjs.org/recursive-readdir/-/recursive-readdir-2.2.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz"
   "version" "2.2.2"
   dependencies:
     "minimatch" "3.0.4"
@@ -10357,7 +10372,7 @@
 
 "shell-quote@1.7.2":
   "integrity" "sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg=="
-  "resolved" "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.2.tgz"
+  "resolved" "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz"
   "version" "1.7.2"
 
 "shellwords@^0.1.1":
@@ -11965,7 +11980,7 @@
 
 "worker-rpc@^0.1.0":
   "integrity" "sha512-P1WjMrUB3qgJNI9jfmpZ/htmBEjFh//6l/5y8SD9hg1Ef5zTTVVoRjTrTEzPrNBQvmhMxkoTsjOXN10GWU7aCg=="
-  "resolved" "https://registry.npmjs.org/worker-rpc/-/worker-rpc-0.1.1.tgz"
+  "resolved" "https://registry.yarnpkg.com/worker-rpc/-/worker-rpc-0.1.1.tgz"
   "version" "0.1.1"
   dependencies:
     "microevent.ts" "~0.1.1"
