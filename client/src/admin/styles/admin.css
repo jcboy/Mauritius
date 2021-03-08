@@ -70,6 +70,8 @@ html, body { height: 100%;}
 .sidebar li a.active, .sidebar li a:hover {background-color: #00627B}
 
 
+
+
 /* === MAILROW === */
 .titlerow {background-color: #212529 ; border:  2px solid #757474 ; }
 .mailrow  {background-color: #454444; border:  2px solid #757474 ; width: 100% ;  border-radius: 0!important;}
