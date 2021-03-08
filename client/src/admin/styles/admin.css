@@ -70,8 +70,6 @@ html, body { height: 100%;}
 .sidebar li a.active, .sidebar li a:hover {background-color: #00627B}
 
 
-
-
 /* === MAILROW === */
 .titlerow {background-color: #212529 ; border:  2px solid #757474 ; }
 .mailrow  {background-color: #454444; border:  2px solid #757474 ; width: 100% ;  border-radius: 0!important;}
@@ -98,8 +96,8 @@ html, body { height: 100%;}
 .admin_main .filterBtn:hover .delete{background-color: #fff;  color: #000;}
 
 /* === content ( Actualities activities ) management === */
-.admin_main .table .icon {cursor: pointer;}
-.admin_main .table .icon svg{max-width: 20px; min-width: 16px;}
+.admin_main .icon {cursor: pointer;}
+.admin_main .icon svg{max-width: 20px; min-width: 16px;}
 .tr-modal td {border-bottom: 0;}
 .modal {background-color: rgba(0, 0, 0, 0.3); color: #000;}
 .admin_main .modal input,

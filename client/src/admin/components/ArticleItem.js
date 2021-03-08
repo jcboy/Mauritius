@@ -31,13 +31,13 @@ const ArticleItem = ({article, field}) => {
             }
             <td>{article.createdAt.slice(0, 10)}</td>
             <td className="icon">
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" className="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <IconUpdate/>
                 </button>
                 <CardToUpdate getUpdated={getUpdated} articleToUpdate={article} field={field}/>
             </td>
             <td className="icon">
-                <button id={article._id} className="btn btn-primary" onClick={
+                <button id={article._id} className="btn " onClick={
                     () => {
                         return getDeleted({field, id: article._id})
                     }}

@@ -5,6 +5,7 @@ import {Sidebar} from "../components/Sidebar";
 import {queryCache, useMutation, useQuery} from "react-query";
 import FetchMail from "../../services/mails";
 import fetchMail from "../../services/mails";
+import IconArchive from "../assets/IconArchive";
 
 const mailStyle = {
     display: "flex",
@@ -41,7 +42,7 @@ const EmailList = () => {
                     </div>
                     {
                         (status === "success") && mails.map((mail) => (
-                            <div key={mail._id} className="btn btn-secondary row d-flex no-wrap mailrow">
+                            <div key={mail._id} className=" btn-secondary row d-flex no-wrap mailrow">
                                 <div className="col" style={mailStyle}>
                                     {mail.createdAt.slice(0, 10)}
                                 </div>
@@ -51,12 +52,12 @@ const EmailList = () => {
                                 <div className="col" style={mailStyle}>
                                     {mail.object}
                                 </div>
-                                <div className="col-md-1" style={mailStyle}>
+                                <div className="col-md-1 icon" style={mailStyle}>
                                     <button type="button"
-                                            className="btn btn-outline hoverrow"
+                                            className="btn "
                                             onClick={async () => {
                                                 return await deleteMail(mail._id)
-                                            }}>Supprimer btn
+                                            }}><IconArchive/>
                                     </button>
                                 </div>
                             </div>
