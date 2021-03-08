@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Select from 'react-select';
 import {Sidebar} from "../components/Sidebar";
 import {AddImage} from "../components/AddImage";
-import PostArticle from "../../services/postArticle";
 import fetchCategories from "../../services/fetchCategories";
 import {useQuery} from "react-query";
+import ChangeArticle from "../../services/ChangeArticle";
 
 export const AddContent = () => {
 
@@ -52,7 +52,7 @@ export const AddContent = () => {
         event.preventDefault();
         const article = {...inputValues, mainImage: image, tags: selectedValue};
         try {
-            const data = await PostArticle(contentType, article);
+            const data = await ChangeArticle.getArticle(contentType, article);
             if (data) {
                 handleReset();
                 setMsgConfirm(!msgConfirm);
@@ -63,7 +63,7 @@ export const AddContent = () => {
     }
 
     return (
-        <div className="blockContact-AddContent pt-3 container-fluid">
+        <div className="pt-3 container-fluid">
             <div className="row">
                 <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -160,7 +160,7 @@ export const AddContent = () => {
 
                         <div className="row ">
                             <div className="offset-8 col text-end">
-                                <button onClick={handleReset} type="button" className="btn btn-outline ">Annuler
+                                <button onClick={handleReset} type="button" className="btn btn-outline">Annuler
                                 </button>
                                 <button onClick={handleSubmit} type="button" className="btn-primary btn ms-4">Valider
                                 </button>

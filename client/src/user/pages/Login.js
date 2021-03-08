@@ -5,7 +5,8 @@ export const Login = (props) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [alert, setAlert] = useState(false);
+    const [alert, setAlert] = useState(false)
+
 
     const login = async (e) => {
         e.preventDefault();
@@ -13,9 +14,9 @@ export const Login = (props) => {
             await auth.login( {email, password},
                 () => {
                     props.history.push("/admin");
-                })
+                });
         } catch(err) {
-            setAlert(!alert)
+            setAlert(!alert);
             console.log(err);
         }
     }
@@ -44,7 +45,7 @@ export const Login = (props) => {
                                setPassword(event.target.value)
                            }}/>
                     <label>Mot de passe</label>
-                    {alert && <span className="text-danger fst-italic">Mot de passe incorrect</span> }
+                    {alert && <span className="text-danger fst-italic">Mot de pass incorrect</span> }
                 </div>
                 <div className=" mt-5 pt-2">
                     <button type="submit" className="btn w-100"

@@ -1,22 +1,40 @@
 import React, {useState} from 'react'
 
 import {Sidebar} from "../components/Sidebar";
-import {useQuery} from "react-query";
+import {queryCache, useMutation, useQuery} from "react-query";
 import {getField} from "../../services/getField";
+import ChangeArticle from "../../services/ChangeArticle";
 
 import ArticleItem from "../components/ArticleItem";
 
 export const ArticleList = () => {
 
     const [field, setField] = useState("actualities");
-    const {data : list, status} = useQuery(field, getField);
+    const {data: list, status} = useQuery(field, getField);
+
+    const [getUpdated] = useMutation(ChangeArticle.putArticle, {
+        onSuccess: async () => {
+            await queryCache.refetchQueries(field);
+        }
+    });
+
+    const [getDeleted] = useMutation(ChangeArticle.deleteArticle, {
+        onSuccess: async (response) => {
+            await queryCache.setQueryData(field, (current) => {
+                current.filter((article) => {
+                    return article._id === response.data._id;
+                });
+            })
+        }
+    });
+
 
     return (
         <div className="container-fluid contentList">
             <div className="row">
                 <Sidebar/>
                 <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <button id="actualities" onClick={(event) => setField(event.target["id"]) }
+                    <button id="actualities" onClick={(event) => setField(event.target["id"])}
                             className="btn tab">&nbsp;&nbsp;&nbsp;Actualités&nbsp;&nbsp;&nbsp;</button>
                     <button id="activities" onClick={(event) => setField(event.target["id"])}
                             className="btn tab">&nbsp;&nbsp;&nbsp;Articles&nbsp;&nbsp;&nbsp;</button>
@@ -34,7 +52,14 @@ export const ArticleList = () => {
                         </thead>
                         <tbody>
                         {
-                            (status === "success") && <ArticleItem list={list} field={field}/>
+                            (status === "success") && list.data.map((article) => {
+                                return <ArticleItem article={article}
+                                                    field={field}
+                                                    getDeleted={getDeleted}
+                                                    getUpdated={getUpdated}/>
+
+                            })
+
                         }
                         </tbody>
                     </table>
@@ -48,16 +73,11 @@ export const ArticleList = () => {
 
 ETAPE 1 :
 
-
 créer un composant <ArticleInfo props={article}/>
-
-
 
 articles.map((article) => {
     return ArticleInfo props={article}/>
 }
-
-
 
 ETAPE 2 :
 contentList => afficher les info de
@@ -67,9 +87,4 @@ contentList => afficher les info de
     => créer un composant générique qui prend en props soit :
                         - props = { {path='activités'}}
                         - props = { {path='actualités'}}
-
-
-
-
-
  */

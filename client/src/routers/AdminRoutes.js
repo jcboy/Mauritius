@@ -22,7 +22,7 @@ export const AdminRoutes = () => {
                 <ProtectedRoute exact path="/admin/contentlist" component={ArticleList}/>
                 <ProtectedRoute exact path="/admin/addcontent" component={AddContent}/>
                 <ProtectedRoute exact path="/admin/emaillist" component={EmailList}/>
-                <ProtectedRoute exact path="/admin/emaillist/:emailId" component={EmailItem}/>
+                <ProtectedRoute exact path="/admin/emaillist/:id" component={EmailItem}/>
                 <ProtectedRoute exact path="/admin/filters" component={Filters}/>
                 <ProtectedRoute exact path="/admin/password" component={Credentials}/>
 
